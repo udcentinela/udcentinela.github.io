@@ -4,15 +4,15 @@ Esta carpeta es la version estatica publica de la web, preparada para GitHub Pag
 
 ## Publicacion recomendada
 
-1. Crear en GitHub un repositorio llamado `rubensacramento.github.io`.
-2. Cambiar `rubensacramento` en los metadatos de esta carpeta por tu usuario real de GitHub.
+1. Crear en GitHub un repositorio llamado `udcentinela.github.io`.
+2. Cambiar `udcentinela` en los metadatos de esta carpeta por tu usuario real de GitHub.
 3. Subir estos archivos a la rama `main`.
 4. En GitHub, entrar en `Settings > Pages` y activar `Deploy from a branch`, rama `main`, carpeta `/root`.
 
 La web quedara disponible en:
 
 ```text
-https://rubensacramento.github.io/
+https://udcentinela.github.io/
 ```
 
 ## Importante
