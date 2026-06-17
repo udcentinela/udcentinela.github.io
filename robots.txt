@@ -4,5 +4,6 @@ Disallow: /api/
 Disallow: /noticias/admin/
 Disallow: /noticias/login/
 
-Sitemap: https://TU_USUARIO.github.io/sitemap.xml
+Sitemap: https://rubensacramento.github.io/sitemap.xml
+
 
