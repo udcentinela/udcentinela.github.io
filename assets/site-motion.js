@@ -26,7 +26,7 @@
       width: min(180px, 46vw);
       transform: scaleX(0.08);
       transform-origin: left center;
-      transition: transform 0.42s cubic-bezier(0.22, 1, 0.36, 1);
+      transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
     }
     #preloader.is-ready .loader-line { transform: scaleX(1); }
     #preloader.is-leaving {
@@ -183,8 +183,8 @@
 
     preloader.classList.add("is-ready");
     initAnimations();
-    window.setTimeout(() => preloader.classList.add("is-leaving"), 90);
-    window.setTimeout(() => preloader.remove(), 520);
+    window.setTimeout(() => preloader.classList.add("is-leaving"), 420);
+    window.setTimeout(() => preloader.remove(), 900);
   }
 
   async function startPage() {
