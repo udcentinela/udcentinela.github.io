@@ -381,7 +381,7 @@
                 });
 
                 window.addEventListener('resize', () => {
-                    if (window.innerWidth >= 768) {
+                    if (window.innerWidth >= 1024) {
                         setOpen(false);
                     }
                 });
@@ -417,9 +417,9 @@
             <div class="grid grid-cols-1 lg:grid-cols-[0.9fr_1.1fr] gap-10 lg:gap-16 items-center">
                 <div class="profile-card bg-white/5 border border-brand-neon/20 rounded-3xl overflow-hidden shadow-neon">
                     <div class="profile-avatar relative bg-gray-900 flex items-center justify-center">
-                        <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/20 to-transparent"></div>
-                        <svg class="w-24 h-24 text-brand-neon/40" fill="currentColor" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
-                        <span class="absolute top-6 right-6 bg-brand-neon text-brand-dark font-black px-4 py-2 rounded text-sm">#1</span>
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-dark/80 via-transparent to-transparent z-10 pointer-events-none"></div>
+<svg class="w-24 h-24 text-brand-neon/40" fill="currentColor" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+                        <span class="absolute top-6 right-6 z-20 bg-brand-neon text-brand-dark font-black px-4 py-2 rounded text-sm">#1</span>
                     </div>
                 </div>
 
