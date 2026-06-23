@@ -1,0 +1,272 @@
+/* ==========================================================================
+   UD Centinela — Estilos comunes del sitio
+   Extraído de los bloques <style> inline para eliminar duplicación.
+   ========================================================================== */
+
+/* --- Base --- */
+body {
+    background-color: #030712;
+    color: #ffffff;
+    overflow-x: hidden;
+    background-image: radial-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 30px 30px;
+}
+
+/* --- Scrollbar personalizada --- */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #030712;
+}
+::-webkit-scrollbar-thumb {
+    background: #0052FF;
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #00d2ff;
+}
+
+/* --- Utilidades de texto --- */
+.text-glow {
+    text-shadow: 0 0 10px rgba(0, 210, 255, 0.7);
+}
+
+.text-gradient {
+    background: linear-gradient(to right, #ffffff, #00d2ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* --- Hero --- */
+.hero-gradient {
+    background: radial-gradient(circle at center, rgba(0, 82, 255, 0.15) 0%, rgba(3, 7, 18, 1) 70%);
+}
+
+.hero-copy {
+    min-width: 0;
+}
+
+.hero-title {
+    font-size: clamp(3.3rem, 10.2vw, 5.35rem);
+    line-height: 0.98;
+    letter-spacing: 0;
+    overflow: visible;
+}
+
+.hero-title-line {
+    display: inline-block;
+    white-space: nowrap;
+    max-width: 100%;
+}
+
+@media (min-width: 1024px) {
+    .hero-copy {
+        flex: 0 1 55%;
+    }
+
+    .hero-media {
+        flex: 0 1 45%;
+    }
+
+    .hero-title {
+        font-size: clamp(4.1rem, 6.35vw, 5.25rem);
+    }
+}
+
+@media (max-width: 420px) {
+    .hero-title {
+        font-size: clamp(2.85rem, 15vw, 3.5rem);
+    }
+}
+
+/* --- Escudo flotante --- */
+.shield-image {
+    filter: drop-shadow(0 0 25px rgba(0, 210, 255, 0.6));
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0px); }
+}
+
+/* --- Preloader --- */
+#preloader {
+    position: fixed;
+    inset: 0;
+    background: #030712;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    opacity: 1;
+    visibility: visible;
+    transform: translateZ(0);
+    transition: opacity 0.38s ease, visibility 0.38s ease;
+    will-change: opacity;
+}
+
+#preloader h2 {
+    opacity: 0.92;
+    transform: translateY(0);
+    transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+#preloader .loader-line {
+    width: min(180px, 46vw);
+    transform: scaleX(0.08);
+    transform-origin: left center;
+    transition: transform 0.42s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+#preloader.is-ready .loader-line {
+    transform: scaleX(1);
+}
+
+#preloader.is-leaving {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+#preloader.is-leaving h2 {
+    opacity: 0;
+    transform: translateY(-6px);
+}
+
+.loader-line {
+    width: 0%;
+    height: 2px;
+    background: #00d2ff;
+    margin-top: 20px;
+    box-shadow: 0 0 10px #00d2ff;
+}
+
+/* --- Navegación --- */
+.nav-link-active {
+    color: #00d2ff;
+}
+
+.mobile-menu-button {
+    min-width: 44px;
+    min-height: 44px;
+}
+
+.mobile-menu {
+    background: rgba(3, 7, 18, 0.96);
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 24px 80px rgba(0, 0, 0, 0.45);
+}
+
+.mobile-menu[hidden] {
+    display: none;
+}
+
+.mobile-nav-link {
+    min-height: 52px;
+}
+
+.mobile-nav-link.nav-link-active {
+    background: rgba(0, 210, 255, 0.1);
+    border-color: rgba(0, 210, 255, 0.35);
+}
+
+/* --- Tarjetas de miembros y jugadores --- */
+.member-card {
+    color: inherit;
+    text-decoration: none;
+    display: flex;
+}
+
+.player-card-link {
+    color: inherit;
+    text-decoration: none;
+    display: block;
+}
+
+/* --- Perfil de jugador --- */
+.profile-shell {
+    padding-top: 8rem;
+}
+
+.profile-avatar {
+    min-height: 22rem;
+}
+
+.profile-stat {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.profile-back {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* --- Noticias --- */
+.news-card {
+    color: inherit;
+    text-decoration: none;
+    display: block;
+}
+
+.news-card:hover .news-title {
+    color: #00d2ff;
+}
+
+/* --- Artículo --- */
+.article-shell {
+    padding-top: 8rem;
+}
+
+.article-body p {
+    margin-bottom: 1.5rem;
+}
+
+.article-back {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* --- Transiciones de página --- */
+body > :not(#preloader) {
+    transition: opacity 0.16s ease;
+}
+
+body.page-leaving > :not(#preloader) {
+    opacity: 0.72;
+}
+
+/* --- Focus visible (accesibilidad) --- */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+    outline: 2px solid #00d2ff;
+    outline-offset: 4px;
+}
+
+/* --- Reduced motion --- */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    #preloader {
+        display: none !important;
+    }
+
+    body > :not(#preloader) {
+        transition: none !important;
+    }
+}
