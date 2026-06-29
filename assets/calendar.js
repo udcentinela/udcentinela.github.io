@@ -229,7 +229,6 @@
           ? `<span class="font-heading text-2xl font-black text-white px-2">${escapeHtml(match.homeScore)} - ${escapeHtml(match.awayScore)}</span>`
           : `<span class="rounded-lg border border-white/10 bg-black/20 px-3 py-2 text-xs font-bold text-gray-300">${escapeHtml(matchStatus(match))}</span>`;
         
-        // Find index of this match in main array to reference for clicks
         const matchIdx = matches.indexOf(match);
         
         return `
@@ -256,7 +255,6 @@
       })
       .join("");
       
-    // Bind click events
     container.querySelectorAll(".match-item").forEach((el) => {
       el.addEventListener("click", () => {
         const idx = parseInt(el.dataset.matchIndex);
@@ -370,7 +368,6 @@
       });
     });
     
-    // Bind modal close buttons
     const closeBtn = document.getElementById("matchModalCloseBtn");
     const backdrop = document.getElementById("matchModalBackdrop");
     if (closeBtn) closeBtn.addEventListener("click", closeMatchDetails);
