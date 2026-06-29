@@ -196,17 +196,26 @@
 
     preloader.classList.add("is-ready");
     initAnimations();
-    window.setTimeout(() => preloader.classList.add("is-leaving"), 1550);
-    window.setTimeout(() => preloader.remove(), 2150);
+    if (repeatVisit) {
+      preloader.classList.add("is-leaving");
+      window.setTimeout(() => preloader.remove(), 600);
+    } else {
+      window.setTimeout(() => preloader.classList.add("is-leaving"), 550);
+      window.setTimeout(() => preloader.remove(), 1150);
+    }
   }
 
   async function startPage() {
     prepareAnimations();
     window.sessionStorage.setItem("centinela_visited", "1");
+    if (repeatVisit) {
+      window.requestAnimationFrame(closePreloader);
+      return;
+    }
     const fontsReady = document.fonts && document.fonts.ready
-      ? Promise.race([document.fonts.ready.catch(() => undefined), delay(repeatVisit ? 180 : 420)])
-      : delay(repeatVisit ? 40 : 120);
-    await Promise.all([delay(repeatVisit ? 45 : 170), fontsReady]);
+      ? Promise.race([document.fonts.ready.catch(() => undefined), delay(300)])
+      : delay(80);
+    await Promise.all([delay(100), fontsReady]);
     window.requestAnimationFrame(closePreloader);
   }
 
