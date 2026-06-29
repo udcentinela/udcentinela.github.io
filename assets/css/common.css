@@ -4,9 +4,14 @@
    ========================================================================== */
 
 :root {
-    --color-brand-dark: #030712;
-    --color-brand-blue: #0052FF;
-    --color-brand-neon: #00d2ff;
+    --color-brand-dark-rgb: 3 7 18;
+    --color-brand-blue-rgb: 0 82 255;
+    --color-brand-neon-rgb: 0 210 255;
+
+    --color-brand-dark: rgb(var(--color-brand-dark-rgb));
+    --color-brand-blue: rgb(var(--color-brand-blue-rgb));
+    --color-brand-neon: rgb(var(--color-brand-neon-rgb));
+
     --shadow-neon: 0 0 20px rgba(0, 210, 255, 0.5), 0 0 40px rgba(0, 210, 255, 0.2);
     --hero-glow: rgba(0, 82, 255, 0.15);
     --shield-glow: rgba(0, 210, 255, 0.6);
@@ -14,9 +19,10 @@
 }
 
 .theme-away {
-    --color-brand-dark: #000000;   /* Negro puro */
-    --color-brand-blue: #8a6d3b;   /* Dorado bronce / oscuro */
-    --color-brand-neon: #d4af37;   /* Dorado oro brillante */
+    --color-brand-dark-rgb: 0 0 0;
+    --color-brand-blue-rgb: 138 109 59;
+    --color-brand-neon-rgb: 212 175 55;
+
     --shadow-neon: 0 0 20px rgba(212, 175, 55, 0.5), 0 0 40px rgba(212, 175, 55, 0.2);
     --hero-glow: rgba(212, 175, 55, 0.12);
     --shield-glow: rgba(212, 175, 55, 0.55);
