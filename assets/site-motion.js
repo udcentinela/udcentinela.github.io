@@ -321,9 +321,25 @@
     });
   }
 
+  function setupTheme() {
+    const toggleBtn = document.getElementById("themeToggleBtn");
+    const activeTheme = window.localStorage.getItem("centinela_theme") || "home";
+    if (activeTheme === "away") {
+      document.documentElement.classList.add("theme-away");
+    } else {
+      document.documentElement.classList.remove("theme-away");
+    }
+    if (!toggleBtn) return;
+    toggleBtn.addEventListener("click", () => {
+      const isAway = document.documentElement.classList.toggle("theme-away");
+      window.localStorage.setItem("centinela_theme", isAway ? "away" : "home");
+    });
+  }
+
   setupNavbar();
   setupInternalNavigation();
   setupSmoothAnchors();
+  setupTheme();
   startPage();
 
   window.setTimeout(() => {

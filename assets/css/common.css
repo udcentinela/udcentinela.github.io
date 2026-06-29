@@ -3,9 +3,29 @@
    Extraído de los bloques <style> inline para eliminar duplicación.
    ========================================================================== */
 
+:root {
+    --color-brand-dark: #030712;
+    --color-brand-blue: #0052FF;
+    --color-brand-neon: #00d2ff;
+    --shadow-neon: 0 0 20px rgba(0, 210, 255, 0.5), 0 0 40px rgba(0, 210, 255, 0.2);
+    --hero-glow: rgba(0, 82, 255, 0.15);
+    --shield-glow: rgba(0, 210, 255, 0.6);
+    --color-brand-neon-glow: rgba(0, 210, 255, 0.8);
+}
+
+.theme-away {
+    --color-brand-dark: #09090b;   /* Negro profundo */
+    --color-brand-blue: #8a6d3b;   /* Dorado bronce / oscuro */
+    --color-brand-neon: #d4af37;   /* Dorado oro brillante */
+    --shadow-neon: 0 0 20px rgba(212, 175, 55, 0.5), 0 0 40px rgba(212, 175, 55, 0.2);
+    --hero-glow: rgba(212, 175, 55, 0.12);
+    --shield-glow: rgba(212, 175, 55, 0.55);
+    --color-brand-neon-glow: rgba(212, 175, 55, 0.75);
+}
+
 /* --- Base --- */
 body {
-    background-color: #030712;
+    background-color: var(--color-brand-dark);
     color: #ffffff;
     overflow-x: hidden;
     background-image: radial-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px);
@@ -17,30 +37,30 @@ body {
     width: 8px;
 }
 ::-webkit-scrollbar-track {
-    background: #030712;
+    background: var(--color-brand-dark);
 }
 ::-webkit-scrollbar-thumb {
-    background: #0052FF;
+    background: var(--color-brand-blue);
     border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-    background: #00d2ff;
+    background: var(--color-brand-neon);
 }
 
 /* --- Utilidades de texto --- */
 .text-glow {
-    text-shadow: 0 0 10px rgba(0, 210, 255, 0.7);
+    text-shadow: 0 0 10px var(--color-brand-neon);
 }
 
 .text-gradient {
-    background: linear-gradient(to right, #ffffff, #00d2ff);
+    background: linear-gradient(to right, #ffffff, var(--color-brand-neon));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
 /* --- Hero --- */
 .hero-gradient {
-    background: radial-gradient(circle at center, rgba(0, 82, 255, 0.15) 0%, rgba(3, 7, 18, 1) 70%);
+    background: radial-gradient(circle at center, var(--hero-glow) 0%, var(--color-brand-dark) 70%);
 }
 
 .hero-copy {
@@ -82,7 +102,7 @@ body {
 
 /* --- Escudo flotante --- */
 .shield-image {
-    filter: drop-shadow(0 0 25px rgba(0, 210, 255, 0.6));
+    filter: drop-shadow(0 0 25px var(--shield-glow));
     animation: float 6s ease-in-out infinite;
 }
 
