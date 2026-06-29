@@ -1,16 +1,6 @@
 {
   "items": [
     {
-      "slug": "noticia-de-prueba-integrada",
-      "title": "Noticia de Prueba Integrada",
-      "category": "Pruebas",
-      "date": "29/06/2026",
-      "excerpt": "Esta es una noticia de prueba para validar el CMS local.",
-      "body": "Cuerpo de la noticia de prueba. Todo funciona de manera impecable y automatizada.",
-      "image": "/assets/img/logo-hero.webp",
-      "imageAlt": "Imagen de prueba"
-    },
-    {
       "slug": "centinela-vuelve-regional",
       "title": "El Centinela vuelve a mirar a la Regional",
       "category": "Nueva etapa",
