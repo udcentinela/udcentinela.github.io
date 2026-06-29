@@ -74,10 +74,10 @@
     if (!modal || !content || !body || !match) return;
     
     const homeGoalsHtml = (match.homeGoals || []).map(g => `
-      <div class="flex items-center gap-1.5 justify-end text-sm text-gray-300">
-        <span class="font-semibold text-white">${escapeHtml(g.name)}</span>
-        <span class="text-xs text-gray-500 font-bold">${escapeHtml(g.min)}</span>
+      <div class="flex items-center gap-1.5 justify-start text-sm text-gray-300">
         <span class="text-brand-neon text-xs">⚽</span>
+        <span class="text-xs text-gray-500 font-bold">${escapeHtml(g.min)}</span>
+        <span class="font-semibold text-white">${escapeHtml(g.name)}</span>
       </div>
     `).join("\n");
     
@@ -106,7 +106,7 @@
     
     body.innerHTML = `
       <div class="text-center mb-6 border-b border-white/10 pb-4">
-        <p class="text-xs font-black tracking-[0.25em] text-brand-neon uppercase">REGIONAL · ${escapeHtml(match.round || "PARTIDO")} (V5)</p>
+        <p class="text-xs font-black tracking-[0.25em] text-brand-neon uppercase">REGIONAL · ${escapeHtml(match.round || "PARTIDO")}</p>
         <p class="text-xs font-bold text-gray-500 uppercase mt-1.5">${escapeHtml(match.date || "Fecha a confirmar")}</p>
       </div>
       
@@ -132,12 +132,12 @@
       </div>
       
       <div class="grid grid-cols-2 gap-8 border-t border-white/10 pt-6">
-        <div class="space-y-2 text-right">
-          ${homeGoalsHtml || '<p class="text-xs text-gray-600 italic">Sin goleadores</p>'}
+        <div class="space-y-2 text-left">
+          ${awayGoalsHtml || '<p class="text-xs text-gray-600 italic">Sin goleadores</p>'}
         </div>
         
         <div class="space-y-2 text-left">
-          ${awayGoalsHtml || '<p class="text-xs text-gray-600 italic">Sin goleadores</p>'}
+          ${homeGoalsHtml || '<p class="text-xs text-gray-600 italic">Sin goleadores</p>'}
         </div>
       </div>
       
