@@ -15,47 +15,23 @@
       opacity: 1;
       visibility: visible;
       transform: translateZ(0);
-      transition: opacity 0.55s ease, visibility 0.55s ease;
-      will-change: opacity;
+      will-change: opacity, transform, filter;
     }
     #preloader h2 {
-      opacity: 0.35;
-      transform: translateY(8px) scale(0.97);
-      filter: blur(4px);
-      letter-spacing: 0.24em;
-      text-shadow: 0 0 24px rgba(0, 210, 255, 0.18);
-      transition: opacity 0.8s ease, transform 0.8s ease, filter 0.8s ease, letter-spacing 0.8s ease;
-    }
-    #preloader.is-ready h2 {
-      opacity: 1;
-      transform: translateY(0) scale(1);
-      filter: blur(0);
       letter-spacing: 0.32em;
+      text-shadow: 0 0 30px rgba(0, 210, 255, 0.4);
+      will-change: opacity, transform, filter;
     }
     #preloader .loader-line {
       width: min(180px, 46vw);
-      transform: scaleX(0.02);
+      transform: scaleX(0);
       transform-origin: left center;
-      background: linear-gradient(90deg, #0077ff, #00d2ff, #8cecff);
-      box-shadow: 0 0 14px rgba(0, 210, 255, 0.75);
-      transition: transform 1.45s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.35s ease;
+      background: linear-gradient(90deg, #0052FF, #00d2ff, #a5f3fc);
+      box-shadow: 0 0 18px rgba(0, 210, 255, 0.9);
+      will-change: transform;
     }
-    #preloader.is-ready .loader-line { transform: scaleX(1); }
-    #preloader.is-leaving {
-      opacity: 0;
-      visibility: hidden;
-      pointer-events: none;
-    }
-    #preloader.is-leaving h2 {
-      opacity: 0;
-      transform: translateY(-8px) scale(1.03);
-      filter: blur(3px);
-    }
-    body > :not(#preloader) { transition: opacity 0.16s ease; }
-    body.page-leaving > :not(#preloader) { opacity: 0.72; }
-    @media (prefers-reduced-motion: reduce) {
-      #preloader { display: none !important; }
-      body > :not(#preloader) { transition: none !important; }
+    body > :not(#preloader) {
+      will-change: opacity, transform, filter;
     }
   `;
   document.head.appendChild(motionStyles);
@@ -194,29 +170,97 @@
       return;
     }
 
-    preloader.classList.add("is-ready");
-    initAnimations();
-    if (repeatVisit) {
-      preloader.classList.add("is-leaving");
-      window.setTimeout(() => preloader.remove(), 600);
-    } else {
-      window.setTimeout(() => preloader.classList.add("is-leaving"), 550);
-      window.setTimeout(() => preloader.remove(), 1150);
+    if (!hasGsap || reduceMotion) {
+      preloader.remove();
+      initAnimations();
+      return;
     }
+
+    const exitTimeline = window.gsap.timeline({
+      onComplete: () => {
+        preloader.remove();
+      }
+    });
+
+    exitTimeline
+      .to(preloader, {
+        opacity: 0,
+        scale: 1.08,
+        filter: "blur(15px)",
+        duration: 0.8,
+        ease: "power2.inOut"
+      })
+      .to(
+        document.querySelectorAll("body > :not(#preloader)"),
+        {
+          opacity: 1,
+          scale: 1,
+          filter: "blur(0px)",
+          duration: 1.1,
+          ease: "power3.out",
+          clearProps: "all"
+        },
+        "-=0.55"
+      );
+
+    initAnimations();
   }
 
   async function startPage() {
     prepareAnimations();
     window.sessionStorage.setItem("centinela_visited", "1");
-    if (repeatVisit) {
-      window.requestAnimationFrame(closePreloader);
+    
+    const preloader = document.getElementById("preloader");
+    const loaderLine = document.querySelector("#preloader .loader-line");
+    const preloaderH2 = document.querySelector("#preloader h2");
+
+    if (!preloader || !hasGsap || reduceMotion) {
+      if (preloader) preloader.remove();
+      initAnimations();
       return;
     }
-    const fontsReady = document.fonts && document.fonts.ready
-      ? Promise.race([document.fonts.ready.catch(() => undefined), delay(300)])
-      : delay(80);
-    await Promise.all([delay(100), fontsReady]);
-    window.requestAnimationFrame(closePreloader);
+
+    if (preloaderH2) {
+      const text = preloaderH2.textContent.trim();
+      preloaderH2.innerHTML = text
+        .split("")
+        .map(char => `<span class="preloader-char inline-block" style="opacity: 0; filter: blur(8px); transform: translate3d(0, 10px, 0);">${char}</span>`)
+        .join("");
+    }
+
+    const mainContent = document.querySelectorAll("body > :not(#preloader)");
+    window.gsap.set(mainContent, { opacity: 0, scale: 0.94, filter: "blur(12px)" });
+
+    if (repeatVisit) {
+      window.gsap.to(loaderLine, {
+        scaleX: 1,
+        duration: 0.25,
+        ease: "power2.inOut",
+        onComplete: closePreloader
+      });
+      return;
+    }
+
+    const startTimeline = window.gsap.timeline();
+    startTimeline
+      .to(".preloader-char", {
+        opacity: 1,
+        y: 0,
+        filter: "blur(0px)",
+        duration: 0.7,
+        stagger: 0.07,
+        ease: "power3.out"
+      })
+      .to(
+        loaderLine,
+        {
+          scaleX: 1,
+          duration: 1.3,
+          ease: "power2.inOut",
+          onComplete: closePreloader
+        },
+        "-=0.55"
+      );
   }
 
   function setupNavbar() {
