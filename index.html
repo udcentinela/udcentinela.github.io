@@ -15,7 +15,7 @@
 
     <style>
         body {
-            background-color: #030712;
+            background-color: var(--color-brand-dark);
             color: #ffffff;
             overflow-x: hidden;
             /* Patrón sutil de fondo */
@@ -28,22 +28,22 @@
             width: 8px;
         }
         ::-webkit-scrollbar-track {
-            background: #030712; 
+            background: var(--color-brand-dark); 
         }
         ::-webkit-scrollbar-thumb {
-            background: #0052FF; 
+            background: var(--color-brand-blue); 
             border-radius: 4px;
         }
         ::-webkit-scrollbar-thumb:hover {
-            background: #00d2ff; 
+            background: var(--color-brand-neon); 
         }
 
         .text-glow {
-            text-shadow: 0 0 10px rgba(0, 210, 255, 0.7);
+            text-shadow: 0 0 10px var(--color-brand-neon);
         }
 
         .hero-gradient {
-            background: radial-gradient(circle at center, rgba(0, 82, 255, 0.15) 0%, rgba(3, 7, 18, 1) 70%);
+            background: radial-gradient(circle at center, var(--hero-glow) 0%, var(--color-brand-dark) 70%);
         }
 
         /* Utilidad para clips de texto con gradientes */
@@ -90,9 +90,8 @@
             }
         }
 
-        /* Imagen del escudo con brillo y flotación */
         .shield-image {
-            filter: drop-shadow(0 0 25px rgba(0, 210, 255, 0.6));
+            filter: drop-shadow(0 0 25px var(--shield-glow));
             animation: float 6s ease-in-out infinite;
         }
 

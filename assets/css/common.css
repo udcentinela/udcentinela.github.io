@@ -14,7 +14,7 @@
 }
 
 .theme-away {
-    --color-brand-dark: #09090b;   /* Negro profundo */
+    --color-brand-dark: #000000;   /* Negro puro */
     --color-brand-blue: #8a6d3b;   /* Dorado bronce / oscuro */
     --color-brand-neon: #d4af37;   /* Dorado oro brillante */
     --shadow-neon: 0 0 20px rgba(212, 175, 55, 0.5), 0 0 40px rgba(212, 175, 55, 0.2);
