@@ -508,6 +508,7 @@
                                 <th class="px-3 py-4 text-center">GC</th>
                                 <th class="px-3 py-4 text-center">DG</th>
                                 <th class="px-4 py-4 text-center text-brand-neon">Pts</th>
+                                <th class="px-4 py-4 text-center">Racha</th>
                             </tr>
                         </thead>
                         <tbody id="calendarStandings" class="divide-y divide-white/5"></tbody>
@@ -543,6 +544,20 @@
         </svg>
         <span class="absolute bottom-14 right-0 scale-0 group-hover:scale-100 bg-brand-dark/95 border border-brand-neon/20 text-white text-xs font-bold px-3 py-1.5 rounded-xl transition-all duration-200 origin-bottom-right whitespace-nowrap shadow-lg">Alternar colores</span>
     </button>
+
+    <!-- Ficha de Partido Modal -->
+    <div id="matchModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4">
+        <!-- Backdrop -->
+        <div class="absolute inset-0 bg-brand-dark/90 backdrop-blur-md cursor-pointer" id="matchModalBackdrop"></div>
+        <!-- Modal Body Container -->
+        <div class="relative w-full max-w-2xl bg-[#0a0f1c] border border-brand-neon/30 rounded-3xl overflow-hidden shadow-2xl z-10 transition-all duration-300 transform scale-95 opacity-0" id="matchModalContent">
+            <!-- Close Button -->
+            <button id="matchModalCloseBtn" class="absolute top-6 right-6 text-gray-400 hover:text-white transition-colors" aria-label="Cerrar ficha">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+            <div id="matchModalBody" class="p-6 md:p-10 text-white"></div>
+        </div>
+    </div>
 
     <!-- Motion -->
     <script src="/assets/js/gsap.min.js"></script>
