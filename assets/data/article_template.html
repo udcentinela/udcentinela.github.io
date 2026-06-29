@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UD Centinela | La plantilla regional entra en fase de construcción</title>
+    <title>UD Centinela | {{TITLE}}</title>
     <link rel="icon" href="/favicon.ico">
     <link rel="manifest" href="/site.webmanifest">
     
@@ -14,24 +14,24 @@
     <link rel="stylesheet" href="/assets/css/site.css">
     <link rel="stylesheet" href="/assets/css/common.css">
 
-    <meta name="description" content="El área deportiva prepara las primeras fichas del equipo, con perfiles individuales para jugadores, cuerpo técnico y directiva.">
+    <meta name="description" content="{{EXCERPT}}">
     <meta name="robots" content="index,follow">
-    <link rel="canonical" href="https://udcentinela.github.io/noticias/plantilla-en-construccion/">
+    <link rel="canonical" href="https://udcentinela.github.io/noticias/{{SLUG}}/">
     <link rel="icon" href="/favicon.ico">
     <link rel="apple-touch-icon" href="/assets/img/logo-nav.webp">
     <link rel="manifest" href="/site.webmanifest">
     <meta name="theme-color" content="#020617">
     <meta property="og:type" content="article">
     <meta property="og:site_name" content="UD Centinela">
-    <meta property="og:title" content="La plantilla regional entra en fase de construcción">
-    <meta property="og:description" content="El área deportiva prepara las primeras fichas del equipo, con perfiles individuales para jugadores, cuerpo técnico y directiva.">
-    <meta property="og:url" content="https://udcentinela.github.io/noticias/plantilla-en-construccion/">
-    <meta property="og:image" content="https://udcentinela.github.io/assets/img/centinela-2.webp">
+    <meta property="og:title" content="{{TITLE}}">
+    <meta property="og:description" content="{{EXCERPT}}">
+    <meta property="og:url" content="https://udcentinela.github.io/noticias/{{SLUG}}/">
+    <meta property="og:image" content="https://udcentinela.github.io{{IMAGE}}">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="La plantilla regional entra en fase de construcción">
-    <meta name="twitter:description" content="El área deportiva prepara las primeras fichas del equipo, con perfiles individuales para jugadores, cuerpo técnico y directiva.">
-    <meta name="twitter:image" content="https://udcentinela.github.io/assets/img/centinela-2.webp">
-    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "NewsArticle", "headline": "La plantilla regional entra en fase de construcción", "description": "El área deportiva prepara las primeras fichas del equipo, con perfiles individuales para jugadores, cuerpo técnico y directiva.", "image": ["https://udcentinela.github.io/assets/img/centinela-2.webp"], "datePublished": "2026-06-17T10:00:00", "dateModified": "2026-06-29T20:30:24", "author": {"@type": "Organization", "name": "UD Centinela"}, "publisher": {"@type": "Organization", "name": "UD Centinela", "logo": {"@type": "ImageObject", "url": "https://udcentinela.github.io/assets/img/logo-nav.webp"}}, "mainEntityOfPage": "https://udcentinela.github.io/noticias/plantilla-en-construccion/"}</script>
+    <meta name="twitter:title" content="{{TITLE}}">
+    <meta name="twitter:description" content="{{EXCERPT}}">
+    <meta name="twitter:image" content="https://udcentinela.github.io{{IMAGE}}">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "NewsArticle", "headline": "{{TITLE_JSON}}", "description": "{{EXCERPT_JSON}}", "image": ["https://udcentinela.github.io{{IMAGE}}"], "datePublished": "{{DATE_ISO}}", "dateModified": "{{DATE_MODIFIED_ISO}}", "author": {"@type": "Organization", "name": "UD Centinela"}, "publisher": {"@type": "Organization", "name": "UD Centinela", "logo": {"@type": "ImageObject", "url": "https://udcentinela.github.io/assets/img/logo-nav.webp"}}, "mainEntityOfPage": "https://udcentinela.github.io/noticias/{{SLUG}}/"}</script>
 </head>
 <body class="antialiased selection:bg-brand-neon selection:text-brand-dark">
     <!-- Preloader -->
@@ -110,26 +110,24 @@
 
             <header class="profile-card text-center mb-12">
                 <div class="flex flex-wrap justify-center items-center gap-3 mb-6">
-                    <span id="articleCategory" class="bg-brand-neon text-brand-dark font-black px-3 py-1 rounded text-xs tracking-widest uppercase">Plantilla</span>
-                    <span id="articleDate" class="text-gray-500 text-sm">17/06/2026</span>
+                    <span id="articleCategory" class="bg-brand-neon text-brand-dark font-black px-3 py-1 rounded text-xs tracking-widest uppercase">{{CATEGORY}}</span>
+                    <span id="articleDate" class="text-gray-500 text-sm">{{DATE}}</span>
                     <span class="text-gray-600 text-sm">/</span>
-                    <span id="articleReading" class="text-gray-500 text-sm">1 min</span>
+                    <span id="articleReading" class="text-gray-500 text-sm">{{READING}}</span>
                 </div>
-                <h1 id="articleTitle" class="font-heading text-4xl md:text-7xl font-black text-white leading-none mb-7">La plantilla regional entra en fase de construcción</h1>
-                <p id="articleExcerpt" class="text-gray-300 text-xl leading-relaxed max-w-3xl mx-auto">El área deportiva prepara las primeras fichas del equipo, con perfiles individuales para jugadores, cuerpo técnico y directiva.</p>
+                <h1 id="articleTitle" class="font-heading text-4xl md:text-7xl font-black text-white leading-none mb-7">{{TITLE}}</h1>
+                <p id="articleExcerpt" class="text-gray-300 text-xl leading-relaxed max-w-3xl mx-auto">{{EXCERPT}}</p>
             </header>
 
             <div class="profile-card bg-white/5 border border-brand-neon/20 rounded-3xl overflow-hidden mb-10 shadow-neon">
                 <div class="relative h-[360px] md:h-[560px] bg-[#050b18] flex items-center justify-center p-3 md:p-5">
-                    <img id="articleImage" src="/assets/img/centinela-2.webp" alt="Plantilla Centinela" class="relative w-full h-full object-contain">
+                    <img id="articleImage" src="{{IMAGE}}" alt="{{IMAGE_ALT}}" class="relative w-full h-full object-contain">
                 </div>
             </div>
 
             <p id="articleError" class="hidden mb-6 rounded-2xl border border-red-400/30 bg-red-500/10 p-4 text-sm text-red-200"></p>
             <div id="articleBody" class="profile-card article-body profile-stat rounded-3xl p-7 md:p-10 text-gray-300 text-lg leading-relaxed">
-                <p>La sección Regional ya cuenta con fichas individuales para los miembros del proyecto. Cada jugador, integrante del cuerpo técnico o responsable de directiva tendrá su espacio propio dentro de la web.</p>
-                <p>Estas fichas están pensadas para reunir información básica, rol deportivo, estado de confirmación y una descripción breve. A medida que el club confirme nombres y datos, las páginas podrán actualizarse sin cambiar la estructura del sitio.</p>
-                <p>El formato permite que la afición entre directamente a cada perfil y siga la evolución del equipo durante la temporada.</p>
+                {{BODY}}
             </div>
         </div>
     </article>
