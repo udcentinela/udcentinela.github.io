@@ -133,11 +133,11 @@
       
       <div class="grid grid-cols-2 gap-8 border-t border-white/10 pt-6">
         <div class="space-y-2 text-left">
-          ${awayGoalsHtml || '<p class="text-xs text-gray-600 italic">Sin goleadores</p>'}
+          ${homeGoalsHtml || '<p class="text-xs text-gray-600 italic">Sin goleadores</p>'}
         </div>
         
         <div class="space-y-2 text-left">
-          ${homeGoalsHtml || '<p class="text-xs text-gray-600 italic">Sin goleadores</p>'}
+          ${awayGoalsHtml || '<p class="text-xs text-gray-600 italic">Sin goleadores</p>'}
         </div>
       </div>
       
