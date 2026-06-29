@@ -160,14 +160,14 @@ body {
 .loader-line {
     width: 0%;
     height: 2px;
-    background: #00d2ff;
+    background: var(--color-brand-neon);
     margin-top: 20px;
-    box-shadow: 0 0 10px #00d2ff;
+    box-shadow: 0 0 10px var(--color-brand-neon);
 }
 
 /* --- Navegación --- */
 .nav-link-active {
-    color: #00d2ff;
+    color: var(--color-brand-neon);
 }
 
 .mobile-menu-button {
@@ -235,7 +235,7 @@ body {
 }
 
 .news-card:hover .news-title {
-    color: #00d2ff;
+    color: var(--color-brand-neon);
 }
 
 /* --- Artículo --- */
@@ -267,7 +267,7 @@ button:focus-visible,
 input:focus-visible,
 textarea:focus-visible,
 select:focus-visible {
-    outline: 2px solid #00d2ff;
+    outline: 2px solid var(--color-brand-neon);
     outline-offset: 4px;
 }
 

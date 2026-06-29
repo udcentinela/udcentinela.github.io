@@ -123,7 +123,7 @@
         }
     
         .nav-link-active {
-            color: #00d2ff;
+            color: var(--color-brand-neon);
         }
 
         .member-card {
@@ -154,6 +154,7 @@
         .profile-back {
             color: inherit;
             text-decoration: none;
+            display: block;
         }
 
         .news-card {
@@ -163,7 +164,7 @@
         }
 
         .news-card:hover .news-title {
-            color: #00d2ff;
+            color: var(--color-brand-neon);
         }
 
         .article-shell {
@@ -229,12 +230,11 @@
         }
 
         #preloader .loader-line {
-            width: min(180px, 46vw);
-            transform: scaleX(0.02);
+            width: min(160px, 42vw);
+            transform: scaleX(0);
             transform-origin: left center;
-            background: linear-gradient(90deg, #0077ff, #00d2ff, #8cecff);
-            box-shadow: 0 0 14px rgba(0, 210, 255, 0.75);
-            transition: transform 1.45s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.35s ease;
+            background: linear-gradient(90deg, var(--color-brand-blue), var(--color-brand-neon));
+            box-shadow: 0 0 12px var(--color-brand-neon-glow);
         }
 
         #preloader.is-ready .loader-line {
@@ -266,7 +266,7 @@
         input:focus-visible,
         textarea:focus-visible,
         select:focus-visible {
-            outline: 2px solid #00d2ff;
+            outline: 2px solid var(--color-brand-neon);
             outline-offset: 4px;
         }
 
