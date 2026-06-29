@@ -19,15 +19,15 @@
     }
     #preloader h2 {
       letter-spacing: 0.28em;
-      text-shadow: 0 0 20px rgba(0, 210, 255, 0.3);
+      text-shadow: 0 0 20px rgb(var(--color-brand-neon-rgb) / 0.3);
       will-change: opacity, transform;
     }
     #preloader .loader-line {
       width: min(160px, 42vw);
       transform: scaleX(0);
       transform-origin: left center;
-      background: linear-gradient(90deg, #0052FF, #00d2ff);
-      box-shadow: 0 0 12px rgba(0, 210, 255, 0.8);
+      background: linear-gradient(90deg, var(--color-brand-blue), var(--color-brand-neon));
+      box-shadow: 0 0 12px var(--color-brand-neon-glow);
       will-change: transform;
     }
   `;
@@ -332,7 +332,6 @@
     if (activeTheme === "away") {
       document.documentElement.classList.add("theme-away");
     } else {
-      document.documentElement.documentElement?.classList.remove("theme-away"); // O simplemente document.documentElement.classList
       document.documentElement.classList.remove("theme-away");
     }
 
