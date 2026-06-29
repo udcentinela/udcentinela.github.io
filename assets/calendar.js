@@ -106,7 +106,7 @@
     
     body.innerHTML = `
       <div class="text-center mb-6 border-b border-white/10 pb-4">
-        <p class="text-xs font-black tracking-[0.25em] text-brand-neon uppercase">REGIONAL · ${escapeHtml(match.round || "PARTIDO")}</p>
+        <p class="text-xs font-black tracking-[0.25em] text-brand-neon uppercase">REGIONAL · ${escapeHtml(match.round || "PARTIDO")} (V5)</p>
         <p class="text-xs font-bold text-gray-500 uppercase mt-1.5">${escapeHtml(match.date || "Fecha a confirmar")}</p>
       </div>
       
