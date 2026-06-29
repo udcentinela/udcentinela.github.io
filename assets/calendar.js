@@ -131,7 +131,7 @@
         </div>
       </div>
       
-      <div class="grid grid-cols-2 gap-8 border-t border-white/10 pt-6">
+      <div class="grid gap-8 border-t border-white/10 pt-6" style="grid-template-columns: repeat(2, minmax(0, 1fr));">
         <div class="space-y-2 text-left">
           ${homeGoalsHtml || '<p class="text-xs text-gray-600 italic">Sin goleadores</p>'}
         </div>
