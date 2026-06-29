@@ -72,6 +72,14 @@ function pushHistoryState(items) {
   historyIndex = historyStack.length - 1;
 }
 
+// Get history undo/redo availability status
+function getHistoryStatus() {
+  return {
+    canUndo: historyIndex > 0,
+    canRedo: historyIndex < historyStack.length - 1
+  };
+}
+
 // Save news items list to JSON file
 function saveNewsStore(items) {
   fs.writeFileSync(NEWS_JSON_PATH, JSON.stringify({ items }, null, 2), 'utf8');
