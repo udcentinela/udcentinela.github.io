@@ -290,3 +290,11 @@ select:focus-visible {
         transition: none !important;
     }
 }
+
+/* --- Reemplazo de logos en la segunda equipación (Negro & Dorado) --- */
+.theme-away img[src*="logo-hero.webp"] {
+    content: url('/assets/img/logo-hero-away.webp');
+}
+.theme-away img[src*="logo-nav.webp"] {
+    content: url('/assets/img/logo-nav-away.webp');
+}
