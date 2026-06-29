@@ -666,13 +666,12 @@ const server = http.createServer((req, res) => {
   
   // Resolve static files
   let safePath = path.normalize(url.pathname).replace(/^(\.\.[\/\\])+/, '');
-  
-  // If requesting root folder or a directory, look for index.html
-  if (safePath.endsWith('/') || safePath === '\\' || safePath === '.') {
-    safePath = path.join(safePath, 'index.html');
-  }
-  
   let filePath = path.join(REPO_DIR, safePath);
+  
+  // If requesting a directory, look for index.html inside it
+  if (fs.existsSync(filePath) && fs.statSync(filePath).isDirectory()) {
+    filePath = path.join(filePath, 'index.html');
+  }
   
   // Support URLs without trailing slashes or extensions (e.g. /noticias/login -> /noticias/login/index.html)
   if (!fs.existsSync(filePath) && !path.extname(filePath)) {
