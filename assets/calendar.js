@@ -82,7 +82,7 @@
     `).join("\n");
     
     const awayGoalsHtml = (match.awayGoals || []).map(g => `
-      <div class="flex items-center gap-1.5 justify-start text-sm text-gray-300">
+      <div class="flex items-center gap-1.5 justify-end text-sm text-gray-300">
         <span class="text-brand-neon text-xs">⚽</span>
         <span class="text-xs text-gray-500 font-bold">${escapeHtml(g.min)}</span>
         <span class="font-semibold text-white">${escapeHtml(g.name)}</span>
@@ -136,7 +136,7 @@
           ${homeGoalsHtml || '<p class="text-xs text-gray-600 italic">Sin goleadores</p>'}
         </div>
         
-        <div class="space-y-2 text-left">
+        <div class="space-y-2 text-right">
           ${awayGoalsHtml || '<p class="text-xs text-gray-600 italic">Sin goleadores</p>'}
         </div>
       </div>
