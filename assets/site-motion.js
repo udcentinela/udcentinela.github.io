@@ -15,23 +15,20 @@
       opacity: 1;
       visibility: visible;
       transform: translateZ(0);
-      will-change: opacity, transform, filter;
-    }
-    #preloader h2 {
-      letter-spacing: 0.32em;
-      text-shadow: 0 0 30px rgba(0, 210, 255, 0.4);
-      will-change: opacity, transform, filter;
-    }
-    #preloader .loader-line {
-      width: min(180px, 46vw);
-      transform: scaleX(0);
-      transform-origin: left center;
-      background: linear-gradient(90deg, #0052FF, #00d2ff, #a5f3fc);
-      box-shadow: 0 0 18px rgba(0, 210, 255, 0.9);
       will-change: transform;
     }
-    body > :not(#preloader) {
-      will-change: opacity, transform, filter;
+    #preloader h2 {
+      letter-spacing: 0.28em;
+      text-shadow: 0 0 20px rgba(0, 210, 255, 0.3);
+      will-change: opacity, transform;
+    }
+    #preloader .loader-line {
+      width: min(160px, 42vw);
+      transform: scaleX(0);
+      transform-origin: left center;
+      background: linear-gradient(90deg, #0052FF, #00d2ff);
+      box-shadow: 0 0 12px rgba(0, 210, 255, 0.8);
+      will-change: transform;
     }
   `;
   document.head.appendChild(motionStyles);
@@ -182,21 +179,30 @@
       }
     });
 
+    const preloaderContent = preloader.querySelectorAll("h2, .loader-line, img");
+
     exitTimeline
-      .to(preloader, {
+      .to(preloaderContent, {
         opacity: 0,
-        scale: 1.08,
-        filter: "blur(15px)",
-        duration: 0.8,
-        ease: "power2.inOut"
+        y: -15,
+        duration: 0.3,
+        ease: "power2.in"
       })
-      .to(
+      .to(preloader, {
+        yPercent: -100,
+        duration: 0.85,
+        ease: "power4.inOut"
+      }, "-=0.08")
+      .fromTo(
         document.querySelectorAll("body > :not(#preloader)"),
         {
+          opacity: 0,
+          y: 35
+        },
+        {
           opacity: 1,
-          scale: 1,
-          filter: "blur(0px)",
-          duration: 1.1,
+          y: 0,
+          duration: 0.9,
           ease: "power3.out",
           clearProps: "all"
         },
@@ -220,21 +226,13 @@
       return;
     }
 
-    if (preloaderH2) {
-      const text = preloaderH2.textContent.trim();
-      preloaderH2.innerHTML = text
-        .split("")
-        .map(char => `<span class="preloader-char inline-block" style="opacity: 0; filter: blur(8px); transform: translate3d(0, 10px, 0);">${char}</span>`)
-        .join("");
-    }
-
     const mainContent = document.querySelectorAll("body > :not(#preloader)");
-    window.gsap.set(mainContent, { opacity: 0, scale: 0.94, filter: "blur(12px)" });
+    window.gsap.set(mainContent, { opacity: 0, y: 35 });
 
     if (repeatVisit) {
       window.gsap.to(loaderLine, {
         scaleX: 1,
-        duration: 0.25,
+        duration: 0.2,
         ease: "power2.inOut",
         onComplete: closePreloader
       });
@@ -242,24 +240,25 @@
     }
 
     const startTimeline = window.gsap.timeline();
+    window.gsap.set(preloaderH2, { scale: 0.94, opacity: 0, y: 8 });
+    
     startTimeline
-      .to(".preloader-char", {
+      .to(preloaderH2, {
+        scale: 1,
         opacity: 1,
         y: 0,
-        filter: "blur(0px)",
-        duration: 0.7,
-        stagger: 0.07,
-        ease: "power3.out"
+        duration: 0.65,
+        ease: "power2.out"
       })
       .to(
         loaderLine,
         {
           scaleX: 1,
-          duration: 1.3,
-          ease: "power2.inOut",
+          duration: 1.1,
+          ease: "power1.inOut",
           onComplete: closePreloader
         },
-        "-=0.55"
+        "-=0.25"
       );
   }
 
