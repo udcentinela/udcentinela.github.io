@@ -322,17 +322,25 @@
   }
 
   function setupTheme() {
-    const toggleBtn = document.getElementById("themeToggleBtn");
+    const toggleButtons = [
+      document.getElementById("themeToggleBtn"),
+      document.getElementById("themeToggleBtnNavbar"),
+      document.getElementById("themeToggleBtnMobile")
+    ].filter(Boolean);
+
     const activeTheme = window.localStorage.getItem("centinela_theme") || "home";
     if (activeTheme === "away") {
       document.documentElement.classList.add("theme-away");
     } else {
+      document.documentElement.documentElement?.classList.remove("theme-away"); // O simplemente document.documentElement.classList
       document.documentElement.classList.remove("theme-away");
     }
-    if (!toggleBtn) return;
-    toggleBtn.addEventListener("click", () => {
-      const isAway = document.documentElement.classList.toggle("theme-away");
-      window.localStorage.setItem("centinela_theme", isAway ? "away" : "home");
+
+    toggleButtons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const isAway = document.documentElement.classList.toggle("theme-away");
+        window.localStorage.setItem("centinela_theme", isAway ? "away" : "home");
+      });
     });
   }
 
