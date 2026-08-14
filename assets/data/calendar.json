@@ -1,30 +1,7 @@
 {
   "season": "Temporada 2026/2027",
   "updated": "14/08/2026",
-  "nextMatch": {
-    "id": "match-1",
-    "round": "Jornada 1",
-    "date": "15/09/2026",
-    "time": "18:00",
-    "home": "UD Centinela",
-    "away": "CD Puerto Cruz B",
-    "venue": "Estadio Municipal El Peñón",
-    "status": "upcoming"
-  },
-  "matches": [
-    {
-      "id": "match-1",
-      "round": "Jornada 1",
-      "date": "15/09/2026",
-      "time": "18:00",
-      "home": "UD Centinela",
-      "away": "CD Puerto Cruz B",
-      "venue": "Estadio Municipal El Peñón",
-      "status": "upcoming",
-      "homeScore": null,
-      "awayScore": null,
-      "events": []
-    }
-  ],
+  "nextMatch": null,
+  "matches": [],
   "standings": []
 }
