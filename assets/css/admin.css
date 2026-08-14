@@ -1,119 +1,246 @@
 /* ==========================================================================
-   UD Centinela — Estilos específicos del Panel de Administración
+   UD Centinela — Panel de Administración (CSS Autónomo y Completo)
    ========================================================================== */
+
+:root {
+  --admin-bg-dark: #030712;
+  --admin-card-bg: #070d1d;
+  --admin-input-bg: #0b1426;
+  --admin-input-focus: #111e3b;
+  --admin-border: rgba(255, 255, 255, 0.15);
+  --admin-border-focus: #00d2ff;
+  --admin-neon: #00d2ff;
+  --admin-text-main: #ffffff;
+  --admin-text-muted: #94a3b8;
+}
 
 /* Tabs */
 .tab-btn.active {
-    background-color: var(--color-brand-neon) !important;
-    color: var(--color-brand-dark) !important;
-    box-shadow: 0 0 15px rgba(0, 210, 255, 0.35) !important;
+  background-color: var(--admin-neon) !important;
+  color: var(--color-brand-dark) !important;
+  box-shadow: 0 0 15px rgba(0, 210, 255, 0.35) !important;
 }
 
 .tab-btn {
-    color: #94a3b8;
+  color: #94a3b8;
 }
 
 .tab-btn:hover:not(.active) {
-    color: #ffffff;
-    background-color: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.08);
 }
 
 /* Match Cards */
 .match-card {
-    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .match-card:hover {
-    border-color: rgba(0, 210, 255, 0.35);
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
-}
-
-.goal-item {
-    animation: fadeIn 0.25s ease;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-4px); }
-    to { opacity: 1; transform: translateY(0); }
+  border-color: rgba(0, 210, 255, 0.35);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
 }
 
 /* ==========================================================================
-   Form Controls (Inputs, Selects, Buttons) - Dark & Neon High-Contrast
+   Modals Overlay & Scrollable Structure
    ========================================================================== */
-input, select, textarea {
-    background-color: #0b1426 !important;
-    color: #ffffff !important;
-    border: 1px solid rgba(255, 255, 255, 0.18) !important;
-    border-radius: 0.75rem !important;
-    padding: 0.75rem 1rem !important;
-    font-size: 0.875rem !important;
-    line-height: 1.25rem !important;
-    transition: all 0.2s ease !important;
-}
-
-input:focus, select:focus, textarea:focus {
-    border-color: var(--color-brand-neon) !important;
-    outline: none !important;
-    box-shadow: 0 0 12px rgba(0, 210, 255, 0.3) !important;
-    background-color: #101c36 !important;
-    color: #ffffff !important;
-}
-
-input::placeholder, textarea::placeholder {
-    color: #64748b !important;
-    opacity: 1 !important;
-}
-
-/* Select dropdown arrow */
-select {
-    appearance: none !important;
-    -webkit-appearance: none !important;
-    -moz-appearance: none !important;
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%2300d2ff' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M6 8l4 4 4-4'/%3e%3c/svg%3e") !important;
-    background-position: right 0.75rem center !important;
-    background-repeat: no-repeat !important;
-    background-size: 1.25em 1.25em !important;
-    padding-right: 2.5rem !important;
-    cursor: pointer;
-}
-
-select option {
-    background-color: #0b1426 !important;
-    color: #ffffff !important;
-    padding: 0.5rem;
-}
-
-/* Modal overlay & container */
 #matchModal, #playerModal {
-    backdrop-filter: blur(8px);
+  position: fixed !important;
+  inset: 0 !important;
+  z-index: 9999 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 1rem !important;
+  background-color: rgba(0, 0, 0, 0.85) !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+  overflow-y: auto !important;
+}
+
+#matchModal.hidden, #playerModal.hidden {
+  display: none !important;
 }
 
 .modal-content {
-    background-color: #070d1d !important;
-    border: 1px solid rgba(0, 210, 255, 0.25) !important;
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8), 0 0 30px rgba(0, 210, 255, 0.15) !important;
+  background-color: var(--admin-card-bg) !important;
+  border: 1px solid rgba(0, 210, 255, 0.3) !important;
+  border-radius: 1.5rem !important;
+  width: 100% !important;
+  max-width: 680px !important;
+  max-height: 90vh !important;
+  display: flex !important;
+  flex-direction: column !important;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.9), 0 0 35px rgba(0, 210, 255, 0.2) !important;
+  position: relative !important;
+  margin: auto !important;
+  overflow: hidden !important;
+}
+
+.modal-header {
+  padding: 1.25rem 1.5rem !important;
+  border-bottom: 1px solid var(--admin-border) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  flex-shrink: 0 !important;
+}
+
+.modal-body-scroll {
+  padding: 1.5rem !important;
+  overflow-y: auto !important;
+  flex: 1 1 auto !important;
+  max-height: calc(90vh - 145px) !important;
+}
+
+/* Scrollbar styling for modal body */
+.modal-body-scroll::-webkit-scrollbar {
+  width: 7px;
+}
+.modal-body-scroll::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
+}
+.modal-body-scroll::-webkit-scrollbar-thumb {
+  background: var(--admin-neon);
+  border-radius: 4px;
+}
+
+.modal-footer {
+  padding: 1rem 1.5rem !important;
+  border-top: 1px solid var(--admin-border) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-end !important;
+  gap: 0.75rem !important;
+  flex-shrink: 0 !important;
+  background-color: rgba(7, 13, 29, 0.98) !important;
+}
+
+/* ==========================================================================
+   Inputs, Selects & Forms (Universal Override)
+   ========================================================================== */
+input, select, textarea {
+  background-color: var(--admin-input-bg) !important;
+  color: var(--admin-text-main) !important;
+  border: 1px solid var(--admin-border) !important;
+  border-radius: 0.75rem !important;
+  padding: 0.7rem 0.9rem !important;
+  font-size: 0.875rem !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+  outline: none !important;
+  transition: all 0.2s ease !important;
+}
+
+input:focus, select:focus, textarea:focus {
+  border-color: var(--admin-border-focus) !important;
+  background-color: var(--admin-input-focus) !important;
+  box-shadow: 0 0 12px rgba(0, 210, 255, 0.3) !important;
+  color: #ffffff !important;
+}
+
+input::placeholder, textarea::placeholder {
+  color: #64748b !important;
+  opacity: 1 !important;
+}
+
+/* Select element with custom arrow */
+select {
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%2300d2ff' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M6 8l4 4 4-4'/%3e%3c/svg%3e") !important;
+  background-position: right 0.75rem center !important;
+  background-repeat: no-repeat !important;
+  background-size: 1.25em 1.25em !important;
+  padding-right: 2.5rem !important;
+  cursor: pointer !important;
+}
+
+select option {
+  background-color: #0b1426 !important;
+  color: #ffffff !important;
+  padding: 0.5rem !important;
 }
 
 /* Score Inputs */
 #matchHomeScore, #matchAwayScore {
-    font-size: 1.5rem !important;
-    font-weight: 900 !important;
-    text-align: center !important;
-    background-color: #070c18 !important;
-    border-color: rgba(0, 210, 255, 0.25) !important;
+  font-size: 1.5rem !important;
+  font-weight: 900 !important;
+  text-align: center !important;
+  background-color: #050a14 !important;
+  border-color: rgba(0, 210, 255, 0.3) !important;
 }
 
 #matchHomeScore:focus, #matchAwayScore:focus {
-    border-color: var(--color-brand-neon) !important;
-    box-shadow: 0 0 15px rgba(0, 210, 255, 0.4) !important;
+  border-color: var(--admin-neon) !important;
+  box-shadow: 0 0 15px rgba(0, 210, 255, 0.4) !important;
 }
 
-/* Hide spin buttons on number inputs */
+/* Goals Rows Container */
+.goal-item {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+  background-color: rgba(0, 0, 0, 0.35) !important;
+  border: 1px solid var(--admin-border) !important;
+  border-radius: 0.75rem !important;
+  padding: 0.5rem 0.75rem !important;
+  margin-bottom: 0.5rem !important;
+  animation: fadeIn 0.25s ease;
+}
+
+.goal-item .goal-min {
+  width: 70px !important;
+  flex-shrink: 0 !important;
+  text-align: center !important;
+  font-weight: 700 !important;
+  padding: 0.5rem !important;
+}
+
+.goal-item .goal-scorer {
+  flex: 1 1 50% !important;
+  min-width: 110px !important;
+  padding: 0.5rem 2rem 0.5rem 0.75rem !important;
+}
+
+.goal-item .goal-assist {
+  flex: 1 1 50% !important;
+  min-width: 110px !important;
+  padding: 0.5rem 2rem 0.5rem 0.75rem !important;
+}
+
+.goal-item .remove-goal {
+  background: none !important;
+  border: none !important;
+  color: #f87171 !important;
+  font-size: 1.4rem !important;
+  cursor: pointer !important;
+  padding: 0.2rem 0.5rem !important;
+  line-height: 1 !important;
+  border-radius: 0.5rem !important;
+  transition: all 0.2s ease !important;
+  flex-shrink: 0 !important;
+}
+
+.goal-item .remove-goal:hover {
+  color: #ef4444 !important;
+  background-color: rgba(239, 68, 68, 0.2) !important;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Hide spin buttons */
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
+  -webkit-appearance: none;
+  margin: 0;
 }
 input[type="number"] {
-    -moz-appearance: textfield;
+  -moz-appearance: textfield;
 }

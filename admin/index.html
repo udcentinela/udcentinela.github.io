@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/assets/css/site.css">
     <link rel="stylesheet" href="/assets/css/common.css">
-    <link rel="stylesheet" href="/assets/css/admin.css?v=20260814_contrast_fix">
+    <link rel="stylesheet" href="/assets/css/admin.css?v=20260814_scroll_fixed_v3">
 
     <meta name="robots" content="noindex,nofollow">
     <link rel="icon" href="/favicon.ico">
@@ -210,87 +210,89 @@
     <!-- ============================================================== -->
     <!-- MODAL: EDITAR / AÑADIR PARTIDO & ACTA                          -->
     <!-- ============================================================== -->
-    <div id="matchModal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm overflow-y-auto">
-        <div class="modal-content rounded-3xl max-w-2xl w-full p-6 md:p-8 max-h-[90vh] overflow-y-auto shadow-2xl space-y-6">
-            <div class="flex items-center justify-between border-b border-white/10 pb-4">
-                <h3 id="matchModalTitle" class="font-heading text-2xl font-black uppercase text-white">Acta del Partido</h3>
-                <button type="button" class="close-modal text-gray-400 hover:text-white text-2xl">&times;</button>
+    <div id="matchModal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="matchModalTitle" class="font-heading text-xl md:text-2xl font-black uppercase text-white">Acta del Partido</h3>
+                <button type="button" class="close-modal text-gray-400 hover:text-white text-2xl font-bold">&times;</button>
             </div>
 
-            <form id="matchForm" class="space-y-6">
+            <form id="matchForm" class="flex flex-col flex-grow overflow-hidden m-0">
                 <input type="hidden" id="matchId">
 
-                <!-- Basic Match Data -->
-                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                    <div>
-                        <label class="block text-xs font-bold text-gray-400 uppercase mb-1">Jornada</label>
-                        <input id="matchRound" required placeholder="Jornada 1" class="w-full bg-black/40 border border-white/10 rounded-xl px-3 py-2.5 text-sm text-white focus:border-brand-neon outline-none">
+                <div class="modal-body-scroll space-y-5">
+                    <!-- Basic Match Data -->
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                        <div>
+                            <label class="block text-xs font-bold text-gray-400 uppercase mb-1">Jornada</label>
+                            <input id="matchRound" required placeholder="Jornada 1">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-gray-400 uppercase mb-1">Fecha</label>
+                            <input id="matchDate" required placeholder="15/09/2026">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-gray-400 uppercase mb-1">Hora</label>
+                            <input id="matchTime" placeholder="18:00">
+                        </div>
                     </div>
-                    <div>
-                        <label class="block text-xs font-bold text-gray-400 uppercase mb-1">Fecha</label>
-                        <input id="matchDate" required placeholder="15/09/2026" class="w-full bg-black/40 border border-white/10 rounded-xl px-3 py-2.5 text-sm text-white focus:border-brand-neon outline-none">
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <div>
+                            <label class="block text-xs font-bold text-gray-400 uppercase mb-1">Equipo Local</label>
+                            <input id="matchHome" required placeholder="UD Centinela">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-gray-400 uppercase mb-1">Equipo Visitante</label>
+                            <input id="matchAway" required placeholder="Rival">
+                        </div>
                     </div>
-                    <div>
-                        <label class="block text-xs font-bold text-gray-400 uppercase mb-1">Hora</label>
-                        <input id="matchTime" placeholder="18:00" class="w-full bg-black/40 border border-white/10 rounded-xl px-3 py-2.5 text-sm text-white focus:border-brand-neon outline-none">
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <div>
+                            <label class="block text-xs font-bold text-gray-400 uppercase mb-1">Campo / Estadio</label>
+                            <input id="matchVenue" placeholder="Estadio Municipal El Peñón">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-gray-400 uppercase mb-1">Estado</label>
+                            <select id="matchStatusSelect">
+                                <option value="upcoming">Próximo</option>
+                                <option value="finished">Finalizado</option>
+                                <option value="postponed">Aplazado</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Scores -->
+                    <div class="p-4 rounded-2xl bg-black/40 border border-white/10 grid grid-cols-2 gap-4 items-center">
+                        <div>
+                            <label class="block text-xs font-bold text-gray-400 uppercase mb-1 text-center">Goles Local</label>
+                            <input id="matchHomeScore" type="number" min="0" placeholder="0">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-gray-400 uppercase mb-1 text-center">Goles Visitante</label>
+                            <input id="matchAwayScore" type="number" min="0" placeholder="0">
+                        </div>
+                    </div>
+
+                    <!-- Match Events (Goles del Centinela) -->
+                    <div class="space-y-3 pt-2">
+                        <div class="flex items-center justify-between">
+                            <label class="text-xs font-black text-brand-neon uppercase tracking-wider">⚽ Goles del UD Centinela (Acta)</label>
+                            <button type="button" id="addGoalBtn" class="text-xs font-bold text-brand-dark bg-brand-neon px-3 py-1.5 rounded-lg hover:bg-white transition-colors cursor-pointer">
+                                + Añadir Gol
+                            </button>
+                        </div>
+                        
+                        <div id="goalsContainer" class="space-y-2">
+                            <!-- Dynamic Goal Rows -->
+                        </div>
                     </div>
                 </div>
 
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div>
-                        <label class="block text-xs font-bold text-gray-400 uppercase mb-1">Equipo Local</label>
-                        <input id="matchHome" required placeholder="UD Centinela" class="w-full bg-black/40 border border-white/10 rounded-xl px-3 py-2.5 text-sm text-white focus:border-brand-neon outline-none">
-                    </div>
-                    <div>
-                        <label class="block text-xs font-bold text-gray-400 uppercase mb-1">Equipo Visitante</label>
-                        <input id="matchAway" required placeholder="Rival" class="w-full bg-black/40 border border-white/10 rounded-xl px-3 py-2.5 text-sm text-white focus:border-brand-neon outline-none">
-                    </div>
-                </div>
-
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div>
-                        <label class="block text-xs font-bold text-gray-400 uppercase mb-1">Campo / Estadio</label>
-                        <input id="matchVenue" placeholder="Estadio Municipal El Peñón" class="w-full bg-black/40 border border-white/10 rounded-xl px-3 py-2.5 text-sm text-white focus:border-brand-neon outline-none">
-                    </div>
-                    <div>
-                        <label class="block text-xs font-bold text-gray-400 uppercase mb-1">Estado</label>
-                        <select id="matchStatusSelect" class="w-full bg-black/40 border border-white/10 rounded-xl px-3 py-2.5 text-sm text-white focus:border-brand-neon outline-none">
-                            <option value="upcoming">Próximo</option>
-                            <option value="finished">Finalizado</option>
-                            <option value="postponed">Aplazado</option>
-                        </select>
-                    </div>
-                </div>
-
-                <!-- Scores -->
-                <div class="p-4 rounded-2xl bg-white/5 border border-white/10 grid grid-cols-2 gap-4 items-center">
-                    <div>
-                        <label class="block text-xs font-bold text-gray-400 uppercase mb-1">Goles Local</label>
-                        <input id="matchHomeScore" type="number" min="0" placeholder="0" class="w-full bg-black/50 border border-white/10 rounded-xl px-3 py-2.5 text-center text-lg font-black text-white focus:border-brand-neon outline-none">
-                    </div>
-                    <div>
-                        <label class="block text-xs font-bold text-gray-400 uppercase mb-1">Goles Visitante</label>
-                        <input id="matchAwayScore" type="number" min="0" placeholder="0" class="w-full bg-black/50 border border-white/10 rounded-xl px-3 py-2.5 text-center text-lg font-black text-white focus:border-brand-neon outline-none">
-                    </div>
-                </div>
-
-                <!-- Match Events (Goles del Centinela) -->
-                <div class="space-y-3 pt-2">
-                    <div class="flex items-center justify-between">
-                        <label class="text-xs font-black text-brand-neon uppercase tracking-wider">⚽ Goles del UD Centinela (Acta Oficial)</label>
-                        <button type="button" id="addGoalBtn" class="text-xs font-bold text-brand-neon bg-brand-neon/10 border border-brand-neon/30 px-3 py-1.5 rounded-lg hover:bg-brand-neon hover:text-brand-dark transition-colors">
-                            + Añadir Gol
-                        </button>
-                    </div>
-                    
-                    <div id="goalsContainer" class="space-y-2">
-                        <!-- Dynamic Goal Rows -->
-                    </div>
-                </div>
-
-                <div class="flex justify-end gap-3 pt-4 border-t border-white/10">
-                    <button type="button" class="close-modal px-5 py-2.5 rounded-xl border border-white/10 text-gray-300 hover:text-white text-xs font-bold uppercase tracking-wider">Cancelar</button>
-                    <button type="submit" class="px-6 py-2.5 rounded-xl bg-brand-neon text-brand-dark hover:bg-white font-black text-xs uppercase tracking-wider transition-colors">Guardar Partido</button>
+                <div class="modal-footer">
+                    <button type="button" class="close-modal px-5 py-2.5 rounded-xl border border-white/10 text-gray-300 hover:text-white text-xs font-bold uppercase tracking-wider cursor-pointer">Cancelar</button>
+                    <button type="submit" class="px-6 py-2.5 rounded-xl bg-brand-neon text-brand-dark hover:bg-white font-black text-xs uppercase tracking-wider transition-colors cursor-pointer">Guardar Partido</button>
                 </div>
             </form>
         </div>
@@ -299,40 +301,42 @@
     <!-- ============================================================== -->
     <!-- MODAL: EDITAR / AÑADIR JUGADOR                                 -->
     <!-- ============================================================== -->
-    <div id="playerModal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm">
-        <div class="modal-content rounded-3xl max-w-md w-full p-6 md:p-8 shadow-2xl space-y-6">
-            <div class="flex items-center justify-between border-b border-white/10 pb-4">
-                <h3 id="playerModalTitle" class="font-heading text-2xl font-black uppercase text-white">Jugador</h3>
-                <button type="button" class="close-modal text-gray-400 hover:text-white text-2xl">&times;</button>
+    <div id="playerModal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4">
+        <div class="modal-content max-w-md">
+            <div class="modal-header">
+                <h3 id="playerModalTitle" class="font-heading text-xl font-black uppercase text-white">Jugador</h3>
+                <button type="button" class="close-modal text-gray-400 hover:text-white text-2xl font-bold">&times;</button>
             </div>
 
-            <form id="playerForm" class="space-y-4">
+            <form id="playerForm" class="flex flex-col flex-grow overflow-hidden m-0">
                 <input type="hidden" id="playerEditIndex" value="-1">
 
-                <div>
-                    <label class="block text-xs font-bold text-gray-400 uppercase mb-1">ID Único (ej: iriome, delantero-9)</label>
-                    <input id="playerIdInput" required placeholder="iriome" class="w-full bg-black/40 border border-white/10 rounded-xl px-3 py-2.5 text-sm text-white focus:border-brand-neon outline-none">
-                </div>
-
-                <div>
-                    <label class="block text-xs font-bold text-gray-400 uppercase mb-1">Nombre Deportivo</label>
-                    <input id="playerNameInput" required placeholder="Iriome" class="w-full bg-black/40 border border-white/10 rounded-xl px-3 py-2.5 text-sm text-white focus:border-brand-neon outline-none">
-                </div>
-
-                <div class="grid grid-cols-2 gap-4">
+                <div class="modal-body-scroll space-y-4">
                     <div>
-                        <label class="block text-xs font-bold text-gray-400 uppercase mb-1">Dorsal</label>
-                        <input id="playerDorsalInput" type="number" min="1" max="99" placeholder="9" class="w-full bg-black/40 border border-white/10 rounded-xl px-3 py-2.5 text-sm text-white focus:border-brand-neon outline-none">
+                        <label class="block text-xs font-bold text-gray-400 uppercase mb-1">ID Único (ej: iriome, delantero-9)</label>
+                        <input id="playerIdInput" required placeholder="iriome">
                     </div>
+
                     <div>
-                        <label class="block text-xs font-bold text-gray-400 uppercase mb-1">Posición</label>
-                        <input id="playerPositionInput" required placeholder="Delantero" class="w-full bg-black/40 border border-white/10 rounded-xl px-3 py-2.5 text-sm text-white focus:border-brand-neon outline-none">
+                        <label class="block text-xs font-bold text-gray-400 uppercase mb-1">Nombre Deportivo</label>
+                        <input id="playerNameInput" required placeholder="Iriome">
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-3">
+                        <div>
+                            <label class="block text-xs font-bold text-gray-400 uppercase mb-1">Dorsal</label>
+                            <input id="playerDorsalInput" type="number" min="1" max="99" placeholder="9">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-gray-400 uppercase mb-1">Posición</label>
+                            <input id="playerPositionInput" required placeholder="Delantero">
+                        </div>
                     </div>
                 </div>
 
-                <div class="flex justify-end gap-3 pt-4 border-t border-white/10">
-                    <button type="button" class="close-modal px-5 py-2.5 rounded-xl border border-white/10 text-gray-300 hover:text-white text-xs font-bold uppercase tracking-wider">Cancelar</button>
-                    <button type="submit" class="px-6 py-2.5 rounded-xl bg-brand-neon text-brand-dark hover:bg-white font-black text-xs uppercase tracking-wider transition-colors">Guardar Jugador</button>
+                <div class="modal-footer">
+                    <button type="button" class="close-modal px-5 py-2.5 rounded-xl border border-white/10 text-gray-300 hover:text-white text-xs font-bold uppercase tracking-wider cursor-pointer">Cancelar</button>
+                    <button type="submit" class="px-6 py-2.5 rounded-xl bg-brand-neon text-brand-dark hover:bg-white font-black text-xs uppercase tracking-wider transition-colors cursor-pointer">Guardar Jugador</button>
                 </div>
             </form>
         </div>
