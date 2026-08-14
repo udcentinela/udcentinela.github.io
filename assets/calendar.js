@@ -94,6 +94,20 @@
         const score = finished
           ? `<span class="font-heading text-2xl font-black text-white">${escapeHtml(match.homeScore)} - ${escapeHtml(match.awayScore)}</span>`
           : `<span class="rounded-lg border border-white/10 bg-black/20 px-3 py-2 text-xs font-bold text-gray-300">${escapeHtml(matchStatus(match))}</span>`;
+        let eventsHtml = "";
+        if (finished && Array.isArray(match.events) && match.events.length > 0) {
+          eventsHtml = `
+            <div class="col-span-full border-t border-white/5 pt-3 mt-1 flex flex-wrap gap-2">
+              ${match.events.filter(e => e.type === 'goal').map(g => {
+                const minText = g.minute ? `${escapeHtml(g.minute)}'` : '';
+                const scorer = g.scorerId ? escapeHtml(g.scorerId) : 'Gol';
+                const assist = g.assistId ? ` (Asist: ${escapeHtml(g.assistId)})` : '';
+                return `<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-brand-neon/10 border border-brand-neon/20 text-xs font-semibold text-brand-neon">⚽ ${minText} ${scorer}${assist}</span>`;
+              }).join('')}
+            </div>
+          `;
+        }
+
         return `
           <article class="grid gap-5 rounded-2xl border border-white/10 bg-white/5 p-5 md:grid-cols-[150px_1fr_120px] md:items-center">
             <div>
@@ -107,6 +121,7 @@
               <span class="font-bold text-gray-200">${escapeHtml(match.away || "Visitante")}</span>
             </div>
             <div class="text-left text-xs font-bold tracking-widest text-gray-500 uppercase md:text-right">${finished ? "Resultado" : "Próximo"}</div>
+            ${eventsHtml}
           </article>
         `;
       })

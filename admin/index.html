@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UD Centinela | Panel de Control</title>
+    
+    <!-- Fuentes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/site.css">
+    <link rel="stylesheet" href="/assets/css/common.css">
+    <link rel="stylesheet" href="/assets/css/admin.css">
+
+    <meta name="robots" content="noindex,nofollow">
+    <link rel="icon" href="/favicon.ico">
+</head>
+<body class="bg-brand-dark text-white antialiased selection:bg-brand-neon selection:text-brand-dark min-h-screen flex flex-col">
+
+    <!-- Header Navbar -->
+    <header class="sticky top-0 z-50 bg-brand-dark/95 backdrop-blur-md border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-20">
+            <div class="flex items-center gap-4">
+                <a href="/" class="flex items-center gap-3 font-heading text-2xl font-black tracking-tighter">
+                    <img src="/assets/img/logo-nav.webp" alt="Escudo" class="w-8 h-8 object-contain rounded-full" onerror="this.style.display='none'">
+                    <div>UD<span class="text-brand-neon">C.</span></div>
+                </a>
+                <span class="hidden sm:inline-block px-3 py-1 bg-brand-neon/10 border border-brand-neon/30 text-brand-neon text-xs font-black tracking-widest uppercase rounded-full">
+                    Panel Oficial
+                </span>
+            </div>
+
+            <!-- Header Right Session Info -->
+            <div id="headerAuth" class="flex items-center gap-3">
+                <a href="/" class="text-xs text-gray-400 font-bold hover:text-white uppercase tracking-wider px-3 py-2">Ver Web</a>
+                <button id="logoutBtn" class="hidden text-xs text-red-400 hover:text-red-300 font-bold border border-red-500/20 bg-red-500/10 px-3 py-1.5 rounded-xl uppercase tracking-wider transition-colors">Cerrar Sesión</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
+
+        <!-- ============================================================== -->
+        <!-- 1. LOGIN VIEW                                                  -->
+        <!-- ============================================================== -->
+        <section id="loginSection" class="min-h-[70vh] flex items-center justify-center">
+            <div class="max-w-md w-full bg-white/5 border border-brand-neon/20 rounded-3xl p-8 shadow-neon relative overflow-hidden">
+                <div class="absolute -top-24 -left-24 w-48 h-48 bg-brand-neon/10 rounded-full blur-3xl pointer-events-none"></div>
+                <div class="text-center mb-8">
+                    <div class="w-16 h-16 bg-brand-neon/10 border border-brand-neon/30 rounded-2xl mx-auto flex items-center justify-center text-2xl mb-4">
+                        🔐
+                    </div>
+                    <h1 class="font-heading text-3xl font-black uppercase text-white tracking-tight">Acceso <span class="text-gradient">Admin</span></h1>
+                    <p class="text-gray-400 text-sm mt-2">Introduce tu clave de administrador o token para gestionar partidos, goles y plantilla.</p>
+                </div>
+
+                <form id="adminLoginForm" class="space-y-5">
+                    <div id="loginError" class="hidden p-4 rounded-2xl bg-red-500/10 border border-red-500/30 text-red-200 text-xs font-semibold"></div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-gray-300 tracking-wider uppercase mb-2">Clave de Acceso / Token</label>
+                        <input id="adminTokenInput" type="password" required autocomplete="current-password" placeholder="ghp_... o clave" class="w-full bg-brand-dark/90 border border-white/15 focus:border-brand-neon rounded-2xl px-4 py-3 text-white text-sm outline-none transition-colors">
+                    </div>
+
+                    <button type="submit" class="w-full py-4 bg-brand-neon text-brand-dark font-heading font-black text-sm uppercase tracking-widest rounded-2xl hover:bg-white hover:shadow-neon transition-all duration-300">
+                        Entrar al Panel
+                    </button>
+                </form>
+            </div>
+        </section>
+
+        <!-- ============================================================== -->
+        <!-- 2. DASHBOARD VIEW                                              -->
+        <!-- ============================================================== -->
+        <section id="dashboardSection" class="hidden space-y-8">
+            
+            <!-- Dashboard Top Bar / Navigation Tabs -->
+            <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 border-b border-white/10 pb-6">
+                <div>
+                    <h1 class="font-heading text-3xl md:text-4xl font-black text-white uppercase tracking-tight">
+                        Gestión de <span class="text-gradient">Temporada</span>
+                    </h1>
+                    <p class="text-gray-400 text-sm mt-1">Control de actas de partidos, goles, asistencias y fichas de jugadores.</p>
+                </div>
+
+                <!-- Tabs -->
+                <div class="flex flex-wrap gap-2 bg-white/5 p-1.5 rounded-2xl border border-white/10">
+                    <button data-tab="matchesTab" class="tab-btn active px-4 py-2 text-xs font-bold uppercase tracking-wider rounded-xl transition-colors">
+                        ⚽ Partidos y Actas
+                    </button>
+                    <button data-tab="playersTab" class="tab-btn px-4 py-2 text-xs font-bold uppercase tracking-wider rounded-xl transition-colors">
+                        👥 Plantilla e IDs
+                    </button>
+                    <button data-tab="statsTab" class="tab-btn px-4 py-2 text-xs font-bold uppercase tracking-wider rounded-xl transition-colors">
+                        📊 Estadísticas
+                    </button>
+                </div>
+            </div>
+
+            <!-- Action Bar (Save & Deploy) -->
+            <div class="flex flex-col sm:flex-row items-center justify-between gap-4 p-4 rounded-2xl bg-brand-neon/10 border border-brand-neon/30">
+                <div class="flex items-center gap-3">
+                    <span class="flex h-3 w-3 relative">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-neon opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-3 w-3 bg-brand-neon"></span>
+                    </span>
+                    <p class="text-xs sm:text-sm text-gray-200">
+                        <strong class="text-white">Cambios en memoria listos.</strong> Guarda y despliega en 1 clic directamente a GitHub Pages.
+                    </p>
+                </div>
+                <button id="deployBtn" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 bg-brand-neon text-brand-dark font-heading font-black text-xs uppercase tracking-widest rounded-xl hover:bg-white hover:shadow-neon transition-all">
+                    <span>🚀 Guardar y Publicar en la Web</span>
+                </button>
+            </div>
+
+            <!-- Deploy Message / Status -->
+            <div id="deployStatus" class="hidden p-4 rounded-2xl text-xs font-bold tracking-wide"></div>
+
+            <!-- ============================================================== -->
+            <!-- TAB 1: PARTIDOS Y ACTAS                                        -->
+            <!-- ============================================================== -->
+            <div id="matchesTab" class="tab-content space-y-6">
+                <div class="flex items-center justify-between">
+                    <h2 class="font-heading text-2xl font-black uppercase text-white">Lista de Partidos</h2>
+                    <button id="newMatchBtn" class="px-4 py-2 bg-white/10 hover:bg-brand-neon hover:text-brand-dark text-white text-xs font-bold uppercase tracking-wider rounded-xl border border-white/10 transition-colors">
+                        + Añadir Partido
+                    </button>
+                </div>
+
+                <!-- Matches List Container -->
+                <div id="matchesList" class="grid gap-4">
+                    <!-- Dynamic Matches -->
+                </div>
+            </div>
+
+            <!-- ============================================================== -->
+            <!-- TAB 2: PLANTILLA E IDS                                         -->
+            <!-- ============================================================== -->
+            <div id="playersTab" class="tab-content hidden space-y-6">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <h2 class="font-heading text-2xl font-black uppercase text-white">Plantilla Oficial</h2>
+                        <p class="text-gray-400 text-xs">Cada jugador posee un ID único asociado a sus estadísticas.</p>
+                    </div>
+                    <button id="newPlayerBtn" class="px-4 py-2 bg-white/10 hover:bg-brand-neon hover:text-brand-dark text-white text-xs font-bold uppercase tracking-wider rounded-xl border border-white/10 transition-colors">
+                        + Nuevo Jugador
+                    </button>
+                </div>
+
+                <div class="overflow-x-auto rounded-2xl border border-white/10 bg-white/5">
+                    <table class="w-full text-left text-sm text-gray-300">
+                        <thead class="bg-black/30 text-xs uppercase tracking-widest text-brand-neon border-b border-white/10">
+                            <tr>
+                                <th class="p-4">Dorsal</th>
+                                <th class="p-4">ID Único</th>
+                                <th class="p-4">Nombre</th>
+                                <th class="p-4">Posición</th>
+                                <th class="p-4 text-center">Goles</th>
+                                <th class="p-4 text-center">Asistencias</th>
+                                <th class="p-4 text-right">Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="playersTableBody" class="divide-y divide-white/5">
+                            <!-- Dynamic Players -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- ============================================================== -->
+            <!-- TAB 3: ESTADÍSTICAS GLOBALES                                   -->
+            <!-- ============================================================== -->
+            <div id="statsTab" class="tab-content hidden space-y-6">
+                <h2 class="font-heading text-2xl font-black uppercase text-white">Ránking de la Temporada</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Top Scorers -->
+                    <div class="rounded-3xl border border-white/10 bg-white/5 p-6">
+                        <div class="flex items-center justify-between mb-4 border-b border-white/10 pb-3">
+                            <h3 class="font-heading text-lg font-black uppercase text-white flex items-center gap-2">
+                                <span>⚽</span> Máximos Goleadores
+                            </h3>
+                            <span class="text-xs text-brand-neon font-bold uppercase">Temporada 2026/27</span>
+                        </div>
+                        <ul id="topScorersList" class="space-y-3">
+                            <!-- Dynamic -->
+                        </ul>
+                    </div>
+
+                    <!-- Top Assists -->
+                    <div class="rounded-3xl border border-white/10 bg-white/5 p-6">
+                        <div class="flex items-center justify-between mb-4 border-b border-white/10 pb-3">
+                            <h3 class="font-heading text-lg font-black uppercase text-white flex items-center gap-2">
+                                <span>👟</span> Máximos Asistentes
+                            </h3>
+                            <span class="text-xs text-brand-neon font-bold uppercase">Temporada 2026/27</span>
+                        </div>
+                        <ul id="topAssistsList" class="space-y-3">
+                            <!-- Dynamic -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <!-- ============================================================== -->
+    <!-- MODAL: EDITAR / AÑADIR PARTIDO & ACTA                          -->
+    <!-- ============================================================== -->
+    <div id="matchModal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm overflow-y-auto">
+        <div class="bg-[#0b1329] border border-brand-neon/30 rounded-3xl max-w-2xl w-full p-6 md:p-8 max-h-[90vh] overflow-y-auto shadow-2xl space-y-6">
+            <div class="flex items-center justify-between border-b border-white/10 pb-4">
+                <h3 id="matchModalTitle" class="font-heading text-2xl font-black uppercase text-white">Acta del Partido</h3>
+                <button type="button" class="close-modal text-gray-400 hover:text-white text-2xl">&times;</button>
+            </div>
+
+            <form id="matchForm" class="space-y-6">
+                <input type="hidden" id="matchId">
+
+                <!-- Basic Match Data -->
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                    <div>
+                        <label class="block text-xs font-bold text-gray-400 uppercase mb-1">Jornada</label>
+                        <input id="matchRound" required placeholder="Jornada 1" class="w-full bg-black/40 border border-white/10 rounded-xl px-3 py-2.5 text-sm text-white focus:border-brand-neon outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-gray-400 uppercase mb-1">Fecha</label>
+                        <input id="matchDate" required placeholder="15/09/2026" class="w-full bg-black/40 border border-white/10 rounded-xl px-3 py-2.5 text-sm text-white focus:border-brand-neon outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-gray-400 uppercase mb-1">Hora</label>
+                        <input id="matchTime" placeholder="18:00" class="w-full bg-black/40 border border-white/10 rounded-xl px-3 py-2.5 text-sm text-white focus:border-brand-neon outline-none">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-bold text-gray-400 uppercase mb-1">Equipo Local</label>
+                        <input id="matchHome" required placeholder="UD Centinela" class="w-full bg-black/40 border border-white/10 rounded-xl px-3 py-2.5 text-sm text-white focus:border-brand-neon outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-gray-400 uppercase mb-1">Equipo Visitante</label>
+                        <input id="matchAway" required placeholder="Rival" class="w-full bg-black/40 border border-white/10 rounded-xl px-3 py-2.5 text-sm text-white focus:border-brand-neon outline-none">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-bold text-gray-400 uppercase mb-1">Campo / Estadio</label>
+                        <input id="matchVenue" placeholder="Estadio Municipal El Peñón" class="w-full bg-black/40 border border-white/10 rounded-xl px-3 py-2.5 text-sm text-white focus:border-brand-neon outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-gray-400 uppercase mb-1">Estado</label>
+                        <select id="matchStatusSelect" class="w-full bg-black/40 border border-white/10 rounded-xl px-3 py-2.5 text-sm text-white focus:border-brand-neon outline-none">
+                            <option value="upcoming">Próximo</option>
+                            <option value="finished">Finalizado</option>
+                            <option value="postponed">Aplazado</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Scores -->
+                <div class="p-4 rounded-2xl bg-white/5 border border-white/10 grid grid-cols-2 gap-4 items-center">
+                    <div>
+                        <label class="block text-xs font-bold text-gray-400 uppercase mb-1">Goles Local</label>
+                        <input id="matchHomeScore" type="number" min="0" placeholder="0" class="w-full bg-black/50 border border-white/10 rounded-xl px-3 py-2.5 text-center text-lg font-black text-white focus:border-brand-neon outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-gray-400 uppercase mb-1">Goles Visitante</label>
+                        <input id="matchAwayScore" type="number" min="0" placeholder="0" class="w-full bg-black/50 border border-white/10 rounded-xl px-3 py-2.5 text-center text-lg font-black text-white focus:border-brand-neon outline-none">
+                    </div>
+                </div>
+
+                <!-- Match Events (Goles del Centinela) -->
+                <div class="space-y-3 pt-2">
+                    <div class="flex items-center justify-between">
+                        <label class="text-xs font-black text-brand-neon uppercase tracking-wider">⚽ Goles del UD Centinela (Acta Oficial)</label>
+                        <button type="button" id="addGoalBtn" class="text-xs font-bold text-brand-neon bg-brand-neon/10 border border-brand-neon/30 px-3 py-1.5 rounded-lg hover:bg-brand-neon hover:text-brand-dark transition-colors">
+                            + Añadir Gol
+                        </button>
+                    </div>
+                    
+                    <div id="goalsContainer" class="space-y-2">
+                        <!-- Dynamic Goal Rows -->
+                    </div>
+                </div>
+
+                <div class="flex justify-end gap-3 pt-4 border-t border-white/10">
+                    <button type="button" class="close-modal px-5 py-2.5 rounded-xl border border-white/10 text-gray-300 hover:text-white text-xs font-bold uppercase tracking-wider">Cancelar</button>
+                    <button type="submit" class="px-6 py-2.5 rounded-xl bg-brand-neon text-brand-dark hover:bg-white font-black text-xs uppercase tracking-wider transition-colors">Guardar Partido</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- ============================================================== -->
+    <!-- MODAL: EDITAR / AÑADIR JUGADOR                                 -->
+    <!-- ============================================================== -->
+    <div id="playerModal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm">
+        <div class="bg-[#0b1329] border border-brand-neon/30 rounded-3xl max-w-md w-full p-6 md:p-8 shadow-2xl space-y-6">
+            <div class="flex items-center justify-between border-b border-white/10 pb-4">
+                <h3 id="playerModalTitle" class="font-heading text-2xl font-black uppercase text-white">Jugador</h3>
+                <button type="button" class="close-modal text-gray-400 hover:text-white text-2xl">&times;</button>
+            </div>
+
+            <form id="playerForm" class="space-y-4">
+                <input type="hidden" id="playerEditIndex" value="-1">
+
+                <div>
+                    <label class="block text-xs font-bold text-gray-400 uppercase mb-1">ID Único (ej: iriome, delantero-9)</label>
+                    <input id="playerIdInput" required placeholder="iriome" class="w-full bg-black/40 border border-white/10 rounded-xl px-3 py-2.5 text-sm text-white focus:border-brand-neon outline-none">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-gray-400 uppercase mb-1">Nombre Deportivo</label>
+                    <input id="playerNameInput" required placeholder="Iriome" class="w-full bg-black/40 border border-white/10 rounded-xl px-3 py-2.5 text-sm text-white focus:border-brand-neon outline-none">
+                </div>
+
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-bold text-gray-400 uppercase mb-1">Dorsal</label>
+                        <input id="playerDorsalInput" type="number" min="1" max="99" placeholder="9" class="w-full bg-black/40 border border-white/10 rounded-xl px-3 py-2.5 text-sm text-white focus:border-brand-neon outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-gray-400 uppercase mb-1">Posición</label>
+                        <input id="playerPositionInput" required placeholder="Delantero" class="w-full bg-black/40 border border-white/10 rounded-xl px-3 py-2.5 text-sm text-white focus:border-brand-neon outline-none">
+                    </div>
+                </div>
+
+                <div class="flex justify-end gap-3 pt-4 border-t border-white/10">
+                    <button type="button" class="close-modal px-5 py-2.5 rounded-xl border border-white/10 text-gray-300 hover:text-white text-xs font-bold uppercase tracking-wider">Cancelar</button>
+                    <button type="submit" class="px-6 py-2.5 rounded-xl bg-brand-neon text-brand-dark hover:bg-white font-black text-xs uppercase tracking-wider transition-colors">Guardar Jugador</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="/assets/js/admin.js"></script>
+</body>
+</html>
