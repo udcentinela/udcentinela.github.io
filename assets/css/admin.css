@@ -1,8 +1,12 @@
-/* Admin Panel Styles */
+/* ==========================================================================
+   UD Centinela — Estilos específicos del Panel de Administración
+   ========================================================================== */
+
+/* Tabs */
 .tab-btn.active {
-    background-color: var(--color-brand-neon);
-    color: var(--color-brand-dark);
-    box-shadow: 0 0 15px rgba(0, 240, 255, 0.3);
+    background-color: var(--color-brand-neon) !important;
+    color: var(--color-brand-dark) !important;
+    box-shadow: 0 0 15px rgba(0, 210, 255, 0.35) !important;
 }
 
 .tab-btn {
@@ -14,20 +18,102 @@
     background-color: rgba(255, 255, 255, 0.08);
 }
 
+/* Match Cards */
 .match-card {
     transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .match-card:hover {
-    border-color: rgba(0, 240, 255, 0.3);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    border-color: rgba(0, 210, 255, 0.35);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
 }
 
 .goal-item {
-    animation: fadeIn 0.3s ease;
+    animation: fadeIn 0.25s ease;
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-6px); }
+    from { opacity: 0; transform: translateY(-4px); }
     to { opacity: 1; transform: translateY(0); }
+}
+
+/* ==========================================================================
+   Form Controls (Inputs, Selects, Buttons) - Dark & Neon High-Contrast
+   ========================================================================== */
+input, select, textarea {
+    background-color: #0b1426 !important;
+    color: #ffffff !important;
+    border: 1px solid rgba(255, 255, 255, 0.18) !important;
+    border-radius: 0.75rem !important;
+    padding: 0.75rem 1rem !important;
+    font-size: 0.875rem !important;
+    line-height: 1.25rem !important;
+    transition: all 0.2s ease !important;
+}
+
+input:focus, select:focus, textarea:focus {
+    border-color: var(--color-brand-neon) !important;
+    outline: none !important;
+    box-shadow: 0 0 12px rgba(0, 210, 255, 0.3) !important;
+    background-color: #101c36 !important;
+    color: #ffffff !important;
+}
+
+input::placeholder, textarea::placeholder {
+    color: #64748b !important;
+    opacity: 1 !important;
+}
+
+/* Select dropdown arrow */
+select {
+    appearance: none !important;
+    -webkit-appearance: none !important;
+    -moz-appearance: none !important;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%2300d2ff' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M6 8l4 4 4-4'/%3e%3c/svg%3e") !important;
+    background-position: right 0.75rem center !important;
+    background-repeat: no-repeat !important;
+    background-size: 1.25em 1.25em !important;
+    padding-right: 2.5rem !important;
+    cursor: pointer;
+}
+
+select option {
+    background-color: #0b1426 !important;
+    color: #ffffff !important;
+    padding: 0.5rem;
+}
+
+/* Modal overlay & container */
+#matchModal, #playerModal {
+    backdrop-filter: blur(8px);
+}
+
+.modal-content {
+    background-color: #070d1d !important;
+    border: 1px solid rgba(0, 210, 255, 0.25) !important;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8), 0 0 30px rgba(0, 210, 255, 0.15) !important;
+}
+
+/* Score Inputs */
+#matchHomeScore, #matchAwayScore {
+    font-size: 1.5rem !important;
+    font-weight: 900 !important;
+    text-align: center !important;
+    background-color: #070c18 !important;
+    border-color: rgba(0, 210, 255, 0.25) !important;
+}
+
+#matchHomeScore:focus, #matchAwayScore:focus {
+    border-color: var(--color-brand-neon) !important;
+    box-shadow: 0 0 15px rgba(0, 210, 255, 0.4) !important;
+}
+
+/* Hide spin buttons on number inputs */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type="number"] {
+    -moz-appearance: textfield;
 }
