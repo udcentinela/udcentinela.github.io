@@ -58,7 +58,7 @@
         element,
         {
           x: options.x || 0,
-          y: options.y || 18,
+          y: options.y || 16,
           scale: options.scale || 1,
           opacity: 0,
         },
@@ -67,14 +67,14 @@
           y: finalY,
           scale: 1,
           opacity: 1,
-          duration: options.duration || 0.65,
+          duration: options.duration || 0.55,
           delay: options.delay ? options.delay(index) : 0,
           ease: options.ease || "power2.out",
           clearProps: options.clearProps || "opacity,transform",
           scrollTrigger: hasScrollTrigger
             ? {
                 trigger: element,
-                start: options.start || "top 88%",
+                start: options.start || "top 95%",
                 once: true,
               }
             : undefined,
@@ -352,5 +352,10 @@
   window.setTimeout(() => {
     const preloader = document.getElementById("preloader");
     if (preloader) closePreloader();
+    if (hasScrollTrigger) window.ScrollTrigger.refresh();
   }, 1600);
+
+  window.addEventListener("load", () => {
+    if (hasScrollTrigger) window.ScrollTrigger.refresh();
+  });
 })();

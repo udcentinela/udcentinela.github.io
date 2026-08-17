@@ -320,39 +320,143 @@ select:focus-visible {
     font-weight: 800 !important;
 }
 
-/* --- Marco y encuadre óptimo para fotos de jugadores (compacto para plantillas grandes) --- */
-.card-player-photo {
-    height: 160px;
-    background: radial-gradient(circle at 50% 15%, rgba(0, 82, 255, 0.2) 0%, rgba(3, 7, 18, 0.85) 75%);
-    position: relative;
-    overflow: hidden;
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-    padding-top: 8px;
+/* --- Cuadrícula de Plantilla Responsiva (Compacta y Proporcional) --- */
+.squad-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 0.85rem !important;
 }
 
-.card-player-photo img {
-    height: 100%;
-    width: 100%;
-    object-fit: contain;
-    object-position: bottom center;
-    position: relative;
-    z-index: 1;
-    filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.75));
-    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+@media (min-width: 640px) {
+    .squad-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+        gap: 1rem !important;
+    }
 }
 
-.team-card:hover .card-player-photo img {
-    transform: scale(1.05);
+@media (min-width: 768px) {
+    .squad-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+        gap: 1.15rem !important;
+    }
 }
 
-.card-player-placeholder {
-    height: 160px;
-    background: #0b1222;
-    position: relative;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+@media (min-width: 1024px) {
+    .squad-grid {
+        grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
+        gap: 1.25rem !important;
+    }
+}
+
+/* --- Tarjetas de Miembros Directiva / Cuerpo Técnico --- */
+.member-card {
+    background: rgba(255, 255, 255, 0.04) !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+    border-radius: 1.25rem !important;
+    color: inherit !important;
+    text-decoration: none !important;
+    display: flex !important;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease !important;
+}
+
+.member-card:hover {
+    background: rgba(255, 255, 255, 0.08) !important;
+    border-color: rgba(0, 210, 255, 0.5) !important;
+    transform: translateY(-3px) !important;
+}
+
+/* --- Tarjeta de Jugador en Grid --- */
+.player-card {
+    background: rgba(15, 23, 42, 0.6) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border-radius: 1rem !important;
+    overflow: hidden !important;
+    display: flex !important;
+    flex-direction: column !important;
+    text-decoration: none !important;
+    color: inherit !important;
+    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3) !important;
+}
+
+.player-card:hover {
+    border-color: rgba(0, 210, 255, 0.6) !important;
+    transform: translateY(-4px) !important;
+    box-shadow: 0 10px 25px rgba(0, 210, 255, 0.2) !important;
+}
+
+.player-card-photo {
+    height: 155px !important;
+    background: radial-gradient(circle at 50% 20%, rgba(0, 82, 255, 0.25) 0%, rgba(10, 16, 31, 0.95) 80%) !important;
+    position: relative !important;
+    overflow: hidden !important;
+    display: flex !important;
+    align-items: flex-end !important;
+    justify-content: center !important;
+    padding-top: 6px !important;
+}
+
+.player-card-photo img {
+    height: 100% !important;
+    width: 100% !important;
+    object-fit: contain !important;
+    object-position: bottom center !important;
+    position: relative !important;
+    z-index: 1 !important;
+    filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.85)) !important;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.player-card:hover .player-card-photo img {
+    transform: scale(1.06) !important;
+}
+
+.player-card-placeholder {
+    height: 155px !important;
+    background: radial-gradient(circle at 50% 30%, rgba(255, 255, 255, 0.05) 0%, rgba(10, 16, 31, 0.95) 80%) !important;
+    position: relative !important;
+    overflow: hidden !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+.player-card-placeholder svg {
+    width: 3.5rem !important;
+    height: 3.5rem !important;
+    color: rgba(255, 255, 255, 0.2) !important;
+    transition: color 0.25s ease !important;
+}
+
+.player-card:hover .player-card-placeholder svg {
+    color: rgba(0, 210, 255, 0.5) !important;
+}
+
+.player-card-info {
+    padding: 0.75rem 0.5rem !important;
+    text-align: center !important;
+    background: rgba(3, 7, 18, 0.75) !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.06) !important;
+}
+
+/* --- Perfil Individual de Jugador --- */
+.profile-avatar-box {
+    min-height: 280px !important;
+    background: radial-gradient(circle at 50% 30%, rgba(0, 82, 255, 0.2) 0%, rgba(3, 7, 18, 0.95) 85%) !important;
+    display: flex !important;
+    align-items: flex-end !important;
+    justify-content: center !important;
+    position: relative !important;
+    overflow: hidden !important;
+    padding: 1.5rem 1rem 0 !important;
+}
+
+.profile-avatar-box img {
+    max-height: 340px !important;
+    width: auto !important;
+    object-fit: contain !important;
+    object-position: bottom center !important;
+    position: relative !important;
+    z-index: 1 !important;
+    filter: drop-shadow(0 10px 25px rgba(0, 0, 0, 0.9)) !important;
 }
