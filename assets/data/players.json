@@ -18,6 +18,21 @@
       "matchesPlayed": 0
     },
     {
+      "id": "adrian-tejera",
+      "name": "Adrián Tejera",
+      "fullName": "Adrián Tejera",
+      "dorsal": 11,
+      "position": "Medio",
+      "role": "Capitán",
+      "status": "Confirmado",
+      "image": "/assets/img/tejera.webp",
+      "slug": "adrian-tejera",
+      "url": "/regional/adrian-tejera/",
+      "goals": 0,
+      "assists": 0,
+      "matchesPlayed": 0
+    },
+    {
       "id": "cuerpo-tecnico",
       "name": "Cuerpo Técnico",
       "fullName": "Entrenador y Ayudantes",
