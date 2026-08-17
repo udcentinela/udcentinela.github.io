@@ -319,3 +319,30 @@ select:focus-visible {
     color: #fde047 !important;
     font-weight: 800 !important;
 }
+
+/* --- Marco y encuadre óptimo para fotos de jugadores --- */
+.card-player-photo {
+    height: 230px;
+    background: radial-gradient(circle at 50% 20%, rgba(0, 82, 255, 0.25) 0%, rgba(3, 7, 18, 0.8) 75%);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding-top: 12px;
+}
+
+.card-player-photo img {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+    object-position: bottom center;
+    position: relative;
+    z-index: 1;
+    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.85));
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.team-card:hover .card-player-photo img {
+    transform: scale(1.05);
+}
