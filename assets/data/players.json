@@ -1,6 +1,6 @@
 {
   "season": "Temporada 2026/2027",
-  "lastUpdated": "2026-08-14",
+  "lastUpdated": "2026-08-17",
   "players": [
     {
       "id": "iriome",
@@ -13,7 +13,7 @@
       "image": "/assets/img/centinela1.webp",
       "slug": "iriome",
       "url": "/regional/iriome/",
-      "goals": 2,
+      "goals": 0,
       "assists": 0,
       "matchesPlayed": 0
     },
@@ -74,7 +74,7 @@
       "slug": "centrocampista-8",
       "url": "/regional/centrocampista-8/",
       "goals": 0,
-      "assists": 1,
+      "assists": 0,
       "matchesPlayed": 0
     },
     {

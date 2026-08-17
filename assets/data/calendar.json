@@ -1,59 +1,7 @@
 {
   "season": "Temporada 2026/2027",
-  "updated": "14/08/2026",
-  "nextMatch": {
-    "id": "match-1786718643818",
-    "round": "Jornada 0",
-    "date": "14/08/2026",
-    "time": "18:00",
-    "home": "UD Centinela",
-    "away": "CD Puerto Cruz B",
-    "venue": "Estadio El Molino",
-    "status": "finished",
-    "homeScore": 2,
-    "awayScore": 1,
-    "events": [
-      {
-        "type": "goal",
-        "minute": 24,
-        "scorerId": "iriome",
-        "assistId": "centrocampista-8"
-      },
-      {
-        "type": "goal",
-        "minute": 79,
-        "scorerId": "iriome",
-        "assistId": null
-      }
-    ]
-  },
-  "matches": [
-    {
-      "id": "match-1786718643818",
-      "round": "Jornada 0",
-      "date": "14/08/2026",
-      "time": "18:00",
-      "home": "UD Centinela",
-      "away": "CD Puerto Cruz B",
-      "venue": "Estadio El Molino",
-      "status": "finished",
-      "homeScore": 2,
-      "awayScore": 1,
-      "events": [
-        {
-          "type": "goal",
-          "minute": 24,
-          "scorerId": "iriome",
-          "assistId": "centrocampista-8"
-        },
-        {
-          "type": "goal",
-          "minute": 79,
-          "scorerId": "iriome",
-          "assistId": null
-        }
-      ]
-    }
-  ],
+  "updated": "",
+  "nextMatch": null,
+  "matches": [],
   "standings": []
 }
