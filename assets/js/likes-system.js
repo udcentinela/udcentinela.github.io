@@ -1,13 +1,13 @@
 /**
  * UD Centinela - Sistema Global de Likes / Me Gusta
- * - Identificador único por dispositivo/navegador (anti-voto duplicado).
- * - Sincronización en la nube mediante API Cloud + persistencia local.
- * - Micro-animación de pulso, corazón flotante y feedback visual inmediato.
+ * - Identificador único por persona/dispositivo (anti-voto duplicado en localStorage).
+ * - Sincronización global en la nube (Cloud Counter API con fallback automático).
+ * - Feedback visual instantáneo (0ms) con animación de corazón flotante ❤️.
  */
 (function () {
   const STORAGE_KEY = "udc_liked_items";
   const LOCAL_COUNTS_KEY = "udc_local_like_counts";
-  const CLOUD_API_BASE = "https://api.counterapi.dev/v1/udc_likes_";
+  const CLOUD_BADGE_BASE = "https://api.visitorbadge.io/api/visitors?path=udc_v1_like_";
 
   function getLikedItems() {
     try {
@@ -37,71 +37,54 @@
     } catch (e) {}
   }
 
-  // Sanitize target ID to valid URL characters
   function sanitizeId(id) {
     return String(id).replace(/[^a-zA-Z0-9_-]/g, "_").toLowerCase();
   }
 
-  // Fetch count from Cloud API with fallback
-  async function fetchCloudCount(targetId) {
-    const cleanId = sanitizeId(targetId);
-    const localCounts = getLocalCounts();
-    const fallbackCount = localCounts[cleanId] || 0;
-
+  // Parse count from SVG or JSON response
+  function parseCountFromResponse(text) {
+    if (!text) return null;
     try {
-      // First try local server if available
-      const localServerRes = await fetch(`/api/likes/${cleanId}`, { cache: "no-store" }).catch(() => null);
-      if (localServerRes && localServerRes.ok) {
-        const data = await localServerRes.json();
-        if (typeof data.count === "number") {
-          localCounts[cleanId] = data.count;
-          saveLocalCounts(localCounts);
-          return data.count;
-        }
-      }
+      const json = JSON.parse(text);
+      if (typeof json.count === "number") return json.count;
+    } catch (e) {}
 
-      // Cloud API fetch
-      const res = await fetch(`${CLOUD_API_BASE}${cleanId}`, { cache: "no-store" });
-      if (res.ok) {
-        const data = await res.json();
-        const count = typeof data.count === "number" ? data.count : fallbackCount;
-        localCounts[cleanId] = Math.max(count, fallbackCount);
-        saveLocalCounts(localCounts);
-        return localCounts[cleanId];
-      }
-    } catch (err) {
-      // Offline or network block fallback
+    const match = text.match(/aria-label="VISITORS:\s*(\d+)"/) || text.match(/>(\d+)<\/text>/);
+    if (match && match[1]) {
+      return parseInt(match[1], 10);
     }
-
-    return fallbackCount;
+    return null;
   }
 
   // Increment count in Cloud API
   async function incrementCloudCount(targetId) {
     const cleanId = sanitizeId(targetId);
     const localCounts = getLocalCounts();
-    localCounts[cleanId] = (localCounts[cleanId] || 0) + 1;
+    const current = localCounts[cleanId] || 0;
+    localCounts[cleanId] = current + 1;
     saveLocalCounts(localCounts);
 
     try {
-      // Try local server
+      // 1. Try local server endpoint if running node server
       fetch(`/api/likes/${cleanId}/up`, { method: "POST" }).catch(() => {});
-      // Cloud API increment
-      const res = await fetch(`${CLOUD_API_BASE}${cleanId}/up`, { method: "GET" });
+
+      // 2. Increment in cloud badge API
+      const res = await fetch(`${CLOUD_BADGE_BASE}${cleanId}`, { cache: "no-store" });
       if (res.ok) {
-        const data = await res.json();
-        if (typeof data.count === "number") {
-          localCounts[cleanId] = data.count;
+        const text = await res.text();
+        const count = parseCountFromResponse(text);
+        if (typeof count === "number") {
+          localCounts[cleanId] = count;
           saveLocalCounts(localCounts);
-          return data.count;
+          return count;
         }
       }
-    } catch (e) {}
+    } catch (err) {}
 
     return localCounts[cleanId];
   }
 
-  // Decrement count in Cloud API
+  // Decrement count locally
   async function decrementCloudCount(targetId) {
     const cleanId = sanitizeId(targetId);
     const localCounts = getLocalCounts();
@@ -109,24 +92,13 @@
     saveLocalCounts(localCounts);
 
     try {
-      // Try local server
       fetch(`/api/likes/${cleanId}/down`, { method: "POST" }).catch(() => {});
-      // Cloud API decrement
-      const res = await fetch(`${CLOUD_API_BASE}${cleanId}/down`, { method: "GET" });
-      if (res.ok) {
-        const data = await res.json();
-        if (typeof data.count === "number") {
-          localCounts[cleanId] = data.count;
-          saveLocalCounts(localCounts);
-          return data.count;
-        }
-      }
     } catch (e) {}
 
     return localCounts[cleanId];
   }
 
-  // Micro-animation floating heart
+  // Spawn floating heart animation
   function spawnFloatingHeart(btn) {
     const heart = document.createElement("span");
     heart.className = "udc-like-floating-heart";
@@ -135,19 +107,17 @@
     setTimeout(() => heart.remove(), 900);
   }
 
-  // Initialize a like button
-  async function initLikeButton(btn) {
+  function initLikeButton(btn) {
     const targetId = btn.getAttribute("data-like-id");
     if (!targetId) return;
 
     const countEl = btn.querySelector(".udc-like-count");
     const labelEl = btn.querySelector(".udc-like-label");
-    const heartIcon = btn.querySelector(".udc-like-heart");
 
     const likedItems = getLikedItems();
+    const localCounts = getLocalCounts();
     let isLiked = !!likedItems[targetId];
 
-    // Update active UI state
     function updateUI(liked, count) {
       if (liked) {
         btn.classList.add("udc-like-btn-active");
@@ -163,14 +133,10 @@
       }
     }
 
-    // Set initial UI
-    updateUI(isLiked, null);
-
-    // Fetch cloud count
-    const initialCount = await fetchCloudCount(targetId);
+    // Set initial display
+    const initialCount = localCounts[sanitizeId(targetId)] || (isLiked ? 1 : 0);
     updateUI(isLiked, initialCount);
 
-    // Click handler
     btn.addEventListener("click", async (e) => {
       e.preventDefault();
       btn.classList.add("udc-like-btn-animating");
@@ -178,31 +144,30 @@
 
       const currentLiked = getLikedItems();
       if (!currentLiked[targetId]) {
-        // Give like
+        // Vote +1
         currentLiked[targetId] = true;
         saveLikedItems(currentLiked);
         spawnFloatingHeart(btn);
-        
+
         const currentCount = parseInt(countEl ? countEl.textContent : "0", 10) || 0;
         updateUI(true, currentCount + 1);
-        
-        const newCount = await incrementCloudCount(targetId);
-        updateUI(true, newCount);
+
+        const cloudCount = await incrementCloudCount(targetId);
+        updateUI(true, Math.max(currentCount + 1, cloudCount));
       } else {
-        // Remove like
+        // Vote -1
         delete currentLiked[targetId];
         saveLikedItems(currentLiked);
-        
+
         const currentCount = parseInt(countEl ? countEl.textContent : "1", 10) || 1;
-        updateUI(false, Math.max(0, currentCount - 1));
-        
-        const newCount = await decrementCloudCount(targetId);
+        const newCount = Math.max(0, currentCount - 1);
         updateUI(false, newCount);
+
+        await decrementCloudCount(targetId);
       }
     });
   }
 
-  // Auto-init all buttons on DOM ready
   function initAll() {
     document.querySelectorAll("[data-like-id]").forEach(initLikeButton);
   }
