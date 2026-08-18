@@ -3,37 +3,198 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UD Centinela | La memoria viva del fútbol icodense toma forma</title>
-    <link rel="icon" href="/favicon.ico">
-    <link rel="manifest" href="/site.webmanifest">
+    <title>UD Centinela | {{TITLE}}</title>
+    <meta name="google-site-verification" content="d5P-lVf1Ztgx4HS92B6wuiJH1yU3vwiEYMzmAcoaGBQ" />
     
     <!-- Fuentes: Montserrat para títulos impactantes, Inter para lectura -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Montserrat:wght@700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/assets/css/site.css">
-    <link rel="stylesheet" href="/assets/css/common.css">
+    <link rel="stylesheet" href="/assets/css/site.css?v=20260629_rgb">
+    <link rel="stylesheet" href="/assets/css/common.css?v=20260629_rgb">
 
-    
+    <style>
+        body {
+            background-color: var(--color-brand-dark);
+            color: #ffffff;
+            overflow-x: hidden;
+            background-image: radial-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 30px 30px;
+        }
 
-    <meta name="description" content="La web incorpora espacios para preservar la historia, la identidad del escudo y el legado de quienes abrieron camino.">
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--color-brand-dark); 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--color-brand-blue); 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--color-brand-neon); 
+        }
+
+        .text-glow {
+            text-shadow: 0 0 10px var(--color-brand-neon);
+        }
+
+        .hero-gradient {
+            background: radial-gradient(circle at center, var(--hero-glow) 0%, var(--color-brand-dark) 70%);
+        }
+
+        .text-gradient {
+            background: linear-gradient(to right, #ffffff, var(--color-brand-neon));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .profile-card {
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(12px);
+        }
+
+        .article-shell {
+            padding-top: 8rem;
+        }
+
+        .article-body p {
+            margin-bottom: 1.5rem;
+        }
+
+        .article-back {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .mobile-menu-button {
+            min-width: 44px;
+            min-height: 44px;
+        }
+
+        .mobile-menu {
+            background: rgb(var(--color-brand-dark-rgb) / 0.96);
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 24px 80px rgba(0, 0, 0, 0.45);
+        }
+
+        .mobile-menu[hidden] {
+            display: none;
+        }
+
+        .mobile-nav-link {
+            min-height: 52px;
+        }
+
+        .mobile-nav-link.nav-link-active {
+            background: rgb(var(--color-brand-neon-rgb) / 0.1);
+            border-color: rgb(var(--color-brand-neon-rgb) / 0.35);
+        }
+
+        #preloader {
+            position: fixed;
+            inset: 0;
+            background: var(--color-brand-dark);
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            opacity: 1;
+            visibility: visible;
+            transform: translateZ(0);
+            transition: opacity 0.55s ease, visibility 0.55s ease;
+            will-change: opacity;
+        }
+
+        #preloader h2 {
+            opacity: 0.35;
+            transform: translateY(8px) scale(0.97);
+            filter: blur(4px);
+            letter-spacing: 0.24em;
+            text-shadow: 0 0 24px rgb(var(--color-brand-neon-rgb) / 0.18);
+            transition: opacity 0.8s ease, transform 0.8s ease, filter 0.8s ease, letter-spacing 0.8s ease;
+        }
+
+        #preloader.is-ready h2 {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+            filter: blur(0);
+            letter-spacing: 0.32em;
+        }
+
+        #preloader .loader-line {
+            width: min(160px, 42vw);
+            transform: scaleX(0);
+            transform-origin: left center;
+            background: linear-gradient(90deg, var(--color-brand-blue), var(--color-brand-neon));
+            box-shadow: 0 0 12px var(--color-brand-neon-glow);
+        }
+
+        #preloader.is-ready .loader-line {
+            transform: scaleX(1);
+        }
+
+        #preloader.is-leaving {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        #preloader.is-leaving h2 {
+            opacity: 0;
+            transform: translateY(-8px) scale(1.03);
+            filter: blur(3px);
+        }
+
+        body > :not(#preloader) {
+            transition: opacity 0.16s ease;
+        }
+
+        body.page-leaving > :not(#preloader) {
+            opacity: 0.72;
+        }
+    </style>
+    <meta name="description" content="{{EXCERPT}}">
     <meta name="robots" content="index,follow">
-    <link rel="canonical" href="https://udcentinela.github.io/noticias/memoria-viva-icod/">
+    <link rel="canonical" href="https://udcentinela.github.io/noticias/{{SLUG}}/">
     <link rel="icon" href="/favicon.ico">
     <link rel="apple-touch-icon" href="/assets/img/logo-nav.webp">
     <link rel="manifest" href="/site.webmanifest">
     <meta name="theme-color" content="#020617">
     <meta property="og:type" content="article">
     <meta property="og:site_name" content="UD Centinela">
-    <meta property="og:title" content="La memoria viva del fútbol icodense toma forma">
-    <meta property="og:description" content="La web incorpora espacios para preservar la historia, la identidad del escudo y el legado de quienes abrieron camino.">
-    <meta property="og:url" content="https://udcentinela.github.io/noticias/memoria-viva-icod/">
-    <meta property="og:image" content="https://udcentinela.github.io/assets/img/centinela1.webp">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="La memoria viva del fútbol icodense toma forma">
-    <meta name="twitter:description" content="La web incorpora espacios para preservar la historia, la identidad del escudo y el legado de quienes abrieron camino.">
-    <meta name="twitter:image" content="https://udcentinela.github.io/assets/img/centinela1.webp">
-    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "NewsArticle", "headline": "La memoria viva del fútbol icodense toma forma", "description": "La web incorpora espacios para preservar la historia, la identidad del escudo y el legado de quienes abrieron camino.", "image": ["https://udcentinela.github.io/assets/img/centinela1.webp"], "datePublished": "2026-06-17T09:00:00", "dateModified": "2026-06-17T09:00:00", "author": {"@type": "Organization", "name": "UD Centinela"}, "publisher": {"@type": "Organization", "name": "UD Centinela", "logo": {"@type": "ImageObject", "url": "https://udcentinela.github.io/assets/img/logo-nav.webp"}}, "mainEntityOfPage": "https://udcentinela.github.io/noticias/memoria-viva-icod/"}</script>
+    <meta property="og:title" content="UD Centinela | {{TITLE}}">
+    <meta property="og:description" content="{{EXCERPT}}">
+    <meta property="og:url" content="https://udcentinela.github.io/noticias/{{SLUG}}/">
+    <meta property="og:image" content="{{IMAGE}}">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "{{TITLE_JSON}}",
+      "description": "{{EXCERPT_JSON}}",
+      "image": ["https://udcentinela.github.io{{IMAGE}}"],
+      "datePublished": "{{DATE_ISO}}",
+      "dateModified": "{{DATE_MODIFIED_ISO}}",
+      "author": {
+        "@type": "Organization",
+        "name": "UD Centinela",
+        "url": "https://udcentinela.github.io/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "UD Centinela",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://udcentinela.github.io/assets/img/logo-nav.webp"
+        }
+      },
+      "mainEntityOfPage": "https://udcentinela.github.io/noticias/{{SLUG}}/"
+    }
+    </script>
 </head>
 <body class="antialiased selection:bg-brand-neon selection:text-brand-dark">
     <!-- Preloader -->
@@ -59,7 +220,6 @@
                         <a href="/historia/" class="text-gray-300 hover:text-brand-neon transition-colors px-3 py-2 text-sm font-medium tracking-wide">HISTORIA</a>
                         <a href="/identidad/" class="text-gray-300 hover:text-brand-neon transition-colors px-3 py-2 text-sm font-medium tracking-wide">IDENTIDAD</a>
                         <a href="/legado/" class="text-gray-300 hover:text-brand-neon transition-colors px-3 py-2 text-sm font-medium tracking-wide">LEGADO</a>
-                        <!-- Botón de alternancia en navbar (escritorio) -->
                         <button id="themeToggleBtnNavbar" class="text-gray-300 hover:text-brand-neon transition-colors p-2 rounded-xl flex items-center justify-center group relative ml-2" aria-label="Alternar colores">
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5c1.38 0 2.5 1 2.5 2.25v.75c0 .414.336.75.75.75H18c.552 0 1 .448 1 1V11c0 .552-.448 1-1 1h-1.5c-.414 0-.75.336-.75.75V20c0 .552-.448 1-1 1H9.25c-.552 0-1-.448-1-1v-7.25c0-.414-.336-.75-.75-.75H6c-.552 0-1-.448-1-1V9.25c0-.552.448-1 1-1h2.75c.414 0 .75-.336.75-.75v-.75c0-1.25 1.12-2.25 2.5-2.25z"/>
@@ -84,29 +244,67 @@
                 <a href="/historia/" class="mobile-nav-link flex items-center justify-between rounded-xl border border-white/5 px-4 py-3 text-base font-bold tracking-widest text-gray-200 hover:border-brand-neon/40 hover:bg-white/5 hover:text-brand-neon transition-colors"><span>HISTORIA</span><svg class="w-4 h-4 text-brand-neon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg></a>
                 <a href="/identidad/" class="mobile-nav-link flex items-center justify-between rounded-xl border border-white/5 px-4 py-3 text-base font-bold tracking-widest text-gray-200 hover:border-brand-neon/40 hover:bg-white/5 hover:text-brand-neon transition-colors"><span>IDENTIDAD</span><svg class="w-4 h-4 text-brand-neon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg></a>
                 <a href="/legado/" class="mobile-nav-link flex items-center justify-between rounded-xl border border-white/5 px-4 py-3 text-base font-bold tracking-widest text-gray-200 hover:border-brand-neon/40 hover:bg-white/5 hover:text-brand-neon transition-colors"><span>LEGADO</span><svg class="w-4 h-4 text-brand-neon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg></a>
-                <!-- Botón de alternancia en navbar (móvil) -->
-                <button id="themeToggleBtnMobile" class="mobile-nav-link flex items-center justify-between rounded-xl border border-white/5 px-4 py-3 text-base font-bold tracking-widest text-gray-200 hover:border-brand-neon/40 hover:bg-white/5 hover:text-brand-neon transition-colors mt-2" aria-label="Alternar colores">
-                    <span class="flex items-center gap-3">
-                        <svg class="w-5 h-5 text-brand-neon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5c1.38 0 2.5 1 2.5 2.25v.75c0 .414.336.75.75.75H18c.552 0 1 .448 1 1V11c0 .552-.448 1-1 1h-1.5c-.414 0-.75.336-.75.75V20c0 .552-.448 1-1 1H9.25c-.552 0-1-.448-1-1v-7.25c0-.414-.336-.75-.75-.75H6c-.552 0-1-.448-1-1V9.25c0-.552.448-1 1-1h2.75c.414 0 .75-.336.75-.75v-.75c0-1.25 1.12-2.25 2.5-2.25z"/>
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M9.5 6.75c.7-.75 1.8-.75 2.5 0"/>
-                        </svg>
-                        <span>EQUIPACI&Oacute;N</span>
-                    </span>
-                    <span class="text-xs text-brand-neon opacity-80 uppercase font-black">Alternar colores</span>
-                </button>
             </div>
         </div>
-        </div>
     </nav>
-    <script src="/assets/js/mobile-nav.js"></script>
 
-    
-    <article id="noticia" class="article-shell relative min-h-screen pb-24 bg-brand-dark overflow-hidden">
+    <script>
+        (function () {
+            function initMobileNavigationEarly() {
+                if (window.__centinelaMobileNavReady) return;
+                const toggle = document.getElementById('mobileMenuToggle');
+                const menu = document.getElementById('mobileMenu');
+                if (!toggle || !menu) return;
+                window.__centinelaMobileNavReady = true;
+                const openIcon = toggle.querySelector('.mobile-menu-open');
+                const closeIcon = toggle.querySelector('.mobile-menu-close');
+                const setOpen = (isOpen) => {
+                    toggle.setAttribute('aria-expanded', String(isOpen));
+                    toggle.setAttribute('aria-label', isOpen ? 'Cerrar menú de navegación' : 'Abrir menú de navegación');
+                    menu.hidden = !isOpen;
+                    document.body.classList.toggle('overflow-hidden', isOpen);
+                    openIcon?.classList.toggle('hidden', isOpen);
+                    closeIcon?.classList.toggle('hidden', !isOpen);
+                };
+                toggle.addEventListener('click', () => {
+                    setOpen(toggle.getAttribute('aria-expanded') !== 'true');
+                });
+                menu.querySelectorAll('a').forEach((link) => {
+                    link.addEventListener('click', () => setOpen(false));
+                });
+                document.addEventListener('keydown', (event) => {
+                    if (event.key === 'Escape') setOpen(false);
+                });
+                document.addEventListener('click', (event) => {
+                    if (toggle.getAttribute('aria-expanded') !== 'true') return;
+                    if (menu.contains(event.target) || toggle.contains(event.target)) return;
+                    setOpen(false);
+                });
+                window.addEventListener('resize', () => {
+                    if (window.innerWidth >= 1024) setOpen(false);
+                });
+                setOpen(false);
+            }
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', initMobileNavigationEarly, { once: true });
+            } else {
+                initMobileNavigationEarly();
+            }
+            window.setTimeout(() => {
+                const preloader = document.getElementById('preloader');
+                if (!preloader || getComputedStyle(preloader).display === 'none') return;
+                preloader.style.opacity = '0';
+                preloader.style.visibility = 'hidden';
+                preloader.style.pointerEvents = 'none';
+            }, 3500);
+        })();
+    </script>
+
+    <article class="article-shell relative min-h-screen pb-24 bg-brand-dark overflow-hidden">
         <div class="absolute inset-0 hero-gradient"></div>
         <div class="absolute top-20 right-0 w-[720px] h-[720px] bg-brand-blue/10 rounded-full blur-[150px] pointer-events-none"></div>
 
-        <div class="relative z-10 max-w-5xl mx-auto px-6 lg:px-8">
+        <div class="relative z-10 max-w-4xl mx-auto px-6 lg:px-8">
             <a href="/noticias/" class="article-back inline-flex items-center text-brand-neon font-bold tracking-widest uppercase text-xs mb-10 hover:text-white transition-colors">
                 <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 12H5m7 7l-7-7 7-7"></path></svg>
                 Volver a Noticias
@@ -114,26 +312,24 @@
 
             <header class="profile-card text-center mb-12">
                 <div class="flex flex-wrap justify-center items-center gap-3 mb-6">
-                    <span id="articleCategory" class="bg-brand-neon text-brand-dark font-black px-3 py-1 rounded text-xs tracking-widest uppercase">Historia</span>
-                    <span id="articleDate" class="text-gray-500 text-sm">17/06/2026</span>
+                    <span id="articleCategory" class="bg-brand-neon text-brand-dark font-black px-3 py-1 rounded text-xs tracking-widest uppercase">{{CATEGORY}}</span>
+                    <span id="articleDate" class="text-gray-500 text-sm">{{DATE}}</span>
                     <span class="text-gray-600 text-sm">/</span>
-                    <span id="articleReading" class="text-gray-500 text-sm">2 min lectura</span>
+                    <span id="articleReading" class="text-gray-500 text-sm">{{READING}}</span>
                 </div>
-                <h1 id="articleTitle" class="font-heading text-4xl md:text-7xl font-black text-white leading-none mb-7">La memoria viva del fútbol icodense toma forma</h1>
-                <p id="articleExcerpt" class="text-gray-300 text-xl leading-relaxed max-w-3xl mx-auto">La web incorpora espacios para preservar la historia, la identidad del escudo y el legado de quienes abrieron camino.</p>
+                <h1 id="articleTitle" class="font-heading text-4xl md:text-7xl font-black text-white leading-none mb-7">{{TITLE}}</h1>
+                <p id="articleExcerpt" class="text-gray-300 text-xl leading-relaxed max-w-3xl mx-auto">{{EXCERPT}}</p>
             </header>
 
-            <div class="profile-card bg-white/5 border border-brand-neon/20 rounded-3xl overflow-hidden mb-10 shadow-neon">
-                <div class="relative h-[360px] md:h-[560px] bg-[#050b18] flex items-center justify-center p-3 md:p-5">
-                    <img id="articleImage" src="/assets/img/centinela1.webp" alt="Historia del Centinela" class="relative w-full h-full object-contain">
+            <div class="profile-card bg-white/5 border border-brand-neon/30 rounded-3xl overflow-hidden mb-10 shadow-neon">
+                <div class="relative min-h-[340px] md:min-h-[440px] flex items-center justify-center overflow-hidden">
+                    <img id="articleImage" src="{{IMAGE}}" alt="{{IMAGE_ALT}}" class="w-full h-full max-h-[500px] object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-brand-dark/90 via-transparent to-transparent"></div>
                 </div>
             </div>
 
-            <p id="articleError" class="hidden mb-6 rounded-2xl border border-red-400/30 bg-red-500/10 p-4 text-sm text-red-200"></p>
-            <div id="articleBody" class="profile-card article-body profile-stat rounded-3xl p-7 md:p-10 text-gray-300 text-lg leading-relaxed">
-                <p>El Centinela no regresa desde cero. Regresa desde una historia que ya existía, hecha de campos de tierra, rivalidades sanas, camisetas sudadas y conversaciones que todavía sobreviven en la voz de los más veteranos.</p>
-                <p>La nueva web nace para ordenar esa memoria y convertirla en un punto de encuentro. La sección de Historia recoge el origen del club; Identidad explica los símbolos del escudo; y Legado guarda el tono emocional de lo que representó el equipo.</p>
-                <p>La intención es que este archivo siga creciendo con fotografías, testimonios y documentos aportados por aficionados y familias vinculadas al fútbol de Icod.</p>
+            <div id="articleBody" class="profile-card article-body profile-stat rounded-3xl p-7 md:p-10 text-gray-300 text-lg leading-relaxed space-y-6">
+                {{BODY}}
             </div>
 
             <!-- Like Bar -->
@@ -143,7 +339,7 @@
                     <p class="text-gray-400 text-xs mt-0.5">Apoya al equipo y al proyecto del UD Centinela</p>
                 </div>
                 <div class="udc-like-container">
-                    <button type="button" class="udc-like-btn" data-like-id="news_memoria_viva_icod" aria-label="Dar me gusta a la noticia">
+                    <button type="button" class="udc-like-btn" data-like-id="news_{{SLUG}}" aria-label="Dar me gusta a la noticia">
                         <svg class="udc-like-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
                         <span class="udc-like-label">Me gusta</span>
                         <span class="udc-like-count">0</span>
@@ -152,7 +348,8 @@
             </div>
         </div>
     </article>
-<!-- Footer -->
+
+    <!-- Footer -->
     <footer class="bg-brand-dark py-12 border-t border-white/5 relative z-10">
         <div class="max-w-7xl mx-auto px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center">
             <div class="mb-6 md:mb-0 text-center md:text-left">
@@ -169,7 +366,6 @@
         </div>
     </footer>
 
-    
     <!-- Motion -->
     <script src="/assets/js/gsap.min.js"></script>
     <script src="/assets/js/ScrollTrigger.min.js"></script>
@@ -186,5 +382,3 @@
     </button>
 </body>
 </html>
-
-

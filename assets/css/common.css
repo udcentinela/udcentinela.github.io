@@ -460,3 +460,104 @@ select:focus-visible {
     z-index: 1 !important;
     filter: drop-shadow(0 10px 25px rgba(0, 0, 0, 0.9)) !important;
 }
+
+/* --- Sistema de Likes / Me Gusta --- */
+.udc-like-container {
+    display: inline-flex;
+    align-items: center;
+    position: relative;
+    user-select: none;
+}
+
+.udc-like-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.65rem 1.25rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 9999px;
+    color: #e2e8f0;
+    font-weight: 700;
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: visible;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(8px);
+}
+
+.udc-like-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(239, 68, 68, 0.5);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(239, 68, 68, 0.25);
+}
+
+.udc-like-btn:active, .udc-like-btn-animating {
+    transform: scale(0.94);
+}
+
+.udc-like-heart {
+    width: 1.25rem;
+    height: 1.25rem;
+    color: #94a3b8;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), color 0.25s ease;
+}
+
+.udc-like-btn:hover .udc-like-heart {
+    color: #f87171;
+    transform: scale(1.18);
+}
+
+.udc-like-btn-active {
+    background: rgba(239, 68, 68, 0.12) !important;
+    border-color: rgba(239, 68, 68, 0.6) !important;
+    color: #fca5a5 !important;
+    box-shadow: 0 0 20px rgba(239, 68, 68, 0.3) !important;
+}
+
+.udc-like-btn-active .udc-like-heart {
+    color: #ef4444 !important;
+    fill: #ef4444 !important;
+    transform: scale(1.15) !important;
+    filter: drop-shadow(0 0 6px rgba(239, 68, 68, 0.6));
+}
+
+.udc-like-count {
+    background: rgba(0, 0, 0, 0.35);
+    padding: 0.15rem 0.6rem;
+    border-radius: 9999px;
+    font-size: 0.8rem;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    min-width: 1.8rem;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.udc-like-floating-heart {
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    pointer-events: none;
+    animation: floatLikeHeart 0.9s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+    z-index: 50;
+}
+
+@keyframes floatLikeHeart {
+    0% {
+        opacity: 1;
+        transform: translate(-50%, 0) scale(0.6);
+    }
+    50% {
+        opacity: 0.9;
+        transform: translate(-50%, -28px) scale(1.3);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(-50%, -50px) scale(1.6);
+    }
+}

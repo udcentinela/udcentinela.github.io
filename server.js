@@ -7,6 +7,7 @@ const { exec } = require('child_process');
 const PORT = process.env.PORT || 3000;
 const REPO_DIR = __dirname;
 const NEWS_JSON_PATH = path.join(REPO_DIR, 'assets', 'data', 'news.json');
+const LIKES_JSON_PATH = path.join(REPO_DIR, 'assets', 'data', 'likes.json');
 const TEMPLATE_PATH = path.join(REPO_DIR, 'assets', 'data', 'article_template.html');
 const NOTICIAS_INDEX_PATH = path.join(REPO_DIR, 'noticias', 'index.html');
 const SITEMAP_PATH = path.join(REPO_DIR, 'sitemap.xml');
@@ -426,6 +427,43 @@ function handleApiRequest(req, res, url) {
     } catch (e) {
       res.writeHead(500);
       return res.end(JSON.stringify({ error: 'Error al leer la base de datos de noticias.' }));
+    }
+  }
+
+  // --- Likes API (Public) ---
+  if (url.pathname.startsWith('/api/likes/')) {
+    const parts = url.pathname.replace('/api/likes/', '').split('/');
+    const targetId = decodeURIComponent(parts[0]);
+    const action = parts[1]; // undefined, 'up', or 'down'
+
+    let likesData = {};
+    if (fs.existsSync(LIKES_JSON_PATH)) {
+      try {
+        likesData = JSON.parse(fs.readFileSync(LIKES_JSON_PATH, 'utf8'));
+      } catch (e) {
+        likesData = {};
+      }
+    }
+
+    if (req.method === 'GET' && !action) {
+      const count = likesData[targetId] || 0;
+      return res.end(JSON.stringify({ targetId, count }));
+    }
+
+    if (req.method === 'POST' && action === 'up') {
+      likesData[targetId] = (likesData[targetId] || 0) + 1;
+      try {
+        fs.writeFileSync(LIKES_JSON_PATH, JSON.stringify(likesData, null, 2), 'utf8');
+      } catch (e) {}
+      return res.end(JSON.stringify({ targetId, count: likesData[targetId] }));
+    }
+
+    if (req.method === 'POST' && action === 'down') {
+      likesData[targetId] = Math.max(0, (likesData[targetId] || 1) - 1);
+      try {
+        fs.writeFileSync(LIKES_JSON_PATH, JSON.stringify(likesData, null, 2), 'utf8');
+      } catch (e) {}
+      return res.end(JSON.stringify({ targetId, count: likesData[targetId] }));
     }
   }
   
