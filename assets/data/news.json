@@ -1,6 +1,22 @@
 {
   "items": [
     {
+      "slug": "nuevo-fichaje-aday",
+      "title": "Nuevo Fichaje - Aday",
+      "category": "Fichajes",
+      "date": "18/08/2026",
+      "reading": "2 min",
+      "excerpt": "La Unión Deportiva Centinela incorpora a Aday para la temporada en Regional, reforzando la banda izquierda con juventud, polivalencia y recorrido en el lateral e interior.",
+      "image": "/assets/img/aday.webp",
+      "imageAlt": "Aday - UD Centinela",
+      "body": [
+        "La Unión Deportiva Centinela suma una nueva pieza de gran proyección a su proyecto deportivo con la incorporación de Aday de cara a la temporada en categoría Regional.",
+        "Aday es un futbolista jovencísimo que destaca por su extraordinaria polivalencia táctica a lo largo de toda la banda izquierda. Puede desempeñarse con total soltura tanto en el lateral zurdo como en posiciones más adelantadas de interior o carrilero.",
+        "Su velocidad, capacidad de trabajo, desborde y despliegue físico aportarán profundidad, intensidad y frescura al carril zurdo del conjunto centinelista.",
+        "Con este fichaje, el club continúa consolidando un grupo que combina ambición, juventud y compromiso colectivo para competir al máximo nivel."
+      ]
+    },
+    {
       "slug": "nuevo-fichaje-pablo",
       "title": "Nuevo Fichaje - Pablo",
       "category": "Fichajes",

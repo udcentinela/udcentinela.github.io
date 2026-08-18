@@ -48,6 +48,21 @@
       "matchesPlayed": 0
     },
     {
+      "id": "aday",
+      "name": "Aday",
+      "fullName": "Aday",
+      "dorsal": null,
+      "position": "Lateral / Interior Izquierdo",
+      "role": "Defensa / Medio",
+      "status": "Confirmado",
+      "image": "/assets/img/aday.webp",
+      "slug": "aday",
+      "url": "/regional/aday/",
+      "goals": 0,
+      "assists": 0,
+      "matchesPlayed": 0
+    },
+    {
       "id": "cuerpo-tecnico",
       "name": "Cuerpo Técnico",
       "fullName": "Entrenador y Ayudantes",
