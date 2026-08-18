@@ -16,11 +16,50 @@
       if (pathname && pathname !== 'regional') {
         renderProfileStats(pathname, playersData, calendarData);
       } else if (window.location.pathname.includes('/regional/')) {
-        renderOverviewBadges(playersData);
+        renderSquadGrid(playersData);
       }
     } catch (e) {
       console.warn('No se pudieron cargar estadísticas en vivo:', e);
     }
+  }
+
+  function renderSquadGrid(playersData) {
+    const squadGrid = document.querySelector('.squad-grid');
+    if (!squadGrid || !playersData || !Array.isArray(playersData.players)) return;
+
+    // Filter squad players (exclude staff like cuerpo-tecnico or iriome who are in top cards)
+    const squadPlayers = playersData.players.filter(p => p.id !== 'cuerpo-tecnico' && p.id !== 'iriome');
+    if (squadPlayers.length === 0) return;
+
+    squadGrid.innerHTML = squadPlayers.map(player => {
+      const isCaptain = player.role === 'Capitán' || (player.role && player.role.includes('Capitán'));
+      const hasRealPhoto = player.image && !player.image.includes('centinela1.webp') && !player.image.includes('centinela-2.webp');
+      const photoSrc = player.image || `/assets/img/${player.id}.webp`;
+
+      return `
+        <a href="${player.url || `/regional/${player.slug || player.id}/`}" class="player-card group" style="border-color: rgba(0, 210, 255, 0.35);">
+            <div class="${hasRealPhoto ? 'player-card-photo' : 'player-card-placeholder'}">
+                <div class="absolute inset-0 bg-gradient-to-t from-brand-dark/90 via-transparent to-transparent z-10 pointer-events-none"></div>
+                ${hasRealPhoto 
+                  ? `<img src="${photoSrc}" alt="${player.name}" class="relative z-0" onerror="this.parentElement.className='player-card-placeholder'; this.remove();">` 
+                  : `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>`}
+                <div class="absolute top-2.5 right-2.5 z-20 flex items-center gap-1">
+                    ${player.dorsal ? `<span class="bg-brand-neon text-brand-dark font-black px-2 py-0.5 rounded-md text-[11px] shadow-sm">#${player.dorsal}</span>` : ''}
+                    ${isCaptain ? `<span class="badge-captain-solid px-2 py-0.5 rounded-md text-[9px] uppercase shadow-sm">Capitán</span>` : ''}
+                </div>
+            </div>
+            <div class="player-card-info">
+                <h4 class="font-heading font-bold text-sm sm:text-base text-white group-hover:text-brand-neon transition-colors truncate">${player.name}</h4>
+                <p class="text-brand-neon text-xs font-medium mt-0.5">${player.position || 'Jugador'}</p>
+                <div class="flex items-center gap-2 mt-2">
+                  <p class="text-[10px] text-gray-500 font-bold tracking-widest uppercase group-hover:text-gray-300 transition-colors">Ver ficha</p>
+                  ${player.goals > 0 ? `<span class="px-1.5 py-0.5 rounded bg-brand-neon/20 border border-brand-neon/40 text-brand-neon text-[10px] font-black">⚽ ${player.goals}</span>` : ''}
+                  ${player.assists > 0 ? `<span class="px-1.5 py-0.5 rounded bg-cyan-400/20 border border-cyan-400/40 text-cyan-300 text-[10px] font-black">👟 ${player.assists}</span>` : ''}
+                </div>
+            </div>
+        </a>
+      `;
+    }).join('');
   }
 
   function renderProfileStats(playerSlug, playersData, calendarData) {
@@ -35,7 +74,6 @@
     if (player.role !== 'Staff Técnico' && player.position !== 'Dirección Técnica') {
       const existingStats = statsGrid.querySelectorAll('.profile-stat');
       if (existingStats.length >= 4) {
-        // Replace or enhance season stats
         existingStats[2].innerHTML = `
           <p class="text-brand-neon text-xs font-bold tracking-widest uppercase mb-2">⚽ Goles Temporada</p>
           <p class="text-white font-heading text-2xl font-black">${player.goals || 0}</p>
@@ -56,7 +94,7 @@
             playerEvents.push({
               type: 'goal',
               round: match.round || 'Jornada',
-              opponent: match.home.includes('Centinela') ? match.away : match.home,
+              opponent: match.home && match.home.includes('Centinela') ? match.away : match.home,
               minute: evt.minute,
               date: match.date
             });
@@ -64,7 +102,7 @@
             playerEvents.push({
               type: 'assist',
               round: match.round || 'Jornada',
-              opponent: match.home.includes('Centinela') ? match.away : match.home,
+              opponent: match.home && match.home.includes('Centinela') ? match.away : match.home,
               minute: evt.minute,
               date: match.date
             });
@@ -95,25 +133,6 @@
       `;
       profileCard.appendChild(historyCard);
     }
-  }
-
-  function renderOverviewBadges(playersData) {
-    document.querySelectorAll('a[href*="/regional/"]').forEach(card => {
-      const href = card.getAttribute('href');
-      const slug = href.replace(/\/$/, '').split('/').pop();
-      const player = playersData.players.find(p => p.id === slug || p.slug === slug);
-      if (player && (player.goals > 0 || player.assists > 0)) {
-        const badge = document.createElement('div');
-        badge.className = 'mt-3 flex items-center gap-2';
-        if (player.goals > 0) {
-          badge.innerHTML += `<span class="px-2 py-0.5 rounded-md bg-brand-neon/20 border border-brand-neon/40 text-brand-neon text-xs font-black">⚽ ${player.goals}</span>`;
-        }
-        if (player.assists > 0) {
-          badge.innerHTML += `<span class="px-2 py-0.5 rounded-md bg-cyan-400/20 border border-cyan-400/40 text-cyan-300 text-xs font-black">👟 ${player.assists}</span>`;
-        }
-        card.querySelector('.group-hover\\:text-brand-neon')?.parentElement?.appendChild(badge);
-      }
-    });
   }
 
   if (document.readyState === 'loading') {
