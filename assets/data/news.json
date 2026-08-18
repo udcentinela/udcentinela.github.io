@@ -1,0 +1,65 @@
+{
+  "items": [
+    {
+      "slug": "nuevo-fichaje-adrian-tejera",
+      "title": "Nuevo Fichaje - Adrián Tejera",
+      "category": "Fichajes",
+      "date": "18/08/2026",
+      "reading": "2 min",
+      "excerpt": "La Unión Deportiva Centinela incorpora a Adrián Tejera para la temporada en Regional, asumiendo además la capitanía del equipo con el dorsal 11.",
+      "image": "/assets/img/adrian-tejera.webp",
+      "imageAlt": "Adrián Tejera - UD Centinela",
+      "body": [
+        "La Unión Deportiva Centinela suma una nueva pieza a su proyecto deportivo con la llegada de Adrián Tejera de cara a la presente temporada en la categoría Regional.",
+        "Adrián puede actuar tanto en el centro del campo como en banda (Medio / Extremo), destacando por su polivalencia táctica, despliegue físico y visión de juego. Su experiencia en el fútbol insular aportará un punto de veteranía, equilibrio y trabajo colectivo a un vestuario que combina juventud con ganas de competir.",
+        "Además de reforzar la línea medular, Tejera lucirá el dorsal 11 a la espalda y asumirá el rol de capitán del equipo, siendo una de las referencias para sus compañeros tanto en los entrenamientos como en los días de partido.",
+        "Con esta incorporación, el club da un paso más en la conformación definitiva de la plantilla oficial."
+      ]
+    },
+    {
+      "slug": "centinela-vuelve-regional",
+      "title": "El Centinela vuelve a mirar a la Regional",
+      "category": "Nueva etapa",
+      "date": "17/06/2026",
+      "reading": "3 min",
+      "excerpt": "El proyecto abre una nueva fase competitiva con el objetivo de recuperar el pulso histórico del club en Icod de los Vinos.",
+      "image": "/assets/img/logo-hero.webp",
+      "imageAlt": "Escudo UD Centinela",
+      "body": [
+        "La Unión Deportiva Centinela inicia una nueva etapa con la mirada puesta en la categoría Regional. El regreso no se entiende solo como una inscripción deportiva, sino como una forma de devolver al municipio un nombre que quedó grabado en la memoria de varias generaciones.",
+        "La directiva trabaja en la estructura deportiva, la comunicación del club y la construcción de una plantilla capaz de competir con identidad propia. El objetivo es claro: volver al campo con respeto por la historia y ambición por lo que viene.",
+        "Durante las próximas semanas se irán anunciando novedades sobre cuerpo técnico, plantilla y calendario de preparación."
+      ]
+    },
+    {
+      "slug": "memoria-viva-icod",
+      "title": "La memoria viva del fútbol icodense toma forma",
+      "category": "Historia",
+      "date": "17/06/2026",
+      "reading": "2 min",
+      "excerpt": "La web incorpora espacios para preservar la historia, la identidad del escudo y el legado de quienes abrieron camino.",
+      "image": "/assets/img/centinela1.webp",
+      "imageAlt": "Historia del Centinela",
+      "body": [
+        "El portal oficial del club estrena secciones dedicadas a la memoria viva de la entidad.",
+        "A través de fotografías de época, testimonios y registros históricos, la afición podrá consultar el recorrido del Centinela desde su fundación y su impacto en el deporte icodense.",
+        "El archivo continuará creciendo con la aportación de socios, veteranos y colaboradores."
+      ]
+    },
+    {
+      "slug": "plantilla-en-construccion",
+      "title": "La plantilla regional entra en fase de construcción",
+      "category": "Plantilla",
+      "date": "17/06/2026",
+      "reading": "2 min",
+      "excerpt": "El área deportiva prepara las primeras fichas del equipo, con perfiles individuales para jugadores, cuerpo técnico y directiva.",
+      "image": "/assets/img/centinela-2.webp",
+      "imageAlt": "Plantilla Centinela",
+      "body": [
+        "La sección Regional ya cuenta con fichas individuales para los miembros del proyecto. Cada jugador, integrante del cuerpo técnico o responsable de directiva tendrá su espacio propio dentro de la web.",
+        "Estas fichas están pensadas para reunir información básica, rol deportivo, estado de confirmación y una descripción breve. A medida que el club confirme nombres y datos, las páginas podrán actualizarse sin cambiar la estructura del sitio.",
+        "El formato permite que la afición entre directamente a cada perfil y siga la evolución del equipo durante la temporada."
+      ]
+    }
+  ]
+}
