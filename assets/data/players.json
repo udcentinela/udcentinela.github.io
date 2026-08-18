@@ -51,7 +51,7 @@
       "id": "aday",
       "name": "Aday",
       "fullName": "Aday",
-      "dorsal": null,
+      "dorsal": 18,
       "position": "Lateral / Interior Izquierdo",
       "role": "Defensa / Medio",
       "status": "Confirmado",
