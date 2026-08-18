@@ -33,6 +33,21 @@
       "matchesPlayed": 0
     },
     {
+      "id": "pablo",
+      "name": "Pablo",
+      "fullName": "Pablo",
+      "dorsal": 23,
+      "position": "Lateral Derecho",
+      "role": "Defensa",
+      "status": "Confirmado",
+      "image": "/assets/img/pablo.webp",
+      "slug": "pablo",
+      "url": "/regional/pablo/",
+      "goals": 0,
+      "assists": 0,
+      "matchesPlayed": 0
+    },
+    {
       "id": "cuerpo-tecnico",
       "name": "Cuerpo Técnico",
       "fullName": "Entrenador y Ayudantes",

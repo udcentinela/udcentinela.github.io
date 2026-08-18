@@ -1,6 +1,22 @@
 {
   "items": [
     {
+      "slug": "nuevo-fichaje-pablo",
+      "title": "Nuevo Fichaje - Pablo",
+      "category": "Fichajes",
+      "date": "18/08/2026",
+      "reading": "2 min",
+      "excerpt": "La Unión Deportiva Centinela incorpora a Pablo para la temporada en Regional, reforzando el lateral derecho con juventud, velocidad y potencia con el dorsal 23.",
+      "image": "/assets/img/pablo.webp",
+      "imageAlt": "Pablo - UD Centinela",
+      "body": [
+        "La Unión Deportiva Centinela continúa sumando efectivos a su proyecto deportivo con la incorporación de Pablo de cara a la temporada en categoría Regional.",
+        "Pablo afronta su primer año en categoría regional, tratándose de un futbolista jovencísimo con notables condiciones físicas. Se desempeña habitualmente como lateral derecho, destacando por ser un jugador rápido, fuerte al choque y con una gran polivalencia para adaptarse a diferentes labores tácticas defensivas.",
+        "Con el dorsal 23 a la espalda, el zaguero aportará intensidad, despliegue físico y recorrido por la banda derecha en la retaguardia centinelista.",
+        "Esta nueva alta reafirma la apuesta del club por combinar juventud, proyección y trabajo colectivo."
+      ]
+    },
+    {
       "slug": "nuevo-fichaje-adrian-tejera",
       "title": "Nuevo Fichaje - Adrián Tejera",
       "category": "Fichajes",
