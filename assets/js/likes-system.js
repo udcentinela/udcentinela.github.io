@@ -1,13 +1,18 @@
 /**
  * UD Centinela - Sistema Global de Likes / Me Gusta
- * - Identificador único por persona/dispositivo (anti-voto duplicado en localStorage).
- * - Sincronización global en la nube (Cloud Counter API con fallback automático).
- * - Feedback visual instantáneo (0ms) con animación de corazón flotante ❤️.
+ * - Identificador único por persona/dispositivo en localStorage (anti-voto duplicado).
+ * - Sincronización global en tiempo real en la nube (Cloud REST Store).
+ * - Carga automática del recuento global al abrir la página (incluso en incógnito).
+ * - Micro-animación de corazón flotante ❤️ y feedback visual instantáneo (0ms).
  */
 (function () {
   const STORAGE_KEY = "udc_liked_items";
   const LOCAL_COUNTS_KEY = "udc_local_like_counts";
-  const CLOUD_BADGE_BASE = "https://api.visitorbadge.io/api/visitors?path=udc_v1_like_";
+  const CLOUD_STORE_URL = "https://api.restful-api.dev/objects/ff8081819ff5b11001a01483e5a841df";
+
+  let memoryStore = null;
+  let isFetching = false;
+  const pendingButtons = [];
 
   function getLikedItems() {
     try {
@@ -41,64 +46,78 @@
     return String(id).replace(/[^a-zA-Z0-9_-]/g, "_").toLowerCase();
   }
 
-  // Parse count from SVG or JSON response
-  function parseCountFromResponse(text) {
-    if (!text) return null;
-    try {
-      const json = JSON.parse(text);
-      if (typeof json.count === "number") return json.count;
-    } catch (e) {}
-
-    const match = text.match(/aria-label="VISITORS:\s*(\d+)"/) || text.match(/>(\d+)<\/text>/);
-    if (match && match[1]) {
-      return parseInt(match[1], 10);
-    }
-    return null;
-  }
-
-  // Increment count in Cloud API
-  async function incrementCloudCount(targetId) {
-    const cleanId = sanitizeId(targetId);
-    const localCounts = getLocalCounts();
-    const current = localCounts[cleanId] || 0;
-    localCounts[cleanId] = current + 1;
-    saveLocalCounts(localCounts);
+  // Fetch all global likes from Cloud Store
+  async function fetchGlobalLikes() {
+    if (memoryStore) return memoryStore;
+    if (isFetching) return null;
+    isFetching = true;
 
     try {
       // 1. Try local server endpoint if running node server
-      fetch(`/api/likes/${cleanId}/up`, { method: "POST" }).catch(() => {});
-
-      // 2. Increment in cloud badge API
-      const res = await fetch(`${CLOUD_BADGE_BASE}${cleanId}`, { cache: "no-store" });
-      if (res.ok) {
-        const text = await res.text();
-        const count = parseCountFromResponse(text);
-        if (typeof count === "number") {
-          localCounts[cleanId] = count;
-          saveLocalCounts(localCounts);
-          return count;
+      const localRes = await fetch("/assets/data/likes.json", { cache: "no-store" }).catch(() => null);
+      if (localRes && localRes.ok) {
+        const localData = await localRes.json();
+        if (localData && typeof localData === "object") {
+          memoryStore = localData;
         }
       }
-    } catch (err) {}
 
-    return localCounts[cleanId];
+      // 2. Fetch from Cloud Store
+      const res = await fetch(CLOUD_STORE_URL, { cache: "no-store" });
+      if (res.ok) {
+        const json = await res.json();
+        if (json && json.data) {
+          memoryStore = Object.assign({}, memoryStore || {}, json.data);
+          saveLocalCounts(memoryStore);
+        }
+      }
+    } catch (err) {
+      console.warn("Could not sync likes with cloud, using local cache:", err);
+    } finally {
+      isFetching = false;
+    }
+
+    if (!memoryStore) {
+      memoryStore = getLocalCounts();
+    }
+    return memoryStore;
   }
 
-  // Decrement count locally
-  async function decrementCloudCount(targetId) {
+  // Save updated global likes to Cloud Store
+  async function syncGlobalLikeToCloud(targetId, newCount) {
     const cleanId = sanitizeId(targetId);
     const localCounts = getLocalCounts();
-    localCounts[cleanId] = Math.max(0, (localCounts[cleanId] || 1) - 1);
+    localCounts[cleanId] = newCount;
     saveLocalCounts(localCounts);
 
-    try {
-      fetch(`/api/likes/${cleanId}/down`, { method: "POST" }).catch(() => {});
-    } catch (e) {}
+    if (memoryStore) {
+      memoryStore[cleanId] = newCount;
+    }
 
-    return localCounts[cleanId];
+    try {
+      // 1. Try local server
+      fetch(`/api/likes/${cleanId}/${newCount > 0 ? "up" : "down"}`, { method: "POST" }).catch(() => {});
+
+      // 2. Push to Cloud Store
+      const currentData = memoryStore || localCounts;
+      currentData[cleanId] = newCount;
+
+      const payload = {
+        name: "udcentinela_global_likes_v1",
+        data: currentData
+      };
+
+      await fetch(CLOUD_STORE_URL, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload)
+      });
+    } catch (e) {
+      console.warn("Error updating cloud likes:", e);
+    }
   }
 
-  // Spawn floating heart animation
+  // Floating heart animation
   function spawnFloatingHeart(btn) {
     const heart = document.createElement("span");
     heart.className = "udc-like-floating-heart";
@@ -111,6 +130,7 @@
     const targetId = btn.getAttribute("data-like-id");
     if (!targetId) return;
 
+    const cleanId = sanitizeId(targetId);
     const countEl = btn.querySelector(".udc-like-count");
     const labelEl = btn.querySelector(".udc-like-label");
 
@@ -133,37 +153,50 @@
       }
     }
 
-    // Set initial display
-    const initialCount = localCounts[sanitizeId(targetId)] || (isLiked ? 1 : 0);
-    updateUI(isLiked, initialCount);
+    // Step 1: Initial local display (0ms)
+    const initialLocal = localCounts[cleanId] !== undefined ? localCounts[cleanId] : (isLiked ? 1 : 0);
+    updateUI(isLiked, initialLocal);
 
+    // Step 2: Fetch global count from Cloud on load
+    fetchGlobalLikes().then((cloudData) => {
+      if (cloudData && cloudData[cleanId] !== undefined) {
+        let globalCount = cloudData[cleanId];
+        // Ensure that if user has voted locally, count is at least 1
+        if (isLiked && globalCount < 1) globalCount = 1;
+        updateUI(isLiked, globalCount);
+      }
+    });
+
+    // Step 3: Click handler
     btn.addEventListener("click", async (e) => {
       e.preventDefault();
       btn.classList.add("udc-like-btn-animating");
       setTimeout(() => btn.classList.remove("udc-like-btn-animating"), 400);
 
       const currentLiked = getLikedItems();
+      let currentDisplay = parseInt(countEl ? countEl.textContent : "0", 10) || 0;
+
       if (!currentLiked[targetId]) {
-        // Vote +1
+        // Add Like
         currentLiked[targetId] = true;
         saveLikedItems(currentLiked);
         spawnFloatingHeart(btn);
 
-        const currentCount = parseInt(countEl ? countEl.textContent : "0", 10) || 0;
-        updateUI(true, currentCount + 1);
+        const newCount = currentDisplay + 1;
+        updateUI(true, newCount);
 
-        const cloudCount = await incrementCloudCount(targetId);
-        updateUI(true, Math.max(currentCount + 1, cloudCount));
+        // Sync to cloud
+        await syncGlobalLikeToCloud(targetId, newCount);
       } else {
-        // Vote -1
+        // Remove Like
         delete currentLiked[targetId];
         saveLikedItems(currentLiked);
 
-        const currentCount = parseInt(countEl ? countEl.textContent : "1", 10) || 1;
-        const newCount = Math.max(0, currentCount - 1);
+        const newCount = Math.max(0, currentDisplay - 1);
         updateUI(false, newCount);
 
-        await decrementCloudCount(targetId);
+        // Sync to cloud
+        await syncGlobalLikeToCloud(targetId, newCount);
       }
     });
   }
