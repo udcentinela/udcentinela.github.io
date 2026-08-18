@@ -61,66 +61,6 @@
       "goals": 0,
       "assists": 0,
       "matchesPlayed": 0
-    },
-    {
-      "id": "portero-1",
-      "name": "Portero Titular",
-      "fullName": "Guardameta UDC",
-      "dorsal": 1,
-      "position": "Portero",
-      "role": "Plantilla",
-      "status": "Confirmado",
-      "image": "/assets/img/centinela1.webp",
-      "slug": "portero-1",
-      "url": "/regional/portero-1/",
-      "goals": 0,
-      "assists": 0,
-      "matchesPlayed": 0
-    },
-    {
-      "id": "defensa-4",
-      "name": "Defensa Central",
-      "fullName": "Central UDC",
-      "dorsal": 4,
-      "position": "Defensa",
-      "role": "Plantilla",
-      "status": "Confirmado",
-      "image": "/assets/img/centinela1.webp",
-      "slug": "defensa-4",
-      "url": "/regional/defensa-4/",
-      "goals": 0,
-      "assists": 0,
-      "matchesPlayed": 0
-    },
-    {
-      "id": "centrocampista-8",
-      "name": "Centrocampista",
-      "fullName": "Medio UDC",
-      "dorsal": 8,
-      "position": "Centrocampista",
-      "role": "Plantilla",
-      "status": "Confirmado",
-      "image": "/assets/img/centinela1.webp",
-      "slug": "centrocampista-8",
-      "url": "/regional/centrocampista-8/",
-      "goals": 0,
-      "assists": 0,
-      "matchesPlayed": 0
-    },
-    {
-      "id": "delantero-9",
-      "name": "Delantero Centro",
-      "fullName": "Punta UDC",
-      "dorsal": 9,
-      "position": "Delantero",
-      "role": "Plantilla",
-      "status": "Confirmado",
-      "image": "/assets/img/centinela1.webp",
-      "slug": "delantero-9",
-      "url": "/regional/delantero-9/",
-      "goals": 0,
-      "assists": 0,
-      "matchesPlayed": 0
     }
   ]
 }
