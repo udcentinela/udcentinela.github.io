@@ -67,28 +67,31 @@
     if (!player) return;
 
     // 1. Dynamic Photo Badge
-    const avatarBadge = document.querySelector('.profile-avatar-box span.bg-brand-neon');
-    if (avatarBadge) {
-      if (player.dorsal) {
-        avatarBadge.textContent = `#${player.dorsal}`;
-        avatarBadge.classList.remove('uppercase');
-      } else {
-        avatarBadge.textContent = 'Por confirmar';
-        avatarBadge.classList.add('uppercase');
-      }
-    }
-
-    // 2. Dynamic Subtitle (under main player name)
-    const subtitleP = document.querySelector('.profile-card p.text-xl');
-    if (subtitleP) {
-      const span = subtitleP.querySelector('span');
-      if (span) {
+    // 1. Dynamic Photo Badge (for squad players)
+    if (player.id !== 'iriome' && player.id !== 'cuerpo-tecnico') {
+      const avatarBadge = document.querySelector('.profile-avatar-box span.bg-brand-neon');
+      if (avatarBadge) {
         if (player.dorsal) {
-          span.className = 'text-brand-neon font-black';
-          span.textContent = ` #${player.dorsal}`;
+          avatarBadge.textContent = `#${player.dorsal}`;
+          avatarBadge.classList.remove('uppercase');
         } else {
-          span.className = 'text-brand-neon text-base font-semibold';
-          span.textContent = ' (Dorsal por confirmar)';
+          avatarBadge.textContent = 'Por confirmar';
+          avatarBadge.classList.add('uppercase');
+        }
+      }
+
+      // 2. Dynamic Subtitle (under main player name)
+      const subtitleP = document.querySelector('.profile-card p.text-xl');
+      if (subtitleP) {
+        const span = subtitleP.querySelector('span');
+        if (span) {
+          if (player.dorsal) {
+            span.className = 'text-brand-neon font-black';
+            span.textContent = ` #${player.dorsal}`;
+          } else {
+            span.className = 'text-brand-neon text-base font-semibold';
+            span.textContent = ' (Dorsal por confirmar)';
+          }
         }
       }
     }
@@ -97,9 +100,9 @@
     const statsGrid = document.querySelector('.grid.grid-cols-1.sm\\:grid-cols-2.gap-4.mb-8') || document.querySelector('.profile-card .grid');
     if (!statsGrid) return;
 
-    // 3. Dynamic Stats (Position, Dorsal/Rol)
+    // 3. Dynamic Stats (Position, Dorsal/Rol) for squad players
     const existingStats = statsGrid.querySelectorAll('.profile-stat');
-    if (existingStats.length >= 2) {
+    if (player.id !== 'iriome' && player.id !== 'cuerpo-tecnico' && existingStats.length >= 2) {
       if (player.position) {
         const posEl = existingStats[0].querySelector('p.font-heading') || existingStats[0].querySelector('p:last-child');
         if (posEl) posEl.textContent = player.position;
