@@ -5,6 +5,7 @@
   let currentToken = sessionStorage.getItem('udc_admin_token') || '';
   let calendarData = { season: 'Temporada 2026/2027', updated: '', nextMatch: null, matches: [], standings: [] };
   let playersData = { season: 'Temporada 2026/2027', lastUpdated: '', players: [] };
+  let newsData = { items: [] };
   let hasUnsavedChanges = false;
   const isLocalHost = location.hostname === 'localhost' || location.hostname === '127.0.0.1';
 
@@ -19,11 +20,56 @@
   const logoutBtn = document.getElementById('logoutBtn');
   const matchesList = document.getElementById('matchesList');
   const playersTableBody = document.getElementById('playersTableBody');
+  const newsList = document.getElementById('newsList');
   const topScorersList = document.getElementById('topScorersList');
   const topAssistsList = document.getElementById('topAssistsList');
   const deployBtn = document.getElementById('deployBtn');
   const deployStatus = document.getElementById('deployStatus');
   const unsavedBanner = document.getElementById('unsavedBanner');
+
+  // Match Modal Elements
+  const matchModal = document.getElementById('matchModal');
+  const matchForm = document.getElementById('matchForm');
+  const matchModalTitle = document.getElementById('matchModalTitle');
+  const newMatchBtn = document.getElementById('newMatchBtn');
+  const matchId = document.getElementById('matchId');
+  const matchRound = document.getElementById('matchRound');
+  const matchDate = document.getElementById('matchDate');
+  const matchTime = document.getElementById('matchTime');
+  const matchHome = document.getElementById('matchHome');
+  const matchAway = document.getElementById('matchAway');
+  const matchVenue = document.getElementById('matchVenue');
+  const matchStatusSelect = document.getElementById('matchStatusSelect');
+  const matchHomeScore = document.getElementById('matchHomeScore');
+  const matchAwayScore = document.getElementById('matchAwayScore');
+  const addGoalBtn = document.getElementById('addGoalBtn');
+  const goalsContainer = document.getElementById('goalsContainer');
+
+  // Player Modal Elements
+  const playerModal = document.getElementById('playerModal');
+  const playerForm = document.getElementById('playerForm');
+  const playerModalTitle = document.getElementById('playerModalTitle');
+  const newPlayerBtn = document.getElementById('newPlayerBtn');
+  const playerEditIndex = document.getElementById('playerEditIndex');
+  const playerIdInput = document.getElementById('playerIdInput');
+  const playerNameInput = document.getElementById('playerNameInput');
+  const playerDorsalInput = document.getElementById('playerDorsalInput');
+  const playerPositionInput = document.getElementById('playerPositionInput');
+
+  // News Modal Elements
+  const newsModal = document.getElementById('newsModal');
+  const newsForm = document.getElementById('newsForm');
+  const newsModalTitle = document.getElementById('newsModalTitle');
+  const newNewsBtn = document.getElementById('newNewsBtn');
+  const newsEditIndex = document.getElementById('newsEditIndex');
+  const newsTitleInput = document.getElementById('newsTitleInput');
+  const newsSlugInput = document.getElementById('newsSlugInput');
+  const newsCategoryInput = document.getElementById('newsCategoryInput');
+  const newsDateInput = document.getElementById('newsDateInput');
+  const newsReadingInput = document.getElementById('newsReadingInput');
+  const newsImageInput = document.getElementById('newsImageInput');
+  const newsExcerptInput = document.getElementById('newsExcerptInput');
+  const newsBodyInput = document.getElementById('newsBodyInput');
 
   function markUnsavedChanges(unsaved = true) {
     hasUnsavedChanges = unsaved;
@@ -125,13 +171,15 @@
   // =========================================================================
   async function loadData() {
     try {
-      const [calRes, playRes] = await Promise.all([
+      const [calRes, playRes, newsRes] = await Promise.all([
         fetch('/assets/data/calendar.json?t=' + Date.now()),
-        fetch('/assets/data/players.json?t=' + Date.now())
+        fetch('/assets/data/players.json?t=' + Date.now()),
+        fetch('/assets/data/news.json?t=' + Date.now())
       ]);
 
       if (calRes.ok) calendarData = await calRes.json();
       if (playRes.ok) playersData = await playRes.json();
+      if (newsRes.ok) newsData = await newsRes.json();
     } catch (e) {
       console.warn('Usando datos locales o por defecto:', e);
     }
@@ -167,6 +215,7 @@
   function renderAll() {
     renderMatches();
     renderPlayers();
+    renderNews();
     renderStats();
   }
 
@@ -223,48 +272,42 @@
       }
 
       const card = document.createElement('div');
-      card.className = 'match-card p-5 rounded-2xl bg-white/5 border border-white/10 flex flex-col md:flex-row md:items-center justify-between gap-4';
+      card.className = 'p-5 rounded-2xl bg-white/5 border border-white/10 hover:border-brand-neon/30 transition-all flex flex-col md:flex-row items-start md:items-center justify-between gap-4';
       card.innerHTML = `
         <div class="flex-grow">
-          <div class="flex items-center gap-3 mb-2">
-            <span class="px-2.5 py-0.5 rounded-full text-[10px] font-black uppercase tracking-wider ${isFinished ? 'bg-green-500/20 text-green-300 border border-green-500/30' : 'bg-brand-neon/20 text-brand-neon border border-brand-neon/30'}">
-              ${isFinished ? 'Finalizado' : (m.status === 'postponed' ? 'Aplazado' : 'Próximo')}
+          <div class="flex items-center gap-3 mb-1">
+            <span class="px-2 py-0.5 rounded text-[10px] font-black uppercase tracking-wider ${isFinished ? 'bg-green-500/20 text-green-300' : 'bg-brand-neon/20 text-brand-neon'}">
+              ${m.round || 'Jornada'}
             </span>
-            <span class="text-xs font-bold text-brand-neon uppercase tracking-wider">${m.round || 'Jornada'}</span>
-            <span class="text-xs text-gray-400">📅 ${m.date || ''} ${m.time ? '· ' + m.time : ''}</span>
+            <span class="text-xs text-gray-400">${m.date || 'Fecha pendiente'} · ${m.time || ''}</span>
+            <span class="text-xs text-gray-500">📍 ${m.venue || 'Estadio'}</span>
           </div>
 
-          <div class="flex items-center gap-4 text-base md:text-lg font-heading font-black">
-            <span class="${m.home.includes('Centinela') ? 'text-brand-neon' : 'text-white'}">${m.home}</span>
-            <span class="px-3 py-1 bg-black/40 rounded-xl border border-white/10 text-white font-mono">
-              ${isFinished ? `${m.homeScore ?? 0} - ${m.awayScore ?? 0}` : 'VS'}
+          <div class="flex items-center gap-4 text-base md:text-lg font-heading font-black text-white my-1">
+            <span class="${m.home.toLowerCase().includes('centinela') ? 'text-brand-neon' : ''}">${m.home}</span>
+            <span class="px-2.5 py-0.5 rounded-lg bg-black/40 text-sm font-mono border border-white/10 ${isFinished ? 'text-white' : 'text-gray-500'}">
+              ${isFinished ? `${m.homeScore} - ${m.awayScore}` : 'VS'}
             </span>
-            <span class="${m.away.includes('Centinela') ? 'text-brand-neon' : 'text-white'}">${m.away}</span>
+            <span class="${m.away.toLowerCase().includes('centinela') ? 'text-brand-neon' : ''}">${m.away}</span>
           </div>
 
-          <p class="text-xs text-gray-400 mt-1">📍 ${m.venue || 'Estadio por confirmar'}</p>
           ${eventsHtml}
         </div>
 
         <div class="flex items-center gap-2 self-end md:self-center">
-          <button data-edit-match="${m.id}" class="px-4 py-2 bg-white/10 hover:bg-brand-neon hover:text-brand-dark rounded-xl text-xs font-bold uppercase tracking-wider transition-colors">
-            ✏️ Editar / Acta
+          <button class="edit-match-btn px-3 py-1.5 rounded-lg bg-white/10 hover:bg-brand-neon hover:text-brand-dark text-xs font-bold transition-colors cursor-pointer" data-id="${m.id}">
+            ✏️ Editar Acta
           </button>
-          <button data-delete-match="${m.id}" class="p-2 text-red-400 hover:text-red-300 hover:bg-red-500/10 rounded-xl transition-colors" title="Eliminar Partido">
+          <button class="delete-match-btn px-3 py-1.5 rounded-lg bg-red-500/20 hover:bg-red-500 text-red-300 hover:text-white text-xs font-bold transition-colors cursor-pointer" data-id="${m.id}">
             🗑️
           </button>
         </div>
       `;
+
+      card.querySelector('.edit-match-btn').addEventListener('click', () => openMatchModal(m.id));
+      card.querySelector('.delete-match-btn').addEventListener('click', () => deleteMatch(m.id));
+
       matchesList.appendChild(card);
-    });
-
-    // Attach match edit/delete listeners
-    matchesList.querySelectorAll('[data-edit-match]').forEach(btn => {
-      btn.addEventListener('click', () => openMatchModal(btn.dataset.editMatch));
-    });
-
-    matchesList.querySelectorAll('[data-delete-match]').forEach(btn => {
-      btn.addEventListener('click', () => deleteMatch(btn.dataset.deleteMatch));
     });
   }
 
@@ -276,29 +319,98 @@
     const players = playersData.players || [];
 
     players.forEach((p, idx) => {
-      const tr = document.createElement('tr');
-      tr.className = 'hover:bg-white/5 transition-colors';
-      tr.innerHTML = `
-        <td class="p-4 font-mono font-bold text-brand-neon">${p.dorsal ? '#' + p.dorsal : '-'}</td>
-        <td class="p-4"><code class="px-2 py-1 bg-black/40 border border-white/10 rounded-lg text-xs font-mono text-cyan-300">${p.id}</code></td>
-        <td class="p-4 font-bold text-white">${p.name}</td>
-        <td class="p-4 text-gray-400 text-xs">${p.position}</td>
-        <td class="p-4 text-center font-heading font-black text-white text-base">${p.goals || 0}</td>
-        <td class="p-4 text-center font-heading font-black text-brand-neon text-base">${p.assists || 0}</td>
+      const isStaff = p.id === 'cuerpo-tecnico' || p.role === 'Staff Técnico';
+      const row = document.createElement('tr');
+      row.className = 'hover:bg-white/5 transition-colors';
+      row.innerHTML = `
+        <td class="p-4 font-black font-heading ${p.dorsal ? 'text-brand-neon' : 'text-gray-500'}">
+          ${p.dorsal ? '#' + p.dorsal : '-'}
+        </td>
+        <td class="p-4 font-mono text-xs text-gray-400">
+          ${p.id}
+        </td>
+        <td class="p-4 font-bold text-white flex items-center gap-2">
+          ${p.name}
+          ${p.role && p.role.includes('Capitán') ? '<span class="text-[9px] px-1.5 py-0.5 rounded bg-brand-neon/20 text-brand-neon uppercase font-black">Capitán</span>' : ''}
+          ${p.role && p.role.includes('Directiva') ? '<span class="text-[9px] px-1.5 py-0.5 rounded bg-amber-500/20 text-amber-300 uppercase font-black">Directiva</span>' : ''}
+        </td>
+        <td class="p-4 text-gray-300">
+          ${p.position || 'Plantilla'}
+        </td>
+        <td class="p-4 text-center font-black text-white">
+          ${isStaff ? '-' : (p.goals || 0)}
+        </td>
+        <td class="p-4 text-center font-black text-white">
+          ${isStaff ? '-' : (p.assists || 0)}
+        </td>
         <td class="p-4 text-right">
-          <button data-edit-player="${idx}" class="text-xs text-gray-300 hover:text-brand-neon font-bold uppercase tracking-wider px-2 py-1">Editar</button>
-          <button data-delete-player="${idx}" class="text-xs text-red-400 hover:text-red-300 font-bold uppercase tracking-wider px-2 py-1">Eliminar</button>
+          <div class="inline-flex items-center gap-2">
+            <button class="edit-player-btn px-2.5 py-1 bg-white/10 hover:bg-brand-neon hover:text-brand-dark rounded text-xs font-bold transition-colors cursor-pointer" data-index="${idx}">
+              ✏️ Editar
+            </button>
+            <button class="delete-player-btn px-2 py-1 bg-red-500/20 hover:bg-red-500 text-red-300 hover:text-white rounded text-xs font-bold transition-colors cursor-pointer" data-index="${idx}">
+              🗑️
+            </button>
+          </div>
         </td>
       `;
-      playersTableBody.appendChild(tr);
-    });
 
-    playersTableBody.querySelectorAll('[data-edit-player]').forEach(btn => {
-      btn.addEventListener('click', () => openPlayerModal(Number(btn.dataset.editPlayer)));
-    });
+      row.querySelector('.edit-player-btn').addEventListener('click', () => openPlayerModal(idx));
+      row.querySelector('.delete-player-btn').addEventListener('click', () => deletePlayer(idx));
 
-    playersTableBody.querySelectorAll('[data-delete-player]').forEach(btn => {
-      btn.addEventListener('click', () => deletePlayer(Number(btn.dataset.deletePlayer)));
+      playersTableBody.appendChild(row);
+    });
+  }
+
+  // =========================================================================
+  // RENDER NEWS
+  // =========================================================================
+  function renderNews() {
+    if (!newsList) return;
+    newsList.innerHTML = '';
+    const items = newsData.items || [];
+
+    if (items.length === 0) {
+      newsList.innerHTML = `
+        <div class="col-span-full p-8 rounded-2xl bg-white/5 border border-white/10 text-center text-gray-400">
+          No hay noticias registradas. Pulsa en "+ Nueva Noticia" para redactar la primera.
+        </div>
+      `;
+      return;
+    }
+
+    items.forEach((item, idx) => {
+      const card = document.createElement('div');
+      card.className = 'p-5 rounded-2xl bg-white/5 border border-white/10 hover:border-brand-neon/30 transition-all flex flex-col justify-between gap-4';
+      card.innerHTML = `
+        <div>
+          <div class="flex items-center justify-between gap-2 mb-2">
+            <span class="px-2.5 py-0.5 rounded-md text-[10px] font-black uppercase tracking-wider bg-brand-neon/20 text-brand-neon">
+              ${item.category || 'Noticia'}
+            </span>
+            <span class="text-xs text-gray-400">${item.date || ''} · ${item.reading || '2 min'}</span>
+          </div>
+          <h3 class="font-heading text-lg font-bold text-white mb-2 line-clamp-1">${item.title}</h3>
+          <p class="text-xs text-gray-400 line-clamp-2 leading-relaxed">${item.excerpt || ''}</p>
+        </div>
+
+        <div class="pt-3 border-t border-white/5 flex items-center justify-between">
+          <span class="font-mono text-[11px] text-gray-500 truncate max-w-[180px]">/${item.slug}/</span>
+          <div class="flex items-center gap-2">
+            <button class="edit-news-btn px-3 py-1.5 rounded-lg bg-white/10 hover:bg-brand-neon hover:text-brand-dark text-xs font-bold transition-colors cursor-pointer" data-index="${idx}">
+              ✏️ Editar
+            </button>
+            <button class="delete-news-btn px-3 py-1.5 rounded-lg bg-red-500/20 hover:bg-red-500 text-red-300 hover:text-white text-xs font-bold transition-colors cursor-pointer" data-index="${idx}">
+              🗑️
+            </button>
+          </div>
+        </div>
+      `;
+
+      card.querySelector('.edit-news-btn').addEventListener('click', () => openNewsModal(idx));
+      card.querySelector('.delete-news-btn').addEventListener('click', () => deleteNews(idx));
+
+      newsList.appendChild(card);
     });
   }
 
@@ -306,47 +418,70 @@
   // RENDER STATS RANKING
   // =========================================================================
   function renderStats() {
-    const scorers = [...playersData.players].filter(p => (p.goals || 0) > 0).sort((a, b) => b.goals - a.goals);
-    const assisters = [...playersData.players].filter(p => (p.assists || 0) > 0).sort((a, b) => b.assists - a.assists);
+    topScorersList.innerHTML = '';
+    topAssistsList.innerHTML = '';
 
-    topScorersList.innerHTML = scorers.length === 0
-      ? '<li class="text-xs text-gray-500 py-3">Aún no hay goles registrados en los partidos.</li>'
-      : scorers.map((p, i) => `
-        <li class="flex items-center justify-between p-3 rounded-xl bg-black/30 border border-white/5">
-          <div class="flex items-center gap-3">
-            <span class="font-heading font-black text-sm ${i === 0 ? 'text-yellow-400' : 'text-gray-400'}">#${i + 1}</span>
-            <span class="font-bold text-white">${p.name} <span class="text-xs text-gray-500">(${p.position})</span></span>
-          </div>
-          <span class="font-heading font-black text-lg text-brand-neon">${p.goals} ⚽</span>
-        </li>
-      `).join('');
+    const validPlayers = (playersData.players || []).filter(p => p.id !== 'cuerpo-tecnico' && p.role !== 'Staff Técnico');
 
-    topAssistsList.innerHTML = assisters.length === 0
-      ? '<li class="text-xs text-gray-500 py-3">Aún no hay asistencias registradas en los partidos.</li>'
-      : assisters.map((p, i) => `
-        <li class="flex items-center justify-between p-3 rounded-xl bg-black/30 border border-white/5">
+    const scorers = [...validPlayers].filter(p => (p.goals || 0) > 0).sort((a, b) => b.goals - a.goals);
+    const assisters = [...validPlayers].filter(p => (p.assists || 0) > 0).sort((a, b) => b.assists - a.assists);
+
+    if (scorers.length === 0) {
+      topScorersList.innerHTML = '<li class="text-gray-500 text-xs text-center py-4 italic">Aún no hay goles registrados en los partidos.</li>';
+    } else {
+      scorers.slice(0, 5).forEach((p, idx) => {
+        const li = document.createElement('li');
+        li.className = 'flex items-center justify-between p-3 rounded-xl bg-black/30 border border-white/5';
+        li.innerHTML = `
           <div class="flex items-center gap-3">
-            <span class="font-heading font-black text-sm ${i === 0 ? 'text-yellow-400' : 'text-gray-400'}">#${i + 1}</span>
-            <span class="font-bold text-white">${p.name} <span class="text-xs text-gray-500">(${p.position})</span></span>
+            <span class="font-heading font-black text-sm ${idx === 0 ? 'text-brand-neon' : 'text-gray-400'}">${idx + 1}.</span>
+            <span class="font-bold text-white text-sm">${p.name}</span>
+            <span class="text-xs text-gray-500 font-mono">${p.dorsal ? '#' + p.dorsal : ''}</span>
           </div>
-          <span class="font-heading font-black text-lg text-cyan-300">${p.assists} 👟</span>
-        </li>
-      `).join('');
+          <span class="px-2.5 py-1 rounded-lg bg-brand-neon/10 font-heading font-black text-brand-neon text-sm">
+            ${p.goals} ${p.goals === 1 ? 'gol' : 'goles'}
+          </span>
+        `;
+        topScorersList.appendChild(li);
+      });
+    }
+
+    if (assisters.length === 0) {
+      topAssistsList.innerHTML = '<li class="text-gray-500 text-xs text-center py-4 italic">Aún no hay asistencias registradas en los partidos.</li>';
+    } else {
+      assisters.slice(0, 5).forEach((p, idx) => {
+        const li = document.createElement('li');
+        li.className = 'flex items-center justify-between p-3 rounded-xl bg-black/30 border border-white/5';
+        li.innerHTML = `
+          <div class="flex items-center gap-3">
+            <span class="font-heading font-black text-sm ${idx === 0 ? 'text-brand-neon' : 'text-gray-400'}">${idx + 1}.</span>
+            <span class="font-bold text-white text-sm">${p.name}</span>
+            <span class="text-xs text-gray-500 font-mono">${p.dorsal ? '#' + p.dorsal : ''}</span>
+          </div>
+          <span class="px-2.5 py-1 rounded-lg bg-brand-neon/10 font-heading font-black text-brand-neon text-sm">
+            ${p.assists} ${p.assists === 1 ? 'asist.' : 'asists.'}
+          </span>
+        `;
+        topAssistsList.appendChild(li);
+      });
+    }
   }
 
   // =========================================================================
-  // MATCH MODAL & EVENTS LOGIC
+  // MODALS & EVENT HANDLERS
   // =========================================================================
   function setupModals() {
     document.querySelectorAll('.close-modal').forEach(btn => {
       btn.addEventListener('click', () => {
         matchModal.classList.add('hidden');
         playerModal.classList.add('hidden');
+        if (newsModal) newsModal.classList.add('hidden');
       });
     });
 
     newMatchBtn.addEventListener('click', () => openMatchModal(null));
     newPlayerBtn.addEventListener('click', () => openPlayerModal(-1));
+    if (newNewsBtn) newNewsBtn.addEventListener('click', () => openNewsModal(-1));
 
     addGoalBtn.addEventListener('click', () => addGoalRow());
   }
@@ -522,7 +657,7 @@
         position: posVal,
         role: 'Plantilla',
         status: 'Confirmado',
-        image: '/assets/img/centinela1.webp',
+        image: `/assets/img/${idVal}.webp`,
         slug: idVal,
         url: `/regional/${idVal}/`,
         goals: 0,
@@ -547,6 +682,96 @@
   }
 
   // =========================================================================
+  // NEWS MODAL & MANAGEMENT
+  // =========================================================================
+  function openNewsModal(index) {
+    if (!newsModal) return;
+    newsEditIndex.value = index;
+    if (index >= 0 && newsData.items && newsData.items[index]) {
+      const item = newsData.items[index];
+      newsModalTitle.textContent = 'Editar Noticia';
+      newsTitleInput.value = item.title || '';
+      newsSlugInput.value = item.slug || '';
+      newsSlugInput.readOnly = true;
+      newsCategoryInput.value = item.category || 'Fichajes';
+      newsDateInput.value = item.date || '';
+      newsReadingInput.value = item.reading || '2 min';
+      newsImageInput.value = item.image || '/assets/img/centinela1.webp';
+      newsExcerptInput.value = item.excerpt || '';
+      newsBodyInput.value = Array.isArray(item.body) ? item.body.join('\n\n') : (item.body || '');
+    } else {
+      newsModalTitle.textContent = 'Nueva Noticia';
+      newsTitleInput.value = '';
+      newsSlugInput.value = '';
+      newsSlugInput.readOnly = false;
+      newsCategoryInput.value = 'Fichajes';
+      const today = new Date();
+      const dd = String(today.getDate()).padStart(2, '0');
+      const mm = String(today.getMonth() + 1).padStart(2, '0');
+      const yyyy = today.getFullYear();
+      newsDateInput.value = `${dd}/${mm}/${yyyy}`;
+      newsReadingInput.value = '2 min';
+      newsImageInput.value = '/assets/img/centinela1.webp';
+      newsExcerptInput.value = '';
+      newsBodyInput.value = '';
+    }
+    newsModal.classList.remove('hidden');
+  }
+
+  if (newsForm) {
+    newsForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const idx = parseInt(newsEditIndex.value);
+      const titleVal = newsTitleInput.value.trim();
+      const slugVal = newsSlugInput.value.trim().toLowerCase().replace(/[^a-z0-9-]/g, '-').replace(/-+/g, '-');
+      const catVal = newsCategoryInput.value;
+      const dateVal = newsDateInput.value.trim();
+      const readingVal = newsReadingInput.value.trim();
+      const imageVal = newsImageInput.value.trim();
+      const excerptVal = newsExcerptInput.value.trim();
+      const bodyVal = newsBodyInput.value.trim();
+      
+      const bodyParagraphs = bodyVal.split('\n').map(p => p.trim()).filter(Boolean);
+
+      const newsObj = {
+        slug: slugVal,
+        title: titleVal,
+        category: catVal,
+        date: dateVal,
+        reading: readingVal,
+        excerpt: excerptVal,
+        image: imageVal,
+        imageAlt: `${titleVal} - UD Centinela`,
+        body: bodyParagraphs
+      };
+
+      if (!newsData.items) newsData.items = [];
+
+      if (idx >= 0) {
+        newsData.items[idx] = newsObj;
+      } else {
+        if (newsData.items.some(n => n.slug === slugVal)) {
+          alert('Ya existe una noticia con este Slug URL. Elige otro slug.');
+          return;
+        }
+        newsData.items.unshift(newsObj); // Add to top
+      }
+
+      renderAll();
+      markUnsavedChanges(true);
+      newsModal.classList.add('hidden');
+    });
+  }
+
+  function deleteNews(index) {
+    const item = newsData.items[index];
+    if (!confirm(`¿Eliminar la noticia "${item.title}"?`)) return;
+    newsData.items.splice(index, 1);
+    renderAll();
+    markUnsavedChanges(true);
+  }
+
+  // =========================================================================
   // GITHUB DIRECT DEPLOYER (REST API) & LOCAL BACKEND
   // =========================================================================
   deployBtn.addEventListener('click', async () => {
@@ -560,7 +785,7 @@
 
       // If running on local Node server
       if (isLocalHost && (currentToken === 'admin' || currentToken === 'local' || !currentToken.startsWith('ghp_'))) {
-        const [calRes, playRes] = await Promise.all([
+        const [calRes, playRes, newsRes] = await Promise.all([
           fetch('/api/calendar', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -570,10 +795,15 @@
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(playersData)
+          }),
+          fetch('/api/news', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(newsData)
           })
         ]);
 
-        if (!calRes.ok || !playRes.ok) throw new Error('Error al guardar datos en el servidor local.');
+        if (!calRes.ok || !playRes.ok || !newsRes.ok) throw new Error('Error al guardar datos en el servidor local.');
 
         markUnsavedChanges(false);
         deployStatus.className = 'p-4 rounded-2xl text-xs font-bold tracking-wide bg-green-500/20 border border-green-500/40 text-green-300';
@@ -584,6 +814,7 @@
       // If deploying to GitHub Pages via REST API
       const calendarJsonStr = JSON.stringify(calendarData, null, 2);
       const playersJsonStr = JSON.stringify(playersData, null, 2);
+      const newsJsonStr = JSON.stringify(newsData, null, 2);
 
       // 1. Get latest commit SHA
       const refRes = await fetch(`${API_BASE}/git/refs/heads/main`, {
@@ -593,8 +824,8 @@
       const refData = await refRes.json();
       const latestCommitSha = refData.object.sha;
 
-      // 2. Create Blobs for calendar.json and players.json
-      const [blobCalRes, blobPlayRes] = await Promise.all([
+      // 2. Create Blobs for calendar.json, players.json, and news.json
+      const [blobCalRes, blobPlayRes, blobNewsRes] = await Promise.all([
         fetch(`${API_BASE}/git/blobs`, {
           method: 'POST',
           headers: { 'Authorization': 'Bearer ' + currentToken, 'Content-Type': 'application/json' },
@@ -604,11 +835,17 @@
           method: 'POST',
           headers: { 'Authorization': 'Bearer ' + currentToken, 'Content-Type': 'application/json' },
           body: JSON.stringify({ content: playersJsonStr, encoding: 'utf-8' })
+        }),
+        fetch(`${API_BASE}/git/blobs`, {
+          method: 'POST',
+          headers: { 'Authorization': 'Bearer ' + currentToken, 'Content-Type': 'application/json' },
+          body: JSON.stringify({ content: newsJsonStr, encoding: 'utf-8' })
         })
       ]);
 
       const blobCal = await blobCalRes.json();
       const blobPlay = await blobPlayRes.json();
+      const blobNews = await blobNewsRes.json();
 
       // 3. Create Tree
       const treeRes = await fetch(`${API_BASE}/git/trees`, {
@@ -618,7 +855,8 @@
           base_tree: latestCommitSha,
           tree: [
             { path: 'assets/data/calendar.json', mode: '100644', type: 'blob', sha: blobCal.sha },
-            { path: 'assets/data/players.json', mode: '100644', type: 'blob', sha: blobPlay.sha }
+            { path: 'assets/data/players.json', mode: '100644', type: 'blob', sha: blobPlay.sha },
+            { path: 'assets/data/news.json', mode: '100644', type: 'blob', sha: blobNews.sha }
           ]
         })
       });
@@ -629,7 +867,7 @@
         method: 'POST',
         headers: { 'Authorization': 'Bearer ' + currentToken, 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          message: 'feat(data): actualizar resultados, actas de partidos y plantilla oficial',
+          message: 'feat(data): actualizar resultados, actas, plantilla y noticias oficiales',
           tree: treeData.sha,
           parents: [latestCommitSha]
         })

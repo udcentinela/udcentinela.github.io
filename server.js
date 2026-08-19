@@ -432,6 +432,25 @@ function handleApiRequest(req, res, url) {
     }
   }
 
+  // POST/PUT /api/news (Update entire news.json)
+  if (url.pathname === '/api/news' && (req.method === 'POST' || req.method === 'PUT')) {
+    let body = '';
+    req.on('data', chunk => body += chunk);
+    req.on('end', () => {
+      try {
+        const payload = JSON.parse(body);
+        const dataToSave = Array.isArray(payload.items) ? payload : { items: payload.items || [] };
+        fs.writeFileSync(NEWS_JSON_PATH, JSON.stringify(dataToSave, null, 2), 'utf8');
+        addToGitQueue('feat(news): actualizar noticias y comunicados oficiales');
+        return res.end(JSON.stringify({ success: true, items: dataToSave.items }));
+      } catch (e) {
+        res.writeHead(500);
+        return res.end(JSON.stringify({ error: 'Error al guardar noticias: ' + e.message }));
+      }
+    });
+    return;
+  }
+
   // GET /api/players (Public/Admin)
   if (url.pathname === '/api/players' && req.method === 'GET') {
     try {

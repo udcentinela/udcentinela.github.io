@@ -94,6 +94,9 @@
                     <button data-tab="playersTab" class="tab-btn px-4 py-2 text-xs font-bold uppercase tracking-wider rounded-xl transition-colors">
                         👥 Plantilla e IDs
                     </button>
+                    <button data-tab="newsTab" class="tab-btn px-4 py-2 text-xs font-bold uppercase tracking-wider rounded-xl transition-colors">
+                        📰 Noticias y Fichajes
+                    </button>
                     <button data-tab="statsTab" class="tab-btn px-4 py-2 text-xs font-bold uppercase tracking-wider rounded-xl transition-colors">
                         📊 Estadísticas
                     </button>
@@ -133,7 +136,7 @@
             <div id="matchesTab" class="tab-content space-y-6">
                 <div class="flex items-center justify-between">
                     <h2 class="font-heading text-2xl font-black uppercase text-white">Lista de Partidos</h2>
-                    <button id="newMatchBtn" class="px-4 py-2 bg-white/10 hover:bg-brand-neon hover:text-brand-dark text-white text-xs font-bold uppercase tracking-wider rounded-xl border border-white/10 transition-colors">
+                    <button id="newMatchBtn" class="px-4 py-2 bg-white/10 hover:bg-brand-neon hover:text-brand-dark text-white text-xs font-bold uppercase tracking-wider rounded-xl border border-white/10 transition-colors cursor-pointer">
                         + Añadir Partido
                     </button>
                 </div>
@@ -153,7 +156,7 @@
                         <h2 class="font-heading text-2xl font-black uppercase text-white">Plantilla Oficial</h2>
                         <p class="text-gray-400 text-xs">Cada jugador posee un ID único asociado a sus estadísticas.</p>
                     </div>
-                    <button id="newPlayerBtn" class="px-4 py-2 bg-white/10 hover:bg-brand-neon hover:text-brand-dark text-white text-xs font-bold uppercase tracking-wider rounded-xl border border-white/10 transition-colors">
+                    <button id="newPlayerBtn" class="px-4 py-2 bg-white/10 hover:bg-brand-neon hover:text-brand-dark text-white text-xs font-bold uppercase tracking-wider rounded-xl border border-white/10 transition-colors cursor-pointer">
                         + Nuevo Jugador
                     </button>
                 </div>
@@ -179,7 +182,27 @@
             </div>
 
             <!-- ============================================================== -->
-            <!-- TAB 3: ESTADÍSTICAS GLOBALES                                   -->
+            <!-- TAB 3: NOTICIAS Y COMUNICADOS                                  -->
+            <!-- ============================================================== -->
+            <div id="newsTab" class="tab-content hidden space-y-6">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <h2 class="font-heading text-2xl font-black uppercase text-white">Noticias y Comunicados</h2>
+                        <p class="text-gray-400 text-xs">Publicación de fichajes, crónicas de partidos y actualidad del club.</p>
+                    </div>
+                    <button id="newNewsBtn" class="px-4 py-2 bg-white/10 hover:bg-brand-neon hover:text-brand-dark text-white text-xs font-bold uppercase tracking-wider rounded-xl border border-white/10 transition-colors cursor-pointer">
+                        + Nueva Noticia
+                    </button>
+                </div>
+
+                <!-- News List Container -->
+                <div id="newsList" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <!-- Dynamic News Items -->
+                </div>
+            </div>
+
+            <!-- ============================================================== -->
+            <!-- TAB 4: ESTADÍSTICAS GLOBALES                                   -->
             <!-- ============================================================== -->
             <div id="statsTab" class="tab-content hidden space-y-6">
                 <h2 class="font-heading text-2xl font-black uppercase text-white">Ránking de la Temporada</h2>
@@ -351,6 +374,79 @@
                     <div class="flex items-center justify-end gap-2">
                         <button type="button" class="close-modal px-5 py-2.5 rounded-xl border border-white/10 text-gray-300 hover:text-white text-xs font-bold uppercase tracking-wider cursor-pointer">Cancelar</button>
                         <button type="submit" class="px-6 py-2.5 rounded-xl bg-brand-neon text-brand-dark hover:bg-white font-black text-xs uppercase tracking-wider transition-colors cursor-pointer">Guardar Jugador</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- ============================================================== -->
+    <!-- MODAL: EDITAR / AÑADIR NOTICIA                                 -->
+    <!-- ============================================================== -->
+    <div id="newsModal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4">
+        <div class="modal-content max-w-2xl">
+            <div class="modal-header">
+                <h3 id="newsModalTitle" class="font-heading text-xl font-black uppercase text-white">Noticia / Comunicado</h3>
+                <button type="button" class="close-modal text-gray-400 hover:text-white text-2xl font-bold">&times;</button>
+            </div>
+
+            <form id="newsForm" class="flex flex-col flex-grow overflow-hidden m-0">
+                <input type="hidden" id="newsEditIndex" value="-1">
+
+                <div class="modal-body-scroll space-y-4">
+                    <div>
+                        <label class="block text-xs font-bold text-gray-400 uppercase mb-1">Título de la Noticia</label>
+                        <input id="newsTitleInput" required placeholder="Nuevo Fichaje - ...">
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <div>
+                            <label class="block text-xs font-bold text-gray-400 uppercase mb-1">Slug URL (ej: nuevo-fichaje-sebastian)</label>
+                            <input id="newsSlugInput" required placeholder="nuevo-fichaje-...">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-gray-400 uppercase mb-1">Categoría</label>
+                            <select id="newsCategoryInput" required>
+                                <option value="Fichajes">Fichajes</option>
+                                <option value="Crónicas">Crónicas</option>
+                                <option value="Club">Club</option>
+                                <option value="Comunicado">Comunicado</option>
+                                <option value="Historia">Historia</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                        <div>
+                            <label class="block text-xs font-bold text-gray-400 uppercase mb-1">Fecha</label>
+                            <input id="newsDateInput" required placeholder="19/08/2026">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-gray-400 uppercase mb-1">Lectura</label>
+                            <input id="newsReadingInput" required placeholder="2 min">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-gray-400 uppercase mb-1">Ruta Imagen</label>
+                            <input id="newsImageInput" required placeholder="/assets/img/sebas.webp">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-gray-400 uppercase mb-1">Resumen / Entradilla (para tarjetas)</label>
+                        <textarea id="newsExcerptInput" rows="2" required placeholder="Breve descripción que resume la noticia..."></textarea>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-gray-400 uppercase mb-1">Cuerpo de la Noticia (Párrafos separados por saltos de línea)</label>
+                        <textarea id="newsBodyInput" rows="5" required placeholder="Escribe aquí el contenido completo. Cada salto de línea creará un párrafo nuevo..."></textarea>
+                    </div>
+                </div>
+
+                <div class="modal-footer flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
+                    <p class="text-[11px] text-gray-400">💡 Al guardar, queda listo en memoria. Luego pulsa "🚀 Guardar y Publicar".</p>
+                    <div class="flex items-center justify-end gap-2">
+                        <button type="button" class="close-modal px-5 py-2.5 rounded-xl border border-white/10 text-gray-300 hover:text-white text-xs font-bold uppercase tracking-wider cursor-pointer">Cancelar</button>
+                        <button type="submit" class="px-6 py-2.5 rounded-xl bg-brand-neon text-brand-dark hover:bg-white font-black text-xs uppercase tracking-wider transition-colors cursor-pointer">Guardar Noticia</button>
                     </div>
                 </div>
             </form>
