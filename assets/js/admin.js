@@ -640,16 +640,18 @@
     const dorsalVal = playerDorsalInput.value ? parseInt(playerDorsalInput.value) : null;
     const posVal = playerPositionInput.value.trim();
 
+    let updatedPlayer = null;
     if (idx >= 0) {
       playersData.players[idx].name = nameVal;
       playersData.players[idx].dorsal = dorsalVal;
       playersData.players[idx].position = posVal;
+      updatedPlayer = playersData.players[idx];
     } else {
       if (playersData.players.some(p => p.id === idVal)) {
         alert('Ya existe un jugador con este ID único. Elige otro ID.');
         return;
       }
-      playersData.players.push({
+      updatedPlayer = {
         id: idVal,
         name: nameVal,
         fullName: nameVal,
@@ -663,14 +665,48 @@
         goals: 0,
         assists: 0,
         matchesPlayed: 0
-      });
+      };
+      playersData.players.push(updatedPlayer);
     }
 
+    syncPlayerToNews(updatedPlayer);
     recalculateStats();
     renderAll();
     markUnsavedChanges(true);
     playerModal.classList.add('hidden');
   });
+
+  function syncPlayerToNews(player) {
+    if (!player || !newsData.items || !Array.isArray(newsData.items)) return;
+    const targetSlug = `nuevo-fichaje-${player.id}`;
+    const signingNews = newsData.items.find(n => 
+      n.slug === targetSlug || 
+      n.slug.includes(player.id) ||
+      (n.title && n.title.toLowerCase().includes(player.name.toLowerCase()) && n.category === 'Fichajes')
+    );
+
+    if (signingNews) {
+      signingNews.title = `Nuevo Fichaje - ${player.name}`;
+      const dorsalText = player.dorsal ? `con el dorsal ${player.dorsal}` : 'con dorsal oficial';
+      signingNews.excerpt = `La Unión Deportiva Centinela incorpora a ${player.name} para la temporada en Regional, reforzando como ${player.position.toLowerCase()} ${dorsalText}.`;
+
+      if (Array.isArray(signingNews.body)) {
+        if (signingNews.body.length > 0) {
+          signingNews.body[0] = `La Unión Deportiva Centinela suma un refuerzo clave para la temporada en categoría Regional con la llegada de ${player.name}.`;
+        }
+        if (signingNews.body.length > 1) {
+          signingNews.body[1] = `${player.name} se desempeña habitualmente en la posición de ${player.position.toLowerCase()}. Destaca por su rigor táctico, despliegue físico y una notable precisión en el juego.`;
+        }
+        if (signingNews.body.length > 2) {
+          signingNews.body[2] = `Con el dorsal ${player.dorsal || 'oficial'} a la espalda, el futbolista aportará solidez, equilibrio y criterio para el esquema del conjunto centinelista.`;
+        }
+      }
+      if (player.image) {
+        signingNews.image = player.image;
+        signingNews.imageAlt = `${player.name} - UD Centinela`;
+      }
+    }
+  }
 
   function deletePlayer(index) {
     const p = playersData.players[index];
