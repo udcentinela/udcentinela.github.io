@@ -3,8 +3,8 @@
  * Version: 20260819_1
  */
 
-const CACHE_NAME = 'udc-cache-v20260819_1';
-const DATA_CACHE_NAME = 'udc-data-cache-v20260819_1';
+const CACHE_NAME = 'udc-cache-v20260819_2';
+const DATA_CACHE_NAME = 'udc-data-cache-v20260819_2';
 
 const PRECACHE_ASSETS = [
   '/',
@@ -32,6 +32,9 @@ const PRECACHE_ASSETS = [
   '/assets/data/calendar.json',
   '/assets/data/players.json',
   '/assets/data/news.json',
+  '/assets/img/icon-192.png',
+  '/assets/img/icon-512.png',
+  '/assets/img/icon-maskable-512.png',
   '/assets/img/logo-nav.webp',
   '/assets/img/logo-hero.webp',
   '/assets/img/logo-social.jpg',
