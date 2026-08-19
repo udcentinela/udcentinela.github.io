@@ -41,6 +41,18 @@
             articleExcerpt.textContent = `La Unión Deportiva Centinela incorpora a ${player.name} para la temporada en Regional, reforzando la medular como ${player.position.toLowerCase()} con el dorsal ${player.dorsal}.`;
           }
 
+          // Sync profile card top-right badge
+          const topBadge = document.querySelector('.profile-card .absolute.top-6.right-6 span');
+          if (topBadge) {
+            if (player.dorsal) {
+              topBadge.textContent = `#${player.dorsal}`;
+              topBadge.className = 'bg-brand-neon text-brand-dark font-black px-3.5 py-1.5 rounded-xl text-sm shadow-md';
+            } else {
+              topBadge.textContent = 'Dorsal por confirmar';
+              topBadge.className = 'bg-brand-neon text-brand-dark font-black px-3.5 py-1.5 rounded-xl text-xs shadow-md uppercase';
+            }
+          }
+
           const articleBody = document.getElementById('articleBody');
           if (articleBody && player.dorsal) {
             const paragraphs = articleBody.querySelectorAll('p');
