@@ -685,26 +685,9 @@
       (n.title && n.title.toLowerCase().includes(player.name.toLowerCase()) && n.category === 'Fichajes')
     );
 
-    if (signingNews) {
-      signingNews.title = `Nuevo Fichaje - ${player.name}`;
-      const dorsalText = player.dorsal ? `con el dorsal ${player.dorsal}` : 'con dorsal oficial';
-      signingNews.excerpt = `La Unión Deportiva Centinela incorpora a ${player.name} para la temporada en Regional, reforzando como ${player.position.toLowerCase()} ${dorsalText}.`;
-
-      if (Array.isArray(signingNews.body)) {
-        if (signingNews.body.length > 0) {
-          signingNews.body[0] = `La Unión Deportiva Centinela suma un refuerzo clave para la temporada en categoría Regional con la llegada de ${player.name}.`;
-        }
-        if (signingNews.body.length > 1) {
-          signingNews.body[1] = `${player.name} se desempeña habitualmente en la posición de ${player.position.toLowerCase()}. Destaca por su rigor táctico, despliegue físico y una notable precisión en el juego.`;
-        }
-        if (signingNews.body.length > 2) {
-          signingNews.body[2] = `Con el dorsal ${player.dorsal || 'oficial'} a la espalda, el futbolista aportará solidez, equilibrio y criterio para el esquema del conjunto centinelista.`;
-        }
-      }
-      if (player.image) {
-        signingNews.image = player.image;
-        signingNews.imageAlt = `${player.name} - UD Centinela`;
-      }
+    if (signingNews && player.image) {
+      signingNews.image = player.image;
+      signingNews.imageAlt = `${player.name} - UD Centinela`;
     }
   }
 
