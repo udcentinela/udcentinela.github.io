@@ -322,12 +322,6 @@
   }
 
   function setupTheme() {
-    const toggleButtons = [
-      document.getElementById("themeToggleBtn"),
-      document.getElementById("themeToggleBtnNavbar"),
-      document.getElementById("themeToggleBtnMobile")
-    ].filter(Boolean);
-
     const activeTheme = window.localStorage.getItem("centinela_theme") || "home";
     if (activeTheme === "away") {
       document.documentElement.classList.add("theme-away");
@@ -335,11 +329,12 @@
       document.documentElement.classList.remove("theme-away");
     }
 
-    toggleButtons.forEach((btn) => {
-      btn.addEventListener("click", () => {
-        const isAway = document.documentElement.classList.toggle("theme-away");
-        window.localStorage.setItem("centinela_theme", isAway ? "away" : "home");
-      });
+    document.addEventListener("click", (event) => {
+      const btn = event.target.closest("#themeToggleBtn, #themeToggleBtnNavbar, #themeToggleBtnMobile, [data-theme-toggle]");
+      if (!btn) return;
+      event.preventDefault();
+      const isAway = document.documentElement.classList.toggle("theme-away");
+      window.localStorage.setItem("centinela_theme", isAway ? "away" : "home");
     });
   }
 
