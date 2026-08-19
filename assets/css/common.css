@@ -258,15 +258,6 @@ body {
     text-decoration: none;
 }
 
-/* --- Transiciones de página --- */
-body > :not(#preloader) {
-    transition: opacity 0.16s ease;
-}
-
-body.page-leaving > :not(#preloader) {
-    opacity: 0.72;
-}
-
 /* --- Focus visible (accesibilidad) --- */
 a:focus-visible,
 button:focus-visible,
