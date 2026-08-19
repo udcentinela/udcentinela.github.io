@@ -1,6 +1,6 @@
 {
   "season": "Temporada 2026/2027",
-  "lastUpdated": "2026-08-17",
+  "lastUpdated": "2026-08-19",
   "players": [
     {
       "id": "iriome",
@@ -58,6 +58,21 @@
       "image": "/assets/img/aday.webp",
       "slug": "aday",
       "url": "/regional/aday/",
+      "goals": 0,
+      "assists": 0,
+      "matchesPlayed": 0
+    },
+    {
+      "id": "sebastian",
+      "name": "Sebastian",
+      "fullName": "Sebastian",
+      "dorsal": null,
+      "position": "Mediocentro Defensivo",
+      "role": "Centrocampista",
+      "status": "Confirmado",
+      "image": "/assets/img/sebas.webp",
+      "slug": "sebastian",
+      "url": "/regional/sebastian/",
       "goals": 0,
       "assists": 0,
       "matchesPlayed": 0

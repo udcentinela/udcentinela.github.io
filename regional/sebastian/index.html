@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UD Centinela | Regional</title>
+    <title>UD Centinela | Sebastian</title>
     <meta name="google-site-verification" content="d5P-lVf1Ztgx4HS92B6wuiJH1yU3vwiEYMzmAcoaGBQ" />
     
     <!-- Fuentes: Montserrat para títulos impactantes, Inter para lectura -->
@@ -18,12 +18,10 @@
             background-color: var(--color-brand-dark);
             color: #ffffff;
             overflow-x: hidden;
-            /* Patrón sutil de fondo */
             background-image: radial-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px);
             background-size: 30px 30px;
         }
 
-        /* Ocultar barra de scroll para un look más limpio */
         ::-webkit-scrollbar {
             width: 8px;
         }
@@ -38,70 +36,16 @@
             background: var(--color-brand-neon); 
         }
 
-        .text-glow {
-            text-shadow: 0 0 10px var(--color-brand-neon);
-        }
-
         .hero-gradient {
             background: radial-gradient(circle at center, var(--hero-glow) 0%, var(--color-brand-dark) 70%);
         }
 
-        /* Utilidad para clips de texto con gradientes */
         .text-gradient {
             background: linear-gradient(to right, #ffffff, var(--color-brand-neon));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        .hero-copy {
-            min-width: 0;
-        }
-
-        .hero-title {
-            font-size: clamp(3.3rem, 10.2vw, 5.35rem);
-            line-height: 0.98;
-            letter-spacing: 0;
-            overflow: visible;
-        }
-
-        .hero-title-line {
-            display: inline-block;
-            white-space: nowrap;
-            max-width: 100%;
-        }
-
-        @media (min-width: 1024px) {
-            .hero-copy {
-                flex: 0 1 55%;
-            }
-
-            .hero-media {
-                flex: 0 1 45%;
-            }
-
-            .hero-title {
-                font-size: clamp(4.1rem, 6.35vw, 5.25rem);
-            }
-        }
-
-        @media (max-width: 420px) {
-            .hero-title {
-                font-size: clamp(2.85rem, 15vw, 3.5rem);
-            }
-        }
-
-        .shield-image {
-            filter: drop-shadow(0 0 25px var(--shield-glow));
-            animation: float 6s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-15px); }
-            100% { transform: translateY(0px); }
-        }
-
-        /* Pantalla de carga */
         #preloader {
             position: fixed;
             inset: 0;
@@ -111,8 +55,25 @@
             justify-content: center;
             align-items: center;
             flex-direction: column;
+            opacity: 1;
+            visibility: visible;
+            transform: translateZ(0);
+            transition: opacity 0.55s ease, visibility 0.55s ease;
+            will-change: opacity;
         }
-        
+
+        #preloader h2 {
+            opacity: 0.35;
+            transform: translateY(8px) scale(0.97);
+            transition: opacity 0.45s ease, transform 0.45s ease;
+            will-change: opacity, transform;
+        }
+
+        #preloader.preloader-ready h2 {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+
         .loader-line {
             width: 0%;
             height: 2px;
@@ -120,29 +81,26 @@
             margin-top: 20px;
             box-shadow: 0 0 10px var(--color-brand-neon-glow);
         }
-    
-        .nav-link-active {
-            color: var(--color-brand-neon);
-        }
-
-        .member-card {
-            color: inherit;
-            text-decoration: none;
-            display: flex;
-        }
-
-        .player-card-link {
-            color: inherit;
-            text-decoration: none;
-            display: block;
-        }
 
         .profile-shell {
             padding-top: 8rem;
         }
 
-        .profile-avatar {
-            min-height: 22rem;
+        .profile-avatar-box {
+            position: relative;
+            min-height: 24rem;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            padding: 1.5rem;
+            background: radial-gradient(circle at 50% 30%, rgba(0, 82, 255, 0.25) 0%, rgba(3, 7, 18, 0.95) 85%);
+        }
+
+        .profile-avatar-box img {
+            max-height: 22rem;
+            width: auto;
+            object-fit: contain;
+            filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.75));
         }
 
         .profile-stat {
@@ -154,29 +112,6 @@
             color: inherit;
             text-decoration: none;
             display: block;
-        }
-
-        .news-card {
-            color: inherit;
-            text-decoration: none;
-            display: block;
-        }
-
-        .news-card:hover .news-title {
-            color: var(--color-brand-neon);
-        }
-
-        .article-shell {
-            padding-top: 8rem;
-        }
-
-        .article-body p {
-            margin-bottom: 1.5rem;
-        }
-
-        .article-back {
-            color: inherit;
-            text-decoration: none;
         }
 
         .mobile-menu-button {
@@ -203,108 +138,25 @@
             background: rgb(var(--color-brand-neon-rgb) / 0.1);
             border-color: rgb(var(--color-brand-neon-rgb) / 0.35);
         }
-
-        #preloader {
-            opacity: 1;
-            visibility: visible;
-            transform: translateZ(0);
-            transition: opacity 0.55s ease, visibility 0.55s ease;
-            will-change: opacity;
-        }
-
-        #preloader h2 {
-            opacity: 0.35;
-            transform: translateY(8px) scale(0.97);
-            filter: blur(4px);
-            letter-spacing: 0.24em;
-            text-shadow: 0 0 24px rgb(var(--color-brand-neon-rgb) / 0.18);
-            transition: opacity 0.8s ease, transform 0.8s ease, filter 0.8s ease, letter-spacing 0.8s ease;
-        }
-
-        #preloader.is-ready h2 {
-            opacity: 1;
-            transform: translateY(0) scale(1);
-            filter: blur(0);
-            letter-spacing: 0.32em;
-        }
-
-        #preloader .loader-line {
-            width: min(160px, 42vw);
-            transform: scaleX(0);
-            transform-origin: left center;
-            background: linear-gradient(90deg, var(--color-brand-blue), var(--color-brand-neon));
-            box-shadow: 0 0 12px var(--color-brand-neon-glow);
-        }
-
-        #preloader.is-ready .loader-line {
-            transform: scaleX(1);
-        }
-
-        #preloader.is-leaving {
-            opacity: 0;
-            visibility: hidden;
-            pointer-events: none;
-        }
-
-        #preloader.is-leaving h2 {
-            opacity: 0;
-            transform: translateY(-8px) scale(1.03);
-            filter: blur(3px);
-        }
-
-        body > :not(#preloader) {
-            transition: opacity 0.16s ease;
-        }
-
-        body.page-leaving > :not(#preloader) {
-            opacity: 0.72;
-        }
-
-        a:focus-visible,
-        button:focus-visible,
-        input:focus-visible,
-        textarea:focus-visible,
-        select:focus-visible {
-            outline: 2px solid var(--color-brand-neon);
-            outline-offset: 4px;
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-            *,
-            *::before,
-            *::after {
-                animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
-                scroll-behavior: auto !important;
-                transition-duration: 0.01ms !important;
-            }
-
-            #preloader {
-                display: none !important;
-            }
-
-            body > :not(#preloader) {
-                transition: none !important;
-            }
-        }
     </style>
-    <meta name="description" content="Plantilla regional, directiva, cuerpo tecnico y fichas individuales de la nueva etapa de la UD Centinela.">
+
+    <meta name="description" content="Ficha oficial de Sebastian, mediocentro defensivo del UD Centinela en categoría Regional para la temporada 2026/2027.">
     <meta name="robots" content="index,follow">
-    <link rel="canonical" href="https://proctological-caleb-seminiferous.ngrok-free.dev/regional/">
+    <link rel="canonical" href="https://udcentinela.github.io/regional/sebastian/">
     <link rel="icon" href="/favicon.ico">
     <link rel="apple-touch-icon" href="/assets/img/logo-nav.webp">
     <link rel="manifest" href="/site.webmanifest">
     <meta name="theme-color" content="#020617">
-    <meta property="og:type" content="website">
+    <meta property="og:type" content="profile">
     <meta property="og:site_name" content="UD Centinela">
-    <meta property="og:title" content="UD Centinela | Regional">
-    <meta property="og:description" content="Plantilla regional, directiva, cuerpo tecnico y fichas individuales de la nueva etapa de la UD Centinela.">
-    <meta property="og:url" content="https://proctological-caleb-seminiferous.ngrok-free.dev/regional/">
-    <meta property="og:image" content="https://proctological-caleb-seminiferous.ngrok-free.dev/assets/img/logo-social.jpg">
+    <meta property="og:title" content="UD Centinela | Sebastian">
+    <meta property="og:description" content="Ficha oficial de Sebastian, mediocentro defensivo del UD Centinela en categoría Regional para la temporada 2026/2027.">
+    <meta property="og:url" content="https://udcentinela.github.io/regional/sebastian/">
+    <meta property="og:image" content="https://udcentinela.github.io/assets/img/sebas.webp">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="UD Centinela | Regional">
-    <meta name="twitter:description" content="Plantilla regional, directiva, cuerpo tecnico y fichas individuales de la nueva etapa de la UD Centinela.">
-    <meta name="twitter:image" content="https://proctological-caleb-seminiferous.ngrok-free.dev/assets/img/logo-social.jpg">
+    <meta name="twitter:title" content="UD Centinela | Sebastian">
+    <meta name="twitter:description" content="Ficha oficial de Sebastian, mediocentro defensivo del UD Centinela en categoría Regional para la temporada 2026/2027.">
+    <meta name="twitter:image" content="https://udcentinela.github.io/assets/img/sebas.webp">
 </head>
 <body class="antialiased selection:bg-brand-neon selection:text-brand-dark">
     <!-- Preloader -->
@@ -330,7 +182,6 @@
                         <a href="/historia/" class="text-gray-300 hover:text-brand-neon transition-colors px-3 py-2 text-sm font-medium tracking-wide">HISTORIA</a>
                         <a href="/identidad/" class="text-gray-300 hover:text-brand-neon transition-colors px-3 py-2 text-sm font-medium tracking-wide">IDENTIDAD</a>
                         <a href="/legado/" class="text-gray-300 hover:text-brand-neon transition-colors px-3 py-2 text-sm font-medium tracking-wide">LEGADO</a>
-                        <!-- Botón de alternancia en navbar (escritorio) -->
                         <button id="themeToggleBtnNavbar" class="text-gray-300 hover:text-brand-neon transition-colors p-2 rounded-xl flex items-center justify-center group relative ml-2" aria-label="Alternar colores">
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5c1.38 0 2.5 1 2.5 2.25v.75c0 .414.336.75.75.75H18c.552 0 1 .448 1 1V11c0 .552-.448 1-1 1h-1.5c-.414 0-.75.336-.75.75V20c0 .552-.448 1-1 1H9.25c-.552 0-1-.448-1-1v-7.25c0-.414-.336-.75-.75-.75H6c-.552 0-1-.448-1-1V9.25c0-.552.448-1 1-1h2.75c.414 0 .75-.336.75-.75v-.75c0-1.25 1.12-2.25 2.5-2.25z"/>
@@ -355,7 +206,6 @@
                 <a href="/historia/" class="mobile-nav-link flex items-center justify-between rounded-xl border border-white/5 px-4 py-3 text-base font-bold tracking-widest text-gray-200 hover:border-brand-neon/40 hover:bg-white/5 hover:text-brand-neon transition-colors"><span>HISTORIA</span><svg class="w-4 h-4 text-brand-neon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg></a>
                 <a href="/identidad/" class="mobile-nav-link flex items-center justify-between rounded-xl border border-white/5 px-4 py-3 text-base font-bold tracking-widest text-gray-200 hover:border-brand-neon/40 hover:bg-white/5 hover:text-brand-neon transition-colors"><span>IDENTIDAD</span><svg class="w-4 h-4 text-brand-neon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg></a>
                 <a href="/legado/" class="mobile-nav-link flex items-center justify-between rounded-xl border border-white/5 px-4 py-3 text-base font-bold tracking-widest text-gray-200 hover:border-brand-neon/40 hover:bg-white/5 hover:text-brand-neon transition-colors"><span>LEGADO</span><svg class="w-4 h-4 text-brand-neon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg></a>
-                <!-- Botón de alternancia en navbar (móvil) -->
                 <button id="themeToggleBtnMobile" class="mobile-nav-link flex items-center justify-between rounded-xl border border-white/5 px-4 py-3 text-base font-bold tracking-widest text-gray-200 hover:border-brand-neon/40 hover:bg-white/5 hover:text-brand-neon transition-colors mt-2" aria-label="Alternar colores">
                     <span class="flex items-center gap-3">
                         <svg class="w-5 h-5 text-brand-neon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
@@ -369,36 +219,33 @@
             </div>
         </div>
     </nav>
-
     <script>
         (function () {
             function initMobileNavigationEarly() {
-                if (window.__centinelaMobileNavReady) return;
-
                 const toggle = document.getElementById('mobileMenuToggle');
                 const menu = document.getElementById('mobileMenu');
                 if (!toggle || !menu) return;
 
-                window.__centinelaMobileNavReady = true;
-
                 const openIcon = toggle.querySelector('.mobile-menu-open');
                 const closeIcon = toggle.querySelector('.mobile-menu-close');
 
-                const setOpen = (isOpen) => {
-                    toggle.setAttribute('aria-expanded', String(isOpen));
-                    toggle.setAttribute('aria-label', isOpen ? 'Cerrar menú de navegación' : 'Abrir menú de navegación');
-                    menu.hidden = !isOpen;
-                    document.body.classList.toggle('overflow-hidden', isOpen);
-                    openIcon?.classList.toggle('hidden', isOpen);
-                    closeIcon?.classList.toggle('hidden', !isOpen);
-                };
+                function setOpen(isOpen) {
+                    toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+                    if (isOpen) {
+                        menu.removeAttribute('hidden');
+                        if (openIcon) openIcon.classList.add('hidden');
+                        if (closeIcon) closeIcon.classList.remove('hidden');
+                    } else {
+                        menu.setAttribute('hidden', '');
+                        if (openIcon) openIcon.classList.remove('hidden');
+                        if (closeIcon) closeIcon.classList.add('hidden');
+                    }
+                }
 
-                toggle.addEventListener('click', () => {
-                    setOpen(toggle.getAttribute('aria-expanded') !== 'true');
-                });
-
-                menu.querySelectorAll('a').forEach((link) => {
-                    link.addEventListener('click', () => setOpen(false));
+                toggle.addEventListener('click', (event) => {
+                    event.stopPropagation();
+                    const isOpen = toggle.getAttribute('aria-expanded') === 'true';
+                    setOpen(!isOpen);
                 });
 
                 document.addEventListener('keydown', (event) => {
@@ -437,112 +284,72 @@
             }, 3500);
         })();
     </script>
-    <!-- Regional / Nueva Era -->
-    <section id="regional" class="relative min-h-screen py-24 bg-brand-dark overflow-hidden border-t border-white/5">
-        <div class="absolute top-0 right-0 w-[800px] h-[800px] bg-brand-blue/5 rounded-full blur-[150px] pointer-events-none"></div>
+    <section id="ficha" class="profile-shell relative min-h-screen pb-24 bg-brand-dark overflow-hidden">
+        <div class="absolute inset-0 hero-gradient"></div>
+        <div class="absolute top-20 right-0 w-[720px] h-[720px] bg-brand-blue/10 rounded-full blur-[150px] pointer-events-none"></div>
 
-        <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10 pt-10">
-            <div class="mb-20 text-center section-header">
-                <p class="text-brand-neon font-semibold tracking-widest uppercase text-sm mb-3">El Renacer de una Leyenda</p>
-                <h1 class="font-heading text-4xl md:text-6xl font-black mb-6 uppercase tracking-tight text-white">Categoría <span class="text-gradient">Regional</span></h1>
-                <p class="text-gray-400 text-lg max-w-3xl mx-auto leading-relaxed">
-                    Tras décadas en el letargo y guardado únicamente en la memoria de los más veteranos, el espíritu del Centinela despierta. Gracias a la pasión y el empeño de su actual presidente, <strong>Iriome</strong>, el club vuelve a calzarse las botas para competir en la categoría Regional, devolviendo un pedazo de historia viva a los campos de Icod de los Vinos.
-                </p>
-            </div>
+        <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
+            <a href="/regional/" class="profile-back inline-flex items-center text-brand-neon font-bold tracking-widest uppercase text-xs mb-10 hover:text-white transition-colors">
+                <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 12H5m7 7l-7-7 7-7"></path></svg>
+                Volver a Regional
+            </a>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
-                <a href="/regional/iriome/" class="team-card member-card bg-gradient-to-br from-brand-blue/10 to-transparent border border-brand-neon/30 rounded-3xl p-8 items-center gap-6 group hover:bg-white/5 hover:-translate-y-1 transition-all duration-300">
-                    <div class="w-20 h-20 rounded-full bg-brand-dark border-2 border-brand-neon flex items-center justify-center flex-shrink-0 overflow-hidden shadow-neon">
-                        <svg class="w-10 h-10 text-brand-neon/50" fill="currentColor" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
-                    </div>
-                    <div>
-                        <h3 class="font-heading text-2xl font-bold text-white mb-1 group-hover:text-brand-neon transition-colors">Iriome</h3>
-                        <p class="text-brand-neon font-medium text-sm tracking-widest uppercase">Presidente / Fundador (Nueva Era)</p>
-                        <p class="text-gray-400 text-sm mt-2">El arquitecto del resurgir centinelista.</p>
-                        <p class="text-xs text-brand-neon font-bold tracking-widest uppercase mt-4">Ver ficha</p>
-                    </div>
-                </a>
-                <a href="/regional/cuerpo-tecnico/" class="team-card member-card bg-white/5 border border-white/10 rounded-3xl p-8 items-center gap-6 group hover:bg-white/10 hover:-translate-y-1 transition-all duration-300">
-                    <div class="w-20 h-20 rounded-full bg-gray-800 flex items-center justify-center flex-shrink-0 overflow-hidden">
-                        <svg class="w-10 h-10 text-brand-neon/50" fill="currentColor" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
-                    </div>
-                    <div>
-                        <h3 class="font-heading text-2xl font-bold text-white mb-1 group-hover:text-brand-neon transition-colors">Cuerpo Técnico</h3>
-                        <p class="text-brand-neon font-medium text-sm tracking-widest uppercase">Entrenador y Ayudantes</p>
-                        <p class="text-gray-400 text-sm mt-2">Estructura deportiva en proceso de confirmación.</p>
-                        <p class="text-xs text-brand-neon font-bold tracking-widest uppercase mt-4">Ver ficha</p>
-                    </div>
-                </a>
-            </div>
-
-            <div class="text-center mb-10 section-header">
-                <h3 class="font-heading text-3xl font-bold text-white uppercase tracking-wider">Plantilla Oficial</h3>
-                <div class="w-16 h-1 bg-brand-neon mx-auto mt-4 rounded-full"></div>
-            </div>
-
-            <div class="squad-grid">
-                <a href="/regional/adrian-tejera/" class="player-card group" style="border-color: rgba(0, 210, 255, 0.35);">
-                    <div class="player-card-photo">
-                        <div class="absolute inset-0 bg-gradient-to-t from-brand-dark/90 via-transparent to-transparent z-10 pointer-events-none"></div>
-                        <img src="/assets/img/tejera.webp" alt="Adrián Tejera" class="relative z-0">
-                        <div class="absolute top-2.5 right-2.5 z-20 flex items-center gap-1">
-                            <span class="bg-brand-neon text-brand-dark font-black px-2 py-0.5 rounded-md text-[11px] shadow-sm">#11</span>
-                            <span class="badge-captain-solid px-2 py-0.5 rounded-md text-[9px] uppercase shadow-sm">Capitán</span>
+            <div class="grid grid-cols-1 lg:grid-cols-[0.9fr_1.1fr] gap-10 lg:gap-16 items-center">
+                <div class="profile-card bg-white/5 border border-brand-neon/30 rounded-3xl overflow-hidden shadow-neon">
+                    <div class="profile-avatar-box">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-dark/95 via-transparent to-transparent z-10 pointer-events-none"></div>
+                        <img src="/assets/img/sebas.webp" alt="Sebastian - UD Centinela">
+                        <div class="absolute top-5 right-5 z-20 flex items-center gap-1.5">
+                            <span class="bg-brand-neon text-brand-dark font-black px-3 py-1 rounded-lg text-xs shadow-md uppercase">Por confirmar</span>
                         </div>
                     </div>
-                    <div class="player-card-info">
-                        <h4 class="font-heading font-bold text-sm sm:text-base text-white group-hover:text-brand-neon transition-colors truncate">Adrián Tejera</h4>
-                        <p class="text-brand-neon text-xs font-medium mt-0.5">Medio (Extremo)</p>
-                        <p class="text-[10px] text-gray-500 font-bold tracking-widest uppercase mt-2 group-hover:text-gray-300 transition-colors">Ver ficha</p>
-                    </div>
-                </a>
-                <a href="/regional/pablo/" class="player-card group" style="border-color: rgba(0, 210, 255, 0.35);">
-                    <div class="player-card-photo">
-                        <div class="absolute inset-0 bg-gradient-to-t from-brand-dark/90 via-transparent to-transparent z-10 pointer-events-none"></div>
-                        <img src="/assets/img/pablo.webp" alt="Pablo" class="relative z-0">
-                        <div class="absolute top-2.5 right-2.5 z-20 flex items-center gap-1">
-                            <span class="bg-brand-neon text-brand-dark font-black px-2 py-0.5 rounded-md text-[11px] shadow-sm">#23</span>
-                        </div>
-                    </div>
-                    <div class="player-card-info">
-                        <h4 class="font-heading font-bold text-sm sm:text-base text-white group-hover:text-brand-neon transition-colors truncate">Pablo</h4>
-                        <p class="text-brand-neon text-xs font-medium mt-0.5">Lateral Derecho</p>
-                        <p class="text-[10px] text-gray-500 font-bold tracking-widest uppercase mt-2 group-hover:text-gray-300 transition-colors">Ver ficha</p>
-                    </div>
-                </a>
-                <a href="/regional/aday/" class="player-card group" style="border-color: rgba(0, 210, 255, 0.35);">
-                    <div class="player-card-photo">
-                        <div class="absolute inset-0 bg-gradient-to-t from-brand-dark/90 via-transparent to-transparent z-10 pointer-events-none"></div>
-                        <img src="/assets/img/aday.webp" alt="Aday" class="relative z-0">
-                        <div class="absolute top-2.5 right-2.5 z-20 flex items-center gap-1">
-                            <span class="bg-brand-neon text-brand-dark font-black px-2 py-0.5 rounded-md text-[11px] shadow-sm">#18</span>
-                        </div>
-                    </div>
-                    <div class="player-card-info">
-                        <h4 class="font-heading font-bold text-sm sm:text-base text-white group-hover:text-brand-neon transition-colors truncate">Aday</h4>
-                        <p class="text-brand-neon text-xs font-medium mt-0.5">Lateral / Interior Izquierdo</p>
-                        <p class="text-[10px] text-gray-500 font-bold tracking-widest uppercase mt-2 group-hover:text-gray-300 transition-colors">Ver ficha</p>
-                    </div>
-                </a>
-                <a href="/regional/sebastian/" class="player-card group" style="border-color: rgba(0, 210, 255, 0.35);">
-                    <div class="player-card-photo">
-                        <div class="absolute inset-0 bg-gradient-to-t from-brand-dark/90 via-transparent to-transparent z-10 pointer-events-none"></div>
-                        <img src="/assets/img/sebas.webp" alt="Sebastian" class="relative z-0">
-                    </div>
-                    <div class="player-card-info">
-                        <h4 class="font-heading font-bold text-sm sm:text-base text-white group-hover:text-brand-neon transition-colors truncate">Sebastian</h4>
-                        <p class="text-brand-neon text-xs font-medium mt-0.5">Mediocentro Defensivo</p>
-                        <p class="text-[10px] text-gray-500 font-bold tracking-widest uppercase mt-2 group-hover:text-gray-300 transition-colors">Ver ficha</p>
-                    </div>
-                </a>
-            </div>
+                </div>
 
-            <div class="text-center mt-12 team-card">
-                 <p class="text-sm text-gray-500 italic">* Plantilla en proceso de confirmación oficial para la presente temporada.</p>
+                <div class="profile-card">
+                    <div class="flex items-center gap-3 mb-3">
+                        <span class="text-brand-neon font-semibold tracking-[0.2em] uppercase text-sm">Plantilla Oficial</span>
+                    </div>
+                    <h1 class="font-heading text-5xl md:text-7xl font-black text-white leading-none mb-4">Sebastian</h1>
+                    <div class="flex flex-wrap items-center justify-between gap-4 mb-8">
+                        <p class="text-xl text-gray-300 font-medium">Mediocentro Defensivo <span class="text-brand-neon text-base font-semibold">(Dorsal por confirmar)</span></p>
+                        <div class="udc-like-container">
+                            <button type="button" class="udc-like-btn" data-like-id="player_sebastian" aria-label="Dar me gusta a Sebastian">
+                                <svg class="udc-like-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                                <span class="udc-like-label">Me gusta</span>
+                                <span class="udc-like-count">0</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+                        <div class="profile-stat rounded-2xl p-5">
+                            <p class="text-gray-500 text-xs font-bold tracking-widest uppercase mb-2">Posición</p>
+                            <p class="text-white font-heading text-xl">Mediocentro Defensivo</p>
+                        </div>
+                        <div class="profile-stat rounded-2xl p-5">
+                            <p class="text-gray-500 text-xs font-bold tracking-widest uppercase mb-2">Dorsal / Rol</p>
+                            <p class="text-white font-heading text-xl">Por confirmar · Centrocampista</p>
+                        </div>
+                        <div class="profile-stat rounded-2xl p-5">
+                            <p class="text-gray-500 text-xs font-bold tracking-widest uppercase mb-2">Temporada</p>
+                            <p class="text-white font-heading text-xl">2026/2027</p>
+                        </div>
+                        <div class="profile-stat rounded-2xl p-5">
+                            <p class="text-gray-500 text-xs font-bold tracking-widest uppercase mb-2">Estado</p>
+                            <p class="text-white font-heading text-xl">Confirmado</p>
+                        </div>
+                    </div>
+
+                    <div class="profile-stat rounded-3xl p-7">
+                        <p class="text-brand-neon font-bold tracking-widest uppercase text-xs mb-3">Información y Perfil Deportivo</p>
+                        <p class="text-gray-300 leading-relaxed">Mediocentro de corte defensivo con una excelente lectura táctica y capacidad de trabajo. Especialista en la recuperación de balones, aporta orden, contención y equilibrio a la medular, combinando su rigor defensivo con un trato preciso y limpio del balón en la distribución del juego.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
-<!-- Footer -->
+
+    <!-- Footer -->
     <footer class="bg-brand-dark py-12 border-t border-white/5 relative z-10">
         <div class="max-w-7xl mx-auto px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center">
             <div class="mb-6 md:mb-0 text-center md:text-left">
@@ -559,7 +366,13 @@
         </div>
     </footer>
 
-    
+    <!-- Motion -->
+    <script src="/assets/js/gsap.min.js"></script>
+    <script src="/assets/js/ScrollTrigger.min.js"></script>
+    <script src="/assets/js/ScrollToPlugin.min.js"></script>
+    <script src="/assets/site-motion.js?v=20260819_toggle"></script>
+    <script src="/assets/js/likes-system.js?v=20260818_sync"></script>
+    <script src="/assets/js/player-stats.js"></script>
     <!-- Botón flotante para alternar colores de equipación -->
     <button id="themeToggleBtn" class="fixed bottom-6 right-6 z-50 flex items-center justify-center w-12 h-12 bg-brand-dark/90 border border-brand-neon/30 text-brand-neon hover:text-brand-dark hover:bg-brand-neon rounded-full shadow-neon transition-all duration-300 group" aria-label="Alternar colores">
         <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
@@ -568,13 +381,5 @@
         </svg>
         <span class="absolute bottom-14 right-0 scale-0 group-hover:scale-100 bg-brand-dark/95 border border-brand-neon/20 text-white text-xs font-bold px-3 py-1.5 rounded-xl transition-all duration-200 origin-bottom-right whitespace-nowrap shadow-lg">Alternar colores</span>
     </button>
-
-    <!-- Motion -->
-    <script src="/assets/js/gsap.min.js"></script>
-    <script src="/assets/js/ScrollTrigger.min.js"></script>
-    <script src="/assets/js/ScrollToPlugin.min.js"></script>
-    <script src="/assets/site-motion.js?v=20260819_toggle"></script>
-    <!-- Live Stats & Dynamic Squad Integration -->
-    <script src="/assets/js/player-stats.js?v=20260818_sync"></script>
 </body>
 </html>
