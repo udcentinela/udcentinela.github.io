@@ -7,6 +7,8 @@ const { exec } = require('child_process');
 const PORT = process.env.PORT || 3000;
 const REPO_DIR = __dirname;
 const NEWS_JSON_PATH = path.join(REPO_DIR, 'assets', 'data', 'news.json');
+const PLAYERS_JSON_PATH = path.join(REPO_DIR, 'assets', 'data', 'players.json');
+const CALENDAR_JSON_PATH = path.join(REPO_DIR, 'assets', 'data', 'calendar.json');
 const LIKES_JSON_PATH = path.join(REPO_DIR, 'assets', 'data', 'likes.json');
 const TEMPLATE_PATH = path.join(REPO_DIR, 'assets', 'data', 'article_template.html');
 const NOTICIAS_INDEX_PATH = path.join(REPO_DIR, 'noticias', 'index.html');
@@ -428,6 +430,64 @@ function handleApiRequest(req, res, url) {
       res.writeHead(500);
       return res.end(JSON.stringify({ error: 'Error al leer la base de datos de noticias.' }));
     }
+  }
+
+  // GET /api/players (Public/Admin)
+  if (url.pathname === '/api/players' && req.method === 'GET') {
+    try {
+      const data = JSON.parse(fs.readFileSync(PLAYERS_JSON_PATH, 'utf8'));
+      return res.end(JSON.stringify(data));
+    } catch (e) {
+      res.writeHead(500);
+      return res.end(JSON.stringify({ error: 'Error al leer plantilla de jugadores.' }));
+    }
+  }
+
+  // GET /api/calendar (Public/Admin)
+  if (url.pathname === '/api/calendar' && req.method === 'GET') {
+    try {
+      const data = JSON.parse(fs.readFileSync(CALENDAR_JSON_PATH, 'utf8'));
+      return res.end(JSON.stringify(data));
+    } catch (e) {
+      res.writeHead(500);
+      return res.end(JSON.stringify({ error: 'Error al leer calendario.' }));
+    }
+  }
+
+  // POST /api/players (Update players.json)
+  if (url.pathname === '/api/players' && (req.method === 'POST' || req.method === 'PUT')) {
+    let body = '';
+    req.on('data', chunk => body += chunk);
+    req.on('end', () => {
+      try {
+        const payload = JSON.parse(body);
+        fs.writeFileSync(PLAYERS_JSON_PATH, JSON.stringify(payload, null, 2), 'utf8');
+        addToGitQueue();
+        return res.end(JSON.stringify({ success: true, players: payload.players }));
+      } catch (e) {
+        res.writeHead(500);
+        return res.end(JSON.stringify({ error: 'Error al guardar plantilla: ' + e.message }));
+      }
+    });
+    return;
+  }
+
+  // POST /api/calendar (Update calendar.json)
+  if (url.pathname === '/api/calendar' && (req.method === 'POST' || req.method === 'PUT')) {
+    let body = '';
+    req.on('data', chunk => body += chunk);
+    req.on('end', () => {
+      try {
+        const payload = JSON.parse(body);
+        fs.writeFileSync(CALENDAR_JSON_PATH, JSON.stringify(payload, null, 2), 'utf8');
+        addToGitQueue();
+        return res.end(JSON.stringify({ success: true, matches: payload.matches }));
+      } catch (e) {
+        res.writeHead(500);
+        return res.end(JSON.stringify({ error: 'Error al guardar calendario: ' + e.message }));
+      }
+    });
+    return;
   }
 
   // --- Likes API (Public) ---

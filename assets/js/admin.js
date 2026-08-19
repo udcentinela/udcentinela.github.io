@@ -5,6 +5,8 @@
   let currentToken = sessionStorage.getItem('udc_admin_token') || '';
   let calendarData = { season: 'Temporada 2026/2027', updated: '', nextMatch: null, matches: [], standings: [] };
   let playersData = { season: 'Temporada 2026/2027', lastUpdated: '', players: [] };
+  let hasUnsavedChanges = false;
+  const isLocalHost = location.hostname === 'localhost' || location.hostname === '127.0.0.1';
 
   // =========================================================================
   // DOM Elements
@@ -21,35 +23,28 @@
   const topAssistsList = document.getElementById('topAssistsList');
   const deployBtn = document.getElementById('deployBtn');
   const deployStatus = document.getElementById('deployStatus');
+  const unsavedBanner = document.getElementById('unsavedBanner');
 
-  // Match Modal Elements
-  const matchModal = document.getElementById('matchModal');
-  const matchForm = document.getElementById('matchForm');
-  const matchModalTitle = document.getElementById('matchModalTitle');
-  const matchId = document.getElementById('matchId');
-  const matchRound = document.getElementById('matchRound');
-  const matchDate = document.getElementById('matchDate');
-  const matchTime = document.getElementById('matchTime');
-  const matchHome = document.getElementById('matchHome');
-  const matchAway = document.getElementById('matchAway');
-  const matchVenue = document.getElementById('matchVenue');
-  const matchStatusSelect = document.getElementById('matchStatusSelect');
-  const matchHomeScore = document.getElementById('matchHomeScore');
-  const matchAwayScore = document.getElementById('matchAwayScore');
-  const goalsContainer = document.getElementById('goalsContainer');
-  const addGoalBtn = document.getElementById('addGoalBtn');
-  const newMatchBtn = document.getElementById('newMatchBtn');
+  function markUnsavedChanges(unsaved = true) {
+    hasUnsavedChanges = unsaved;
+    if (unsavedBanner) {
+      unsavedBanner.classList.toggle('hidden', !unsaved);
+    }
+    if (deployBtn) {
+      if (unsaved) {
+        deployBtn.classList.add('ring-4', 'ring-white', 'shadow-neon');
+      } else {
+        deployBtn.classList.remove('ring-4', 'ring-white', 'shadow-neon');
+      }
+    }
+  }
 
-  // Player Modal Elements
-  const playerModal = document.getElementById('playerModal');
-  const playerForm = document.getElementById('playerForm');
-  const playerModalTitle = document.getElementById('playerModalTitle');
-  const playerEditIndex = document.getElementById('playerEditIndex');
-  const playerIdInput = document.getElementById('playerIdInput');
-  const playerNameInput = document.getElementById('playerNameInput');
-  const playerDorsalInput = document.getElementById('playerDorsalInput');
-  const playerPositionInput = document.getElementById('playerPositionInput');
-  const newPlayerBtn = document.getElementById('newPlayerBtn');
+  window.addEventListener('beforeunload', (e) => {
+    if (hasUnsavedChanges) {
+      e.preventDefault();
+      e.returnValue = 'Tienes cambios pendientes de publicar. ¿Seguro que deseas salir?';
+    }
+  });
 
   // =========================================================================
   // Authentication & Init
@@ -59,6 +54,10 @@
     setupModals();
 
     if (currentToken) {
+      if (isLocalHost && (currentToken === 'admin' || currentToken === 'local')) {
+        showDashboard();
+        return;
+      }
       const isValid = await validateToken(currentToken);
       if (isValid) {
         showDashboard();
@@ -69,6 +68,9 @@
   }
 
   async function validateToken(token) {
+    if (isLocalHost && (token === 'admin' || token === 'local')) {
+      return true;
+    }
     try {
       const res = await fetch(API_BASE, {
         headers: { 'Authorization': 'Bearer ' + token, 'Accept': 'application/vnd.github.v3+json' }
@@ -105,7 +107,9 @@
       sessionStorage.setItem('udc_admin_token', token);
       showDashboard();
     } else {
-      loginError.textContent = 'Token o clave no válida. Comprueba que el token tenga permisos de repo.';
+      loginError.textContent = isLocalHost 
+        ? 'Clave incorrecta. En local puedes usar "admin".'
+        : 'Token o clave no válida. Introduce un Personal Access Token (PAT) de GitHub con permisos de "repo".';
       loginError.classList.remove('hidden');
     }
   });
@@ -455,6 +459,7 @@
 
     recalculateStats();
     renderAll();
+    markUnsavedChanges(true);
     matchModal.classList.add('hidden');
   });
 
@@ -465,6 +470,7 @@
     calendarData.nextMatch = upcoming || calendarData.matches[0] || null;
     recalculateStats();
     renderAll();
+    markUnsavedChanges(true);
   }
 
   // =========================================================================
@@ -527,6 +533,7 @@
 
     recalculateStats();
     renderAll();
+    markUnsavedChanges(true);
     playerModal.classList.add('hidden');
   });
 
@@ -536,19 +543,45 @@
     playersData.players.splice(index, 1);
     recalculateStats();
     renderAll();
+    markUnsavedChanges(true);
   }
 
   // =========================================================================
-  // GITHUB DIRECT DEPLOYER (REST API)
+  // GITHUB DIRECT DEPLOYER (REST API) & LOCAL BACKEND
   // =========================================================================
   deployBtn.addEventListener('click', async () => {
     deployStatus.className = 'p-4 rounded-2xl text-xs font-bold tracking-wide bg-brand-neon/10 border border-brand-neon/30 text-brand-neon';
-    deployStatus.textContent = '⏳ Conectando con GitHub API y guardando datos...';
+    deployStatus.textContent = '⏳ Guardando y publicando datos...';
     deployStatus.classList.remove('hidden');
     deployBtn.disabled = true;
 
     try {
       recalculateStats();
+
+      // If running on local Node server
+      if (isLocalHost && (currentToken === 'admin' || currentToken === 'local' || !currentToken.startsWith('ghp_'))) {
+        const [calRes, playRes] = await Promise.all([
+          fetch('/api/calendar', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(calendarData)
+          }),
+          fetch('/api/players', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(playersData)
+          })
+        ]);
+
+        if (!calRes.ok || !playRes.ok) throw new Error('Error al guardar datos en el servidor local.');
+
+        markUnsavedChanges(false);
+        deployStatus.className = 'p-4 rounded-2xl text-xs font-bold tracking-wide bg-green-500/20 border border-green-500/40 text-green-300';
+        deployStatus.innerHTML = '✨ <strong>¡Datos guardados localmente con éxito!</strong> Sincronizando con git en segundo plano...';
+        return;
+      }
+
+      // If deploying to GitHub Pages via REST API
       const calendarJsonStr = JSON.stringify(calendarData, null, 2);
       const playersJsonStr = JSON.stringify(playersData, null, 2);
 
@@ -556,7 +589,7 @@
       const refRes = await fetch(`${API_BASE}/git/refs/heads/main`, {
         headers: { 'Authorization': 'Bearer ' + currentToken, 'Accept': 'application/vnd.github.v3+json' }
       });
-      if (!refRes.ok) throw new Error('No se pudo leer la referencia de main.');
+      if (!refRes.ok) throw new Error('No se pudo leer la referencia de main en GitHub. Comprueba el token.');
       const refData = await refRes.json();
       const latestCommitSha = refData.object.sha;
 
@@ -612,6 +645,7 @@
 
       if (!updateRefRes.ok) throw new Error('Error al actualizar la rama main en GitHub.');
 
+      markUnsavedChanges(false);
       deployStatus.className = 'p-4 rounded-2xl text-xs font-bold tracking-wide bg-green-500/20 border border-green-500/40 text-green-300';
       deployStatus.innerHTML = `✨ <strong>¡Datos publicados con éxito en GitHub Pages!</strong> Commit: <code>${commitData.sha.substring(0, 7)}</code>. Los cambios estarán en vivo en 1-2 minutos.`;
     } catch (err) {

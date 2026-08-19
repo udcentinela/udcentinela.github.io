@@ -66,13 +66,54 @@
     const player = playersData.players.find(p => p.id === playerSlug || p.slug === playerSlug);
     if (!player) return;
 
+    // 1. Dynamic Photo Badge
+    const avatarBadge = document.querySelector('.profile-avatar-box span.bg-brand-neon');
+    if (avatarBadge) {
+      if (player.dorsal) {
+        avatarBadge.textContent = `#${player.dorsal}`;
+        avatarBadge.classList.remove('uppercase');
+      } else {
+        avatarBadge.textContent = 'Por confirmar';
+        avatarBadge.classList.add('uppercase');
+      }
+    }
+
+    // 2. Dynamic Subtitle (under main player name)
+    const subtitleP = document.querySelector('.profile-card p.text-xl');
+    if (subtitleP) {
+      const span = subtitleP.querySelector('span');
+      if (span) {
+        if (player.dorsal) {
+          span.className = 'text-brand-neon font-black';
+          span.textContent = ` #${player.dorsal}`;
+        } else {
+          span.className = 'text-brand-neon text-base font-semibold';
+          span.textContent = ' (Dorsal por confirmar)';
+        }
+      }
+    }
+
     // Find the stats grid in the DOM
     const statsGrid = document.querySelector('.grid.grid-cols-1.sm\\:grid-cols-2.gap-4.mb-8') || document.querySelector('.profile-card .grid');
     if (!statsGrid) return;
 
+    // 3. Dynamic Stats (Position, Dorsal/Rol)
+    const existingStats = statsGrid.querySelectorAll('.profile-stat');
+    if (existingStats.length >= 2) {
+      if (player.position) {
+        const posEl = existingStats[0].querySelector('p.font-heading') || existingStats[0].querySelector('p:last-child');
+        if (posEl) posEl.textContent = player.position;
+      }
+      const dorsalEl = existingStats[1].querySelector('p.font-heading') || existingStats[1].querySelector('p:last-child');
+      if (dorsalEl) {
+        const dorsalStr = player.dorsal ? `#${player.dorsal}` : 'Por confirmar';
+        const roleStr = player.role || 'Jugador';
+        dorsalEl.textContent = `${dorsalStr} · ${roleStr}`;
+      }
+    }
+
     // If player is a squad player (not staff), inject Goals and Assists stats
     if (player.role !== 'Staff Técnico' && player.position !== 'Dirección Técnica') {
-      const existingStats = statsGrid.querySelectorAll('.profile-stat');
       if (existingStats.length >= 4) {
         existingStats[2].innerHTML = `
           <p class="text-brand-neon text-xs font-bold tracking-widest uppercase mb-2">⚽ Goles Temporada</p>

@@ -53,15 +53,16 @@
                         🔐
                     </div>
                     <h1 class="font-heading text-3xl font-black uppercase text-white tracking-tight">Acceso <span class="text-gradient">Admin</span></h1>
-                    <p class="text-gray-400 text-sm mt-2">Introduce tu clave de administrador o token para gestionar partidos, goles y plantilla.</p>
+                    <p class="text-gray-400 text-sm mt-2">Introduce tu Personal Access Token (PAT) de GitHub con permisos de repositorio o clave local para gestionar partidos y plantilla.</p>
                 </div>
 
                 <form id="adminLoginForm" class="space-y-5">
                     <div id="loginError" class="hidden p-4 rounded-2xl bg-red-500/10 border border-red-500/30 text-red-200 text-xs font-semibold"></div>
 
                     <div>
-                        <label class="block text-xs font-bold text-gray-300 tracking-wider uppercase mb-2">Clave de Acceso / Token</label>
-                        <input id="adminTokenInput" type="password" required autocomplete="current-password" placeholder="ghp_... o clave" class="w-full bg-brand-dark/90 border border-white/15 focus:border-brand-neon rounded-2xl px-4 py-3 text-white text-sm outline-none transition-colors">
+                        <label class="block text-xs font-bold text-gray-300 tracking-wider uppercase mb-2">Clave de Acceso / GitHub Token (PAT)</label>
+                        <input id="adminTokenInput" type="password" required autocomplete="current-password" placeholder="ghp_... o clave local" class="w-full bg-brand-dark/90 border border-white/15 focus:border-brand-neon rounded-2xl px-4 py-3 text-white text-sm outline-none transition-colors">
+                        <p class="text-[11px] text-gray-500 mt-1.5">En GitHub Pages necesitas un token con permiso <code>repo</code> para crear commits automáticamente.</p>
                     </div>
 
                     <button type="submit" class="w-full py-4 bg-brand-neon text-brand-dark font-heading font-black text-sm uppercase tracking-widest rounded-2xl hover:bg-white hover:shadow-neon transition-all duration-300">
@@ -113,6 +114,14 @@
                 <button id="deployBtn" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 bg-brand-neon text-brand-dark font-heading font-black text-xs uppercase tracking-widest rounded-xl hover:bg-white hover:shadow-neon transition-all">
                     <span>🚀 Guardar y Publicar en la Web</span>
                 </button>
+            </div>
+
+            <!-- Unsaved Changes Alert Banner -->
+            <div id="unsavedBanner" class="hidden p-4 rounded-2xl bg-amber-500/15 border border-amber-500/40 text-amber-200 text-xs sm:text-sm font-semibold flex items-center justify-between gap-3">
+                <div class="flex items-center gap-2">
+                    <span class="text-base">⚠️</span>
+                    <span>Tienes cambios pendientes en memoria. Pulsa <strong>"🚀 Guardar y Publicar en la Web"</strong> para guardarlos definitivamente en GitHub.</span>
+                </div>
             </div>
 
             <!-- Deploy Message / Status -->
@@ -290,9 +299,12 @@
                     </div>
                 </div>
 
-                <div class="modal-footer">
-                    <button type="button" class="close-modal px-5 py-2.5 rounded-xl border border-white/10 text-gray-300 hover:text-white text-xs font-bold uppercase tracking-wider cursor-pointer">Cancelar</button>
-                    <button type="submit" class="px-6 py-2.5 rounded-xl bg-brand-neon text-brand-dark hover:bg-white font-black text-xs uppercase tracking-wider transition-colors cursor-pointer">Guardar Partido</button>
+                <div class="modal-footer flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
+                    <p class="text-[11px] text-gray-400">💡 Al guardar, los cambios quedan listos en memoria para publicar.</p>
+                    <div class="flex items-center justify-end gap-2">
+                        <button type="button" class="close-modal px-5 py-2.5 rounded-xl border border-white/10 text-gray-300 hover:text-white text-xs font-bold uppercase tracking-wider cursor-pointer">Cancelar</button>
+                        <button type="submit" class="px-6 py-2.5 rounded-xl bg-brand-neon text-brand-dark hover:bg-white font-black text-xs uppercase tracking-wider transition-colors cursor-pointer">Guardar Partido</button>
+                    </div>
                 </div>
             </form>
         </div>
@@ -334,9 +346,12 @@
                     </div>
                 </div>
 
-                <div class="modal-footer">
-                    <button type="button" class="close-modal px-5 py-2.5 rounded-xl border border-white/10 text-gray-300 hover:text-white text-xs font-bold uppercase tracking-wider cursor-pointer">Cancelar</button>
-                    <button type="submit" class="px-6 py-2.5 rounded-xl bg-brand-neon text-brand-dark hover:bg-white font-black text-xs uppercase tracking-wider transition-colors cursor-pointer">Guardar Jugador</button>
+                <div class="modal-footer flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
+                    <p class="text-[11px] text-gray-400">💡 Tras guardar, recuerda pulsar "🚀 Guardar y Publicar en la Web".</p>
+                    <div class="flex items-center justify-end gap-2">
+                        <button type="button" class="close-modal px-5 py-2.5 rounded-xl border border-white/10 text-gray-300 hover:text-white text-xs font-bold uppercase tracking-wider cursor-pointer">Cancelar</button>
+                        <button type="submit" class="px-6 py-2.5 rounded-xl bg-brand-neon text-brand-dark hover:bg-white font-black text-xs uppercase tracking-wider transition-colors cursor-pointer">Guardar Jugador</button>
+                    </div>
                 </div>
             </form>
         </div>
