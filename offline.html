@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UD Centinela | Modo Estadio Offline</title>
+    
+    <!-- Fuentes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Montserrat:wght@700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/site.css">
+    <link rel="stylesheet" href="/assets/css/common.css">
+
+    <meta name="description" content="Modo Estadio sin cobertura - Unión Deportiva Centinela">
+    <meta name="robots" content="noindex, follow">
+    <meta name="theme-color" content="#020617">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="/assets/img/logo-nav.webp">
+    <link rel="manifest" href="/site.webmanifest">
+</head>
+<body class="antialiased selection:bg-brand-neon selection:text-brand-dark bg-[#020617] text-gray-200 min-h-screen flex flex-col justify-between">
+
+    <!-- Header / Navbar simplificado offline -->
+    <header class="w-full border-b border-white/5 bg-brand-dark/90 backdrop-blur-md py-4 px-6">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+            <a href="/" class="flex items-center gap-3 font-heading text-xl font-black text-white">
+                <img src="/assets/img/logo-nav.webp" alt="Escudo UD Centinela" class="w-8 h-8 object-contain rounded-full" onerror="this.style.display='none'">
+                <span>UD<span class="text-brand-neon">C.</span></span>
+            </a>
+            <div class="flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-300 text-xs font-bold">
+                <span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
+                <span>Modo Estadio Offline</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Offline Content -->
+    <main class="flex-grow flex items-center justify-center px-6 py-12">
+        <div class="max-w-xl w-full text-center space-y-8">
+            
+            <!-- Icon Shield Glow -->
+            <div class="relative inline-flex items-center justify-center">
+                <div class="absolute -inset-4 bg-brand-neon/20 rounded-full blur-2xl"></div>
+                <img src="/assets/img/logo-hero.webp" alt="Escudo UD Centinela" class="relative z-10 w-24 h-24 sm:w-28 sm:h-28 object-contain drop-shadow-[0_0_30px_rgba(0,210,255,0.4)] mx-auto" onerror="this.src='/assets/img/logo-nav.webp'">
+            </div>
+
+            <div class="space-y-3">
+                <p class="text-brand-neon text-xs font-bold uppercase tracking-widest">Sin Cobertura Móvil</p>
+                <h1 class="font-heading text-3xl sm:text-4xl font-black text-white uppercase tracking-tight">
+                    Modo <span class="text-gradient">Estadio Activo</span>
+                </h1>
+                <p class="text-gray-400 text-sm sm:text-base leading-relaxed max-w-md mx-auto">
+                    Estás en el Estadio Municipal El Peñón o sin conexión a internet. La aplicación tiene guardados los datos de la temporada en tu dispositivo:
+                </p>
+            </div>
+
+            <!-- Offline Navigation Cards -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-left">
+                <a href="/calendario/" class="p-4 rounded-2xl bg-white/5 border border-white/10 hover:border-brand-neon/40 hover:bg-white/10 transition-all flex items-center gap-3 group">
+                    <span class="text-2xl p-2.5 rounded-xl bg-brand-neon/10 text-brand-neon">⚽</span>
+                    <div>
+                        <h2 class="font-heading font-black text-sm text-white group-hover:text-brand-neon transition-colors uppercase">Calendario</h2>
+                        <p class="text-xs text-gray-400">Jornadas y horarios guardados</p>
+                    </div>
+                </a>
+
+                <a href="/regional/" class="p-4 rounded-2xl bg-white/5 border border-white/10 hover:border-brand-neon/40 hover:bg-white/10 transition-all flex items-center gap-3 group">
+                    <span class="text-2xl p-2.5 rounded-xl bg-brand-neon/10 text-brand-neon">👥</span>
+                    <div>
+                        <h2 class="font-heading font-black text-sm text-white group-hover:text-brand-neon transition-colors uppercase">Plantilla</h2>
+                        <p class="text-xs text-gray-400">Fichas, dorsales y jugadores</p>
+                    </div>
+                </a>
+
+                <a href="/noticias/" class="p-4 rounded-2xl bg-white/5 border border-white/10 hover:border-brand-neon/40 hover:bg-white/10 transition-all flex items-center gap-3 group">
+                    <span class="text-2xl p-2.5 rounded-xl bg-brand-neon/10 text-brand-neon">📰</span>
+                    <div>
+                        <h2 class="font-heading font-black text-sm text-white group-hover:text-brand-neon transition-colors uppercase">Noticias</h2>
+                        <p class="text-xs text-gray-400">Fichajes y comunicados en caché</p>
+                    </div>
+                </a>
+
+                <a href="/historia/" class="p-4 rounded-2xl bg-white/5 border border-white/10 hover:border-brand-neon/40 hover:bg-white/10 transition-all flex items-center gap-3 group">
+                    <span class="text-2xl p-2.5 rounded-xl bg-brand-neon/10 text-brand-neon">🏛️</span>
+                    <div>
+                        <h2 class="font-heading font-black text-sm text-white group-hover:text-brand-neon transition-colors uppercase">Historia</h2>
+                        <p class="text-xs text-gray-400">Memoria viva del club</p>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Retry Button -->
+            <div class="pt-2">
+                <button type="button" onclick="window.location.reload()" class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-brand-neon text-brand-dark font-heading font-black text-xs uppercase tracking-widest hover:bg-white transition-colors shadow-neon cursor-pointer">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
+                    <span>Reintentar Conexión</span>
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="w-full border-t border-white/5 py-6 text-center text-xs text-gray-500">
+        <p>Unión Deportiva Centinela · Icod de los Vinos · Aplicación Web Progresiva</p>
+    </footer>
+
+    <script>
+        // Auto-reload when connection comes back online
+        window.addEventListener('online', () => {
+            window.location.reload();
+        });
+    </script>
+</body>
+</html>

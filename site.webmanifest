@@ -1,17 +1,66 @@
 {
-  "name": "UD Centinela",
-  "short_name": "UDC",
-  "description": "Sitio oficial de la Union Deportiva Centinela, memoria viva del futbol icodense y nueva etapa regional en Icod de los Vinos.",
-  "start_url": "/",
+  "id": "udcentinela-pwa-app",
+  "name": "UD Centinela - Web Oficial",
+  "short_name": "UD Centinela",
+  "description": "Aplicación y web oficial de la Unión Deportiva Centinela. Calendario, actas de partidos, plantilla y noticias con modo offline para el estadio.",
+  "start_url": "/?source=pwa",
+  "scope": "/",
   "display": "standalone",
+  "display_override": ["standalone", "minimal-ui", "window-controls-overlay"],
   "background_color": "#020617",
   "theme_color": "#020617",
+  "orientation": "portrait-primary",
+  "lang": "es",
+  "dir": "ltr",
+  "categories": ["sports", "news"],
   "icons": [
     {
       "src": "/assets/img/logo-nav.webp",
-      "sizes": "128x128",
+      "sizes": "192x192",
       "type": "image/webp",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/assets/img/logo-hero.webp",
+      "sizes": "512x512",
+      "type": "image/webp",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/assets/img/logo-social.jpg",
+      "sizes": "1200x630",
+      "type": "image/jpeg",
       "purpose": "any"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Calendario & Partidos",
+      "short_name": "Partidos",
+      "description": "Consulta jornadas, actas, resultados y horarios",
+      "url": "/calendario/",
+      "icons": [{ "src": "/assets/img/logo-nav.webp", "sizes": "192x192" }]
+    },
+    {
+      "name": "Plantilla Oficial",
+      "short_name": "Plantilla",
+      "description": "Fichas individuales, dorsales y estadísticas de jugadores",
+      "url": "/regional/",
+      "icons": [{ "src": "/assets/img/logo-nav.webp", "sizes": "192x192" }]
+    },
+    {
+      "name": "Últimas Noticias",
+      "short_name": "Noticias",
+      "description": "Fichajes, crónicas y comunicados del club",
+      "url": "/noticias/",
+      "icons": [{ "src": "/assets/img/logo-nav.webp", "sizes": "192x192" }]
+    },
+    {
+      "name": "Historia del Club",
+      "short_name": "Historia",
+      "description": "Memoria viva del fútbol icodense",
+      "url": "/historia/",
+      "icons": [{ "src": "/assets/img/logo-nav.webp", "sizes": "192x192" }]
     }
   ]
 }
