@@ -514,7 +514,7 @@
       matchTime.value = '18:00';
       matchHome.value = 'UD Centinela';
       matchAway.value = '';
-      matchVenue.value = 'Estadio Municipal El Peñón';
+      matchVenue.value = 'Estadio Municipal El Molino';
       matchStatusSelect.value = 'upcoming';
       matchHomeScore.value = '';
       matchAwayScore.value = '';
