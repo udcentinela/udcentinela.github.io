@@ -552,3 +552,64 @@ select:focus-visible {
         transform: translate(-50%, -50px) scale(1.6);
     }
 }
+
+/* --- Controles y Filtros de Plantilla --- */
+.squad-controls {
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+}
+
+.squad-filter-chips {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+.squad-filter-chips::-webkit-scrollbar {
+    display: none;
+}
+
+.squad-filter-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.45rem 0.9rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 0.75rem;
+    color: #cbd5e1;
+    font-size: 0.75rem;
+    font-weight: 700;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    user-select: none;
+}
+
+.squad-filter-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(0, 210, 255, 0.45);
+    color: #ffffff;
+    transform: translateY(-1px);
+}
+
+.squad-filter-btn.active {
+    background: var(--color-brand-neon) !important;
+    color: var(--color-brand-dark) !important;
+    border-color: var(--color-brand-neon) !important;
+    box-shadow: 0 0 16px rgba(0, 210, 255, 0.4) !important;
+    font-weight: 900 !important;
+}
+
+.squad-filter-btn .count-badge {
+    padding: 0.1rem 0.45rem;
+    border-radius: 9999px;
+    font-size: 0.65rem;
+    font-weight: 900;
+    background: rgba(0, 0, 0, 0.4);
+    color: #94a3b8;
+    transition: all 0.2s ease;
+}
+
+.squad-filter-btn.active .count-badge {
+    background: rgba(3, 7, 18, 0.3);
+    color: var(--color-brand-dark);
+}
+
