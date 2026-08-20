@@ -31,6 +31,10 @@
 
   <!-- Noticias Oficiales -->
   <url>
+    <loc>https://udcentinela.github.io/noticias/nuevo-fichaje-jordan/</loc>
+    <lastmod>2026-08-20</lastmod>
+  </url>
+  <url>
     <loc>https://udcentinela.github.io/noticias/nuevo-fichaje-sebastian/</loc>
     <lastmod>2026-08-19</lastmod>
   </url>
@@ -60,6 +64,10 @@
   </url>
 
   <!-- Fichas de Plantilla y Directiva Oficial -->
+  <url>
+    <loc>https://udcentinela.github.io/regional/jordan/</loc>
+    <lastmod>2026-08-20</lastmod>
+  </url>
   <url>
     <loc>https://udcentinela.github.io/regional/sebastian/</loc>
     <lastmod>2026-08-19</lastmod>

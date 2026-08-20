@@ -21,7 +21,6 @@
     <link rel="stylesheet" href="/assets/css/site.css">
     <link rel="stylesheet" href="/assets/css/common.css">
 
-    
     <meta name="description" content="Noticias, comunicados y actualidad del proyecto regional de la Union Deportiva Centinela.">
     <meta name="robots" content="index,follow">
     <link rel="canonical" href="https://udcentinela.github.io/noticias/">
@@ -89,7 +88,6 @@
     </nav>
     <script src="/assets/js/mobile-nav.js"></script>
 
-    
     <!-- Noticias -->
     <section id="noticias" class="relative min-h-screen py-24 bg-[#0a0f1c] overflow-hidden border-t border-white/5">
         <div class="absolute top-0 left-0 w-[700px] h-[700px] bg-brand-blue/10 rounded-full blur-[160px] pointer-events-none"></div>
@@ -107,7 +105,26 @@
             <!-- NEWS_GRID_START -->
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
 
-                <a href="/noticias/nuevo-fichaje-sebastian/" class="news-card news-card-anim lg:col-span-2 min-h-[420px] bg-gradient-to-br from-brand-blue/20 via-white/5 to-transparent border border-brand-neon/30 rounded-3xl group hover:-translate-y-1 hover:shadow-neon transition-all duration-300 flex flex-col justify-end overflow-hidden relative">
+                <a href="/noticias/nuevo-fichaje-jordan/" class="news-card news-card-anim lg:col-span-2 min-h-[420px] bg-gradient-to-br from-brand-blue/20 via-white/5 to-transparent border border-brand-neon/30 rounded-3xl group hover:-translate-y-1 hover:shadow-neon transition-all duration-300 flex flex-col justify-end overflow-hidden relative">
+                    <img src="/assets/img/jordan.webp" alt="Nuevo Fichaje Jordan" class="absolute inset-0 w-full h-full object-cover object-top opacity-40 group-hover:opacity-50 transition-opacity" loading="lazy">
+                    <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/85 to-brand-dark/20"></div>
+                    <div class="relative z-10 p-8 md:p-10">
+                        <div class="flex flex-wrap items-center gap-3 mb-6">
+                            <span class="bg-brand-neon text-brand-dark font-black px-3 py-1 rounded text-xs tracking-widest uppercase">Fichajes</span>
+                            <span class="text-gray-300 text-sm">20/08/2026</span>
+                            <span class="text-gray-500 text-sm">/</span>
+                            <span class="text-gray-300 text-sm">2 min lectura</span>
+                        </div>
+                        <h3 class="news-title font-heading text-4xl md:text-5xl font-black text-white leading-tight transition-colors mb-5">Nuevo Fichaje - Jordan</h3>
+                        <p class="text-gray-300 leading-relaxed max-w-2xl">La Unión Deportiva Centinela refuerza el eje de la zaga con la incorporación de Jordan, un defensa central joven, comprometido y con excelente salida de balón.</p>
+                        <div class="mt-8 inline-flex items-center text-brand-neon font-bold tracking-widest uppercase text-xs">
+                            Leer noticia
+                            <svg class="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14m-7-7l7 7-7 7"></path></svg>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="/noticias/nuevo-fichaje-sebastian/" class="news-card news-card-anim min-h-[420px] bg-gradient-to-br from-brand-blue/20 via-white/5 to-transparent border border-brand-neon/30 rounded-3xl group hover:-translate-y-1 hover:shadow-neon transition-all duration-300 flex flex-col justify-end overflow-hidden relative">
                     <img src="/assets/img/sebas.webp" alt="Nuevo Fichaje Sebastian" class="absolute inset-0 w-full h-full object-cover object-top opacity-40 group-hover:opacity-50 transition-opacity" loading="lazy">
                     <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/85 to-brand-dark/20"></div>
                     <div class="relative z-10 p-8 md:p-10">
@@ -117,8 +134,8 @@
                             <span class="text-gray-500 text-sm">/</span>
                             <span class="text-gray-300 text-sm">2 min lectura</span>
                         </div>
-                        <h3 class="news-title font-heading text-4xl md:text-5xl font-black text-white leading-tight transition-colors mb-5">Nuevo Fichaje - Sebastian</h3>
-                        <p class="text-gray-300 leading-relaxed max-w-2xl">La Unión Deportiva Centinela incorpora a Sebastian para la temporada en Regional, reforzando la medular como mediocentro defensivo. [Texto de prueba editado desde el panel de administración]</p>
+                        <h3 class="news-title font-heading text-2xl font-black text-white leading-tight transition-colors mb-5">Nuevo Fichaje - Sebastian</h3>
+                        <p class="text-gray-300 leading-relaxed max-w-2xl">La Unión Deportiva Centinela incorpora a Sebastian para la temporada en Regional, reforzando la medular como mediocentro defensivo.</p>
                         <div class="mt-8 inline-flex items-center text-brand-neon font-bold tracking-widest uppercase text-xs">
                             Leer noticia
                             <svg class="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14m-7-7l7 7-7 7"></path></svg>
@@ -243,7 +260,8 @@
             <!-- NEWS_GRID_END -->
         </div>
     </section>
-<!-- Footer -->
+
+    <!-- Footer -->
     <footer class="bg-brand-dark py-12 border-t border-white/5 relative z-10">
         <div class="max-w-7xl mx-auto px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center">
             <div class="mb-6 md:mb-0 text-center md:text-left">
@@ -260,14 +278,13 @@
         </div>
     </footer>
 
-    
     <!-- Motion -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
     <script src="/assets/site-motion.js?v=20260819_smooth"></script>
     <!-- Dynamic News & Players Sync -->
-    <script src="/assets/js/news-renderer.js?v=20260819_sync"></script>
+    <script src="/assets/js/news-renderer.js?v=20260820_sync"></script>
     <script src="/assets/js/pwa-manager.js?v=20260819_1"></script>
 </body>
 </html>

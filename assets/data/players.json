@@ -1,6 +1,6 @@
 {
   "season": "Temporada 2026/2027",
-  "lastUpdated": "2026-08-19",
+  "lastUpdated": "2026-08-20",
   "players": [
     {
       "id": "iriome",
@@ -73,6 +73,21 @@
       "image": "/assets/img/sebas.webp",
       "slug": "sebastian",
       "url": "/regional/sebastian/",
+      "goals": 0,
+      "assists": 0,
+      "matchesPlayed": 0
+    },
+    {
+      "id": "jordan",
+      "name": "Jordan",
+      "fullName": "Jordan",
+      "dorsal": null,
+      "position": "Defensa Central",
+      "role": "Defensa",
+      "status": "Confirmado",
+      "image": "/assets/img/jordan.webp",
+      "slug": "jordan",
+      "url": "/regional/jordan/",
       "goals": 0,
       "assists": 0,
       "matchesPlayed": 0

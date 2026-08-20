@@ -70,6 +70,14 @@
               topBadge.className = 'bg-brand-neon text-brand-dark font-black px-3.5 py-1.5 rounded-xl text-xs shadow-md uppercase';
             }
           }
+          const dorsalTextEl = document.getElementById('articleDorsalText');
+          if (dorsalTextEl) {
+            if (player.dorsal) {
+              dorsalTextEl.innerHTML = `<strong>#${player.dorsal}</strong> oficial a la espalda`;
+            } else {
+              dorsalTextEl.innerHTML = `actualmente <strong>por confirmar</strong>`;
+            }
+          }
         }
       }
     } catch (e) {
