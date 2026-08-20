@@ -81,7 +81,7 @@
       "id": "jordan",
       "name": "Jordan",
       "fullName": "Jordan",
-      "dorsal": null,
+      "dorsal": 4,
       "position": "Defensa Central",
       "role": "Defensa",
       "status": "Confirmado",
