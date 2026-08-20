@@ -179,39 +179,90 @@
     </header>
 
     <!-- Muro de Patrocinadores e Instituciones -->
-    <section class="py-12 border-y border-white/5 bg-white/[0.01]">
-        <div class="max-w-7xl mx-auto px-6 lg:px-8">
-            <p class="text-center text-xs font-bold text-gray-400 uppercase tracking-widest mb-6">
-                Apoyo Institucional & Empresas Colaboradoras
-            </p>
+    <section class="py-16 border-y border-white/5 bg-white/[0.01]">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 space-y-12">
             
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 items-center justify-center">
-                <!-- Colaborador 1: Ayuntamiento -->
-                <div class="p-5 rounded-2xl bg-white/5 border border-white/10 flex flex-col items-center justify-center text-center group hover:border-brand-neon/40 transition-colors min-h-[110px]">
-                    <span class="text-2xl mb-1.5">🏛️</span>
-                    <h3 class="font-heading font-black text-xs uppercase text-white tracking-wider">Ayuntamiento de Icod</h3>
-                    <p class="text-[10px] text-gray-400">Concejalía de Deportes</p>
-                </div>
-
-                <!-- Colaborador 2: Deportes Icod -->
-                <div class="p-5 rounded-2xl bg-white/5 border border-white/10 flex flex-col items-center justify-center text-center group hover:border-brand-neon/40 transition-colors min-h-[110px]">
-                    <span class="text-2xl mb-1.5">⚽</span>
-                    <h3 class="font-heading font-black text-xs uppercase text-white tracking-wider">Estadio El Peñón</h3>
-                    <p class="text-[10px] text-gray-400">Sede Oficial de Juego</p>
-                </div>
-
-                <!-- Espacio Disponible 1 -->
-                <div class="p-5 rounded-2xl sponsor-logo-box flex flex-col items-center justify-center text-center group min-h-[110px]">
-                    <span class="text-brand-neon font-black text-xs sm:text-sm mb-1">+ TU EMPRESA AQUÍ</span>
-                    <p class="text-[10px] text-gray-400">Espacio Patrocinador Oro</p>
-                </div>
-
-                <!-- Espacio Disponible 2 -->
-                <div class="p-5 rounded-2xl sponsor-logo-box flex flex-col items-center justify-center text-center group min-h-[110px]">
-                    <span class="text-brand-neon font-black text-xs sm:text-sm mb-1">+ COMERCIO AMIGO</span>
-                    <p class="text-[10px] text-gray-400">Red de Negocios de Icod</p>
+            <!-- Patrocinador Principal Destacado (Frontal de Camiseta) -->
+            <div class="max-w-4xl mx-auto">
+                <p class="text-center text-xs font-black text-brand-neon uppercase tracking-[0.2em] mb-4">
+                    ⭐ Patrocinador Principal de la Temporada
+                </p>
+                <div class="p-8 sm:p-10 rounded-3xl bg-gradient-to-br from-brand-blue/20 via-brand-dark to-brand-dark border border-brand-neon/40 shadow-neon flex flex-col md:flex-row items-center justify-between gap-8 group">
+                    <div class="w-full md:w-1/2 flex items-center justify-center p-4 bg-brand-dark/90 border border-white/10 rounded-2xl">
+                        <img src="/assets/img/sponsors/soluciones-guillermo.svg" alt="Soluciones en Aluminio Guillermo - Patrocinador Principal UD Centinela" class="w-full max-w-[320px] h-auto object-contain transition-transform duration-300 group-hover:scale-105">
+                    </div>
+                    <div class="w-full md:w-1/2 text-center md:text-left space-y-3">
+                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-neon/15 border border-brand-neon/40 text-brand-neon text-[10px] font-black uppercase tracking-wider">
+                            <span>👕 Frontal de la Camiseta Oficial</span>
+                        </div>
+                        <h3 class="font-heading font-black text-2xl text-white uppercase leading-tight">Soluciones en Aluminio Guillermo</h3>
+                        <p class="text-xs text-gray-300 leading-relaxed font-light">
+                            Líder en carpintería y cerramientos de aluminio en Icod de los Vinos. Apuesta firme y patrocinador principal en el pecho de la equipación oficial de la UD Centinela durante la temporada en Regional.
+                        </p>
+                        <div class="pt-2">
+                            <span class="text-[11px] text-gray-400 font-medium">📍 Caserío Lomo Blanco · Icod de los Vinos</span>
+                        </div>
+                    </div>
                 </div>
             </div>
+
+            <!-- Muro de Sponsors y Colaboradores -->
+            <div>
+                <p class="text-center text-xs font-bold text-gray-400 uppercase tracking-widest mb-8">
+                    Patrocinadores Oficiales, Empresas Colaboradoras & Apoyo Institucional
+                </p>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch justify-center">
+                    
+                    <!-- Colaborador 1: Retransicod -->
+                    <div class="p-6 rounded-2xl bg-white/5 border border-white/10 flex flex-col justify-between text-center group hover:border-emerald-400/50 hover:bg-white/[0.08] transition-all min-h-[170px]">
+                        <div class="flex items-center justify-center p-3 bg-brand-dark/80 rounded-xl mb-3 border border-white/5">
+                            <img src="/assets/img/sponsors/retransicod.svg" alt="Retransicod Chatarras y Metales SLU" class="w-full max-w-[200px] h-auto object-contain transition-transform duration-300 group-hover:scale-105">
+                        </div>
+                        <div>
+                            <span class="text-[10px] text-emerald-400 font-bold uppercase tracking-wider">Patrocinador Oficial</span>
+                            <p class="text-[11px] text-gray-400 mt-0.5">Gestor Autorizado de Residuos</p>
+                        </div>
+                    </div>
+
+                    <!-- Colaborador 2: Droguerías Disloke -->
+                    <div class="p-6 rounded-2xl bg-white/5 border border-white/10 flex flex-col justify-between text-center group hover:border-cyan-400/50 hover:bg-white/[0.08] transition-all min-h-[170px]">
+                        <div class="flex items-center justify-center p-3 bg-brand-dark/80 rounded-xl mb-3 border border-white/5">
+                            <img src="/assets/img/sponsors/droguerias-disloke.svg" alt="Droguerías Disloke" class="w-full max-w-[200px] h-auto object-contain transition-transform duration-300 group-hover:scale-105">
+                        </div>
+                        <div>
+                            <span class="text-[10px] text-cyan-300 font-bold uppercase tracking-wider">Empresa Colaboradora</span>
+                            <p class="text-[11px] text-gray-400 mt-0.5">Productos de Limpieza e Higiene</p>
+                        </div>
+                    </div>
+
+                    <!-- Colaborador 3: Ayuntamiento de Icod -->
+                    <div class="p-6 rounded-2xl bg-white/5 border border-white/10 flex flex-col justify-between text-center group hover:border-brand-neon/40 hover:bg-white/[0.08] transition-all min-h-[170px]">
+                        <div class="flex flex-col items-center justify-center p-3 bg-brand-dark/80 rounded-xl mb-3 border border-white/5 h-[80px]">
+                            <span class="text-3xl mb-1">🏛️</span>
+                            <h4 class="font-heading font-black text-xs uppercase text-white tracking-wider">Ayuntamiento de Icod</h4>
+                        </div>
+                        <div>
+                            <span class="text-[10px] text-brand-neon font-bold uppercase tracking-wider">Apoyo Institucional</span>
+                            <p class="text-[11px] text-gray-400 mt-0.5">Concejalía de Deportes</p>
+                        </div>
+                    </div>
+
+                    <!-- Colaborador 4: Estadio El Peñón -->
+                    <div class="p-6 rounded-2xl bg-white/5 border border-white/10 flex flex-col justify-between text-center group hover:border-brand-neon/40 hover:bg-white/[0.08] transition-all min-h-[170px]">
+                        <div class="flex flex-col items-center justify-center p-3 bg-brand-dark/80 rounded-xl mb-3 border border-white/5 h-[80px]">
+                            <span class="text-3xl mb-1">⚽</span>
+                            <h4 class="font-heading font-black text-xs uppercase text-white tracking-wider">Estadio El Peñón</h4>
+                        </div>
+                        <div>
+                            <span class="text-[10px] text-brand-neon font-bold uppercase tracking-wider">Sede Oficial</span>
+                            <p class="text-[11px] text-gray-400 mt-0.5">Icod de los Vinos</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
         </div>
     </section>
 
