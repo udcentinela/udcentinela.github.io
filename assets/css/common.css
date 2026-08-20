@@ -803,4 +803,10 @@ select:focus-visible {
     color: #ffffff !important;
 }
 
+/* --- Patrocinios Hero Clearance --- */
+.sponsor-hero {
+    padding-top: clamp(7.5rem, 12vw, 9.5rem) !important;
+    padding-bottom: 4rem !important;
+}
+
 
