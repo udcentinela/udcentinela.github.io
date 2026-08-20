@@ -34,37 +34,33 @@
     }
   }
 
+  // Strict 1-to-1 position mapping: every player belongs to ONLY ONE category
   function getPlayerCategory(player) {
+    if (!player) return 'otro';
+
+    // Explicit overrides for existing squad players
+    if (player.id === 'jordan' || player.id === 'pablo' || player.id === 'aday') return 'defensa';
+    if (player.id === 'sebastian' || player.id === 'adrian-tejera') return 'medio';
+
     const pos = (player.position || '').toLowerCase();
     const role = (player.role || '').toLowerCase();
-    const combined = pos + ' ' + role;
+    const combined = `${pos} ${role}`;
 
-    if (combined.includes('porter') || combined.includes('guardameta')) return 'portero';
-    if (combined.includes('defens') || combined.includes('lateral') || combined.includes('central') || combined.includes('carriler') || combined.includes('zaguero')) return 'defensa';
-    if (combined.includes('medio') || combined.includes('centro') || combined.includes('interior') || combined.includes('volante') || combined.includes('pivote')) return 'medio';
-    if (combined.includes('delanter') || combined.includes('extrem') || combined.includes('punta') || combined.includes('ariete') || combined.includes('atacan')) return 'delantero';
+    if (combined.includes('porter') || combined.includes('guardameta')) {
+      return 'portero';
+    } else if (combined.includes('defens') || combined.includes('lateral') || combined.includes('central') || combined.includes('carriler') || combined.includes('zaguero')) {
+      return 'defensa';
+    } else if (combined.includes('medio') || combined.includes('centro') || combined.includes('interior') || combined.includes('pivote') || combined.includes('volante')) {
+      return 'medio';
+    } else if (combined.includes('delanter') || combined.includes('extrem') || combined.includes('punta') || combined.includes('ariete') || combined.includes('atacan')) {
+      return 'delantero';
+    }
     return 'otro';
   }
 
   function matchesCategory(player, category) {
     if (category === 'all') return true;
-    const pos = (player.position || '').toLowerCase();
-    const role = (player.role || '').toLowerCase();
-    const combined = pos + ' ' + role;
-
-    if (category === 'defensa') {
-      return combined.includes('defens') || combined.includes('lateral') || combined.includes('central') || combined.includes('carriler') || combined.includes('zaguero');
-    }
-    if (category === 'medio') {
-      return combined.includes('medio') || combined.includes('centro') || combined.includes('interior') || combined.includes('volante') || combined.includes('pivote');
-    }
-    if (category === 'delantero') {
-      return combined.includes('delanter') || combined.includes('extrem') || combined.includes('punta') || combined.includes('ariete') || combined.includes('atacan');
-    }
-    if (category === 'portero') {
-      return combined.includes('porter') || combined.includes('guardameta');
-    }
-    return false;
+    return getPlayerCategory(player) === category;
   }
 
   function sortPlayers(list, sortType) {
@@ -116,7 +112,7 @@
     controlsInitialized = true;
 
     // Filter Chips click
-    const filterBtns = document.querySelectorAll('.squad-filter-btn');
+    const filterBtns = document.querySelectorAll('.squad-tab-btn, .squad-filter-btn');
     filterBtns.forEach(btn => {
       btn.addEventListener('click', () => {
         filterBtns.forEach(b => b.classList.remove('active'));

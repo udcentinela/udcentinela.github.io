@@ -553,44 +553,75 @@ select:focus-visible {
     }
 }
 
-/* --- Controles y Filtros de Plantilla --- */
-.squad-controls {
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+/* ==========================================================================
+   Squad Toolbar — Filtros, Buscador y Ordenación de Plantilla
+   ========================================================================== */
+.squad-toolbar-card {
+    background: rgba(15, 23, 42, 0.75) !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+    border-radius: 1.25rem !important;
+    padding: 1.15rem 1.25rem !important;
+    margin-bottom: 2rem !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
 }
 
-.squad-filter-chips {
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-}
-.squad-filter-chips::-webkit-scrollbar {
-    display: none;
-}
-
-.squad-filter-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.45rem;
-    padding: 0.45rem 0.9rem;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    border-radius: 0.75rem;
-    color: #cbd5e1;
-    font-size: 0.75rem;
-    font-weight: 700;
-    white-space: nowrap;
-    cursor: pointer;
-    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-    user-select: none;
+.squad-toolbar-top {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1rem !important;
+    align-items: stretch !important;
 }
 
-.squad-filter-btn:hover {
-    background: rgba(255, 255, 255, 0.1);
-    border-color: rgba(0, 210, 255, 0.45);
-    color: #ffffff;
-    transform: translateY(-1px);
+@media (min-width: 1024px) {
+    .squad-toolbar-top {
+        flex-direction: row !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        gap: 1.5rem !important;
+    }
 }
 
-.squad-filter-btn.active {
+.squad-tabs-scroll {
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.6rem !important;
+    overflow-x: auto !important;
+    padding-bottom: 0.25rem !important;
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
+}
+.squad-tabs-scroll::-webkit-scrollbar {
+    display: none !important;
+}
+
+.squad-tab-btn {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+    padding: 0.5rem 0.95rem !important;
+    background: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+    border-radius: 0.85rem !important;
+    color: #94a3b8 !important;
+    font-size: 0.825rem !important;
+    font-weight: 700 !important;
+    white-space: nowrap !important;
+    cursor: pointer !important;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    user-select: none !important;
+    line-height: 1.2 !important;
+}
+
+.squad-tab-btn:hover {
+    background: rgba(255, 255, 255, 0.1) !important;
+    border-color: rgba(0, 210, 255, 0.45) !important;
+    color: #ffffff !important;
+    transform: translateY(-1px) !important;
+}
+
+.squad-tab-btn.active {
     background: var(--color-brand-neon) !important;
     color: var(--color-brand-dark) !important;
     border-color: var(--color-brand-neon) !important;
@@ -598,18 +629,178 @@ select:focus-visible {
     font-weight: 900 !important;
 }
 
-.squad-filter-btn .count-badge {
-    padding: 0.1rem 0.45rem;
-    border-radius: 9999px;
-    font-size: 0.65rem;
-    font-weight: 900;
-    background: rgba(0, 0, 0, 0.4);
-    color: #94a3b8;
-    transition: all 0.2s ease;
+.squad-tab-btn .tab-badge {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    min-width: 1.35rem !important;
+    height: 1.35rem !important;
+    padding: 0 0.35rem !important;
+    border-radius: 9999px !important;
+    font-size: 0.7rem !important;
+    font-weight: 900 !important;
+    background: rgba(0, 0, 0, 0.4) !important;
+    color: #cbd5e1 !important;
 }
 
-.squad-filter-btn.active .count-badge {
-    background: rgba(3, 7, 18, 0.3);
-    color: var(--color-brand-dark);
+.squad-tab-btn.active .tab-badge {
+    background: rgba(3, 7, 18, 0.3) !important;
+    color: var(--color-brand-dark) !important;
 }
+
+.squad-actions-group {
+    display: flex !important;
+    align-items: center !important;
+    flex-wrap: wrap !important;
+    gap: 0.75rem !important;
+}
+
+@media (min-width: 640px) {
+    .squad-actions-group {
+        flex-wrap: nowrap !important;
+    }
+}
+
+.squad-search-wrapper {
+    position: relative !important;
+    flex: 1 1 200px !important;
+    min-width: 170px !important;
+}
+
+.squad-search-wrapper input {
+    width: 100% !important;
+    background: rgba(3, 7, 18, 0.85) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    border-radius: 0.85rem !important;
+    padding: 0.55rem 2.2rem 0.55rem 2.35rem !important;
+    color: #ffffff !important;
+    font-size: 0.825rem !important;
+    outline: none !important;
+    transition: all 0.2s ease !important;
+}
+
+.squad-search-wrapper input::placeholder {
+    color: #64748b !important;
+}
+
+.squad-search-wrapper input:focus {
+    border-color: var(--color-brand-neon) !important;
+    box-shadow: 0 0 12px rgba(0, 210, 255, 0.3) !important;
+}
+
+.squad-search-wrapper .search-icon {
+    position: absolute !important;
+    left: 0.8rem !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    width: 1rem !important;
+    height: 1rem !important;
+    color: #64748b !important;
+    pointer-events: none !important;
+}
+
+.squad-search-wrapper .search-clear-btn {
+    position: absolute !important;
+    right: 0.7rem !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    background: transparent !important;
+    border: none !important;
+    color: #94a3b8 !important;
+    font-size: 1.15rem !important;
+    line-height: 1 !important;
+    cursor: pointer !important;
+    padding: 0.2rem !important;
+}
+
+.squad-search-wrapper .search-clear-btn:hover {
+    color: #ffffff !important;
+}
+
+.squad-sort-wrapper {
+    position: relative !important;
+    flex-shrink: 0 !important;
+}
+
+.squad-sort-wrapper select {
+    appearance: none !important;
+    -webkit-appearance: none !important;
+    background: rgba(3, 7, 18, 0.85) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    border-radius: 0.85rem !important;
+    padding: 0.55rem 2.3rem 0.55rem 2.35rem !important;
+    color: #e2e8f0 !important;
+    font-size: 0.825rem !important;
+    font-weight: 700 !important;
+    outline: none !important;
+    cursor: pointer !important;
+    transition: all 0.2s ease !important;
+}
+
+.squad-sort-wrapper select:hover {
+    border-color: rgba(0, 210, 255, 0.5) !important;
+}
+
+.squad-sort-wrapper select:focus {
+    border-color: var(--color-brand-neon) !important;
+    box-shadow: 0 0 12px rgba(0, 210, 255, 0.3) !important;
+}
+
+.squad-sort-wrapper select option {
+    background: #0b1120 !important;
+    color: #ffffff !important;
+}
+
+.squad-sort-wrapper .sort-icon-left {
+    position: absolute !important;
+    left: 0.8rem !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    width: 1rem !important;
+    height: 1rem !important;
+    color: var(--color-brand-neon) !important;
+    pointer-events: none !important;
+}
+
+.squad-sort-wrapper .sort-chevron-right {
+    position: absolute !important;
+    right: 0.8rem !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    width: 0.9rem !important;
+    height: 0.9rem !important;
+    color: #64748b !important;
+    pointer-events: none !important;
+}
+
+.squad-toolbar-footer {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    margin-top: 0.85rem !important;
+    padding-top: 0.85rem !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+    font-size: 0.75rem !important;
+    color: #64748b !important;
+}
+
+.squad-toolbar-footer .results-text {
+    font-weight: 600 !important;
+}
+
+.squad-toolbar-footer .reset-filters-btn {
+    background: transparent !important;
+    border: none !important;
+    color: var(--color-brand-neon) !important;
+    font-weight: 700 !important;
+    font-size: 0.75rem !important;
+    cursor: pointer !important;
+    text-decoration: underline !important;
+    text-underline-offset: 2px !important;
+}
+
+.squad-toolbar-footer .reset-filters-btn:hover {
+    color: #ffffff !important;
+}
+
 

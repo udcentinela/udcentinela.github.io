@@ -20,7 +20,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Montserrat:wght@700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/assets/css/site.css?v=20260629_rgb">
-    <link rel="stylesheet" href="/assets/css/common.css?v=20260629_rgb">
+    <link rel="stylesheet" href="/assets/css/common.css?v=20260820_v2">
 
     <!-- PWA & Mobile App Support -->
     <meta name="theme-color" content="#020617">
@@ -489,108 +489,78 @@
                 <div class="w-16 h-1 bg-brand-neon mx-auto mt-4 rounded-full"></div>
             </div>
 
-            <!-- Squad Controls: Filters, Search & Sorting -->
-            <div class="squad-controls mb-8 p-4 sm:p-5 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm">
-                <div class="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-4">
-                    
-                    <!-- Filter Chips -->
-                    <div class="flex items-center gap-1.5 sm:gap-2 overflow-x-auto pb-2 lg:pb-0 scrollbar-none squad-filter-chips">
-                        <button type="button" class="squad-filter-btn active" data-filter="all">
+                                    <!-- Squad Toolbar (Filtros, Buscador y Ordenación) -->
+            <div class="squad-toolbar-card">
+                <div class="squad-toolbar-top">
+                    <!-- Filter Tabs (Pills) -->
+                    <div class="squad-tabs-scroll">
+                        <button type="button" class="squad-tab-btn active" data-filter="all">
                             <span>Todos</span>
-                            <span class="count-badge" id="countAll">5</span>
+                            <span class="tab-badge" id="countAll">5</span>
                         </button>
-                        <button type="button" class="squad-filter-btn" data-filter="defensa">
+                        <button type="button" class="squad-tab-btn" data-filter="defensa">
                             <span>Defensas</span>
-                            <span class="count-badge" id="countDefensa">3</span>
+                            <span class="tab-badge" id="countDefensa">3</span>
                         </button>
-                        <button type="button" class="squad-filter-btn" data-filter="medio">
+                        <button type="button" class="squad-tab-btn" data-filter="medio">
                             <span>Medios</span>
-                            <span class="count-badge" id="countMedio">2</span>
+                            <span class="tab-badge" id="countMedio">2</span>
                         </button>
-                        <button type="button" class="squad-filter-btn" data-filter="delantero">
+                        <button type="button" class="squad-tab-btn" data-filter="delantero">
                             <span>Delanteros</span>
-                            <span class="count-badge" id="countDelantero">0</span>
+                            <span class="tab-badge" id="countDelantero">0</span>
                         </button>
-                        <button type="button" class="squad-filter-btn" data-filter="portero">
+                        <button type="button" class="squad-tab-btn" data-filter="portero">
                             <span>Porteros</span>
-                            <span class="count-badge" id="countPortero">0</span>
+                            <span class="tab-badge" id="countPortero">0</span>
                         </button>
                     </div>
 
-                    <!-- Search & Sort Controls -->
-                    <div class="flex flex-wrap sm:flex-nowrap items-center gap-3">
-                        <!-- Search Box -->
-                        <div class="relative flex-grow sm:flex-grow-0 sm:w-60">
-                            <input type="text" id="squadSearchInput" placeholder="Buscar jugador..." class="w-full bg-brand-dark/80 border border-white/10 rounded-xl pl-9 pr-8 py-2 text-xs text-white placeholder-gray-400 focus:border-brand-neon focus:shadow-neon outline-none transition-all">
-                            <svg class="w-4 h-4 text-gray-400 absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
-                            <button type="button" id="squadSearchClear" class="hidden absolute right-2.5 top-1/2 -translate-y-1/2 text-gray-400 hover:text-white text-sm" aria-label="Borrar búsqueda">&times;</button>
+                    <!-- Controls: Search + Sort -->
+                    <div class="squad-actions-group">
+                        <!-- Search -->
+                        <div class="squad-search-wrapper">
+                            <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                            <input type="text" id="squadSearchInput" placeholder="Buscar jugador..." autocomplete="off">
+                            <button type="button" id="squadSearchClear" class="hidden search-clear-btn" aria-label="Limpiar">&times;</button>
                         </div>
 
-                        <!-- Sort Select -->
-                        <div class="relative flex-shrink-0">
-                            <select id="squadSortSelect" class="appearance-none bg-brand-dark/80 border border-white/10 rounded-xl pl-8 pr-8 py-2 text-xs font-bold text-gray-200 hover:border-brand-neon/40 focus:border-brand-neon outline-none cursor-pointer transition-all">
-                                <option value="dorsal-asc">🔢 Dorsal (#)</option>
-                                <option value="dorsal-desc">🔢 Dorsal (Mayor a menor)</option>
-                                <option value="name-asc">🔤 Nombre (A - Z)</option>
-                                <option value="name-desc">🔤 Nombre (Z - A)</option>
-                                <option value="pos">🛡️ Posición</option>
-                                <option value="goals">⚽ Goles</option>
-                                <option value="assists">👟 Asistencias</option>
+                        <!-- Sort -->
+                        <div class="squad-sort-wrapper">
+                            <svg class="sort-icon-left" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M6 12h12m-9 6h6"/></svg>
+                            <select id="squadSortSelect" aria-label="Ordenar plantilla">
+                                <option value="dorsal-asc">Dorsal (#)</option>
+                                <option value="dorsal-desc">Dorsal (Mayor a menor)</option>
+                                <option value="name-asc">Nombre (A - Z)</option>
+                                <option value="name-desc">Nombre (Z - A)</option>
+                                <option value="pos">Posición táctica</option>
+                                <option value="goals">Más Goleadores</option>
+                                <option value="assists">Más Asistencias</option>
                             </select>
-                            <svg class="w-3.5 h-3.5 text-brand-neon absolute left-2.5 top-1/2 -translate-y-1/2 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4h13M3 8h9m-9 4h6m4 0l4-4m0 0l4 4m-4-4v12"/></svg>
-                            <svg class="w-3.5 h-3.5 text-gray-400 absolute right-2.5 top-1/2 -translate-y-1/2 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                            <svg class="sort-chevron-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
                         </div>
                     </div>
                 </div>
 
-                <!-- Active Status Bar -->
-                <div class="flex items-center justify-between text-[11px] text-gray-400 mt-3 pt-3 border-t border-white/5">
-                    <span id="squadResultsCount">Mostrando 5 jugadores</span>
-                    <button type="button" id="squadResetBtn" class="hidden text-brand-neon hover:underline font-bold cursor-pointer">Restablecer filtros</button>
+                <!-- Status Bar -->
+                <div class="squad-toolbar-footer">
+                    <span id="squadResultsCount" class="results-text">Mostrando 5 jugadores</span>
+                    <button type="button" id="squadResetBtn" class="hidden reset-filters-btn">Restablecer filtros</button>
                 </div>
             </div>
 
             <div class="squad-grid">
-                <a href="/regional/adrian-tejera/" class="player-card group" style="border-color: rgba(0, 210, 255, 0.35);">
+                <a href="/regional/jordan/" class="player-card group" style="border-color: rgba(0, 210, 255, 0.35);">
                     <div class="player-card-photo">
                         <div class="absolute inset-0 bg-gradient-to-t from-brand-dark/90 via-transparent to-transparent z-10 pointer-events-none"></div>
-                        <img src="/assets/img/tejera.webp" alt="Adrián Tejera" class="relative z-0">
+                        <img src="/assets/img/jordan.webp" alt="Jordan" class="relative z-0">
                         <div class="absolute top-2.5 right-2.5 z-20 flex items-center gap-1">
-                            <span class="bg-brand-neon text-brand-dark font-black px-2 py-0.5 rounded-md text-[11px] shadow-sm">#11</span>
-                            <span class="badge-captain-solid px-2 py-0.5 rounded-md text-[9px] uppercase shadow-sm">Capitán</span>
+                            <span class="bg-brand-neon text-brand-dark font-black px-2 py-0.5 rounded-md text-[11px] shadow-sm">#4</span>
                         </div>
                     </div>
                     <div class="player-card-info">
-                        <h4 class="font-heading font-bold text-sm sm:text-base text-white group-hover:text-brand-neon transition-colors truncate">Adrián Tejera</h4>
-                        <p class="text-brand-neon text-xs font-medium mt-0.5">Medio (Extremo)</p>
-                        <p class="text-[10px] text-gray-500 font-bold tracking-widest uppercase mt-2 group-hover:text-gray-300 transition-colors">Ver ficha</p>
-                    </div>
-                </a>
-                <a href="/regional/pablo/" class="player-card group" style="border-color: rgba(0, 210, 255, 0.35);">
-                    <div class="player-card-photo">
-                        <div class="absolute inset-0 bg-gradient-to-t from-brand-dark/90 via-transparent to-transparent z-10 pointer-events-none"></div>
-                        <img src="/assets/img/pablo.webp" alt="Pablo" class="relative z-0">
-                        <div class="absolute top-2.5 right-2.5 z-20 flex items-center gap-1">
-                            <span class="bg-brand-neon text-brand-dark font-black px-2 py-0.5 rounded-md text-[11px] shadow-sm">#23</span>
-                        </div>
-                    </div>
-                    <div class="player-card-info">
-                        <h4 class="font-heading font-bold text-sm sm:text-base text-white group-hover:text-brand-neon transition-colors truncate">Pablo</h4>
-                        <p class="text-brand-neon text-xs font-medium mt-0.5">Lateral Derecho</p>
-                        <p class="text-[10px] text-gray-500 font-bold tracking-widest uppercase mt-2 group-hover:text-gray-300 transition-colors">Ver ficha</p>
-                    </div>
-                </a>
-                <a href="/regional/aday/" class="player-card group" style="border-color: rgba(0, 210, 255, 0.35);">
-                    <div class="player-card-photo">
-                        <div class="absolute inset-0 bg-gradient-to-t from-brand-dark/90 via-transparent to-transparent z-10 pointer-events-none"></div>
-                        <img src="/assets/img/aday.webp" alt="Aday" class="relative z-0">
-                        <div class="absolute top-2.5 right-2.5 z-20 flex items-center gap-1">
-                            <span class="bg-brand-neon text-brand-dark font-black px-2 py-0.5 rounded-md text-[11px] shadow-sm">#18</span>
-                        </div>
-                    </div>
-                    <div class="player-card-info">
-                        <h4 class="font-heading font-bold text-sm sm:text-base text-white group-hover:text-brand-neon transition-colors truncate">Aday</h4>
-                        <p class="text-brand-neon text-xs font-medium mt-0.5">Lateral / Interior Izquierdo</p>
+                        <h4 class="font-heading font-bold text-sm sm:text-base text-white group-hover:text-brand-neon transition-colors truncate">Jordan</h4>
+                        <p class="text-brand-neon text-xs font-medium mt-0.5">Defensa Central</p>
                         <p class="text-[10px] text-gray-500 font-bold tracking-widest uppercase mt-2 group-hover:text-gray-300 transition-colors">Ver ficha</p>
                     </div>
                 </a>
@@ -608,15 +578,46 @@
                         <p class="text-[10px] text-gray-500 font-bold tracking-widest uppercase mt-2 group-hover:text-gray-300 transition-colors">Ver ficha</p>
                     </div>
                 </a>
-            
-                <a href="/regional/jordan/" class="player-card group" style="border-color: rgba(0, 210, 255, 0.35);">
+                <a href="/regional/adrian-tejera/" class="player-card group" style="border-color: rgba(0, 210, 255, 0.35);">
                     <div class="player-card-photo">
                         <div class="absolute inset-0 bg-gradient-to-t from-brand-dark/90 via-transparent to-transparent z-10 pointer-events-none"></div>
-                        <img src="/assets/img/jordan.webp" alt="Jordan" class="relative z-0">
+                        <img src="/assets/img/tejera.webp" alt="Adrián Tejera" class="relative z-0">
+                        <div class="absolute top-2.5 right-2.5 z-20 flex items-center gap-1">
+                            <span class="bg-brand-neon text-brand-dark font-black px-2 py-0.5 rounded-md text-[11px] shadow-sm">#11</span>
+                            <span class="badge-captain-solid px-2 py-0.5 rounded-md text-[9px] uppercase shadow-sm">Capitán</span>
+                        </div>
                     </div>
                     <div class="player-card-info">
-                        <h4 class="font-heading font-bold text-sm sm:text-base text-white group-hover:text-brand-neon transition-colors truncate">Jordan</h4>
-                        <p class="text-brand-neon text-xs font-medium mt-0.5">Defensa Central</p>
+                        <h4 class="font-heading font-bold text-sm sm:text-base text-white group-hover:text-brand-neon transition-colors truncate">Adrián Tejera</h4>
+                        <p class="text-brand-neon text-xs font-medium mt-0.5">Medio (Extremo)</p>
+                        <p class="text-[10px] text-gray-500 font-bold tracking-widest uppercase mt-2 group-hover:text-gray-300 transition-colors">Ver ficha</p>
+                    </div>
+                </a>
+                <a href="/regional/aday/" class="player-card group" style="border-color: rgba(0, 210, 255, 0.35);">
+                    <div class="player-card-photo">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-dark/90 via-transparent to-transparent z-10 pointer-events-none"></div>
+                        <img src="/assets/img/aday.webp" alt="Aday" class="relative z-0">
+                        <div class="absolute top-2.5 right-2.5 z-20 flex items-center gap-1">
+                            <span class="bg-brand-neon text-brand-dark font-black px-2 py-0.5 rounded-md text-[11px] shadow-sm">#18</span>
+                        </div>
+                    </div>
+                    <div class="player-card-info">
+                        <h4 class="font-heading font-bold text-sm sm:text-base text-white group-hover:text-brand-neon transition-colors truncate">Aday</h4>
+                        <p class="text-brand-neon text-xs font-medium mt-0.5">Lateral / Interior Izquierdo</p>
+                        <p class="text-[10px] text-gray-500 font-bold tracking-widest uppercase mt-2 group-hover:text-gray-300 transition-colors">Ver ficha</p>
+                    </div>
+                </a>
+                <a href="/regional/pablo/" class="player-card group" style="border-color: rgba(0, 210, 255, 0.35);">
+                    <div class="player-card-photo">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-dark/90 via-transparent to-transparent z-10 pointer-events-none"></div>
+                        <img src="/assets/img/pablo.webp" alt="Pablo" class="relative z-0">
+                        <div class="absolute top-2.5 right-2.5 z-20 flex items-center gap-1">
+                            <span class="bg-brand-neon text-brand-dark font-black px-2 py-0.5 rounded-md text-[11px] shadow-sm">#23</span>
+                        </div>
+                    </div>
+                    <div class="player-card-info">
+                        <h4 class="font-heading font-bold text-sm sm:text-base text-white group-hover:text-brand-neon transition-colors truncate">Pablo</h4>
+                        <p class="text-brand-neon text-xs font-medium mt-0.5">Lateral Derecho</p>
                         <p class="text-[10px] text-gray-500 font-bold tracking-widest uppercase mt-2 group-hover:text-gray-300 transition-colors">Ver ficha</p>
                     </div>
                 </a>
@@ -660,7 +661,7 @@
     <script src="/assets/js/ScrollToPlugin.min.js"></script>
     <script src="/assets/site-motion.js?v=20260819_smooth"></script>
     <!-- Live Stats & Dynamic Squad Integration -->
-    <script src="/assets/js/player-stats.js?v=20260820_filters"></script>
+    <script src="/assets/js/player-stats.js?v=20260820_v2"></script>
     <script src="/assets/js/pwa-manager.js?v=20260819_1"></script>
 </body>
 </html>
