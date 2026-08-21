@@ -2,7 +2,7 @@
   "id": "https://udcentinela.github.io/",
   "name": "UD Centinela - Web Oficial",
   "short_name": "UD Centinela",
-  "description": "Aplicación y web oficial de la Unión Deportiva Centinela. Calendario, actas de partidos, plantilla y noticias con modo offline para el estadio.",
+  "description": "Aplicación y web oficial de la Unión Deportivo Centinela. Calendario, actas de partidos, plantilla y noticias con modo offline para el estadio.",
   "start_url": "/?source=pwa",
   "scope": "/",
   "display": "standalone",
