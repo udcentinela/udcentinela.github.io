@@ -7,6 +7,7 @@
   let playersData = { season: 'Temporada 2026/2027', lastUpdated: '', players: [] };
   let newsData = { items: [] };
   let sponsorsData = { updated: '', sponsors: [] };
+  let pagesContentData = { home: {}, club: {} };
   let hasUnsavedChanges = false;
   const isLocalHost = location.hostname === 'localhost' || location.hostname === '127.0.0.1';
 
@@ -27,6 +28,28 @@
   const deployBtn = document.getElementById('deployBtn');
   const deployStatus = document.getElementById('deployStatus');
   const unsavedBanner = document.getElementById('unsavedBanner');
+
+  // Home Content Inputs
+  const homeHeroTagline = document.getElementById('homeHeroTagline');
+  const homeHeroTitle1 = document.getElementById('homeHeroTitle1');
+  const homeHeroTitle2 = document.getElementById('homeHeroTitle2');
+  const homeHeroTitle3 = document.getElementById('homeHeroTitle3');
+  const homeHeroDesc = document.getElementById('homeHeroDesc');
+  const homeHeroCtaText = document.getElementById('homeHeroCtaText');
+  const homeHeroCtaLink = document.getElementById('homeHeroCtaLink');
+  const homeSponsorsTagline = document.getElementById('homeSponsorsTagline');
+  const homeSponsorsTitle = document.getElementById('homeSponsorsTitle');
+
+  // Club Content Inputs
+  const clubHistoriaTitle = document.getElementById('clubHistoriaTitle');
+  const clubHistoriaSubtitle = document.getElementById('clubHistoriaSubtitle');
+  const clubHistoriaIntro = document.getElementById('clubHistoriaIntro');
+  const clubIdentidadTitle = document.getElementById('clubIdentidadTitle');
+  const clubIdentidadSubtitle = document.getElementById('clubIdentidadSubtitle');
+  const clubIdentidadIntro = document.getElementById('clubIdentidadIntro');
+  const clubLegadoTitle = document.getElementById('clubLegadoTitle');
+  const clubLegadoSubtitle = document.getElementById('clubLegadoSubtitle');
+  const clubLegadoIntro = document.getElementById('clubLegadoIntro');
 
   // Sponsor Elements
   const sponsorsList = document.getElementById('sponsorsList');
@@ -114,6 +137,7 @@
   async function init() {
     setupTabs();
     setupModals();
+    setupPagesContentListeners();
 
     if (currentToken) {
       if (isLocalHost && (currentToken === 'admin' || currentToken === 'local')) {
@@ -187,17 +211,19 @@
   // =========================================================================
   async function loadData() {
     try {
-      const [calRes, playRes, newsRes, sponRes] = await Promise.all([
+      const [calRes, playRes, newsRes, sponRes, contentRes] = await Promise.all([
         fetch('/assets/data/calendar.json?t=' + Date.now()),
         fetch('/assets/data/players.json?t=' + Date.now()),
         fetch('/assets/data/news.json?t=' + Date.now()),
-        fetch('/assets/data/sponsors.json?t=' + Date.now())
+        fetch('/assets/data/sponsors.json?t=' + Date.now()),
+        fetch('/assets/data/pages_content.json?t=' + Date.now())
       ]);
 
       if (calRes.ok) calendarData = await calRes.json();
       if (playRes.ok) playersData = await playRes.json();
       if (newsRes.ok) newsData = await newsRes.json();
       if (sponRes.ok) sponsorsData = await sponRes.json();
+      if (contentRes.ok) pagesContentData = await contentRes.json();
     } catch (e) {
       console.warn('Usando datos locales o por defecto:', e);
     }
@@ -230,7 +256,72 @@
     });
   }
 
+  function renderPagesContent() {
+    const home = pagesContentData.home || {};
+    if (homeHeroTagline) homeHeroTagline.value = home.heroTagline || '';
+    if (homeHeroTitle1) homeHeroTitle1.value = home.heroTitleLine1 || '';
+    if (homeHeroTitle2) homeHeroTitle2.value = home.heroTitleLine2 || '';
+    if (homeHeroTitle3) homeHeroTitle3.value = home.heroTitleLine3 || '';
+    if (homeHeroDesc) homeHeroDesc.value = home.heroDescription || '';
+    if (homeHeroCtaText) homeHeroCtaText.value = home.heroCtaText || '';
+    if (homeHeroCtaLink) homeHeroCtaLink.value = home.heroCtaLink || '';
+    if (homeSponsorsTagline) homeSponsorsTagline.value = home.sponsorsTagline || '';
+    if (homeSponsorsTitle) homeSponsorsTitle.value = home.sponsorsTitle || '';
+
+    const club = pagesContentData.club || {};
+    if (clubHistoriaTitle) clubHistoriaTitle.value = club.historiaHeroTitle || '';
+    if (clubHistoriaSubtitle) clubHistoriaSubtitle.value = club.historiaHeroSubtitle || '';
+    if (clubHistoriaIntro) clubHistoriaIntro.value = club.historiaIntro || '';
+    if (clubIdentidadTitle) clubIdentidadTitle.value = club.identidadHeroTitle || '';
+    if (clubIdentidadSubtitle) clubIdentidadSubtitle.value = club.identidadHeroSubtitle || '';
+    if (clubIdentidadIntro) clubIdentidadIntro.value = club.identidadIntro || '';
+    if (clubLegadoTitle) clubLegadoTitle.value = club.legadoHeroTitle || '';
+    if (clubLegadoSubtitle) clubLegadoSubtitle.value = club.legadoHeroSubtitle || '';
+    if (clubLegadoIntro) clubLegadoIntro.value = club.legadoIntro || '';
+  }
+
+  function setupPagesContentListeners() {
+    function bindHome(input, key) {
+      if (!input) return;
+      input.addEventListener('input', () => {
+        if (!pagesContentData.home) pagesContentData.home = {};
+        pagesContentData.home[key] = input.value;
+        markUnsavedChanges(true);
+      });
+    }
+
+    function bindClub(input, key) {
+      if (!input) return;
+      input.addEventListener('input', () => {
+        if (!pagesContentData.club) pagesContentData.club = {};
+        pagesContentData.club[key] = input.value;
+        markUnsavedChanges(true);
+      });
+    }
+
+    bindHome(homeHeroTagline, 'heroTagline');
+    bindHome(homeHeroTitle1, 'heroTitleLine1');
+    bindHome(homeHeroTitle2, 'heroTitleLine2');
+    bindHome(homeHeroTitle3, 'heroTitleLine3');
+    bindHome(homeHeroDesc, 'heroDescription');
+    bindHome(homeHeroCtaText, 'heroCtaText');
+    bindHome(homeHeroCtaLink, 'heroCtaLink');
+    bindHome(homeSponsorsTagline, 'sponsorsTagline');
+    bindHome(homeSponsorsTitle, 'sponsorsTitle');
+
+    bindClub(clubHistoriaTitle, 'historiaHeroTitle');
+    bindClub(clubHistoriaSubtitle, 'historiaHeroSubtitle');
+    bindClub(clubHistoriaIntro, 'historiaIntro');
+    bindClub(clubIdentidadTitle, 'identidadHeroTitle');
+    bindClub(clubIdentidadSubtitle, 'identidadHeroSubtitle');
+    bindClub(clubIdentidadIntro, 'identidadIntro');
+    bindClub(clubLegadoTitle, 'legadoHeroTitle');
+    bindClub(clubLegadoSubtitle, 'legadoHeroSubtitle');
+    bindClub(clubLegadoIntro, 'legadoIntro');
+  }
+
   function renderAll() {
+    renderPagesContent();
     renderMatches();
     renderPlayers();
     renderNews();
@@ -1047,7 +1138,7 @@
 
       // If running on local Node server
       if (isLocalHost && (currentToken === 'admin' || currentToken === 'local' || !currentToken.startsWith('ghp_'))) {
-        const [calRes, playRes, newsRes, sponRes] = await Promise.all([
+        const [calRes, playRes, newsRes, sponRes, contentRes] = await Promise.all([
           fetch('/api/calendar', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -1067,10 +1158,15 @@
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(sponsorsData)
+          }),
+          fetch('/api/content', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(pagesContentData)
           })
         ]);
 
-        if (!calRes.ok || !playRes.ok || !newsRes.ok || !sponRes.ok) throw new Error('Error al guardar datos en el servidor local.');
+        if (!calRes.ok || !playRes.ok || !newsRes.ok || !sponRes.ok || !contentRes.ok) throw new Error('Error al guardar datos en el servidor local.');
 
         markUnsavedChanges(false);
         deployStatus.className = 'p-4 rounded-2xl text-xs font-bold tracking-wide bg-green-500/20 border border-green-500/40 text-green-300';
@@ -1083,6 +1179,7 @@
       const playersJsonStr = JSON.stringify(playersData, null, 2);
       const newsJsonStr = JSON.stringify(newsData, null, 2);
       const sponsorsJsonStr = JSON.stringify(sponsorsData, null, 2);
+      const contentJsonStr = JSON.stringify(pagesContentData, null, 2);
 
       // 1. Get latest commit SHA
       const refRes = await fetch(`${API_BASE}/git/refs/heads/main`, {
@@ -1092,8 +1189,8 @@
       const refData = await refRes.json();
       const latestCommitSha = refData.object.sha;
 
-      // 2. Create Blobs for calendar.json, players.json, news.json, and sponsors.json
-      const [blobCalRes, blobPlayRes, blobNewsRes, blobSponRes] = await Promise.all([
+      // 2. Create Blobs for calendar.json, players.json, news.json, sponsors.json, and pages_content.json
+      const [blobCalRes, blobPlayRes, blobNewsRes, blobSponRes, blobContentRes] = await Promise.all([
         fetch(`${API_BASE}/git/blobs`, {
           method: 'POST',
           headers: { 'Authorization': 'Bearer ' + currentToken, 'Content-Type': 'application/json' },
@@ -1113,6 +1210,11 @@
           method: 'POST',
           headers: { 'Authorization': 'Bearer ' + currentToken, 'Content-Type': 'application/json' },
           body: JSON.stringify({ content: sponsorsJsonStr, encoding: 'utf-8' })
+        }),
+        fetch(`${API_BASE}/git/blobs`, {
+          method: 'POST',
+          headers: { 'Authorization': 'Bearer ' + currentToken, 'Content-Type': 'application/json' },
+          body: JSON.stringify({ content: contentJsonStr, encoding: 'utf-8' })
         })
       ]);
 
@@ -1120,6 +1222,7 @@
       const blobPlay = await blobPlayRes.json();
       const blobNews = await blobNewsRes.json();
       const blobSpon = await blobSponRes.json();
+      const blobContent = await blobContentRes.json();
 
       // 3. Create Tree
       const treeRes = await fetch(`${API_BASE}/git/trees`, {
@@ -1131,7 +1234,8 @@
             { path: 'assets/data/calendar.json', mode: '100644', type: 'blob', sha: blobCal.sha },
             { path: 'assets/data/players.json', mode: '100644', type: 'blob', sha: blobPlay.sha },
             { path: 'assets/data/news.json', mode: '100644', type: 'blob', sha: blobNews.sha },
-            { path: 'assets/data/sponsors.json', mode: '100644', type: 'blob', sha: blobSpon.sha }
+            { path: 'assets/data/sponsors.json', mode: '100644', type: 'blob', sha: blobSpon.sha },
+            { path: 'assets/data/pages_content.json', mode: '100644', type: 'blob', sha: blobContent.sha }
           ]
         })
       });
@@ -1142,7 +1246,7 @@
         method: 'POST',
         headers: { 'Authorization': 'Bearer ' + currentToken, 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          message: 'feat(data): actualizar resultados, actas, plantilla, noticias y orden de patrocinadores',
+          message: 'feat(data): actualizar resultados, actas, plantilla, noticias, patrocinadores y contenidos',
           tree: treeData.sha,
           parents: [latestCommitSha]
         })

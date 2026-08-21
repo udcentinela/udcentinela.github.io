@@ -1,0 +1,25 @@
+﻿{
+    "club":  {
+                 "identidadHeroSubtitle":  "Colores, pasión y orgullo de la Ciudad del Drago",
+                 "historiaHeroSubtitle":  "1944 · El nacimiento del fútbol oficial en Icod de los Vinos",
+                 "identidadIntro":  "Azul oscuro, azul centinela y rojo acento: los símbolos que definen el espíritu inquebrantable del Centinela en cada rincón del Estadio El Molino.",
+                 "historiaIntro":  "La Unión Deportiva Centinela nació en la década de 1940 como pionera del balompié icodense. Junto al Granaderas, inauguró la era dorada del deporte en el norte de Tenerife.",
+                 "legadoHeroSubtitle":  "Homenaje a quienes forjaron la leyenda",
+                 "identidadHeroTitle":  "NUESTRA IDENTIDAD",
+                 "legadoHeroTitle":  "EL LEGADO CENTINELA",
+                 "legadoIntro":  "Generaciones de jugadores, directivos y aficionados que mantuvieron viva la llama de la pasión futbolística en Icod de los Vinos.",
+                 "historiaHeroTitle":  "NUESTRA HISTORIA"
+             },
+    "updated":  "2026-08-21T14:32:45Z",
+    "home":  {
+                 "heroTitleLine1":  "UNIÓN",
+                 "heroCtaText":  "DESCUBRE LA LEYENDA",
+                 "heroTitleLine3":  "CENTINELA",
+                 "heroTitleLine2":  "DEPORTIVA",
+                 "heroTagline":  "El primer gigante de Icod",
+                 "sponsorsTagline":  "Patrocinadores Oficiales",
+                 "heroCtaLink":  "/regional/",
+                 "heroDescription":  "Más que un equipo, el origen de una pasión. Junto al Granaderas, cimentamos la historia del fútbol oficial en Icod de los Vinos.",
+                 "sponsorsTitle":  "Apoyan el regreso del Centinela"
+             }
+}

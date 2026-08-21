@@ -97,17 +97,23 @@
 
                 <!-- Tabs -->
                 <div class="flex flex-wrap gap-2 bg-white/5 p-1.5 rounded-2xl border border-white/10">
-                    <button data-tab="matchesTab" class="tab-btn active px-4 py-2 text-xs font-bold uppercase tracking-wider rounded-xl transition-colors">
-                        ⚽ Partidos y Actas
+                    <button data-tab="homeTab" class="tab-btn active px-4 py-2 text-xs font-bold uppercase tracking-wider rounded-xl transition-colors">
+                        🏠 Inicio
+                    </button>
+                    <button data-tab="matchesTab" class="tab-btn px-4 py-2 text-xs font-bold uppercase tracking-wider rounded-xl transition-colors">
+                        ⚽ Calendario
                     </button>
                     <button data-tab="playersTab" class="tab-btn px-4 py-2 text-xs font-bold uppercase tracking-wider rounded-xl transition-colors">
-                        👥 Plantilla e IDs
+                        👥 Plantilla
                     </button>
                     <button data-tab="newsTab" class="tab-btn px-4 py-2 text-xs font-bold uppercase tracking-wider rounded-xl transition-colors">
-                        📰 Noticias y Fichajes
+                        📰 Noticias
                     </button>
                     <button data-tab="sponsorsTab" class="tab-btn px-4 py-2 text-xs font-bold uppercase tracking-wider rounded-xl transition-colors">
-                        🤝 Patrocinadores
+                        🤝 Patrocinios
+                    </button>
+                    <button data-tab="clubTab" class="tab-btn px-4 py-2 text-xs font-bold uppercase tracking-wider rounded-xl transition-colors">
+                        🏛️ Historia y Club
                     </button>
                     <button data-tab="statsTab" class="tab-btn px-4 py-2 text-xs font-bold uppercase tracking-wider rounded-xl transition-colors">
                         📊 Estadísticas
@@ -143,9 +149,86 @@
             <div id="deployStatus" class="hidden p-4 rounded-2xl text-xs font-bold tracking-wide"></div>
 
             <!-- ============================================================== -->
+            <!-- TAB 0: INICIO / PORTADA                                        -->
+            <!-- ============================================================== -->
+            <div id="homeTab" class="tab-content space-y-6">
+                <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                    <div>
+                        <h2 class="font-heading text-2xl font-black uppercase text-white">Gestión de Portada (Inicio)</h2>
+                        <p class="text-gray-400 text-xs">Modifica los titulares principales, lemas, descripciones y llamadas a la acción del Inicio.</p>
+                    </div>
+                </div>
+
+                <form id="homeContentForm" class="space-y-6">
+                    <!-- Hero Section -->
+                    <div class="p-6 rounded-3xl bg-white/5 border border-white/10 space-y-4">
+                        <div class="flex items-center gap-2 border-b border-white/10 pb-3">
+                            <span class="text-lg">⭐</span>
+                            <h3 class="font-heading font-black text-base text-white uppercase">Sección Principal (Hero)</h3>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold text-gray-400 uppercase mb-1">Tagline Superior / Lema Corto</label>
+                            <input id="homeHeroTagline" class="w-full bg-brand-dark/90 border border-white/15 focus:border-brand-neon rounded-2xl px-4 py-3 text-white text-sm outline-none transition-colors" placeholder="El primer gigante de Icod">
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                            <div>
+                                <label class="block text-xs font-bold text-gray-400 uppercase mb-1">Titular Línea 1</label>
+                                <input id="homeHeroTitle1" class="w-full bg-brand-dark/90 border border-white/15 focus:border-brand-neon rounded-2xl px-4 py-3 text-white text-sm outline-none transition-colors" placeholder="UNIÓN">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-gray-400 uppercase mb-1">Titular Línea 2 (Gradiente)</label>
+                                <input id="homeHeroTitle2" class="w-full bg-brand-dark/90 border border-white/15 focus:border-brand-neon rounded-2xl px-4 py-3 text-white text-sm outline-none transition-colors" placeholder="DEPORTIVA">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-gray-400 uppercase mb-1">Titular Línea 3</label>
+                                <input id="homeHeroTitle3" class="w-full bg-brand-dark/90 border border-white/15 focus:border-brand-neon rounded-2xl px-4 py-3 text-white text-sm outline-none transition-colors" placeholder="CENTINELA">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold text-gray-400 uppercase mb-1">Descripción / Párrafo Principal</label>
+                            <textarea id="homeHeroDesc" rows="3" class="w-full bg-brand-dark/90 border border-white/15 focus:border-brand-neon rounded-2xl px-4 py-3 text-white text-sm outline-none transition-colors" placeholder="Más que un equipo, el origen de una pasión..."></textarea>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                            <div>
+                                <label class="block text-xs font-bold text-gray-400 uppercase mb-1">Texto del Botón CTA</label>
+                                <input id="homeHeroCtaText" class="w-full bg-brand-dark/90 border border-white/15 focus:border-brand-neon rounded-2xl px-4 py-3 text-white text-sm outline-none transition-colors" placeholder="DESCUBRE LA LEYENDA">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-gray-400 uppercase mb-1">Enlace del Botón CTA</label>
+                                <input id="homeHeroCtaLink" class="w-full bg-brand-dark/90 border border-white/15 focus:border-brand-neon rounded-2xl px-4 py-3 text-white text-sm outline-none transition-colors" placeholder="/regional/">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Ribbon Sponsors Section -->
+                    <div class="p-6 rounded-3xl bg-white/5 border border-white/10 space-y-4">
+                        <div class="flex items-center gap-2 border-b border-white/10 pb-3">
+                            <span class="text-lg">🤝</span>
+                            <h3 class="font-heading font-black text-base text-white uppercase">Cinta de Patrocinadores (Portada)</h3>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                            <div>
+                                <label class="block text-xs font-bold text-gray-400 uppercase mb-1">Subtítulo Pequeño</label>
+                                <input id="homeSponsorsTagline" class="w-full bg-brand-dark/90 border border-white/15 focus:border-brand-neon rounded-2xl px-4 py-3 text-white text-sm outline-none transition-colors" placeholder="Patrocinadores Oficiales">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-gray-400 uppercase mb-1">Título de la Cinta</label>
+                                <input id="homeSponsorsTitle" class="w-full bg-brand-dark/90 border border-white/15 focus:border-brand-neon rounded-2xl px-4 py-3 text-white text-sm outline-none transition-colors" placeholder="Apoyan el regreso del Centinela">
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <!-- ============================================================== -->
             <!-- TAB 1: PARTIDOS Y ACTAS                                        -->
             <!-- ============================================================== -->
-            <div id="matchesTab" class="tab-content space-y-6">
+            <div id="matchesTab" class="tab-content hidden space-y-6">
                 <div class="flex items-center justify-between">
                     <h2 class="font-heading text-2xl font-black uppercase text-white">Lista de Partidos</h2>
                     <button id="newMatchBtn" class="px-4 py-2 bg-white/10 hover:bg-brand-neon hover:text-brand-dark text-white text-xs font-bold uppercase tracking-wider rounded-xl border border-white/10 transition-colors cursor-pointer">
@@ -272,6 +355,89 @@
                 <div id="sponsorsList" class="space-y-3">
                     <!-- Dynamic Sponsors List -->
                 </div>
+            </div>
+
+            <!-- ============================================================== -->
+            <!-- TAB 6: HISTORIA Y CLUB                                         -->
+            <!-- ============================================================== -->
+            <div id="clubTab" class="tab-content hidden space-y-6">
+                <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                    <div>
+                        <h2 class="font-heading text-2xl font-black uppercase text-white">Historia, Identidad y Legado</h2>
+                        <p class="text-gray-400 text-xs">Controla los textos de las páginas institucionales del club.</p>
+                    </div>
+                </div>
+
+                <form id="clubContentForm" class="space-y-6">
+                    <!-- Historia -->
+                    <div class="p-6 rounded-3xl bg-white/5 border border-white/10 space-y-4">
+                        <div class="flex items-center justify-between border-b border-white/10 pb-3">
+                            <div class="flex items-center gap-2">
+                                <span class="text-lg">📜</span>
+                                <h3 class="font-heading font-black text-base text-white uppercase">Página Historia (/historia/)</h3>
+                            </div>
+                            <a href="/historia/" target="_blank" class="text-xs text-brand-neon hover:underline font-bold">Ver Página ↗</a>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-gray-400 uppercase mb-1">Título Principal</label>
+                            <input id="clubHistoriaTitle" class="w-full bg-brand-dark/90 border border-white/15 focus:border-brand-neon rounded-2xl px-4 py-3 text-white text-sm outline-none transition-colors" placeholder="NUESTRA HISTORIA">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-gray-400 uppercase mb-1">Subtítulo / Hito</label>
+                            <input id="clubHistoriaSubtitle" class="w-full bg-brand-dark/90 border border-white/15 focus:border-brand-neon rounded-2xl px-4 py-3 text-white text-sm outline-none transition-colors" placeholder="1944 · El nacimiento del fútbol oficial...">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-gray-400 uppercase mb-1">Párrafo de Introducción</label>
+                            <textarea id="clubHistoriaIntro" rows="3" class="w-full bg-brand-dark/90 border border-white/15 focus:border-brand-neon rounded-2xl px-4 py-3 text-white text-sm outline-none transition-colors"></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Identidad -->
+                    <div class="p-6 rounded-3xl bg-white/5 border border-white/10 space-y-4">
+                        <div class="flex items-center justify-between border-b border-white/10 pb-3">
+                            <div class="flex items-center gap-2">
+                                <span class="text-lg">🛡️</span>
+                                <h3 class="font-heading font-black text-base text-white uppercase">Página Identidad (/identidad/)</h3>
+                            </div>
+                            <a href="/identidad/" target="_blank" class="text-xs text-brand-neon hover:underline font-bold">Ver Página ↗</a>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-gray-400 uppercase mb-1">Título Principal</label>
+                            <input id="clubIdentidadTitle" class="w-full bg-brand-dark/90 border border-white/15 focus:border-brand-neon rounded-2xl px-4 py-3 text-white text-sm outline-none transition-colors" placeholder="NUESTRA IDENTIDAD">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-gray-400 uppercase mb-1">Subtítulo</label>
+                            <input id="clubIdentidadSubtitle" class="w-full bg-brand-dark/90 border border-white/15 focus:border-brand-neon rounded-2xl px-4 py-3 text-white text-sm outline-none transition-colors" placeholder="Colores, pasión y orgullo...">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-gray-400 uppercase mb-1">Párrafo de Introducción</label>
+                            <textarea id="clubIdentidadIntro" rows="3" class="w-full bg-brand-dark/90 border border-white/15 focus:border-brand-neon rounded-2xl px-4 py-3 text-white text-sm outline-none transition-colors"></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Legado -->
+                    <div class="p-6 rounded-3xl bg-white/5 border border-white/10 space-y-4">
+                        <div class="flex items-center justify-between border-b border-white/10 pb-3">
+                            <div class="flex items-center gap-2">
+                                <span class="text-lg">🏆</span>
+                                <h3 class="font-heading font-black text-base text-white uppercase">Página Legado (/legado/)</h3>
+                            </div>
+                            <a href="/legado/" target="_blank" class="text-xs text-brand-neon hover:underline font-bold">Ver Página ↗</a>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-gray-400 uppercase mb-1">Título Principal</label>
+                            <input id="clubLegadoTitle" class="w-full bg-brand-dark/90 border border-white/15 focus:border-brand-neon rounded-2xl px-4 py-3 text-white text-sm outline-none transition-colors" placeholder="EL LEGADO CENTINELA">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-gray-400 uppercase mb-1">Subtítulo</label>
+                            <input id="clubLegadoSubtitle" class="w-full bg-brand-dark/90 border border-white/15 focus:border-brand-neon rounded-2xl px-4 py-3 text-white text-sm outline-none transition-colors" placeholder="Homenaje a quienes forjaron la leyenda">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-gray-400 uppercase mb-1">Párrafo de Introducción</label>
+                            <textarea id="clubLegadoIntro" rows="3" class="w-full bg-brand-dark/90 border border-white/15 focus:border-brand-neon rounded-2xl px-4 py-3 text-white text-sm outline-none transition-colors"></textarea>
+                        </div>
+                    </div>
+                </form>
             </div>
 
         </section>
