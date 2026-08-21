@@ -96,7 +96,7 @@
       "id": "colcho",
       "name": "Cristian (Colcho)",
       "fullName": "Cristian (Colcho)",
-      "dorsal": null,
+      "dorsal": 20,
       "position": "Interior / Extremo",
       "role": "Interior / Extremo",
       "status": "Confirmado",
