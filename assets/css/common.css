@@ -809,9 +809,10 @@ select:focus-visible {
 
 /* 1. Cinta de Patrocinadores en Inicio (index.html) */
 .sponsors-ribbon {
-    padding: 2rem 0 !important;
-    background: rgba(3, 7, 18, 0.96) !important;
+    padding: 2.5rem 0 !important;
+    background: rgba(3, 7, 18, 0.98) !important;
     border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04) !important;
     position: relative !important;
     z-index: 10 !important;
 }
@@ -821,7 +822,7 @@ select:focus-visible {
     flex-direction: column !important;
     align-items: center !important;
     justify-content: space-between !important;
-    gap: 1.5rem !important;
+    gap: 1.75rem !important;
 }
 
 @media (min-width: 1024px) {
@@ -839,14 +840,14 @@ select:focus-visible {
 @media (min-width: 1024px) {
     .sponsors-ribbon-text {
         text-align: left !important;
-        max-width: 320px !important;
+        max-width: 270px !important;
     }
 }
 
 .sponsors-ribbon-text .tagline {
     color: var(--color-brand-neon) !important;
     font-weight: 800 !important;
-    font-size: 0.725rem !important;
+    font-size: 0.75rem !important;
     letter-spacing: 0.18em !important;
     text-transform: uppercase !important;
     margin-bottom: 0.25rem !important;
@@ -855,7 +856,7 @@ select:focus-visible {
 .sponsors-ribbon-text .title {
     font-family: 'Montserrat', sans-serif !important;
     font-weight: 900 !important;
-    font-size: 1.1rem !important;
+    font-size: 1.15rem !important;
     color: #ffffff !important;
     text-transform: uppercase !important;
     line-height: 1.25 !important;
@@ -866,18 +867,19 @@ select:focus-visible {
     flex-wrap: wrap !important;
     align-items: center !important;
     justify-content: center !important;
-    gap: 0.75rem !important;
+    gap: 1rem !important;
+    flex: 1 1 auto !important;
 }
 
 .sponsor-badge-item {
     display: inline-flex !important;
     align-items: center !important;
     justify-content: center !important;
-    padding: 0.5rem 1.1rem !important;
-    height: 52px !important;
+    padding: 0.65rem 1.4rem !important;
+    height: 68px !important;
     background: rgba(255, 255, 255, 0.04) !important;
-    border: 1px solid rgba(255, 255, 255, 0.1) !important;
-    border-radius: 0.85rem !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+    border-radius: 1rem !important;
     text-decoration: none !important;
     transition: all 0.25s ease !important;
     box-sizing: border-box !important;
@@ -887,72 +889,72 @@ select:focus-visible {
     background: rgba(255, 255, 255, 0.09) !important;
     border-color: var(--color-brand-neon) !important;
     transform: translateY(-2px) !important;
-    box-shadow: 0 4px 16px rgba(0, 210, 255, 0.2) !important;
+    box-shadow: 0 6px 22px rgba(0, 210, 255, 0.25) !important;
 }
 
 .sponsor-badge-item img {
-    height: 30px !important;
-    max-height: 30px !important;
-    max-width: 140px !important;
+    height: 44px !important;
+    max-height: 44px !important;
+    max-width: 180px !important;
     width: auto !important;
     object-fit: contain !important;
-    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.6)) !important;
+    filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.7)) !important;
     transition: transform 0.2s ease !important;
     display: block !important;
 }
 
 .sponsor-badge-item:hover img {
-    transform: scale(1.05) !important;
+    transform: scale(1.06) !important;
 }
 
 .sponsor-badge-item.badge-guillermo img {
-    height: 32px !important;
-    max-height: 32px !important;
-    max-width: 145px !important;
+    height: 48px !important;
+    max-height: 48px !important;
+    max-width: 195px !important;
 }
 
 .sponsor-badge-item.badge-retransicod img {
-    height: 30px !important;
-    max-height: 30px !important;
-    max-width: 115px !important;
+    height: 44px !important;
+    max-height: 44px !important;
+    max-width: 155px !important;
 }
 
 .sponsor-badge-item.badge-disloke img {
-    height: 26px !important;
-    max-height: 26px !important;
-    max-width: 120px !important;
+    height: 38px !important;
+    max-height: 38px !important;
+    max-width: 155px !important;
 }
 
 .sponsor-badge-item.badge-icod img {
-    height: 32px !important;
-    max-height: 32px !important;
-    max-width: 42px !important;
+    height: 46px !important;
+    max-height: 46px !important;
+    max-width: 58px !important;
 }
 
 .sponsor-badge-item.badge-molino img {
-    height: 30px !important;
-    max-height: 30px !important;
-    max-width: 55px !important;
-    border-radius: 0.35rem !important;
+    height: 44px !important;
+    max-height: 44px !important;
+    max-width: 75px !important;
+    border-radius: 0.4rem !important;
 }
 
 /* 2. Muro de Patrocinadores en Patrocinios (patrocinios/index.html) */
 .sponsor-hero {
-    padding-top: clamp(8rem, 14vw, 10.5rem) !important;
+    padding-top: clamp(8.5rem, 14vw, 11rem) !important;
     padding-bottom: 4.5rem !important;
 }
 
 .sponsor-main-card {
-    padding: 2rem !important;
+    padding: 2.25rem !important;
     border-radius: 1.5rem !important;
-    background: linear-gradient(135deg, rgba(0, 82, 255, 0.15) 0%, rgba(3, 7, 18, 0.95) 100%) !important;
+    background: linear-gradient(135deg, rgba(0, 82, 255, 0.18) 0%, rgba(3, 7, 18, 0.95) 100%) !important;
     border: 1px solid rgba(0, 210, 255, 0.35) !important;
-    box-shadow: 0 0 30px rgba(0, 210, 255, 0.15) !important;
+    box-shadow: 0 0 35px rgba(0, 210, 255, 0.18) !important;
 }
 
 @media (min-width: 640px) {
     .sponsor-main-card {
-        padding: 2.5rem !important;
+        padding: 3rem !important;
     }
 }
 
@@ -963,17 +965,17 @@ select:focus-visible {
     padding: 1.5rem !important;
     background: rgba(255, 255, 255, 0.03) !important;
     border: 1px solid rgba(255, 255, 255, 0.08) !important;
-    border-radius: 1rem !important;
-    min-height: 140px !important;
+    border-radius: 1.25rem !important;
+    min-height: 160px !important;
 }
 
 .sponsor-main-logo-box img {
-    max-height: 85px !important;
+    max-height: 115px !important;
     max-width: 100% !important;
     width: auto !important;
     height: auto !important;
     object-fit: contain !important;
-    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.6)) !important;
+    filter: drop-shadow(0 4px 14px rgba(0, 0, 0, 0.7)) !important;
 }
 
 .sponsor-collab-grid {
@@ -995,16 +997,16 @@ select:focus-visible {
 }
 
 .sponsor-collab-card {
-    padding: 1.25rem !important;
-    border-radius: 1rem !important;
+    padding: 1.5rem 1.25rem !important;
+    border-radius: 1.25rem !important;
     background: rgba(255, 255, 255, 0.04) !important;
-    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    border: 1px solid rgba(255, 255, 255, 0.09) !important;
     display: flex !important;
     flex-direction: column !important;
     justify-content: space-between !important;
     text-align: center !important;
     transition: all 0.25s ease !important;
-    min-height: 180px !important;
+    min-height: 210px !important;
 }
 
 .sponsor-collab-card:hover {
@@ -1018,17 +1020,17 @@ select:focus-visible {
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
-    padding: 0.75rem !important;
+    padding: 0.85rem !important;
     background: rgba(3, 7, 18, 0.85) !important;
-    border-radius: 0.75rem !important;
-    margin-bottom: 0.85rem !important;
-    border: 1px solid rgba(255, 255, 255, 0.05) !important;
-    height: 80px !important;
+    border-radius: 0.85rem !important;
+    margin-bottom: 1rem !important;
+    border: 1px solid rgba(255, 255, 255, 0.06) !important;
+    height: 100px !important;
     overflow: hidden !important;
 }
 
 .sponsor-collab-logo-box img {
-    max-height: 50px !important;
+    max-height: 68px !important;
     max-width: 100% !important;
     width: auto !important;
     height: auto !important;
