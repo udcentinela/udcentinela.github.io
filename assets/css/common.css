@@ -938,6 +938,12 @@ select:focus-visible {
     border-radius: 0.4rem !important;
 }
 
+.sponsor-badge-item.badge-pontucocina img {
+    height: 38px !important;
+    max-height: 38px !important;
+    max-width: 160px !important;
+}
+
 /* 2. Muro de Patrocinadores en Patrocinios (patrocinios/index.html) */
 .sponsor-hero {
     padding-top: clamp(8.5rem, 14vw, 11rem) !important;
