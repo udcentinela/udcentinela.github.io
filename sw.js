@@ -1,10 +1,10 @@
 /**
  * UD Centinela - Service Worker PWA & Modo Estadio Offline
- * Version: 20260821_logo_v3
+ * Version: 20260821_logo_v4
  */
 
-const CACHE_NAME = 'udc-cache-v20260821_logo_v3';
-const DATA_CACHE_NAME = 'udc-data-cache-v20260821_logo_v3';
+const CACHE_NAME = 'udc-cache-v20260821_logo_v4';
+const DATA_CACHE_NAME = 'udc-data-cache-v20260821_logo_v4';
 
 const PRECACHE_ASSETS = [
   '/',
