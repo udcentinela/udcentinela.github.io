@@ -1,4 +1,4 @@
-﻿/**
+/**
  * content-renderer.js - Sincronizador en vivo de textos de páginas y secciones
  * UD Centinela (udcentinela.github.io)
  */
@@ -21,7 +21,7 @@
         const heroTitle = document.querySelector('.hero-title');
         if (heroTitle && (home.heroTitleLine1 || home.heroTitleLine2 || home.heroTitleLine3)) {
           const l1 = home.heroTitleLine1 || 'UNIÓN';
-          const l2 = home.heroTitleLine2 || 'DEPORTIVA';
+          const l2 = home.heroTitleLine2 || 'DEPORTIVO';
           const l3 = home.heroTitleLine3 || 'CENTINELA';
           heroTitle.innerHTML = `<span class="hero-title-line">${l1}</span><br/><span class="hero-title-line text-gradient">${l2}</span><br/><span class="hero-title-line">${l3}</span>`;
         }
