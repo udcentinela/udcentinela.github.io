@@ -6,6 +6,7 @@
   let calendarData = { season: 'Temporada 2026/2027', updated: '', nextMatch: null, matches: [], standings: [] };
   let playersData = { season: 'Temporada 2026/2027', lastUpdated: '', players: [] };
   let newsData = { items: [] };
+  let sponsorsData = { updated: '', sponsors: [] };
   let hasUnsavedChanges = false;
   const isLocalHost = location.hostname === 'localhost' || location.hostname === '127.0.0.1';
 
@@ -26,6 +27,21 @@
   const deployBtn = document.getElementById('deployBtn');
   const deployStatus = document.getElementById('deployStatus');
   const unsavedBanner = document.getElementById('unsavedBanner');
+
+  // Sponsor Elements
+  const sponsorsList = document.getElementById('sponsorsList');
+  const sponsorModal = document.getElementById('sponsorModal');
+  const sponsorForm = document.getElementById('sponsorForm');
+  const sponsorModalTitle = document.getElementById('sponsorModalTitle');
+  const newSponsorBtn = document.getElementById('newSponsorBtn');
+  const sponsorEditIndex = document.getElementById('sponsorEditIndex');
+  const sponsorNameInput = document.getElementById('sponsorNameInput');
+  const sponsorTierInput = document.getElementById('sponsorTierInput');
+  const sponsorCategoryDescInput = document.getElementById('sponsorCategoryDescInput');
+  const sponsorLogoInput = document.getElementById('sponsorLogoInput');
+  const sponsorUrlInput = document.getElementById('sponsorUrlInput');
+  const sponsorVisibleInput = document.getElementById('sponsorVisibleInput');
+  let draggedSponsorIndex = null;
 
   // Match Modal Elements
   const matchModal = document.getElementById('matchModal');
@@ -171,15 +187,17 @@
   // =========================================================================
   async function loadData() {
     try {
-      const [calRes, playRes, newsRes] = await Promise.all([
+      const [calRes, playRes, newsRes, sponRes] = await Promise.all([
         fetch('/assets/data/calendar.json?t=' + Date.now()),
         fetch('/assets/data/players.json?t=' + Date.now()),
-        fetch('/assets/data/news.json?t=' + Date.now())
+        fetch('/assets/data/news.json?t=' + Date.now()),
+        fetch('/assets/data/sponsors.json?t=' + Date.now())
       ]);
 
       if (calRes.ok) calendarData = await calRes.json();
       if (playRes.ok) playersData = await playRes.json();
       if (newsRes.ok) newsData = await newsRes.json();
+      if (sponRes.ok) sponsorsData = await sponRes.json();
     } catch (e) {
       console.warn('Usando datos locales o por defecto:', e);
     }
@@ -216,6 +234,7 @@
     renderMatches();
     renderPlayers();
     renderNews();
+    renderSponsors();
     renderStats();
   }
 
@@ -415,6 +434,188 @@
   }
 
   // =========================================================================
+  // RENDER & REORDER SPONSORS
+  // =========================================================================
+  const TIER_LABELS = {
+    principal: { label: 'Patrocinador Principal', color: 'bg-brand-neon/15 border-brand-neon/40 text-brand-neon' },
+    oficial: { label: 'Patrocinador Oficial', color: 'bg-emerald-500/15 border-emerald-500/40 text-emerald-400' },
+    colaborador: { label: 'Empresa Colaboradora', color: 'bg-yellow-500/15 border-yellow-500/40 text-yellow-400' },
+    institucional: { label: 'Apoyo Institucional', color: 'bg-purple-500/15 border-purple-500/40 text-purple-400' },
+    sede: { label: 'Sede Oficial', color: 'bg-blue-500/15 border-blue-500/40 text-blue-400' }
+  };
+
+  function renderSponsors() {
+    if (!sponsorsList) return;
+    sponsorsList.innerHTML = '';
+    const list = sponsorsData.sponsors || [];
+
+    if (list.length === 0) {
+      sponsorsList.innerHTML = `
+        <div class="p-8 rounded-2xl bg-white/5 border border-white/10 text-center text-gray-400">
+          No hay patrocinadores registrados aún. Pulsa en "+ Añadir Patrocinador".
+        </div>
+      `;
+      return;
+    }
+
+    list.forEach((s, idx) => {
+      const tierInfo = TIER_LABELS[s.tier] || { label: s.tierLabel || 'Patrocinador', color: 'bg-white/10 border-white/20 text-white' };
+      const isVisible = s.visible !== false;
+      const isFirst = idx === 0;
+      const isLast = idx === list.length - 1;
+
+      const card = document.createElement('div');
+      card.className = `sponsor-admin-card p-4 rounded-2xl bg-white/5 border border-white/10 hover:border-brand-neon/40 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 select-none ${isVisible ? '' : 'opacity-60 bg-black/40'}`;
+      card.setAttribute('draggable', 'true');
+      card.dataset.index = idx;
+
+      card.innerHTML = `
+        <div class="flex items-center gap-3 w-full md:w-auto">
+          <div class="cursor-grab active:cursor-grabbing p-2 text-gray-500 hover:text-brand-neon transition-colors" title="Arrastra para cambiar de posición">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8h16M4 16h16"></path>
+            </svg>
+          </div>
+          <span class="w-7 h-7 rounded-xl bg-black/50 border border-white/10 flex items-center justify-center text-xs font-black text-brand-neon">
+            #${idx + 1}
+          </span>
+          <div class="w-20 h-12 rounded-xl bg-black/40 border border-white/10 p-1 flex items-center justify-center overflow-hidden">
+            <img src="${s.logo}" alt="${s.name}" class="h-full w-full object-contain" onerror="this.src='/assets/img/logo-nav.webp'">
+          </div>
+          <div>
+            <div class="flex items-center gap-2 flex-wrap">
+              <h3 class="font-heading font-black text-sm text-white uppercase">${s.name}</h3>
+              <span class="px-2.5 py-0.5 rounded-full text-[9px] font-black uppercase tracking-wider border ${tierInfo.color}">
+                ${tierInfo.label}
+              </span>
+              ${!isVisible ? '<span class="px-2 py-0.5 rounded-full text-[9px] font-bold uppercase tracking-wider bg-red-500/20 text-red-300 border border-red-500/30">Oculto</span>' : ''}
+            </div>
+            <p class="text-xs text-gray-400 mt-0.5">${s.categoryDesc || ''} ${s.url ? `<span class="text-gray-500">· <a href="${s.url}" target="_blank" class="text-brand-neon hover:underline">${s.url}</a></span>` : ''}</p>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-1.5 self-end md:self-center">
+          <button type="button" data-action="up" data-idx="${idx}" ${isFirst ? 'disabled class="p-2 rounded-xl border border-white/5 opacity-20 cursor-not-allowed text-xs"' : 'class="p-2 rounded-xl border border-white/10 hover:bg-white/10 text-white text-xs transition-colors cursor-pointer"'} title="Subir posición">
+            ⬆️
+          </button>
+          <button type="button" data-action="down" data-idx="${idx}" ${isLast ? 'disabled class="p-2 rounded-xl border border-white/5 opacity-20 cursor-not-allowed text-xs"' : 'class="p-2 rounded-xl border border-white/10 hover:bg-white/10 text-white text-xs transition-colors cursor-pointer"'} title="Bajar posición">
+            ⬇️
+          </button>
+          <button type="button" data-action="toggle" data-idx="${idx}" class="p-2 rounded-xl border border-white/10 hover:bg-white/10 text-xs transition-colors cursor-pointer" title="${isVisible ? 'Ocultar' : 'Mostrar'}">
+            ${isVisible ? '👁️' : '🚫'}
+          </button>
+          <button type="button" data-action="edit" data-idx="${idx}" class="p-2 rounded-xl border border-brand-neon/30 bg-brand-neon/10 hover:bg-brand-neon hover:text-brand-dark text-brand-neon text-xs font-bold transition-colors cursor-pointer" title="Editar datos">
+            ✏️
+          </button>
+          <button type="button" data-action="delete" data-idx="${idx}" class="p-2 rounded-xl border border-red-500/20 bg-red-500/10 hover:bg-red-500 hover:text-white text-red-400 text-xs transition-colors cursor-pointer" title="Eliminar">
+            🗑️
+          </button>
+        </div>
+      `;
+
+      // Drag & Drop handlers
+      card.addEventListener('dragstart', (e) => {
+        draggedSponsorIndex = idx;
+        card.classList.add('dragging');
+        e.dataTransfer.effectAllowed = 'move';
+        e.dataTransfer.setData('text/plain', idx);
+      });
+
+      card.addEventListener('dragover', (e) => {
+        e.preventDefault();
+        e.dataTransfer.dropEffect = 'move';
+        card.classList.add('drag-over');
+      });
+
+      card.addEventListener('dragleave', () => {
+        card.classList.remove('drag-over');
+      });
+
+      card.addEventListener('drop', (e) => {
+        e.preventDefault();
+        card.classList.remove('drag-over');
+        const fromIdx = draggedSponsorIndex !== null ? draggedSponsorIndex : parseInt(e.dataTransfer.getData('text/plain'));
+        const toIdx = idx;
+        if (fromIdx !== toIdx && !isNaN(fromIdx)) {
+          const item = sponsorsData.sponsors.splice(fromIdx, 1)[0];
+          sponsorsData.sponsors.splice(toIdx, 0, item);
+          renderSponsors();
+          markUnsavedChanges(true);
+        }
+      });
+
+      card.addEventListener('dragend', () => {
+        card.classList.remove('dragging');
+        document.querySelectorAll('.sponsor-admin-card').forEach(c => c.classList.remove('drag-over'));
+      });
+
+      sponsorsList.appendChild(card);
+    });
+
+    // Delegate Click Actions
+    sponsorsList.querySelectorAll('button[data-action]').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const action = btn.dataset.action;
+        const index = parseInt(btn.dataset.idx);
+
+        if (action === 'up' && index > 0) {
+          const temp = sponsorsData.sponsors[index - 1];
+          sponsorsData.sponsors[index - 1] = sponsorsData.sponsors[index];
+          sponsorsData.sponsors[index] = temp;
+          renderSponsors();
+          markUnsavedChanges(true);
+        } else if (action === 'down' && index < sponsorsData.sponsors.length - 1) {
+          const temp = sponsorsData.sponsors[index + 1];
+          sponsorsData.sponsors[index + 1] = sponsorsData.sponsors[index];
+          sponsorsData.sponsors[index] = temp;
+          renderSponsors();
+          markUnsavedChanges(true);
+        } else if (action === 'toggle') {
+          sponsorsData.sponsors[index].visible = sponsorsData.sponsors[index].visible === false ? true : false;
+          renderSponsors();
+          markUnsavedChanges(true);
+        } else if (action === 'edit') {
+          openSponsorModal(index);
+        } else if (action === 'delete') {
+          deleteSponsor(index);
+        }
+      });
+    });
+  }
+
+  function openSponsorModal(index) {
+    sponsorEditIndex.value = index;
+    if (index >= 0) {
+      const s = sponsorsData.sponsors[index];
+      sponsorModalTitle.textContent = 'Editar Patrocinador';
+      sponsorNameInput.value = s.name || '';
+      sponsorTierInput.value = s.tier || 'oficial';
+      sponsorCategoryDescInput.value = s.categoryDesc || '';
+      sponsorLogoInput.value = s.logo || '';
+      sponsorUrlInput.value = s.url || '';
+      sponsorVisibleInput.checked = s.visible !== false;
+    } else {
+      sponsorModalTitle.textContent = 'Nuevo Patrocinador';
+      sponsorNameInput.value = '';
+      sponsorTierInput.value = 'oficial';
+      sponsorCategoryDescInput.value = '';
+      sponsorLogoInput.value = '/assets/img/sponsors/';
+      sponsorUrlInput.value = '';
+      sponsorVisibleInput.checked = true;
+    }
+    sponsorModal.classList.remove('hidden');
+  }
+
+  function deleteSponsor(index) {
+    const s = sponsorsData.sponsors[index];
+    if (!confirm(`¿Eliminar al patrocinador "${s.name}"?`)) return;
+    sponsorsData.sponsors.splice(index, 1);
+    renderSponsors();
+    markUnsavedChanges(true);
+  }
+
+  // =========================================================================
   // RENDER STATS RANKING
   // =========================================================================
   function renderStats() {
@@ -476,12 +677,54 @@
         matchModal.classList.add('hidden');
         playerModal.classList.add('hidden');
         if (newsModal) newsModal.classList.add('hidden');
+        if (sponsorModal) sponsorModal.classList.add('hidden');
       });
     });
 
     newMatchBtn.addEventListener('click', () => openMatchModal(null));
     newPlayerBtn.addEventListener('click', () => openPlayerModal(-1));
     if (newNewsBtn) newNewsBtn.addEventListener('click', () => openNewsModal(-1));
+    if (newSponsorBtn) newSponsorBtn.addEventListener('click', () => openSponsorModal(-1));
+
+    if (sponsorForm) {
+      sponsorForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const idx = parseInt(sponsorEditIndex.value);
+        const nameVal = sponsorNameInput.value.trim();
+        const tierVal = sponsorTierInput.value;
+        const descVal = sponsorCategoryDescInput.value.trim();
+        const logoVal = sponsorLogoInput.value.trim();
+        const urlVal = sponsorUrlInput.value.trim();
+        const visibleVal = sponsorVisibleInput.checked;
+
+        const idVal = idx >= 0 ? sponsorsData.sponsors[idx].id : nameVal.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+        const tierInfo = TIER_LABELS[tierVal] || { label: 'Patrocinador Oficial' };
+
+        const sponsorObj = {
+          id: idVal,
+          name: nameVal,
+          tier: tierVal,
+          tierLabel: tierInfo.label,
+          categoryDesc: descVal,
+          logo: logoVal,
+          url: urlVal || '/patrocinios/',
+          badgeClass: `badge-${idVal}`,
+          visible: visibleVal
+        };
+
+        if (!sponsorsData.sponsors) sponsorsData.sponsors = [];
+
+        if (idx >= 0) {
+          sponsorsData.sponsors[idx] = sponsorObj;
+        } else {
+          sponsorsData.sponsors.push(sponsorObj);
+        }
+
+        renderSponsors();
+        markUnsavedChanges(true);
+        sponsorModal.classList.add('hidden');
+      });
+    }
 
     addGoalBtn.addEventListener('click', () => addGoalRow());
   }
@@ -804,7 +1047,7 @@
 
       // If running on local Node server
       if (isLocalHost && (currentToken === 'admin' || currentToken === 'local' || !currentToken.startsWith('ghp_'))) {
-        const [calRes, playRes, newsRes] = await Promise.all([
+        const [calRes, playRes, newsRes, sponRes] = await Promise.all([
           fetch('/api/calendar', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -819,10 +1062,15 @@
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(newsData)
+          }),
+          fetch('/api/sponsors', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(sponsorsData)
           })
         ]);
 
-        if (!calRes.ok || !playRes.ok || !newsRes.ok) throw new Error('Error al guardar datos en el servidor local.');
+        if (!calRes.ok || !playRes.ok || !newsRes.ok || !sponRes.ok) throw new Error('Error al guardar datos en el servidor local.');
 
         markUnsavedChanges(false);
         deployStatus.className = 'p-4 rounded-2xl text-xs font-bold tracking-wide bg-green-500/20 border border-green-500/40 text-green-300';
@@ -834,6 +1082,7 @@
       const calendarJsonStr = JSON.stringify(calendarData, null, 2);
       const playersJsonStr = JSON.stringify(playersData, null, 2);
       const newsJsonStr = JSON.stringify(newsData, null, 2);
+      const sponsorsJsonStr = JSON.stringify(sponsorsData, null, 2);
 
       // 1. Get latest commit SHA
       const refRes = await fetch(`${API_BASE}/git/refs/heads/main`, {
@@ -843,8 +1092,8 @@
       const refData = await refRes.json();
       const latestCommitSha = refData.object.sha;
 
-      // 2. Create Blobs for calendar.json, players.json, and news.json
-      const [blobCalRes, blobPlayRes, blobNewsRes] = await Promise.all([
+      // 2. Create Blobs for calendar.json, players.json, news.json, and sponsors.json
+      const [blobCalRes, blobPlayRes, blobNewsRes, blobSponRes] = await Promise.all([
         fetch(`${API_BASE}/git/blobs`, {
           method: 'POST',
           headers: { 'Authorization': 'Bearer ' + currentToken, 'Content-Type': 'application/json' },
@@ -859,12 +1108,18 @@
           method: 'POST',
           headers: { 'Authorization': 'Bearer ' + currentToken, 'Content-Type': 'application/json' },
           body: JSON.stringify({ content: newsJsonStr, encoding: 'utf-8' })
+        }),
+        fetch(`${API_BASE}/git/blobs`, {
+          method: 'POST',
+          headers: { 'Authorization': 'Bearer ' + currentToken, 'Content-Type': 'application/json' },
+          body: JSON.stringify({ content: sponsorsJsonStr, encoding: 'utf-8' })
         })
       ]);
 
       const blobCal = await blobCalRes.json();
       const blobPlay = await blobPlayRes.json();
       const blobNews = await blobNewsRes.json();
+      const blobSpon = await blobSponRes.json();
 
       // 3. Create Tree
       const treeRes = await fetch(`${API_BASE}/git/trees`, {
@@ -875,7 +1130,8 @@
           tree: [
             { path: 'assets/data/calendar.json', mode: '100644', type: 'blob', sha: blobCal.sha },
             { path: 'assets/data/players.json', mode: '100644', type: 'blob', sha: blobPlay.sha },
-            { path: 'assets/data/news.json', mode: '100644', type: 'blob', sha: blobNews.sha }
+            { path: 'assets/data/news.json', mode: '100644', type: 'blob', sha: blobNews.sha },
+            { path: 'assets/data/sponsors.json', mode: '100644', type: 'blob', sha: blobSpon.sha }
           ]
         })
       });
@@ -886,7 +1142,7 @@
         method: 'POST',
         headers: { 'Authorization': 'Bearer ' + currentToken, 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          message: 'feat(data): actualizar resultados, actas, plantilla y noticias oficiales',
+          message: 'feat(data): actualizar resultados, actas, plantilla, noticias y orden de patrocinadores',
           tree: treeData.sha,
           parents: [latestCommitSha]
         })

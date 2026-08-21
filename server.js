@@ -9,6 +9,7 @@ const REPO_DIR = __dirname;
 const NEWS_JSON_PATH = path.join(REPO_DIR, 'assets', 'data', 'news.json');
 const PLAYERS_JSON_PATH = path.join(REPO_DIR, 'assets', 'data', 'players.json');
 const CALENDAR_JSON_PATH = path.join(REPO_DIR, 'assets', 'data', 'calendar.json');
+const SPONSORS_JSON_PATH = path.join(REPO_DIR, 'assets', 'data', 'sponsors.json');
 const LIKES_JSON_PATH = path.join(REPO_DIR, 'assets', 'data', 'likes.json');
 const TEMPLATE_PATH = path.join(REPO_DIR, 'assets', 'data', 'article_template.html');
 const NOTICIAS_INDEX_PATH = path.join(REPO_DIR, 'noticias', 'index.html');
@@ -504,6 +505,39 @@ function handleApiRequest(req, res, url) {
       } catch (e) {
         res.writeHead(500);
         return res.end(JSON.stringify({ error: 'Error al guardar calendario: ' + e.message }));
+      }
+    });
+    return;
+  }
+
+  // GET /api/sponsors (Read sponsors.json)
+  if (url.pathname === '/api/sponsors' && req.method === 'GET') {
+    try {
+      if (fs.existsSync(SPONSORS_JSON_PATH)) {
+        const data = fs.readFileSync(SPONSORS_JSON_PATH, 'utf8');
+        return res.end(data);
+      }
+      return res.end(JSON.stringify({ sponsors: [] }));
+    } catch (e) {
+      res.writeHead(500);
+      return res.end(JSON.stringify({ error: 'Error al leer patrocinadores.' }));
+    }
+  }
+
+  // POST /api/sponsors (Update sponsors.json)
+  if (url.pathname === '/api/sponsors' && (req.method === 'POST' || req.method === 'PUT')) {
+    let body = '';
+    req.on('data', chunk => body += chunk);
+    req.on('end', () => {
+      try {
+        const payload = JSON.parse(body);
+        payload.updated = new Date().toISOString();
+        fs.writeFileSync(SPONSORS_JSON_PATH, JSON.stringify(payload, null, 2), 'utf8');
+        addToGitQueue();
+        return res.end(JSON.stringify({ success: true, sponsors: payload.sponsors }));
+      } catch (e) {
+        res.writeHead(500);
+        return res.end(JSON.stringify({ error: 'Error al guardar patrocinadores: ' + e.message }));
       }
     });
     return;

@@ -1,0 +1,71 @@
+﻿{
+    "updated":  "2026-08-21T14:04:06Z",
+    "sponsors":  [
+                     {
+                         "tierLabel":  "Patrocinador Principal",
+                         "url":  "/patrocinios/",
+                         "id":  "soluciones-guillermo",
+                         "visible":  true,
+                         "badgeClass":  "badge-guillermo",
+                         "categoryDesc":  "Carpintería y Cerramientos de Aluminio",
+                         "name":  "Soluciones en Aluminio Guillermo",
+                         "tier":  "principal",
+                         "logo":  "/assets/img/sponsors/soluciones-guillermo.webp"
+                     },
+                     {
+                         "tierLabel":  "Patrocinador Oficial",
+                         "url":  "/patrocinios/",
+                         "id":  "retransicod",
+                         "visible":  true,
+                         "badgeClass":  "badge-retransicod",
+                         "categoryDesc":  "Gestor Autorizado de Residuos",
+                         "name":  "Retransicod Chatarras y Metales SLU",
+                         "tier":  "oficial",
+                         "logo":  "/assets/img/sponsors/retransicod.webp"
+                     },
+                     {
+                         "tierLabel":  "Patrocinador Oficial",
+                         "url":  "https://pontucocina.com",
+                         "id":  "pontucocina",
+                         "visible":  true,
+                         "badgeClass":  "badge-pontucocina",
+                         "categoryDesc":  "Diseño y Fabricación de Cocinas",
+                         "name":  "PonTuCocina.com",
+                         "tier":  "oficial",
+                         "logo":  "/assets/img/sponsors/pontucocina.webp"
+                     },
+                     {
+                         "tierLabel":  "Empresa Colaboradora",
+                         "url":  "/patrocinios/",
+                         "id":  "droguerias-disloke",
+                         "visible":  true,
+                         "badgeClass":  "badge-disloke",
+                         "categoryDesc":  "Productos de Limpieza e Higiene",
+                         "name":  "Droguerías Disloke",
+                         "tier":  "colaborador",
+                         "logo":  "/assets/img/sponsors/droguerias-disloke.webp"
+                     },
+                     {
+                         "tierLabel":  "Apoyo Institucional",
+                         "url":  "/patrocinios/",
+                         "id":  "ayuntamiento-icod",
+                         "visible":  true,
+                         "badgeClass":  "badge-icod",
+                         "categoryDesc":  "Ayto. Icod · Deportes",
+                         "name":  "Ayuntamiento de Icod de los Vinos",
+                         "tier":  "institucional",
+                         "logo":  "/assets/img/sponsors/ayuntamiento-icod.webp"
+                     },
+                     {
+                         "tierLabel":  "Sede Oficial de Juego",
+                         "url":  "/patrocinios/",
+                         "id":  "estadio-el-molino",
+                         "visible":  true,
+                         "badgeClass":  "badge-molino",
+                         "categoryDesc":  "Estadio Municipal El Molino",
+                         "name":  "Estadio Municipal El Molino",
+                         "tier":  "sede",
+                         "logo":  "/assets/img/sponsors/estadio-el-molino.webp"
+                     }
+                 ]
+}

@@ -43,7 +43,7 @@
 /* ==========================================================================
    Modals Overlay & Scrollable Structure
    ========================================================================== */
-#matchModal, #playerModal {
+#matchModal, #playerModal, #newsModal, #sponsorModal {
   position: fixed !important;
   inset: 0 !important;
   z-index: 9999 !important;
@@ -57,8 +57,22 @@
   overflow-y: auto !important;
 }
 
-#matchModal.hidden, #playerModal.hidden {
+#matchModal.hidden, #playerModal.hidden, #newsModal.hidden, #sponsorModal.hidden {
   display: none !important;
+}
+
+/* Sponsor Drag & Drop & Reorder Styles */
+.sponsor-admin-card {
+  transition: transform 0.15s ease, border-color 0.15s ease, background-color 0.15s ease;
+}
+.sponsor-admin-card.dragging {
+  opacity: 0.45;
+  border: 2px dashed #00d2ff !important;
+}
+.sponsor-admin-card.drag-over {
+  border-color: #00d2ff !important;
+  background-color: rgba(0, 210, 255, 0.08) !important;
+  transform: scale(1.01);
 }
 
 .modal-content {
