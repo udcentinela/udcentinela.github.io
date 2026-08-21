@@ -1,6 +1,22 @@
 {
   "items": [
     {
+      "slug": "nuevo-fichaje-cristian-colcho",
+      "title": "Nuevo Fichaje - Cristian (Colcho)",
+      "category": "Fichajes",
+      "date": "21/08/2026",
+      "reading": "2 min",
+      "excerpt": "La Unión Deportiva Centinela incorpora a Cristian (Colcho) para la temporada en Regional, un interior/extremo joven, preciso y con gran calidad técnica.",
+      "image": "/assets/img/colcho.webp",
+      "imageAlt": "Cristian (Colcho) - UD Centinela",
+      "body": [
+        "La Unión Deportiva Centinela suma una nueva pieza de gran talento ofensivo a su proyecto deportivo con la incorporación de Cristian (Colcho) de cara a la temporada en categoría Regional.",
+        "Cristian (Colcho) se desenvuelve habitualmente en las posiciones de interior y extremo. Es un futbolista joven que destaca por su precisión técnica, visión asociativa, calidad en el golpeo y capacidad para generar desequilibrio tanto por banda como por zonas interiores.",
+        "Con su dorsal actualmente por confirmar, el atacante aportará fluidez, desborde, criterio con el balón y frescura ofensiva al esquema del conjunto centinelista.",
+        "Con esta nueva incorporación, el club continúa consolidando un grupo ilusionante y competitivo para afrontar con las máximas garantías su regreso a la competición."
+      ]
+    },
+    {
       "slug": "nuevo-fichaje-jordan",
       "title": "Nuevo Fichaje - Jordan",
       "category": "Fichajes",

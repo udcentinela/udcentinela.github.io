@@ -93,6 +93,21 @@
       "matchesPlayed": 0
     },
     {
+      "id": "colcho",
+      "name": "Cristian (Colcho)",
+      "fullName": "Cristian (Colcho)",
+      "dorsal": null,
+      "position": "Interior / Extremo",
+      "role": "Interior / Extremo",
+      "status": "Confirmado",
+      "image": "/assets/img/colcho.webp",
+      "slug": "colcho",
+      "url": "/regional/colcho/",
+      "goals": 0,
+      "assists": 0,
+      "matchesPlayed": 0
+    },
+    {
       "id": "cuerpo-tecnico",
       "name": "Cuerpo Técnico",
       "fullName": "Entrenador y Ayudantes",
