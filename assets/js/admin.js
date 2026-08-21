@@ -557,12 +557,11 @@
 
       const card = document.createElement('div');
       card.className = `sponsor-admin-card p-4 rounded-2xl bg-white/5 border border-white/10 hover:border-brand-neon/40 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 select-none ${isVisible ? '' : 'opacity-60 bg-black/40'}`;
-      card.setAttribute('draggable', 'true');
       card.dataset.index = idx;
 
       card.innerHTML = `
         <div class="flex items-center gap-3 w-full md:w-auto">
-          <div class="cursor-grab active:cursor-grabbing p-2 text-gray-500 hover:text-brand-neon transition-colors" title="Arrastra para cambiar de posición">
+          <div class="drag-handle cursor-grab active:cursor-grabbing p-2 text-gray-500 hover:text-brand-neon transition-colors" draggable="true" title="Arrastra para cambiar de posición">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8h16M4 16h16"></path>
             </svg>
@@ -585,27 +584,28 @@
           </div>
         </div>
 
-        <div class="flex items-center gap-1.5 self-end md:self-center">
-          <button type="button" data-action="up" data-idx="${idx}" ${isFirst ? 'disabled class="p-2 rounded-xl border border-white/5 opacity-20 cursor-not-allowed text-xs"' : 'class="p-2 rounded-xl border border-white/10 hover:bg-white/10 text-white text-xs transition-colors cursor-pointer"'} title="Subir posición">
+        <div class="flex items-center gap-1.5 self-end md:self-center" draggable="false">
+          <button type="button" data-action="up" data-idx="${idx}" draggable="false" ${isFirst ? 'disabled class="p-2 rounded-xl border border-white/5 opacity-20 cursor-not-allowed text-xs"' : 'class="p-2 rounded-xl border border-white/10 hover:bg-white/10 text-white text-xs transition-colors cursor-pointer"'} title="Subir posición">
             ⬆️
           </button>
-          <button type="button" data-action="down" data-idx="${idx}" ${isLast ? 'disabled class="p-2 rounded-xl border border-white/5 opacity-20 cursor-not-allowed text-xs"' : 'class="p-2 rounded-xl border border-white/10 hover:bg-white/10 text-white text-xs transition-colors cursor-pointer"'} title="Bajar posición">
+          <button type="button" data-action="down" data-idx="${idx}" draggable="false" ${isLast ? 'disabled class="p-2 rounded-xl border border-white/5 opacity-20 cursor-not-allowed text-xs"' : 'class="p-2 rounded-xl border border-white/10 hover:bg-white/10 text-white text-xs transition-colors cursor-pointer"'} title="Bajar posición">
             ⬇️
           </button>
-          <button type="button" data-action="toggle" data-idx="${idx}" class="p-2 rounded-xl border border-white/10 hover:bg-white/10 text-xs transition-colors cursor-pointer" title="${isVisible ? 'Ocultar' : 'Mostrar'}">
+          <button type="button" data-action="toggle" data-idx="${idx}" draggable="false" class="p-2 rounded-xl border border-white/10 hover:bg-white/10 text-xs transition-colors cursor-pointer" title="${isVisible ? 'Ocultar' : 'Mostrar'}">
             ${isVisible ? '👁️' : '🚫'}
           </button>
-          <button type="button" data-action="edit" data-idx="${idx}" class="p-2 rounded-xl border border-brand-neon/30 bg-brand-neon/10 hover:bg-brand-neon hover:text-brand-dark text-brand-neon text-xs font-bold transition-colors cursor-pointer" title="Editar datos">
+          <button type="button" data-action="edit" data-idx="${idx}" draggable="false" class="p-2 rounded-xl border border-brand-neon/30 bg-brand-neon/10 hover:bg-brand-neon hover:text-brand-dark text-brand-neon text-xs font-bold transition-colors cursor-pointer" title="Editar datos">
             ✏️
           </button>
-          <button type="button" data-action="delete" data-idx="${idx}" class="p-2 rounded-xl border border-red-500/20 bg-red-500/10 hover:bg-red-500 hover:text-white text-red-400 text-xs transition-colors cursor-pointer" title="Eliminar">
+          <button type="button" data-action="delete" data-idx="${idx}" draggable="false" class="p-2 rounded-xl border border-red-500/20 bg-red-500/10 hover:bg-red-500 hover:text-white text-red-400 text-xs transition-colors cursor-pointer" title="Eliminar">
             🗑️
           </button>
         </div>
       `;
 
-      // Drag & Drop handlers
-      card.addEventListener('dragstart', (e) => {
+      // Drag & Drop handlers attached to drag handle
+      const dragHandle = card.querySelector('.drag-handle');
+      dragHandle.addEventListener('dragstart', (e) => {
         draggedSponsorIndex = idx;
         card.classList.add('dragging');
         e.dataTransfer.effectAllowed = 'move';
@@ -630,48 +630,53 @@
         if (fromIdx !== toIdx && !isNaN(fromIdx)) {
           const item = sponsorsData.sponsors.splice(fromIdx, 1)[0];
           sponsorsData.sponsors.splice(toIdx, 0, item);
+          sponsorsData.updated = new Date().toISOString();
           renderSponsors();
           markUnsavedChanges(true);
         }
       });
 
-      card.addEventListener('dragend', () => {
+      dragHandle.addEventListener('dragend', () => {
         card.classList.remove('dragging');
         document.querySelectorAll('.sponsor-admin-card').forEach(c => c.classList.remove('drag-over'));
       });
 
-      sponsorsList.appendChild(card);
-    });
+      // Direct Action Listeners on card buttons
+      card.querySelectorAll('button[data-action]').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          const action = btn.dataset.action;
+          const index = parseInt(btn.dataset.idx);
 
-    // Delegate Click Actions
-    sponsorsList.querySelectorAll('button[data-action]').forEach(btn => {
-      btn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        const action = btn.dataset.action;
-        const index = parseInt(btn.dataset.idx);
-
-        if (action === 'up' && index > 0) {
-          const temp = sponsorsData.sponsors[index - 1];
-          sponsorsData.sponsors[index - 1] = sponsorsData.sponsors[index];
-          sponsorsData.sponsors[index] = temp;
-          renderSponsors();
-          markUnsavedChanges(true);
-        } else if (action === 'down' && index < sponsorsData.sponsors.length - 1) {
-          const temp = sponsorsData.sponsors[index + 1];
-          sponsorsData.sponsors[index + 1] = sponsorsData.sponsors[index];
-          sponsorsData.sponsors[index] = temp;
-          renderSponsors();
-          markUnsavedChanges(true);
-        } else if (action === 'toggle') {
-          sponsorsData.sponsors[index].visible = sponsorsData.sponsors[index].visible === false ? true : false;
-          renderSponsors();
-          markUnsavedChanges(true);
-        } else if (action === 'edit') {
-          openSponsorModal(index);
-        } else if (action === 'delete') {
-          deleteSponsor(index);
-        }
+          if (action === 'up' && index > 0) {
+            const temp = sponsorsData.sponsors[index - 1];
+            sponsorsData.sponsors[index - 1] = sponsorsData.sponsors[index];
+            sponsorsData.sponsors[index] = temp;
+            sponsorsData.updated = new Date().toISOString();
+            renderSponsors();
+            markUnsavedChanges(true);
+          } else if (action === 'down' && index < sponsorsData.sponsors.length - 1) {
+            const temp = sponsorsData.sponsors[index + 1];
+            sponsorsData.sponsors[index + 1] = sponsorsData.sponsors[index];
+            sponsorsData.sponsors[index] = temp;
+            sponsorsData.updated = new Date().toISOString();
+            renderSponsors();
+            markUnsavedChanges(true);
+          } else if (action === 'toggle') {
+            sponsorsData.sponsors[index].visible = sponsorsData.sponsors[index].visible === false ? true : false;
+            sponsorsData.updated = new Date().toISOString();
+            renderSponsors();
+            markUnsavedChanges(true);
+          } else if (action === 'edit') {
+            openSponsorModal(index);
+          } else if (action === 'delete') {
+            deleteSponsor(index);
+          }
+        });
       });
+
+      sponsorsList.appendChild(card);
     });
   }
 
@@ -1175,6 +1180,12 @@
       }
 
       // If deploying to GitHub Pages via REST API
+      calendarData.updated = new Date().toISOString();
+      playersData.lastUpdated = new Date().toISOString();
+      sponsorsData.updated = new Date().toISOString();
+      if (!pagesContentData) pagesContentData = { home: {}, club: {} };
+      pagesContentData.updated = new Date().toISOString();
+
       const calendarJsonStr = JSON.stringify(calendarData, null, 2);
       const playersJsonStr = JSON.stringify(playersData, null, 2);
       const newsJsonStr = JSON.stringify(newsData, null, 2);
@@ -1217,6 +1228,10 @@
           body: JSON.stringify({ content: contentJsonStr, encoding: 'utf-8' })
         })
       ]);
+
+      if (!blobCalRes.ok || !blobPlayRes.ok || !blobNewsRes.ok || !blobSponRes.ok || !blobContentRes.ok) {
+        throw new Error('Error al crear los archivos en GitHub. Comprueba los permisos de tu token.');
+      }
 
       const blobCal = await blobCalRes.json();
       const blobPlay = await blobPlayRes.json();
