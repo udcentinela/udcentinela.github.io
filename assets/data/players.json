@@ -1,6 +1,6 @@
 {
   "season": "Temporada 2026/2027",
-  "lastUpdated": "2026-08-22T10:14:00.000Z",
+  "lastUpdated": "2026-08-22T10:26:13.276Z",
   "players": [
     {
       "id": "champi",
@@ -52,7 +52,7 @@
       "name": "Adrián Tejera",
       "fullName": "Adrián Tejera",
       "dorsal": 11,
-      "position": "Medio",
+      "position": "Extremo",
       "role": "Capitán",
       "status": "Confirmado",
       "image": "/assets/img/tejera.webp",
