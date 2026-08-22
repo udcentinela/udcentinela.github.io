@@ -1,6 +1,22 @@
 {
   "items": [
     {
+      "slug": "nuevo-fichaje-zacaria",
+      "title": "Nuevo Fichaje - Zacaria",
+      "category": "Fichajes",
+      "date": "22/08/2026",
+      "reading": "2 min",
+      "excerpt": "La Unión Deportivo Centinela incorpora a Zacaria para la temporada en Regional, un extremo rápido, con gran desborde y excelente golpeo con el dorsal 3.",
+      "image": "/assets/img/zacaria.webp",
+      "imageAlt": "Nuevo Fichaje - Zacaria - UD Centinela",
+      "body": [
+        "La Unión Deportivo Centinela suma una nueva e importante pieza a su delantera con la incorporación de Zacaria de cara a la temporada en categoría Regional.",
+        "Zacaria se desenvuelve habitualmente como extremo y lucirá el dorsal 3. Destaca por ser un futbolista con un desborde electrizante, gran velocidad punta en el uno contra uno y un excelente golpeo de balón que genera peligro constante en cada aproximación ofensiva.",
+        "Su verticalidad, descaro por banda y capacidad para finalizar jugadas o asistir a sus compañeros suponen un refuerzo clave para el esquema del conjunto centinelista.",
+        "Con esta nueva incorporación, el club continúa consolidando un grupo ilusionante y competitivo para afrontar con las máximas garantías su regreso a la competición."
+      ]
+    },
+    {
       "slug": "nuevo-fichaje-cristian-colcho",
       "title": "Nuevo Fichaje - Cristian (Colcho)",
       "category": "Fichajes",

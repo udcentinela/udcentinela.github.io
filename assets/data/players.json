@@ -1,7 +1,22 @@
 {
   "season": "Temporada 2026/2027",
-  "lastUpdated": "2026-08-21T15:05:16.188Z",
+  "lastUpdated": "2026-08-22T10:03:00.000Z",
   "players": [
+    {
+      "id": "zacaria",
+      "name": "Zacaria",
+      "fullName": "Zacaria",
+      "dorsal": 3,
+      "position": "Extremo",
+      "role": "Delantero / Extremo",
+      "status": "Confirmado",
+      "image": "/assets/img/zacaria.webp",
+      "slug": "zacaria",
+      "url": "/regional/zacaria/",
+      "goals": 0,
+      "assists": 0,
+      "matchesPlayed": 0
+    },
     {
       "id": "iriome",
       "name": "Iriome",
