@@ -1,7 +1,22 @@
 {
   "season": "Temporada 2026/2027",
-  "lastUpdated": "2026-08-22T10:03:00.000Z",
+  "lastUpdated": "2026-08-22T10:14:00.000Z",
   "players": [
+    {
+      "id": "champi",
+      "name": "Sergio (Champi)",
+      "fullName": "Sergio González",
+      "dorsal": null,
+      "position": "Extremo / Mediapunta",
+      "role": "Extremo / Mediapunta",
+      "status": "Confirmado",
+      "image": "/assets/img/champi.webp",
+      "slug": "champi",
+      "url": "/regional/champi/",
+      "goals": 0,
+      "assists": 0,
+      "matchesPlayed": 0
+    },
     {
       "id": "zacaria",
       "name": "Zacaria",
