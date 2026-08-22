@@ -40,8 +40,8 @@
 
     // Explicit overrides for existing squad players
     if (player.id === 'jordan' || player.id === 'pablo' || player.id === 'aday') return 'defensa';
-    if (player.id === 'sebastian' || player.id === 'adrian-tejera') return 'medio';
-    if (player.id === 'colcho' || player.id === 'cristian-colcho') return 'delantero';
+    if (player.id === 'sebastian') return 'medio';
+    if (player.id === 'colcho' || player.id === 'cristian-colcho' || player.id === 'adrian-tejera' || player.id === 'zacaria' || player.id === 'champi') return 'delantero';
 
     const pos = (player.position || '').toLowerCase();
     const role = (player.role || '').toLowerCase();
