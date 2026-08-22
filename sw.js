@@ -1,10 +1,10 @@
 /**
  * UD Centinela - Service Worker PWA & Modo Estadio Offline
- * Version: 20260822_champi_crop_v2
+ * Version: 20260822_zacaria_crop_v2
  */
 
-const CACHE_NAME = 'udc-cache-v20260822_champi_crop_v2';
-const DATA_CACHE_NAME = 'udc-data-cache-v20260822_champi_crop_v2';
+const CACHE_NAME = 'udc-cache-v20260822_zacaria_crop_v2';
+const DATA_CACHE_NAME = 'udc-data-cache-v20260822_zacaria_crop_v2';
 
 const PRECACHE_ASSETS = [
   '/',
