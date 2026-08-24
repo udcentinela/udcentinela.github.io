@@ -484,15 +484,33 @@
             </div>
 
             <section id="calendarMatchesPanel" role="tabpanel">
-                <div class="mb-5 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+                <div class="mb-6 flex flex-col gap-4 xl:flex-row xl:items-end xl:justify-between">
                     <div>
                         <p class="text-xs font-bold tracking-widest text-brand-neon uppercase">Jornada a jornada</p>
                         <h2 class="mt-2 font-heading text-3xl font-black text-white">Partidos y resultados</h2>
                     </div>
-                    <div class="inline-flex self-start rounded-xl border border-white/10 bg-white/5 p-1" aria-label="Filtrar partidos">
-                        <button type="button" class="calendar-filter rounded-lg bg-white/10 px-4 py-2 text-xs font-bold text-white" data-match-filter="all">Todos</button>
-                        <button type="button" class="calendar-filter rounded-lg px-4 py-2 text-xs font-bold text-gray-400" data-match-filter="upcoming">Proximos</button>
-                        <button type="button" class="calendar-filter rounded-lg px-4 py-2 text-xs font-bold text-gray-400" data-match-filter="finished">Resultados</button>
+                    
+                    <!-- Filtros: Ámbito de equipo (Solo Centinela predeterminado), Estado y Selector de Jornada -->
+                    <div class="flex flex-wrap items-center gap-2.5">
+                        <!-- Ámbito -->
+                        <div class="inline-flex rounded-xl border border-white/10 bg-white/5 p-1" aria-label="Filtrar por equipo">
+                            <button type="button" class="calendar-scope rounded-lg bg-brand-neon px-3.5 py-2 text-xs font-black text-brand-dark transition-all" data-team-scope="centinela">⭐ Solo Centinela</button>
+                            <button type="button" class="calendar-scope rounded-lg px-3.5 py-2 text-xs font-bold text-gray-400 hover:text-white transition-all" data-team-scope="all">🌐 Todos los equipos</button>
+                        </div>
+
+                        <!-- Estado -->
+                        <div class="inline-flex rounded-xl border border-white/10 bg-white/5 p-1" aria-label="Filtrar por estado">
+                            <button type="button" class="calendar-filter rounded-lg bg-white/10 px-3 py-2 text-xs font-bold text-white transition-all" data-match-filter="all">Todos</button>
+                            <button type="button" class="calendar-filter rounded-lg px-3 py-2 text-xs font-bold text-gray-400 hover:text-white transition-all" data-match-filter="upcoming">Próximos</button>
+                            <button type="button" class="calendar-filter rounded-lg px-3 py-2 text-xs font-bold text-gray-400 hover:text-white transition-all" data-match-filter="finished">Resultados</button>
+                        </div>
+
+                        <!-- Selector de Jornada -->
+                        <div class="relative">
+                            <select id="jornadaSelect" class="rounded-xl border border-white/10 bg-brand-dark px-3.5 py-2 text-xs font-bold text-gray-200 hover:border-brand-neon/50 focus:border-brand-neon focus:outline-none transition-all cursor-pointer" aria-label="Filtrar por jornada">
+                                <option value="all">Todas las jornadas (1 - 30)</option>
+                            </select>
+                        </div>
                     </div>
                 </div>
                 <div id="calendarMatches" class="space-y-4"></div>
