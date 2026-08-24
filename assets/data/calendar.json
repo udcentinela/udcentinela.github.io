@@ -9,7 +9,7 @@
     "home": "C.D. Portezuelo Tegueste A",
     "away": "UD Centinela",
     "homeLogo": "/assets/img/portezuelo.webp",
-    "awayLogo": "/assets/img/logo-nav.webp",
+    "awayLogo": "/assets/img/escudo-centinela.webp",
     "status": "upcoming"
   },
   "matches": [
@@ -22,7 +22,7 @@
       "home": "C.D. Portezuelo Tegueste A",
       "away": "UD Centinela",
       "homeLogo": "/assets/img/portezuelo.webp",
-      "awayLogo": "/assets/img/logo-nav.webp",
+      "awayLogo": "/assets/img/escudo-centinela.webp",
       "homeScore": null,
       "awayScore": null,
       "status": "upcoming"

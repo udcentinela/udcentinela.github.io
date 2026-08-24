@@ -25,13 +25,13 @@
 
   function teamMark(team, customLogo) {
     if (customLogo) {
-      return `<img src="${customLogo}" alt="${escapeHtml(team)}" class="h-14 w-14 object-contain filter drop-shadow-md">`;
+      return `<img src="${customLogo}" alt="${escapeHtml(team)}" class="h-20 w-20 md:h-24 md:w-24 object-contain filter drop-shadow-[0_4px_12px_rgba(0,0,0,0.6)]">`;
     }
     if (isCentinela(team)) {
-      return '<img src="/assets/img/logo-nav.webp" alt="UD Centinela" class="h-14 w-14 object-contain filter drop-shadow-md">';
+      return '<img src="/assets/img/escudo-centinela.webp" alt="UD Centinela" class="h-20 w-20 md:h-24 md:w-24 object-contain filter drop-shadow-[0_4px_12px_rgba(0,0,0,0.6)]">';
     }
     if (String(team || "").toLowerCase().includes("portezuelo")) {
-      return '<img src="/assets/img/portezuelo.webp" alt="C.D. Portezuelo Tegueste" class="h-14 w-14 object-contain filter drop-shadow-md">';
+      return '<img src="/assets/img/portezuelo.webp" alt="C.D. Portezuelo Tegueste" class="h-20 w-20 md:h-24 md:w-24 object-contain filter drop-shadow-[0_4px_12px_rgba(0,0,0,0.6)]">';
     }
     const initials = String(team || "Rival")
       .split(/\s+/)
@@ -40,7 +40,7 @@
       .map((part) => part[0])
       .join("")
       .toUpperCase();
-    return `<span class="grid h-14 w-14 place-items-center rounded-full border border-white/10 bg-white/5 font-heading text-sm font-black text-gray-300">${escapeHtml(initials)}</span>`;
+    return `<span class="grid h-20 w-20 md:h-24 md:w-24 place-items-center rounded-full border border-white/10 bg-white/5 font-heading text-xl font-black text-gray-300">${escapeHtml(initials)}</span>`;
   }
 
   function renderNextMatch(match) {
@@ -114,8 +114,8 @@
           `;
         }
 
-        const homeLogo = match.homeLogo || (String(match.home || '').toLowerCase().includes('portezuelo') ? '/assets/img/portezuelo.webp' : (isCentinela(match.home) ? '/assets/img/logo-nav.webp' : ''));
-        const awayLogo = match.awayLogo || (String(match.away || '').toLowerCase().includes('portezuelo') ? '/assets/img/portezuelo.webp' : (isCentinela(match.away) ? '/assets/img/logo-nav.webp' : ''));
+        const homeLogo = match.homeLogo || (String(match.home || '').toLowerCase().includes('portezuelo') ? '/assets/img/portezuelo.webp' : (isCentinela(match.home) ? '/assets/img/escudo-centinela.webp' : ''));
+        const awayLogo = match.awayLogo || (String(match.away || '').toLowerCase().includes('portezuelo') ? '/assets/img/portezuelo.webp' : (isCentinela(match.away) ? '/assets/img/escudo-centinela.webp' : ''));
 
         return `
           <article class="grid gap-5 rounded-2xl border border-white/10 bg-white/5 p-5 md:grid-cols-[160px_1fr_120px] md:items-center">
@@ -125,13 +125,13 @@
               <p class="mt-1 text-xs text-gray-400">${escapeHtml(match.venue || "")}</p>
             </div>
             <div class="grid grid-cols-[1fr_auto_1fr] items-center gap-3">
-              <div class="flex items-center justify-end gap-2 text-right">
+              <div class="flex items-center justify-end gap-2.5 text-right">
                 <span class="font-bold text-gray-200">${escapeHtml(match.home || "Local")}</span>
-                ${homeLogo ? `<img src="${homeLogo}" alt="" class="h-7 w-7 object-contain flex-shrink-0">` : ''}
+                ${homeLogo ? `<img src="${homeLogo}" alt="" class="h-8 w-8 object-contain flex-shrink-0 filter drop-shadow-sm">` : ''}
               </div>
               <div class="text-center">${score}</div>
-              <div class="flex items-center justify-start gap-2 text-left">
-                ${awayLogo ? `<img src="${awayLogo}" alt="" class="h-7 w-7 object-contain flex-shrink-0">` : ''}
+              <div class="flex items-center justify-start gap-2.5 text-left">
+                ${awayLogo ? `<img src="${awayLogo}" alt="" class="h-8 w-8 object-contain flex-shrink-0 filter drop-shadow-sm">` : ''}
                 <span class="font-bold text-gray-200">${escapeHtml(match.away || "Visitante")}</span>
               </div>
             </div>
