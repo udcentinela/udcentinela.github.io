@@ -168,10 +168,147 @@
       .join("");
   }
 
+  function normalizeTeamId(name) {
+    if (!name) return "";
+    return String(name)
+      .toLowerCase()
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/^-+|-+$/g, "");
+  }
+
+  function computeStandings(calendarData) {
+    const rawStandings = calendarData.standings || [];
+    const teams = calendarData.teams || [];
+    const matches = calendarData.matches || [];
+
+    const teamMap = new Map();
+    const baseList = teams.length ? teams : rawStandings;
+
+    baseList.forEach((t, index) => {
+      const id = t.id || normalizeTeamId(t.name || t.team);
+      teamMap.set(id, {
+        id: id,
+        team: t.name || t.team,
+        shortName: t.shortName || t.name || t.team,
+        logo: t.logo || getTeamLogo(t.name || t.team),
+        played: Number(t.played) || 0,
+        won: Number(t.won) || 0,
+        drawn: Number(t.drawn) || 0,
+        lost: Number(t.lost) || 0,
+        goalsFor: Number(t.goalsFor) || 0,
+        goalsAgainst: Number(t.goalsAgainst) || 0,
+        goalDifference: Number(t.goalDifference) || 0,
+        points: Number(t.points) || 0,
+        initialPos: t.position || index + 1
+      });
+    });
+
+    const finishedMatches = matches.filter((m) => 
+      (m.status === "finished" || m.finished === true || (m.homeScore !== null && m.awayScore !== null && m.homeScore !== "" && m.awayScore !== "")) &&
+      !isNaN(Number(m.homeScore)) &&
+      !isNaN(Number(m.awayScore))
+    );
+
+    if (finishedMatches.length > 0) {
+      // Reset stats for computation from matches
+      teamMap.forEach((obj) => {
+        obj.played = 0;
+        obj.won = 0;
+        obj.drawn = 0;
+        obj.lost = 0;
+        obj.goalsFor = 0;
+        obj.goalsAgainst = 0;
+        obj.goalDifference = 0;
+        obj.points = 0;
+      });
+
+      finishedMatches.forEach((m) => {
+        const homeKey = m.homeId || normalizeTeamId(m.home);
+        const awayKey = m.awayId || normalizeTeamId(m.away);
+
+        let homeObj = teamMap.get(homeKey);
+        if (!homeObj) {
+          for (const [, v] of teamMap.entries()) {
+            if (v.team.toLowerCase().includes(String(m.home || '').toLowerCase()) || String(m.home || '').toLowerCase().includes(v.team.toLowerCase())) {
+              homeObj = v;
+              break;
+            }
+          }
+        }
+
+        let awayObj = teamMap.get(awayKey);
+        if (!awayObj) {
+          for (const [, v] of teamMap.entries()) {
+            if (v.team.toLowerCase().includes(String(m.away || '').toLowerCase()) || String(m.away || '').toLowerCase().includes(v.team.toLowerCase())) {
+              awayObj = v;
+              break;
+            }
+          }
+        }
+
+        if (homeObj && awayObj) {
+          const hs = Number(m.homeScore);
+          const as = Number(m.awayScore);
+
+          homeObj.played += 1;
+          awayObj.played += 1;
+
+          homeObj.goalsFor += hs;
+          homeObj.goalsAgainst += as;
+          homeObj.goalDifference = homeObj.goalsFor - homeObj.goalsAgainst;
+
+          awayObj.goalsFor += as;
+          awayObj.goalsAgainst += hs;
+          awayObj.goalDifference = awayObj.goalsFor - awayObj.goalsAgainst;
+
+          if (hs > as) {
+            homeObj.won += 1;
+            homeObj.points += 3;
+            awayObj.lost += 1;
+          } else if (hs < as) {
+            awayObj.won += 1;
+            awayObj.points += 3;
+            homeObj.lost += 1;
+          } else {
+            homeObj.drawn += 1;
+            homeObj.points += 1;
+            awayObj.drawn += 1;
+            awayObj.points += 1;
+          }
+        }
+      });
+
+      const sorted = Array.from(teamMap.values()).sort((a, b) => {
+        if (b.points !== a.points) return b.points - a.points;
+        if (b.goalDifference !== a.goalDifference) return b.goalDifference - a.goalDifference;
+        if (b.goalsFor !== a.goalsFor) return b.goalsFor - a.goalsFor;
+        return a.team.localeCompare(b.team);
+      });
+
+      sorted.forEach((item, idx) => {
+        item.position = idx + 1;
+      });
+
+      return sorted;
+    }
+
+    // If manual standings in calendar.json already have stats
+    if (rawStandings.length > 0 && rawStandings.some((r) => (Number(r.played) > 0 || Number(r.points) > 0))) {
+      return rawStandings;
+    }
+
+    return Array.from(teamMap.values()).map((item, idx) => ({
+      ...item,
+      position: item.initialPos || idx + 1
+    }));
+  }
+
   function renderStandings() {
     const body = document.getElementById("calendarStandings");
     if (!body) return;
-    const standings = calendarData.standings || [];
+    const standings = computeStandings(calendarData);
     if (!standings.length) {
       body.innerHTML = `
         <tr>
@@ -189,7 +326,7 @@
         const highlighted = isCentinela(row.team);
         const teamLogo = getTeamLogo(row.team, row.logo);
         return `
-          <tr class="${highlighted ? "bg-brand-neon/10 text-white font-bold" : "text-gray-300 hover:bg-white/5"} transition-colors">
+          <tr class="${highlighted ? "bg-brand-neon/10 text-white font-bold" : "text-gray-300 hover:bg-white/5"} transition-colors" data-team-id="${escapeHtml(row.id || '')}">
             <td class="px-4 py-4 text-center font-heading text-lg font-black ${highlighted ? 'text-brand-neon' : ''}">${escapeHtml(row.position || index + 1)}</td>
             <td class="px-4 py-4">
               <div class="flex items-center gap-3">
@@ -197,13 +334,13 @@
                 <span class="font-bold ${highlighted ? 'text-brand-neon' : 'text-white'}">${escapeHtml(row.team)}</span>
               </div>
             </td>
-            <td class="px-3 py-4 text-center">${escapeHtml(row.played ?? 0)}</td>
-            <td class="px-3 py-4 text-center">${escapeHtml(row.won ?? 0)}</td>
-            <td class="px-3 py-4 text-center">${escapeHtml(row.drawn ?? 0)}</td>
-            <td class="px-3 py-4 text-center">${escapeHtml(row.lost ?? 0)}</td>
-            <td class="px-3 py-4 text-center">${escapeHtml(row.goalsFor ?? 0)}</td>
-            <td class="px-3 py-4 text-center">${escapeHtml(row.goalsAgainst ?? 0)}</td>
-            <td class="px-3 py-4 text-center">${escapeHtml(row.goalDifference ?? 0)}</td>
+            <td class="px-3 py-4 text-center font-mono">${escapeHtml(row.played ?? 0)}</td>
+            <td class="px-3 py-4 text-center font-mono">${escapeHtml(row.won ?? 0)}</td>
+            <td class="px-3 py-4 text-center font-mono">${escapeHtml(row.drawn ?? 0)}</td>
+            <td class="px-3 py-4 text-center font-mono">${escapeHtml(row.lost ?? 0)}</td>
+            <td class="px-3 py-4 text-center font-mono">${escapeHtml(row.goalsFor ?? 0)}</td>
+            <td class="px-3 py-4 text-center font-mono">${escapeHtml(row.goalsAgainst ?? 0)}</td>
+            <td class="px-3 py-4 text-center font-mono font-bold ${Number(row.goalDifference) > 0 ? 'text-emerald-400' : Number(row.goalDifference) < 0 ? 'text-red-400' : ''}">${(Number(row.goalDifference) > 0 ? '+' : '') + escapeHtml(row.goalDifference ?? 0)}</td>
             <td class="px-4 py-4 text-center font-heading text-xl font-black text-brand-neon">${escapeHtml(row.points ?? 0)}</td>
           </tr>
         `;

@@ -1,10 +1,10 @@
 /**
  * UD Centinela - Service Worker PWA & Modo Estadio Offline
- * Version: 20260824_shield_sizes_v3
+ * Version: 20260824_dynamic_standings_v1
  */
 
-const CACHE_NAME = 'udc-cache-v20260824_shield_sizes_v3';
-const DATA_CACHE_NAME = 'udc-data-cache-v20260824_shield_sizes_v3';
+const CACHE_NAME = 'udc-cache-v20260824_dynamic_standings_v1';
+const DATA_CACHE_NAME = 'udc-data-cache-v20260824_dynamic_standings_v1';
 
 const PRECACHE_ASSETS = [
   '/',

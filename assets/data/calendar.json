@@ -1,11 +1,111 @@
 {
   "season": "Temporada 2026/2027",
   "updated": "24/08/2026",
+  "teams": [
+    {
+      "id": "atletico-perdoma-b",
+      "name": "Atlético Perdoma B",
+      "shortName": "Perdoma B",
+      "logo": "/assets/img/teams/atletico-perdoma-b.webp"
+    },
+    {
+      "id": "afb-tegueste",
+      "name": "C.D. AFB Tegueste",
+      "shortName": "AFB Tegueste",
+      "logo": "/assets/img/teams/afb-tegueste.webp"
+    },
+    {
+      "id": "cd-buenavista",
+      "name": "C.D. Buenavista",
+      "shortName": "Buenavista",
+      "logo": "/assets/img/teams/cd-buenavista.webp"
+    },
+    {
+      "id": "cd-juventud-interian",
+      "name": "C.D. Juventud Interián",
+      "shortName": "Interián",
+      "logo": "/assets/img/teams/cd-juventud-interian.webp"
+    },
+    {
+      "id": "cd-juventud-silense",
+      "name": "C.D. Juventud Silense",
+      "shortName": "Silense",
+      "logo": "/assets/img/teams/cd-juventud-silense.webp"
+    },
+    {
+      "id": "cd-once-piratas",
+      "name": "C.D. Once Piratas",
+      "shortName": "Once Piratas",
+      "logo": "/assets/img/teams/cd-once-piratas.webp"
+    },
+    {
+      "id": "portezuelo",
+      "name": "C.D. Portezuelo Tegueste A",
+      "shortName": "Portezuelo A",
+      "logo": "/assets/img/teams/portezuelo.webp"
+    },
+    {
+      "id": "cd-san-diego",
+      "name": "C.D. San Diego",
+      "shortName": "San Diego",
+      "logo": "/assets/img/teams/cd-san-diego.webp"
+    },
+    {
+      "id": "cd-san-jeronimo",
+      "name": "C.D. San Jerónimo",
+      "shortName": "San Jerónimo",
+      "logo": "/assets/img/teams/cd-san-jeronimo.webp"
+    },
+    {
+      "id": "rcd-gara",
+      "name": "R.C.D. Gara",
+      "shortName": "Gara",
+      "logo": "/assets/img/teams/rcd-gara.webp"
+    },
+    {
+      "id": "sd-ravelo-b",
+      "name": "S.D. Ravelo B",
+      "shortName": "Ravelo B",
+      "logo": "/assets/img/teams/sd-ravelo-b.webp"
+    },
+    {
+      "id": "tacoronte-cf",
+      "name": "Tacoronte C.F.",
+      "shortName": "Tacoronte CF",
+      "logo": "/assets/img/teams/tacoronte-cf.webp"
+    },
+    {
+      "id": "ud-centinela",
+      "name": "UD Centinela",
+      "shortName": "Centinela",
+      "logo": "/assets/img/escudo-centinela.webp"
+    },
+    {
+      "id": "ud-matanza",
+      "name": "U.D. Matanza",
+      "shortName": "La Matanza",
+      "logo": "/assets/img/teams/ud-matanza.webp"
+    },
+    {
+      "id": "ud-tacoronte",
+      "name": "U.D. Tacoronte",
+      "shortName": "UD Tacoronte",
+      "logo": "/assets/img/teams/ud-tacoronte.webp"
+    },
+    {
+      "id": "vlm-fc",
+      "name": "VLM F.C. (Vistalmon)",
+      "shortName": "VLM FC",
+      "logo": "/assets/img/teams/vlm-fc.webp"
+    }
+  ],
   "nextMatch": {
     "round": "Jornada 1",
     "date": "11/09/2026",
     "time": "21:00",
     "venue": "Campo Municipal de Tegueste",
+    "homeId": "portezuelo",
+    "awayId": "ud-centinela",
     "home": "C.D. Portezuelo Tegueste A",
     "away": "UD Centinela",
     "homeLogo": "/assets/img/teams/portezuelo.webp",
@@ -19,19 +119,24 @@
       "date": "11/09/2026",
       "time": "21:00",
       "venue": "Campo Municipal de Tegueste",
+      "homeId": "portezuelo",
+      "awayId": "ud-centinela",
       "home": "C.D. Portezuelo Tegueste A",
       "away": "UD Centinela",
       "homeLogo": "/assets/img/teams/portezuelo.webp",
       "awayLogo": "/assets/img/escudo-centinela.webp",
       "homeScore": null,
       "awayScore": null,
-      "status": "upcoming"
+      "status": "upcoming",
+      "events": []
     }
   ],
   "standings": [
     {
+      "id": "atletico-perdoma-b",
       "position": 1,
       "team": "Atlético Perdoma B",
+      "shortName": "Perdoma B",
       "logo": "/assets/img/teams/atletico-perdoma-b.webp",
       "played": 0,
       "won": 0,
@@ -43,8 +148,10 @@
       "points": 0
     },
     {
+      "id": "afb-tegueste",
       "position": 2,
       "team": "C.D. AFB Tegueste",
+      "shortName": "AFB Tegueste",
       "logo": "/assets/img/teams/afb-tegueste.webp",
       "played": 0,
       "won": 0,
@@ -56,8 +163,10 @@
       "points": 0
     },
     {
+      "id": "cd-buenavista",
       "position": 3,
       "team": "C.D. Buenavista",
+      "shortName": "Buenavista",
       "logo": "/assets/img/teams/cd-buenavista.webp",
       "played": 0,
       "won": 0,
@@ -69,8 +178,10 @@
       "points": 0
     },
     {
+      "id": "cd-juventud-interian",
       "position": 4,
       "team": "C.D. Juventud Interián",
+      "shortName": "Interián",
       "logo": "/assets/img/teams/cd-juventud-interian.webp",
       "played": 0,
       "won": 0,
@@ -82,8 +193,10 @@
       "points": 0
     },
     {
+      "id": "cd-juventud-silense",
       "position": 5,
       "team": "C.D. Juventud Silense",
+      "shortName": "Silense",
       "logo": "/assets/img/teams/cd-juventud-silense.webp",
       "played": 0,
       "won": 0,
@@ -95,8 +208,10 @@
       "points": 0
     },
     {
+      "id": "cd-once-piratas",
       "position": 6,
       "team": "C.D. Once Piratas",
+      "shortName": "Once Piratas",
       "logo": "/assets/img/teams/cd-once-piratas.webp",
       "played": 0,
       "won": 0,
@@ -108,8 +223,10 @@
       "points": 0
     },
     {
+      "id": "portezuelo",
       "position": 7,
       "team": "C.D. Portezuelo Tegueste A",
+      "shortName": "Portezuelo A",
       "logo": "/assets/img/teams/portezuelo.webp",
       "played": 0,
       "won": 0,
@@ -121,8 +238,10 @@
       "points": 0
     },
     {
+      "id": "cd-san-diego",
       "position": 8,
       "team": "C.D. San Diego",
+      "shortName": "San Diego",
       "logo": "/assets/img/teams/cd-san-diego.webp",
       "played": 0,
       "won": 0,
@@ -134,8 +253,10 @@
       "points": 0
     },
     {
+      "id": "cd-san-jeronimo",
       "position": 9,
       "team": "C.D. San Jerónimo",
+      "shortName": "San Jerónimo",
       "logo": "/assets/img/teams/cd-san-jeronimo.webp",
       "played": 0,
       "won": 0,
@@ -147,8 +268,10 @@
       "points": 0
     },
     {
+      "id": "rcd-gara",
       "position": 10,
       "team": "R.C.D. Gara",
+      "shortName": "Gara",
       "logo": "/assets/img/teams/rcd-gara.webp",
       "played": 0,
       "won": 0,
@@ -160,8 +283,10 @@
       "points": 0
     },
     {
+      "id": "sd-ravelo-b",
       "position": 11,
       "team": "S.D. Ravelo B",
+      "shortName": "Ravelo B",
       "logo": "/assets/img/teams/sd-ravelo-b.webp",
       "played": 0,
       "won": 0,
@@ -173,8 +298,10 @@
       "points": 0
     },
     {
+      "id": "tacoronte-cf",
       "position": 12,
       "team": "Tacoronte C.F.",
+      "shortName": "Tacoronte CF",
       "logo": "/assets/img/teams/tacoronte-cf.webp",
       "played": 0,
       "won": 0,
@@ -186,8 +313,10 @@
       "points": 0
     },
     {
+      "id": "ud-centinela",
       "position": 13,
       "team": "UD Centinela",
+      "shortName": "Centinela",
       "logo": "/assets/img/escudo-centinela.webp",
       "played": 0,
       "won": 0,
@@ -199,8 +328,10 @@
       "points": 0
     },
     {
+      "id": "ud-matanza",
       "position": 14,
       "team": "U.D. Matanza",
+      "shortName": "La Matanza",
       "logo": "/assets/img/teams/ud-matanza.webp",
       "played": 0,
       "won": 0,
@@ -212,8 +343,10 @@
       "points": 0
     },
     {
+      "id": "ud-tacoronte",
       "position": 15,
       "team": "U.D. Tacoronte",
+      "shortName": "UD Tacoronte",
       "logo": "/assets/img/teams/ud-tacoronte.webp",
       "played": 0,
       "won": 0,
@@ -225,8 +358,10 @@
       "points": 0
     },
     {
+      "id": "vlm-fc",
       "position": 16,
       "team": "VLM F.C. (Vistalmon)",
+      "shortName": "VLM FC",
       "logo": "/assets/img/teams/vlm-fc.webp",
       "played": 0,
       "won": 0,
