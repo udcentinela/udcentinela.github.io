@@ -19,19 +19,40 @@
       .replace(/'/g, "&#039;");
   }
 
-  function isCentinela(team) {
-    return String(team || "").toLowerCase().includes("centinela");
+  const TEAM_SHIELDS = {
+    'centinela': '/assets/img/escudo-centinela.webp',
+    'portezuelo': '/assets/img/teams/portezuelo.webp',
+    'perdoma': '/assets/img/teams/atletico-perdoma-b.webp',
+    'silense': '/assets/img/teams/cd-juventud-silense.webp',
+    'tegueste': '/assets/img/teams/afb-tegueste.webp',
+    'buenavista': '/assets/img/teams/cd-buenavista.webp',
+    'once piratas': '/assets/img/teams/cd-once-piratas.webp',
+    'piratas': '/assets/img/teams/cd-once-piratas.webp',
+    'san diego': '/assets/img/teams/cd-san-diego.webp',
+    'san jer': '/assets/img/teams/cd-san-jeronimo.webp',
+    'interi': '/assets/img/teams/cd-juventud-interian.webp',
+    'gara': '/assets/img/teams/rcd-gara.webp',
+    'ravelo': '/assets/img/teams/sd-ravelo-b.webp',
+    'tacoronte c': '/assets/img/teams/tacoronte-cf.webp',
+    'matanza': '/assets/img/teams/ud-matanza.webp',
+    'tacoronte': '/assets/img/teams/ud-tacoronte.webp',
+    'vistalm': '/assets/img/teams/vlm-fc.webp',
+    'vlm': '/assets/img/teams/vlm-fc.webp'
+  };
+
+  function getTeamLogo(team, customLogo) {
+    if (customLogo) return customLogo;
+    const lower = String(team || '').toLowerCase();
+    for (const [key, path] of Object.entries(TEAM_SHIELDS)) {
+      if (lower.includes(key)) return path;
+    }
+    return '';
   }
 
   function teamMark(team, customLogo) {
-    if (customLogo) {
-      return `<img src="${customLogo}" alt="${escapeHtml(team)}" class="h-20 w-20 md:h-24 md:w-24 object-contain filter drop-shadow-[0_4px_12px_rgba(0,0,0,0.6)]">`;
-    }
-    if (isCentinela(team)) {
-      return '<img src="/assets/img/escudo-centinela.webp" alt="UD Centinela" class="h-20 w-20 md:h-24 md:w-24 object-contain filter drop-shadow-[0_4px_12px_rgba(0,0,0,0.6)]">';
-    }
-    if (String(team || "").toLowerCase().includes("portezuelo")) {
-      return '<img src="/assets/img/portezuelo.webp" alt="C.D. Portezuelo Tegueste" class="h-20 w-20 md:h-24 md:w-24 object-contain filter drop-shadow-[0_4px_12px_rgba(0,0,0,0.6)]">';
+    const logoUrl = getTeamLogo(team, customLogo);
+    if (logoUrl) {
+      return `<img src="${logoUrl}" alt="${escapeHtml(team)}" class="h-20 w-20 md:h-24 md:w-24 object-contain filter drop-shadow-[0_4px_12px_rgba(0,0,0,0.6)]">`;
     }
     const initials = String(team || "Rival")
       .split(/\s+/)
@@ -114,8 +135,8 @@
           `;
         }
 
-        const homeLogo = match.homeLogo || (String(match.home || '').toLowerCase().includes('portezuelo') ? '/assets/img/portezuelo.webp' : (isCentinela(match.home) ? '/assets/img/escudo-centinela.webp' : ''));
-        const awayLogo = match.awayLogo || (String(match.away || '').toLowerCase().includes('portezuelo') ? '/assets/img/portezuelo.webp' : (isCentinela(match.away) ? '/assets/img/escudo-centinela.webp' : ''));
+        const homeLogo = getTeamLogo(match.home, match.homeLogo);
+        const awayLogo = getTeamLogo(match.away, match.awayLogo);
 
         return `
           <article class="grid gap-5 rounded-2xl border border-white/10 bg-white/5 p-5 md:grid-cols-[160px_1fr_120px] md:items-center">
