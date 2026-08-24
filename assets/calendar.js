@@ -56,7 +56,7 @@
   function teamMark(team, customLogo) {
     const logoUrl = getTeamLogo(team, customLogo);
     if (logoUrl) {
-      return `<img src="${logoUrl}" alt="${escapeHtml(team)}" class="h-20 w-20 md:h-24 md:w-24 object-contain filter drop-shadow-[0_4px_12px_rgba(0,0,0,0.6)]">`;
+      return `<img src="${logoUrl}" alt="${escapeHtml(team)}" class="team-shield-hero h-20 w-20 md:h-24 md:w-24 object-contain filter drop-shadow-[0_4px_12px_rgba(0,0,0,0.6)]">`;
     }
     const initials = String(team || "Rival")
       .split(/\s+/)
@@ -152,11 +152,11 @@
             <div class="grid grid-cols-[1fr_auto_1fr] items-center gap-3">
               <div class="flex items-center justify-end gap-2.5 text-right">
                 <span class="font-bold text-gray-200">${escapeHtml(match.home || "Local")}</span>
-                ${homeLogo ? `<img src="${homeLogo}" alt="" class="h-8 w-8 object-contain flex-shrink-0 filter drop-shadow-sm">` : ''}
+                ${homeLogo ? `<img src="${homeLogo}" alt="" class="team-shield-match h-8 w-8 object-contain flex-shrink-0 filter drop-shadow-sm">` : ''}
               </div>
               <div class="text-center">${score}</div>
               <div class="flex items-center justify-start gap-2.5 text-left">
-                ${awayLogo ? `<img src="${awayLogo}" alt="" class="h-8 w-8 object-contain flex-shrink-0 filter drop-shadow-sm">` : ''}
+                ${awayLogo ? `<img src="${awayLogo}" alt="" class="team-shield-match h-8 w-8 object-contain flex-shrink-0 filter drop-shadow-sm">` : ''}
                 <span class="font-bold text-gray-200">${escapeHtml(match.away || "Visitante")}</span>
               </div>
             </div>
@@ -193,7 +193,7 @@
             <td class="px-4 py-4 text-center font-heading text-lg font-black ${highlighted ? 'text-brand-neon' : ''}">${escapeHtml(row.position || index + 1)}</td>
             <td class="px-4 py-4">
               <div class="flex items-center gap-3">
-                ${teamLogo ? `<img src="${teamLogo}" alt="" class="h-7 w-7 object-contain flex-shrink-0 filter drop-shadow-sm">` : ''}
+                ${teamLogo ? `<img src="${teamLogo}" alt="" class="team-shield-table h-6 w-6 object-contain flex-shrink-0 filter drop-shadow-sm">` : ''}
                 <span class="font-bold ${highlighted ? 'text-brand-neon' : 'text-white'}">${escapeHtml(row.team)}</span>
               </div>
             </td>

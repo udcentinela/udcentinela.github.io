@@ -58,6 +58,40 @@ body {
     text-shadow: 0 0 10px var(--color-brand-neon);
 }
 
+/* --- Tamaños fijos para escudos de equipos --- */
+.team-shield-table {
+    width: 24px !important;
+    height: 24px !important;
+    max-width: 24px !important;
+    max-height: 24px !important;
+    object-fit: contain !important;
+    flex-shrink: 0 !important;
+}
+
+.team-shield-match {
+    width: 32px !important;
+    height: 32px !important;
+    max-width: 32px !important;
+    max-height: 32px !important;
+    object-fit: contain !important;
+    flex-shrink: 0 !important;
+}
+
+.team-shield-hero {
+    width: 80px !important;
+    height: 80px !important;
+    max-width: 96px !important;
+    max-height: 96px !important;
+    object-fit: contain !important;
+    flex-shrink: 0 !important;
+}
+@media (min-width: 768px) {
+    .team-shield-hero {
+        width: 96px !important;
+        height: 96px !important;
+    }
+}
+
 .text-gradient {
     background: linear-gradient(to right, #ffffff, var(--color-brand-neon));
     -webkit-background-clip: text;
