@@ -1,12 +1,12 @@
 {
   "season": "Temporada 2026/2027",
-  "lastUpdated": "2026-08-24T11:01:10.959Z",
+  "lastUpdated": "2026-08-24T12:15:06.850Z",
   "players": [
     {
       "id": "rayco",
       "name": "Rayco",
       "fullName": "Rayco",
-      "dorsal": 1,
+      "dorsal": 25,
       "position": "Portero",
       "role": "2º Capitán",
       "status": "Confirmado",
