@@ -19,6 +19,10 @@
       .replace(/'/g, "&#039;");
   }
 
+  function isCentinela(team) {
+    return String(team || "").toLowerCase().includes("centinela");
+  }
+
   const TEAM_SHIELDS = {
     'centinela': '/assets/img/escudo-centinela.webp',
     'portezuelo': '/assets/img/teams/portezuelo.webp',
@@ -240,7 +244,7 @@
   async function initCalendar() {
     setupTabs();
     try {
-      const response = await fetch("/assets/data/calendar.json", { cache: "no-store" });
+      const response = await fetch("/assets/data/calendar.json?t=" + Date.now());
       if (!response.ok) throw new Error("No se pudieron cargar los datos.");
       calendarData = { ...fallbackData, ...(await response.json()) };
     } catch (error) {
