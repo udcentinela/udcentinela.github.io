@@ -183,10 +183,16 @@
     body.innerHTML = standings
       .map((row, index) => {
         const highlighted = isCentinela(row.team);
+        const teamLogo = getTeamLogo(row.team, row.logo);
         return `
-          <tr class="${highlighted ? "bg-brand-neon/10 text-white" : "text-gray-300"}">
-            <td class="px-4 py-4 text-center font-heading text-lg font-black">${escapeHtml(row.position || index + 1)}</td>
-            <td class="px-4 py-4 font-bold">${escapeHtml(row.team)}</td>
+          <tr class="${highlighted ? "bg-brand-neon/10 text-white font-bold" : "text-gray-300 hover:bg-white/5"} transition-colors">
+            <td class="px-4 py-4 text-center font-heading text-lg font-black ${highlighted ? 'text-brand-neon' : ''}">${escapeHtml(row.position || index + 1)}</td>
+            <td class="px-4 py-4">
+              <div class="flex items-center gap-3">
+                ${teamLogo ? `<img src="${teamLogo}" alt="" class="h-7 w-7 object-contain flex-shrink-0 filter drop-shadow-sm">` : ''}
+                <span class="font-bold ${highlighted ? 'text-brand-neon' : 'text-white'}">${escapeHtml(row.team)}</span>
+              </div>
+            </td>
             <td class="px-3 py-4 text-center">${escapeHtml(row.played ?? 0)}</td>
             <td class="px-3 py-4 text-center">${escapeHtml(row.won ?? 0)}</td>
             <td class="px-3 py-4 text-center">${escapeHtml(row.drawn ?? 0)}</td>
