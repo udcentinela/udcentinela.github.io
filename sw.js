@@ -1,10 +1,10 @@
 /**
  * UD Centinela - Service Worker PWA & Modo Estadio Offline
- * Version: 20260824_all_30_jornadas_v1
+ * Version: 20260824_auto_install_pwa_v1
  */
 
-const CACHE_NAME = 'udc-cache-v20260824_all_30_jornadas_v1';
-const DATA_CACHE_NAME = 'udc-data-cache-v20260824_all_30_jornadas_v1';
+const CACHE_NAME = 'udc-cache-v20260824_auto_install_pwa_v1';
+const DATA_CACHE_NAME = 'udc-data-cache-v20260824_auto_install_pwa_v1';
 
 const PRECACHE_ASSETS = [
   '/',
@@ -35,6 +35,7 @@ const PRECACHE_ASSETS = [
   '/assets/data/news.json',
   '/assets/img/icon-192.png',
   '/assets/img/icon-512.png',
+  '/assets/img/icon-maskable-192.png',
   '/assets/img/icon-maskable-512.png',
   '/assets/img/logo-nav.webp',
   '/assets/img/logo-hero.webp',
