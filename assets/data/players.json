@@ -1,7 +1,37 @@
 {
   "season": "Temporada 2026/2027",
-  "lastUpdated": "2026-08-22T10:33:41.353Z",
+  "lastUpdated": "2026-08-24T10:53:00.000Z",
   "players": [
+    {
+      "id": "rayco",
+      "name": "Rayco",
+      "fullName": "Rayco",
+      "dorsal": 1,
+      "position": "Portero",
+      "role": "2º Capitán",
+      "status": "Confirmado",
+      "image": "/assets/img/rayco.webp",
+      "slug": "rayco",
+      "url": "/regional/rayco/",
+      "goals": 0,
+      "assists": 0,
+      "matchesPlayed": 0
+    },
+    {
+      "id": "cristian",
+      "name": "Cristian",
+      "fullName": "Cristian",
+      "dorsal": 5,
+      "position": "Defensa Central",
+      "role": "Defensa Central",
+      "status": "Confirmado",
+      "image": "/assets/img/cristian.webp",
+      "slug": "cristian",
+      "url": "/regional/cristian/",
+      "goals": 0,
+      "assists": 0,
+      "matchesPlayed": 0
+    },
     {
       "id": "champi",
       "name": "Sergio (Champi)",

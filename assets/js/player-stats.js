@@ -39,7 +39,8 @@
     if (!player) return 'otro';
 
     // Explicit overrides for existing squad players
-    if (player.id === 'jordan' || player.id === 'pablo' || player.id === 'aday') return 'defensa';
+    if (player.id === 'rayco') return 'portero';
+    if (player.id === 'jordan' || player.id === 'pablo' || player.id === 'aday' || player.id === 'cristian') return 'defensa';
     if (player.id === 'sebastian') return 'medio';
     if (player.id === 'colcho' || player.id === 'cristian-colcho' || player.id === 'adrian-tejera' || player.id === 'zacaria' || player.id === 'champi') return 'delantero';
 
@@ -256,6 +257,7 @@
     }
 
     squadGrid.innerHTML = players.map(player => {
+      const isSecondCaptain = player.role === '2º Capitán' || (player.role && player.role.includes('2º Capitán'));
       const isCaptain = player.role === 'Capitán' || (player.role && player.role.includes('Capitán'));
       const hasRealPhoto = player.image && !player.image.includes('centinela1.webp') && !player.image.includes('centinela-2.webp');
       const photoSrc = player.image || `/assets/img/${player.id}.webp`;
@@ -269,7 +271,7 @@
                   : `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>`}
                 <div class="absolute top-2.5 right-2.5 z-20 flex items-center gap-1">
                     ${player.dorsal ? `<span class="bg-brand-neon text-brand-dark font-black px-2 py-0.5 rounded-md text-[11px] shadow-sm">#${player.dorsal}</span>` : ''}
-                    ${isCaptain ? `<span class="badge-captain-solid px-2 py-0.5 rounded-md text-[9px] uppercase shadow-sm">Capitán</span>` : ''}
+                    ${isSecondCaptain ? `<span class="badge-captain-solid px-2 py-0.5 rounded-md text-[9px] uppercase shadow-sm">2º Capitán</span>` : (isCaptain ? `<span class="badge-captain-solid px-2 py-0.5 rounded-md text-[9px] uppercase shadow-sm">Capitán</span>` : '')}
                 </div>
             </div>
             <div class="player-card-info">

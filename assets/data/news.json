@@ -1,6 +1,38 @@
 {
   "items": [
     {
+      "slug": "nuevo-fichaje-rayco",
+      "title": "Nuevo Fichaje - Rayco (#1 y 2º Capitán)",
+      "category": "Fichajes",
+      "date": "24/08/2026",
+      "reading": "2 min",
+      "excerpt": "La Unión Deportivo Centinela blinda la portería con el fichaje de Rayco (#1), un guardameta férreo, seguro y 2º capitán del equipo.",
+      "image": "/assets/img/rayco.webp",
+      "imageAlt": "Nuevo Fichaje - Rayco (#1) - UD Centinela",
+      "body": [
+        "La Unión Deportivo Centinela asegura la protección de su portería de cara a la temporada 2026/2027 en categoría Regional con la incorporación de Rayco, quien además asume el rol de segundo capitán de la plantilla.",
+        "Con el dorsal 1 a la espalda, Rayco destaca por ser un guardameta férreo y seguro bajo los tres palos, con extraordinarias dotes de mando, colocación intachable y grandes reflejos ante cualquier disparo.",
+        "Su personalidad, jerarquía y compromiso suponen un pilar clave tanto en el terreno de juego como en el vestuario centinelista, aportando una voz de liderazgo y tranquilidad a todo el bloque defensivo.",
+        "Con este movimiento estratégico, el club fortalece una posición vital para competir al máximo nivel."
+      ]
+    },
+    {
+      "slug": "nuevo-fichaje-cristian",
+      "title": "Nuevo Fichaje - Cristian (#5)",
+      "category": "Fichajes",
+      "date": "24/08/2026",
+      "reading": "2 min",
+      "excerpt": "La Unión Deportivo Centinela apuntala el centro de la defensa con el fichaje de Cristian (#5), un central fuerte, defensivo y con gran experiencia.",
+      "image": "/assets/img/cristian.webp",
+      "imageAlt": "Nuevo Fichaje - Cristian (#5) - UD Centinela",
+      "body": [
+        "La Unión Deportivo Centinela refuerza con contundencia y jerarquía el eje de la zaga tras acordar la incorporación de Cristian de cara a la temporada 2026/2027 en categoría Regional.",
+        "Cristian lucirá el dorsal 5 y se desempeña en la posición de defensa central. Se trata de un zaguero con excelente sentido de la colocación y veteranía en el fútbol regional, caracterizado por su gran fortaleza física, solidez defensiva en las disputas individuales y solvencia para despejar cualquier conato de peligro rival.",
+        "Su compromiso táctico y carácter aportarán sobriedad, consistencia y liderazgo al bloque defensivo del conjunto icodense.",
+        "Con esta nueva incorporación, el club continúa sumando efectivos de plenas garantías para afrontar el curso competitivo."
+      ]
+    },
+    {
       "slug": "nuevo-fichaje-sergio-champi",
       "title": "Nuevo Fichaje - Sergio (Champi)",
       "category": "Fichajes",
