@@ -1,10 +1,10 @@
 /**
  * UD Centinela - Service Worker PWA & Modo Estadio Offline
- * Version: 20260824_rayco_cristian_v1
+ * Version: 20260824_jornada1_portezuelo_v1
  */
 
-const CACHE_NAME = 'udc-cache-v20260824_rayco_cristian_v1';
-const DATA_CACHE_NAME = 'udc-data-cache-v20260824_rayco_cristian_v1';
+const CACHE_NAME = 'udc-cache-v20260824_jornada1_portezuelo_v1';
+const DATA_CACHE_NAME = 'udc-data-cache-v20260824_jornada1_portezuelo_v1';
 
 const PRECACHE_ASSETS = [
   '/',

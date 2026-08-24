@@ -23,9 +23,15 @@
     return String(team || "").toLowerCase().includes("centinela");
   }
 
-  function teamMark(team) {
+  function teamMark(team, customLogo) {
+    if (customLogo) {
+      return `<img src="${customLogo}" alt="${escapeHtml(team)}" class="h-14 w-14 object-contain filter drop-shadow-md">`;
+    }
     if (isCentinela(team)) {
-      return '<img src="/assets/img/logo-nav.webp" alt="" class="h-14 w-14 object-contain">';
+      return '<img src="/assets/img/logo-nav.webp" alt="UD Centinela" class="h-14 w-14 object-contain filter drop-shadow-md">';
+    }
+    if (String(team || "").toLowerCase().includes("portezuelo")) {
+      return '<img src="/assets/img/portezuelo.webp" alt="C.D. Portezuelo Tegueste" class="h-14 w-14 object-contain filter drop-shadow-md">';
     }
     const initials = String(team || "Rival")
       .split(/\s+/)
@@ -51,12 +57,12 @@
         </div>
         <div class="grid grid-cols-[1fr_auto_1fr] items-center gap-4 md:gap-8">
           <div class="flex min-w-0 flex-col items-center gap-3 text-center">
-            ${teamMark(match.home)}
+            ${teamMark(match.home, match.homeLogo)}
             <span class="font-heading text-lg font-black text-white md:text-2xl">${escapeHtml(match.home || "Local")}</span>
           </div>
           <div class="rounded-xl border border-brand-neon/30 bg-brand-neon/10 px-4 py-3 font-heading text-xl font-black text-brand-neon">VS</div>
           <div class="flex min-w-0 flex-col items-center gap-3 text-center">
-            ${teamMark(match.away)}
+            ${teamMark(match.away, match.awayLogo)}
             <span class="font-heading text-lg font-black text-white md:text-2xl">${escapeHtml(match.away || "Visitante")}</span>
           </div>
         </div>
@@ -108,19 +114,28 @@
           `;
         }
 
+        const homeLogo = match.homeLogo || (String(match.home || '').toLowerCase().includes('portezuelo') ? '/assets/img/portezuelo.webp' : (isCentinela(match.home) ? '/assets/img/logo-nav.webp' : ''));
+        const awayLogo = match.awayLogo || (String(match.away || '').toLowerCase().includes('portezuelo') ? '/assets/img/portezuelo.webp' : (isCentinela(match.away) ? '/assets/img/logo-nav.webp' : ''));
+
         return `
-          <article class="grid gap-5 rounded-2xl border border-white/10 bg-white/5 p-5 md:grid-cols-[150px_1fr_120px] md:items-center">
+          <article class="grid gap-5 rounded-2xl border border-white/10 bg-white/5 p-5 md:grid-cols-[160px_1fr_120px] md:items-center">
             <div>
               <p class="text-xs font-black tracking-widest text-brand-neon uppercase">${escapeHtml(match.round || "Jornada")}</p>
               <p class="mt-2 text-sm font-bold text-white">${escapeHtml(match.date || "Fecha por confirmar")}</p>
-              <p class="mt-1 text-xs text-gray-500">${escapeHtml(match.venue || "")}</p>
+              <p class="mt-1 text-xs text-gray-400">${escapeHtml(match.venue || "")}</p>
             </div>
             <div class="grid grid-cols-[1fr_auto_1fr] items-center gap-3">
-              <span class="text-right font-bold text-gray-200">${escapeHtml(match.home || "Local")}</span>
-              ${score}
-              <span class="font-bold text-gray-200">${escapeHtml(match.away || "Visitante")}</span>
+              <div class="flex items-center justify-end gap-2 text-right">
+                <span class="font-bold text-gray-200">${escapeHtml(match.home || "Local")}</span>
+                ${homeLogo ? `<img src="${homeLogo}" alt="" class="h-7 w-7 object-contain flex-shrink-0">` : ''}
+              </div>
+              <div class="text-center">${score}</div>
+              <div class="flex items-center justify-start gap-2 text-left">
+                ${awayLogo ? `<img src="${awayLogo}" alt="" class="h-7 w-7 object-contain flex-shrink-0">` : ''}
+                <span class="font-bold text-gray-200">${escapeHtml(match.away || "Visitante")}</span>
+              </div>
             </div>
-            <div class="text-left text-xs font-bold tracking-widest text-gray-500 uppercase md:text-right">${finished ? "Resultado" : "Próximo"}</div>
+            <div class="text-left text-xs font-bold tracking-widest text-brand-neon uppercase md:text-right">${finished ? "Resultado" : "Próximo"}</div>
             ${eventsHtml}
           </article>
         `;

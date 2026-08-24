@@ -1,7 +1,32 @@
 {
   "season": "Temporada 2026/2027",
-  "updated": "2026-08-24T12:15:06.850Z",
-  "nextMatch": null,
-  "matches": [],
+  "updated": "24/08/2026",
+  "nextMatch": {
+    "round": "Jornada 1",
+    "date": "11/09/2026",
+    "time": "21:00",
+    "venue": "Campo Municipal de Tegueste",
+    "home": "C.D. Portezuelo Tegueste A",
+    "away": "UD Centinela",
+    "homeLogo": "/assets/img/portezuelo.webp",
+    "awayLogo": "/assets/img/logo-nav.webp",
+    "status": "upcoming"
+  },
+  "matches": [
+    {
+      "id": "jornada-1",
+      "round": "Jornada 1",
+      "date": "11/09/2026",
+      "time": "21:00",
+      "venue": "Campo Municipal de Tegueste",
+      "home": "C.D. Portezuelo Tegueste A",
+      "away": "UD Centinela",
+      "homeLogo": "/assets/img/portezuelo.webp",
+      "awayLogo": "/assets/img/logo-nav.webp",
+      "homeScore": null,
+      "awayScore": null,
+      "status": "upcoming"
+    }
+  ],
   "standings": []
 }
