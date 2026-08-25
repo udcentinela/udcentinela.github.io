@@ -1,22 +1,7 @@
 {
   "season": "Temporada 2026/2027",
-  "lastUpdated": "2026-08-25T15:30:00.000Z",
+  "lastUpdated": "2026-08-25T15:55:38.411Z",
   "players": [
-    {
-      "id": "joel",
-      "name": "Joel",
-      "fullName": "Joel",
-      "dorsal": 7,
-      "position": "Lateral / Extremo",
-      "role": "Lateral / Extremo",
-      "status": "Confirmado",
-      "image": "/assets/img/joel.webp",
-      "slug": "joel",
-      "url": "/regional/joel/",
-      "goals": 0,
-      "assists": 0,
-      "matchesPlayed": 0
-    },
     {
       "id": "rayco",
       "name": "Rayco",
