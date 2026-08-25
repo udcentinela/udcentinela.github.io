@@ -42,7 +42,7 @@
     if (player.id === 'rayco') return 'portero';
     if (player.id === 'jordan' || player.id === 'pablo' || player.id === 'aday' || player.id === 'cristian') return 'defensa';
     if (player.id === 'sebastian') return 'medio';
-    if (player.id === 'colcho' || player.id === 'cristian-colcho' || player.id === 'adrian-tejera' || player.id === 'zacaria' || player.id === 'champi') return 'delantero';
+    if (player.id === 'colcho' || player.id === 'cristian-colcho' || player.id === 'adrian-tejera' || player.id === 'zacaria' || player.id === 'champi' || player.id === 'joel' || player.id === 'yoel') return 'delantero';
 
     const pos = (player.position || '').toLowerCase();
     const role = (player.role || '').toLowerCase();

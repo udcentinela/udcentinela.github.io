@@ -1,6 +1,22 @@
 {
   "items": [
     {
+      "slug": "nuevo-fichaje-joel",
+      "title": "Nuevo Fichaje - Joel (#7)",
+      "category": "Fichajes",
+      "date": "25/08/2026",
+      "reading": "2 min",
+      "excerpt": "La Unión Deportivo Centinela incorpora a Joel (#7) para la temporada en Regional, un jugador polivalente, habilidoso y comprometido que se desempeña tanto en el lateral como en el extremo.",
+      "image": "/assets/img/joel.webp",
+      "imageAlt": "Nuevo Fichaje - Joel (#7) - UD Centinela",
+      "body": [
+        "La Unión Deportivo Centinela continúa sumando calidad, verticalidad y compromiso a su plantilla de cara a la temporada 2026/2027 en categoría Regional con la incorporación oficial de Joel.",
+        "Con el dorsal 7 a la espalda, Joel destaca por su gran polivalencia sobre el terreno de juego, pudiendo desenvolverse con enorme solvencia tanto en posiciones defensivas de lateral como en demarcaciones más ofensivas de extremo por toda la banda.",
+        "Futbolista habilidoso, rápido y de gran calidad individual, Joel es de esos jugadores que no se esconden, siempre da la cara por el equipo y aporta una entrega inquebrantable en cada disputa y transición de juego.",
+        "Su llegada refuerza de manera notable las opciones tácticas del Centinela en banda, aportando profundidad, desborde y solidez."
+      ]
+    },
+    {
       "slug": "nuevo-fichaje-rayco",
       "title": "Nuevo Fichaje - Rayco (#1)",
       "category": "Fichajes",
