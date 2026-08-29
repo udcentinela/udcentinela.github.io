@@ -1,6 +1,6 @@
 {
   "season": "Temporada 2026/2027",
-  "updated": "2026-08-29T22:10:35.473Z",
+  "updated": "2026-08-29T22:12:45.927Z",
   "teams": [
     {
       "id": "atletico-perdoma-b",
@@ -146,21 +146,8 @@
       "venue": "TEGUESTE (CA)",
       "status": "upcoming",
       "homeScore": 0,
-      "awayScore": 2,
-      "events": [
-        {
-          "type": "goal",
-          "minute": 11,
-          "scorerId": "adrian-tejera",
-          "assistId": "pablo"
-        },
-        {
-          "type": "goal",
-          "minute": 60,
-          "scorerId": "pablo",
-          "assistId": null
-        }
-      ]
+      "awayScore": 0,
+      "events": []
     },
     {
       "id": "j1-m3",
