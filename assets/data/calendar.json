@@ -1,6 +1,6 @@
 {
   "season": "Temporada 2026/2027",
-  "updated": "2026-08-25T15:55:38.411Z",
+  "updated": "2026-08-29T22:09:35.214Z",
   "teams": [
     {
       "id": "atletico-perdoma-b",
@@ -100,18 +100,18 @@
     }
   ],
   "nextMatch": {
-    "id": "j1-m2",
+    "id": "j1-m1",
     "round": "Jornada 1",
     "roundNumber": 1,
     "date": "11/09/2026",
     "time": "21:00",
-    "venue": "TEGUESTE (CA)",
-    "homeId": "portezuelo",
-    "awayId": "ud-centinela",
-    "home": "C.D. Portezuelo Tegueste A",
-    "away": "UD Centinela",
-    "homeLogo": "/assets/img/teams/portezuelo.webp",
-    "awayLogo": "/assets/img/escudo-centinela.webp",
+    "venue": "LAS TORRES - TF (CA)",
+    "homeId": "cd-san-jeronimo",
+    "awayId": "cd-juventud-silense",
+    "home": "C.D. San Jerónimo",
+    "away": "C.D. Juventud Silense",
+    "homeLogo": "/assets/img/teams/cd-san-jeronimo.webp",
+    "awayLogo": "/assets/img/teams/cd-juventud-silense.webp",
     "homeScore": null,
     "awayScore": null,
     "status": "upcoming",
@@ -139,19 +139,14 @@
     {
       "id": "j1-m2",
       "round": "Jornada 1",
-      "roundNumber": 1,
       "date": "11/09/2026",
       "time": "21:00",
-      "venue": "TEGUESTE (CA)",
-      "homeId": "portezuelo",
-      "awayId": "ud-centinela",
       "home": "C.D. Portezuelo Tegueste A",
       "away": "UD Centinela",
-      "homeLogo": "/assets/img/teams/portezuelo.webp",
-      "awayLogo": "/assets/img/escudo-centinela.webp",
-      "homeScore": null,
-      "awayScore": null,
-      "status": "upcoming",
+      "venue": "TEGUESTE (CA)",
+      "status": "finished",
+      "homeScore": 2,
+      "awayScore": 3,
       "events": []
     },
     {
