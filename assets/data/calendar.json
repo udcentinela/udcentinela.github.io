@@ -1,6 +1,6 @@
 {
   "season": "Temporada 2026/2027",
-  "updated": "2026-08-29T22:13:18.490Z",
+  "updated": "2026-08-30T02:25:25.038Z",
   "teams": [
     {
       "id": "atletico-perdoma-b",
@@ -145,8 +145,8 @@
       "away": "UD Centinela",
       "venue": "TEGUESTE (CA)",
       "status": "upcoming",
-      "homeScore": 0,
-      "awayScore": 0,
+      "homeScore": null,
+      "awayScore": null,
       "events": []
     },
     {
