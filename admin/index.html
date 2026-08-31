@@ -229,11 +229,38 @@
             <!-- TAB 1: PARTIDOS Y ACTAS                                        -->
             <!-- ============================================================== -->
             <div id="matchesTab" class="tab-content hidden space-y-6">
-                <div class="flex items-center justify-between">
-                    <h2 class="font-heading text-2xl font-black uppercase text-white">Lista de Partidos</h2>
+                <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                    <div>
+                        <h2 class="font-heading text-2xl font-black uppercase text-white">Lista de Partidos y Actas</h2>
+                        <p class="text-gray-400 text-xs">Gestiona resultados, actas oficiales, goleadores y horarios de la temporada.</p>
+                    </div>
                     <button id="newMatchBtn" class="px-4 py-2 bg-white/10 hover:bg-brand-neon hover:text-brand-dark text-white text-xs font-bold uppercase tracking-wider rounded-xl border border-white/10 transition-colors cursor-pointer">
                         + Añadir Partido
                     </button>
+                </div>
+
+                <!-- Matches Admin Filters -->
+                <div class="p-4 rounded-2xl bg-white/5 border border-white/10 flex flex-wrap items-center justify-between gap-3">
+                    <div class="flex flex-wrap items-center gap-2">
+                        <div class="inline-flex rounded-xl border border-white/10 bg-black/40 p-1" id="adminMatchScopeGroup">
+                            <button type="button" class="admin-match-scope active px-3.5 py-1.5 rounded-lg text-xs font-black bg-brand-neon text-brand-dark transition-all" data-scope="centinela">⭐ Solo Centinela</button>
+                            <button type="button" class="admin-match-scope px-3.5 py-1.5 rounded-lg text-xs font-bold text-gray-400 hover:text-white transition-all" data-scope="all">🌐 Todos (240)</button>
+                        </div>
+
+                        <select id="adminJornadaFilter" class="bg-brand-dark/90 border border-white/15 focus:border-brand-neon rounded-xl px-3 py-1.5 text-xs text-white outline-none">
+                            <option value="all">Todas las jornadas</option>
+                        </select>
+
+                        <select id="adminStatusFilter" class="bg-brand-dark/90 border border-white/15 focus:border-brand-neon rounded-xl px-3 py-1.5 text-xs text-white outline-none">
+                            <option value="all">Todos los estados</option>
+                            <option value="upcoming">Pendientes / No jugados</option>
+                            <option value="finished">Finalizados</option>
+                        </select>
+                    </div>
+
+                    <div id="adminMatchesCount" class="text-xs font-bold text-gray-400">
+                        Mostrando partidos
+                    </div>
                 </div>
 
                 <!-- Matches List Container -->

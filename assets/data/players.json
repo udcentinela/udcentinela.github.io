@@ -3,6 +3,21 @@
   "lastUpdated": "2026-08-30T02:25:25.038Z",
   "players": [
     {
+      "id": "joel",
+      "name": "Joel",
+      "fullName": "Joel",
+      "dorsal": 7,
+      "position": "Lateral / Extremo",
+      "role": "Lateral / Extremo",
+      "status": "Confirmado",
+      "image": "/assets/img/players/joel.webp",
+      "slug": "joel",
+      "url": "/regional/joel/",
+      "goals": 0,
+      "assists": 0,
+      "matchesPlayed": 0
+    },
+    {
       "id": "rayco",
       "name": "Rayco",
       "fullName": "Rayco",

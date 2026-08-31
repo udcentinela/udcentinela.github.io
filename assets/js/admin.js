@@ -11,6 +11,26 @@
   let hasUnsavedChanges = false;
   const isLocalHost = location.hostname === 'localhost' || location.hostname === '127.0.0.1';
 
+  let activeAdminScope = 'centinela'; // 'centinela' | 'all'
+  let activeAdminJornada = 'all';      // 'all' | 1..30
+  let activeAdminStatus = 'all';       // 'all' | 'upcoming' | 'finished'
+
+  function isCentinela(team) {
+    return String(team || '').toLowerCase().includes('centinela');
+  }
+
+  function isCentinelaMatch(m) {
+    if (!m) return false;
+    return isCentinela(m.home) || isCentinela(m.away) || m.homeId === 'ud-centinela' || m.awayId === 'ud-centinela';
+  }
+
+  function updateNextMatch() {
+    const centinelaMatches = (calendarData.matches || []).filter(isCentinelaMatch);
+    const upcoming = centinelaMatches.find(m => m.status === 'upcoming');
+    const live = centinelaMatches.find(m => m.status === 'live');
+    calendarData.nextMatch = upcoming || live || (centinelaMatches.length > 0 ? centinelaMatches[0] : null);
+  }
+
   // =========================================================================
   // DOM Elements
   // =========================================================================
@@ -138,6 +158,7 @@
     setupTabs();
     setupModals();
     setupPagesContentListeners();
+    setupAdminMatchFilters();
 
     if (currentToken) {
       if (isLocalHost && (currentToken === 'admin' || currentToken === 'local')) {
@@ -227,6 +248,7 @@
     } catch (e) {
       console.warn('Usando datos locales o por defecto:', e);
     }
+    updateNextMatch();
     recalculateStats();
   }
 
@@ -322,6 +344,7 @@
 
   function renderAll() {
     renderPagesContent();
+    populateAdminJornadaFilter();
     renderMatches();
     renderPlayers();
     renderNews();
@@ -330,7 +353,7 @@
   }
 
   // =========================================================================
-  // TAB NAVIGATION
+  // TAB NAVIGATION & FILTERS
   // =========================================================================
   function setupTabs() {
     document.querySelectorAll('.tab-btn').forEach(btn => {
@@ -345,25 +368,100 @@
     });
   }
 
+  function setupAdminMatchFilters() {
+    const scopeButtons = document.querySelectorAll('.admin-match-scope');
+    scopeButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        activeAdminScope = btn.dataset.scope || 'centinela';
+        scopeButtons.forEach(b => {
+          const active = b === btn;
+          b.classList.toggle('active', active);
+          b.classList.toggle('bg-brand-neon', active);
+          b.classList.toggle('text-brand-dark', active);
+          b.classList.toggle('font-black', active);
+          b.classList.toggle('text-gray-400', !active);
+          b.classList.toggle('font-bold', !active);
+        });
+        renderMatches();
+      });
+    });
+
+    const jFilter = document.getElementById('adminJornadaFilter');
+    if (jFilter) {
+      jFilter.addEventListener('change', (e) => {
+        activeAdminJornada = e.target.value;
+        renderMatches();
+      });
+    }
+
+    const sFilter = document.getElementById('adminStatusFilter');
+    if (sFilter) {
+      sFilter.addEventListener('change', (e) => {
+        activeAdminStatus = e.target.value;
+        renderMatches();
+      });
+    }
+  }
+
+  function populateAdminJornadaFilter() {
+    const jFilter = document.getElementById('adminJornadaFilter');
+    if (!jFilter) return;
+    const currentVal = jFilter.value || 'all';
+    const rounds = Array.from(new Set((calendarData.matches || []).map(m => m.roundNumber || m.round))).sort((a, b) => {
+      const numA = typeof a === 'number' ? a : parseInt(String(a).replace(/\D+/g, ''), 10) || 0;
+      const numB = typeof b === 'number' ? b : parseInt(String(b).replace(/\D+/g, ''), 10) || 0;
+      return numA - numB;
+    });
+
+    jFilter.innerHTML = '<option value="all">Todas las jornadas (1 - 30)</option>' +
+      rounds.map(r => {
+        const num = typeof r === 'number' ? r : parseInt(String(r).replace(/\D+/g, ''), 10) || r;
+        return `<option value="${num}" ${String(currentVal) === String(num) ? 'selected' : ''}>Jornada ${num}</option>`;
+      }).join('');
+  }
+
   // =========================================================================
   // RENDER MATCHES
   // =========================================================================
   function renderMatches() {
+    if (!matchesList) return;
     matchesList.innerHTML = '';
-    const matches = calendarData.matches || [];
+    const allMatches = calendarData.matches || [];
 
-    if (matches.length === 0) {
+    const filtered = allMatches.filter(m => {
+      if (activeAdminScope === 'centinela' && !isCentinelaMatch(m)) {
+        return false;
+      }
+      if (activeAdminJornada !== 'all') {
+        const roundNum = m.roundNumber || parseInt(String(m.round || '').replace(/\D+/g, ''), 10);
+        if (String(roundNum) !== String(activeAdminJornada)) {
+          return false;
+        }
+      }
+      if (activeAdminStatus !== 'all' && m.status !== activeAdminStatus) {
+        return false;
+      }
+      return true;
+    });
+
+    const countEl = document.getElementById('adminMatchesCount');
+    if (countEl) {
+      countEl.textContent = `Mostrando ${filtered.length} de ${allMatches.length} partidos`;
+    }
+
+    if (filtered.length === 0) {
       matchesList.innerHTML = `
         <div class="p-8 rounded-2xl bg-white/5 border border-white/10 text-center text-gray-400">
-          No hay partidos registrados aún. Pulsa en "+ Añadir Partido" para crear el primero.
+          No hay partidos que coincidan con los filtros seleccionados.
         </div>
       `;
       return;
     }
 
-    matches.forEach((m, idx) => {
+    filtered.forEach((m) => {
       const isFinished = m.status === 'finished';
       const goals = (m.events || []).filter(e => e.type === 'goal');
+      const isCent = isCentinelaMatch(m);
 
       let eventsHtml = '';
       if (goals.length > 0) {
@@ -382,33 +480,34 @@
       }
 
       const card = document.createElement('div');
-      card.className = 'p-5 rounded-2xl bg-white/5 border border-white/10 hover:border-brand-neon/30 transition-all flex flex-col md:flex-row items-start md:items-center justify-between gap-4';
+      card.className = `p-5 rounded-2xl bg-white/5 border ${isCent ? 'border-brand-neon/30 bg-white/[0.07]' : 'border-white/10'} hover:border-brand-neon/50 transition-all flex flex-col md:flex-row items-start md:items-center justify-between gap-4`;
       card.innerHTML = `
         <div class="flex-grow">
-          <div class="flex items-center gap-3 mb-1">
-            <span class="px-2 py-0.5 rounded text-[10px] font-black uppercase tracking-wider ${isFinished ? 'bg-green-500/20 text-green-300' : 'bg-brand-neon/20 text-brand-neon'}">
+          <div class="flex items-center gap-3 mb-1 flex-wrap">
+            <span class="px-2 py-0.5 rounded text-[10px] font-black uppercase tracking-wider ${isFinished ? 'bg-green-500/20 text-green-300 border border-green-500/30' : 'bg-brand-neon/20 text-brand-neon border border-brand-neon/30'}">
               ${m.round || 'Jornada'}
             </span>
-            <span class="text-xs text-gray-400">${m.date || 'Fecha pendiente'} · ${m.time || ''}</span>
-            <span class="text-xs text-gray-500">📍 ${m.venue || 'Estadio'}</span>
+            <span class="text-xs text-gray-300 font-medium">${m.date || 'Fecha pendiente'}${m.time ? ' · ' + m.time : ''}</span>
+            <span class="text-xs text-gray-400">📍 ${m.venue || 'Campo por confirmar'}</span>
+            ${isCent ? '<span class="px-2 py-0.5 rounded-full text-[9px] font-black uppercase tracking-wider bg-brand-neon text-brand-dark">UD Centinela</span>' : ''}
           </div>
 
           <div class="flex items-center gap-4 text-base md:text-lg font-heading font-black text-white my-1">
-            <span class="${m.home.toLowerCase().includes('centinela') ? 'text-brand-neon' : ''}">${m.home}</span>
-            <span class="px-2.5 py-0.5 rounded-lg bg-black/40 text-sm font-mono border border-white/10 ${isFinished ? 'text-white' : 'text-gray-500'}">
-              ${isFinished ? `${m.homeScore} - ${m.awayScore}` : 'VS'}
+            <span class="${m.home.toLowerCase().includes('centinela') ? 'text-brand-neon font-black' : 'text-gray-200'}">${m.home}</span>
+            <span class="px-2.5 py-0.5 rounded-lg bg-black/50 text-sm font-mono border border-white/10 ${isFinished ? 'text-brand-neon font-bold' : 'text-gray-400'}">
+              ${isFinished ? `${m.homeScore ?? 0} - ${m.awayScore ?? 0}` : 'VS'}
             </span>
-            <span class="${m.away.toLowerCase().includes('centinela') ? 'text-brand-neon' : ''}">${m.away}</span>
+            <span class="${m.away.toLowerCase().includes('centinela') ? 'text-brand-neon font-black' : 'text-gray-200'}">${m.away}</span>
           </div>
 
           ${eventsHtml}
         </div>
 
         <div class="flex items-center gap-2 self-end md:self-center">
-          <button class="edit-match-btn px-3 py-1.5 rounded-lg bg-white/10 hover:bg-brand-neon hover:text-brand-dark text-xs font-bold transition-colors cursor-pointer" data-id="${m.id}">
+          <button class="edit-match-btn px-3.5 py-2 rounded-xl bg-white/10 hover:bg-brand-neon hover:text-brand-dark text-xs font-bold transition-all cursor-pointer" data-id="${m.id}">
             ✏️ Editar Acta
           </button>
-          <button class="delete-match-btn px-3 py-1.5 rounded-lg bg-red-500/20 hover:bg-red-500 text-red-300 hover:text-white text-xs font-bold transition-colors cursor-pointer" data-id="${m.id}">
+          <button class="delete-match-btn px-3 py-2 rounded-xl bg-red-500/20 hover:bg-red-500 text-red-300 hover:text-white text-xs font-bold transition-all cursor-pointer" data-id="${m.id}" title="Eliminar partido">
             🗑️
           </button>
         </div>
@@ -905,31 +1004,34 @@
       });
     });
 
+    if (!calendarData.matches) calendarData.matches = [];
+    const existingIndex = calendarData.matches.findIndex(m => m.id === idVal);
+    const prevMatch = existingIndex >= 0 ? calendarData.matches[existingIndex] : {};
+
     const matchObj = {
+      ...prevMatch,
       id: idVal,
       round: matchRound.value.trim(),
+      roundNumber: prevMatch.roundNumber || (parseInt(matchRound.value.replace(/\D+/g, ''), 10) || 1),
       date: matchDate.value.trim(),
       time: matchTime.value.trim(),
       home: matchHome.value.trim(),
       away: matchAway.value.trim(),
       venue: matchVenue.value.trim(),
       status: matchStatusSelect.value,
-      homeScore: matchHomeScore.value !== '' ? parseInt(matchHomeScore.value) : null,
-      awayScore: matchAwayScore.value !== '' ? parseInt(matchAwayScore.value) : null,
+      homeScore: matchHomeScore.value !== '' ? parseInt(matchHomeScore.value, 10) : null,
+      awayScore: matchAwayScore.value !== '' ? parseInt(matchAwayScore.value, 10) : null,
       events: goals
     };
 
-    if (!calendarData.matches) calendarData.matches = [];
-    const existingIndex = calendarData.matches.findIndex(m => m.id === idVal);
     if (existingIndex >= 0) {
       calendarData.matches[existingIndex] = matchObj;
     } else {
       calendarData.matches.push(matchObj);
     }
 
-    // Auto update next match
-    const upcoming = calendarData.matches.find(m => m.status === 'upcoming');
-    calendarData.nextMatch = upcoming || calendarData.matches[0] || null;
+    // Auto update next match: ONLY for UD Centinela
+    updateNextMatch();
 
     recalculateStats();
     renderAll();
@@ -940,8 +1042,7 @@
   function deleteMatch(idVal) {
     if (!confirm('¿Seguro que deseas eliminar este partido y sus actas?')) return;
     calendarData.matches = calendarData.matches.filter(m => m.id !== idVal);
-    const upcoming = calendarData.matches.find(m => m.status === 'upcoming');
-    calendarData.nextMatch = upcoming || calendarData.matches[0] || null;
+    updateNextMatch();
     recalculateStats();
     renderAll();
     markUnsavedChanges(true);

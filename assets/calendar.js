@@ -25,6 +25,33 @@
     return String(team || "").toLowerCase().includes("centinela");
   }
 
+  function isCentinelaMatch(m) {
+    if (!m) return false;
+    return isCentinela(m.home) || isCentinela(m.away) || m.homeId === "ud-centinela" || m.awayId === "ud-centinela";
+  }
+
+  function getCentinelaNextMatch(data) {
+    if (!data) return null;
+    const matches = data.matches || [];
+    const centinelaMatches = matches.filter(isCentinelaMatch);
+
+    if (centinelaMatches.length === 0) {
+      return data.nextMatch && isCentinelaMatch(data.nextMatch) ? data.nextMatch : null;
+    }
+
+    // 1. First upcoming match of UD Centinela
+    const upcoming = centinelaMatches.find(m => m.status === "upcoming");
+    if (upcoming) return upcoming;
+
+    // 2. Or live match
+    const live = centinelaMatches.find(m => m.status === "live");
+    if (live) return live;
+
+    // 3. Fallback: last Centinela match
+    if (data.nextMatch && isCentinelaMatch(data.nextMatch)) return data.nextMatch;
+    return centinelaMatches[centinelaMatches.length - 1] || null;
+  }
+
   const TEAM_SHIELDS = {
     'centinela': '/assets/img/escudo-centinela.webp',
     'portezuelo': '/assets/img/teams/portezuelo.webp',
@@ -465,7 +492,7 @@
     document.getElementById("calendarUpdated").textContent = calendarData.updated
       ? `Actualizado: ${calendarData.updated}`
       : "Pendiente de datos oficiales";
-    renderNextMatch(calendarData.nextMatch);
+    renderNextMatch(getCentinelaNextMatch(calendarData));
     populateJornadaSelector();
     renderMatches();
     renderStandings();
