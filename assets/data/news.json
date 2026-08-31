@@ -1,6 +1,21 @@
 {
   "items": [
     {
+      "slug": "nuevo-fichaje-julio",
+      "title": "Nuevo Fichaje - Julio (#13)",
+      "category": "Fichajes",
+      "date": "31/08/2026",
+      "reading": "2 min",
+      "excerpt": "La Unión Deportivo Centinela refuerza su portería con la incorporación del guardameta joven Julio (#13), ilusión y ganas de trabajar para el equipo.",
+      "image": "/assets/img/players/julio.webp",
+      "imageAlt": "Nuevo Fichaje - Julio - UD Centinela",
+      "body": [
+        "La Unión Deportivo Centinela suma una nueva pieza para defender la portería en su regreso a la competición con la llegada del guardameta Julio de cara a la temporada 2026/2027 en categoría Regional.",
+        "Con el dorsal 13 a la espalda, Julio se incorpora con la máxima ilusión, constancia y ganas de aprender. Un portero joven y comprometido que busca dar lo mejor de sí en cada sesión de trabajo, aportando esfuerzo silencioso y compañerismo en el día a día del vestuario.",
+        "Su dedicación y ganas de superarse bajo los palos fortalecerán la competencia sana en la portería del club icodense."
+      ]
+    },
+    {
       "slug": "nuevo-fichaje-salvador",
       "title": "Nuevo Fichaje - Salvador (#14)",
       "category": "Fichajes",

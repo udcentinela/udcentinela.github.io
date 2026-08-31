@@ -3,6 +3,21 @@
   "lastUpdated": "2026-08-30T02:25:25.038Z",
   "players": [
     {
+      "id": "julio",
+      "name": "Julio",
+      "fullName": "Julio",
+      "dorsal": 13,
+      "position": "Portero",
+      "role": "Portero",
+      "status": "Confirmado",
+      "image": "/assets/img/players/julio.webp",
+      "slug": "julio",
+      "url": "/regional/julio/",
+      "goals": 0,
+      "assists": 0,
+      "matchesPlayed": 0
+    },
+    {
       "id": "salvador",
       "name": "Salvador",
       "fullName": "Salvador",
