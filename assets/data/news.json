@@ -1,6 +1,66 @@
 {
   "items": [
     {
+      "slug": "nuevo-fichaje-salvador",
+      "title": "Nuevo Fichaje - Salvador (#14)",
+      "category": "Fichajes",
+      "date": "31/08/2026",
+      "reading": "2 min",
+      "excerpt": "La Unión Deportivo Centinela apuntala la zaga con el fichaje de Salvador (#14), un central polivalente, de gran veteranía, garra y lectura de juego.",
+      "image": "/assets/img/players/salvador.webp",
+      "imageAlt": "Nuevo Fichaje - Salvador - UD Centinela",
+      "body": [
+        "La Unión Deportivo Centinela apuntala la consistencia y solidez de su línea defensiva con la incorporación oficial de Salvador para la temporada 2026/2027 en categoría Regional.",
+        "Con el dorsal 14 a la espalda, Salvador es un futbolista polivalente que se desempeña primordialmente en la demarcación de defensa central. Su perfil aporta una valiosa veteranía, garra y lectura de juego, combinando anticipación con firmeza en cada acción defensiva.",
+        "Jugador de carácter y temple, su conocimiento táctico y contundencia proporcionan una gran seguridad a la zaga centinelista."
+      ]
+    },
+    {
+      "slug": "nuevo-fichaje-nauzet",
+      "title": "Nuevo Fichaje - Nauzet (#2)",
+      "category": "Fichajes",
+      "date": "31/08/2026",
+      "reading": "2 min",
+      "excerpt": "La Unión Deportivo Centinela suma solidez y jerarquía en defensa con la incorporación de Nauzet (#2), un central completísimo y de gran experiencia.",
+      "image": "/assets/img/players/nauzet.webp",
+      "imageAlt": "Nuevo Fichaje - Nauzet - UD Centinela",
+      "body": [
+        "La Unión Deportivo Centinela suma una incorporación de enorme peso y jerarquía para el eje de la zaga con la llegada de Nauzet.",
+        "Con el dorsal 2 a la espalda, Nauzet juega como defensa central. Es un defensor completísimo que destaca por su veteranía contrastada, colocación impecable y solidez absoluta en la retaguardia.",
+        "Su templanza bajo presión, contundencia al cruce y liderazgo organizativo desde la defensa refuerzan la estructura competitiva del conjunto de Icod de los Vinos."
+      ]
+    },
+    {
+      "slug": "nuevo-fichaje-angel",
+      "title": "Nuevo Fichaje - Ángel (#17)",
+      "category": "Fichajes",
+      "date": "31/08/2026",
+      "reading": "2 min",
+      "excerpt": "La Unión Deportivo Centinela incorpora a Ángel (#17), un centrocampista jovencísimo de enorme calidad técnica, visión y descomunal potencial.",
+      "image": "/assets/img/players/angel.webp",
+      "imageAlt": "Nuevo Fichaje - Ángel - UD Centinela",
+      "body": [
+        "La Unión Deportivo Centinela continúa sumando talento y juventud a su sala de máquinas con el fichaje de Ángel.",
+        "Con el dorsal 17 a la espalda, Ángel se desenvuelve como mediocentro. Es un futbolista jovencísimo pero con un potencial descomunal y una calidad técnica tremenda, capaz de dominar los tiempos, dar fluidez a la circulación del balón y oxigenar el juego con visión e inteligencia.",
+        "Su dinamismo, desparpajo y habilidad con la pelota en los pies representan un salto de calidad asociativa para la medular centinelista."
+      ]
+    },
+    {
+      "slug": "nuevo-fichaje-tinguaro",
+      "title": "Nuevo Fichaje - Tinguaro",
+      "category": "Fichajes",
+      "date": "31/08/2026",
+      "reading": "2 min",
+      "excerpt": "La Unión Deportivo Centinela refuerza su delantera con Tinguaro, un atacante veterano de entrega inagotable, calidad y una pieza clave para la unión del grupo.",
+      "image": "/assets/img/players/tinguaro.webp",
+      "imageAlt": "Nuevo Fichaje - Tinguaro - UD Centinela",
+      "body": [
+        "La Unión Deportivo Centinela refuerza su línea ofensiva y el corazón del vestuario con el fichaje del atacante Tinguaro.",
+        "Tinguaro se desempeña en la posición de delantero. Futbolista veterano y experimentado, aporta una combinación indispensable de calidad, entrega incansable y picardía en el área rival.",
+        "Más allá de su rendimiento deportivo, Tinguaro destaca como un jugador de vestuario que une, hace piña y contagia compromiso a todos sus compañeros, un auténtico pilar humano en la plantilla centinelista."
+      ]
+    },
+    {
       "slug": "nuevo-fichaje-ruben",
       "title": "Nuevo Fichaje - Rubén (#15)",
       "category": "Fichajes",

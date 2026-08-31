@@ -176,4 +176,52 @@
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
+    <url>
+        <loc>https://udcentinela.github.io/regional/salvador/</loc>
+        <lastmod>2026-08-31</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://udcentinela.github.io/noticias/nuevo-fichaje-salvador/</loc>
+        <lastmod>2026-08-31</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://udcentinela.github.io/regional/nauzet/</loc>
+        <lastmod>2026-08-31</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://udcentinela.github.io/noticias/nuevo-fichaje-nauzet/</loc>
+        <lastmod>2026-08-31</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://udcentinela.github.io/regional/angel/</loc>
+        <lastmod>2026-08-31</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://udcentinela.github.io/noticias/nuevo-fichaje-angel/</loc>
+        <lastmod>2026-08-31</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://udcentinela.github.io/regional/tinguaro/</loc>
+        <lastmod>2026-08-31</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://udcentinela.github.io/noticias/nuevo-fichaje-tinguaro/</loc>
+        <lastmod>2026-08-31</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
 </urlset>
