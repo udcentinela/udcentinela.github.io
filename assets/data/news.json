@@ -1,6 +1,22 @@
 {
   "items": [
     {
+      "slug": "nuevo-fichaje-ruben",
+      "title": "Nuevo Fichaje - Rubén (#15)",
+      "category": "Fichajes",
+      "date": "31/08/2026",
+      "reading": "2 min",
+      "excerpt": "La Unión Deportivo Centinela apuntala su centro del campo con el fichaje de Rubén (#15), un mediocentro incansable, de enorme despliegue físico, garra y 3º capitán del equipo.",
+      "image": "/assets/img/players/ruben.webp",
+      "imageAlt": "Nuevo Fichaje - Rubén - UD Centinela",
+      "body": [
+        "La Unión Deportivo Centinela suma una pieza clave en el equilibrio, la intensidad y la lucha de su centro del campo de cara a la temporada 2026/2027 en categoría Regional con la incorporación oficial de Rubén, quien además asume el rol de tercer capitán de la plantilla.",
+        "Con el dorsal 15 a la espalda, Rubén se desempeña como mediocentro. Es un futbolista todoterreno que destaca por su poderoso despliegue físico y capacidad incansable para recorrer el campo de área a área, multiplicándose en la presión, robo de balón y coberturas defensivas.",
+        "Jugador valiente y combativo que las lucha todas, Rubén imprime carácter, garra y liderazgo en cada lance del juego, contagiando energía y espíritu de superación a todo el bloque centinelista.",
+        "Con esta incorporación, el club refuerza una posición estratégica en la medular con un jugador de máxima entrega e identidad."
+      ]
+    },
+    {
       "slug": "nuevo-fichaje-joel",
       "title": "Nuevo Fichaje - Joel",
       "category": "Fichajes",

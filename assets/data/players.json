@@ -3,6 +3,21 @@
   "lastUpdated": "2026-08-30T02:25:25.038Z",
   "players": [
     {
+      "id": "ruben",
+      "name": "Rubén",
+      "fullName": "Rubén",
+      "dorsal": 15,
+      "position": "Mediocentro",
+      "role": "3º Capitán",
+      "status": "Confirmado",
+      "image": "/assets/img/players/ruben.webp",
+      "slug": "ruben",
+      "url": "/regional/ruben/",
+      "goals": 0,
+      "assists": 0,
+      "matchesPlayed": 0
+    },
+    {
       "id": "joel",
       "name": "Joel",
       "fullName": "Joel",
