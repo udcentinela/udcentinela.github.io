@@ -3,6 +3,21 @@
   "lastUpdated": "2026-08-30T02:25:25.038Z",
   "players": [
     {
+      "id": "edgar",
+      "name": "Edgar",
+      "fullName": "Edgar",
+      "dorsal": 10,
+      "position": "Mediocentro",
+      "role": "Mediocentro",
+      "status": "Confirmado",
+      "image": "/assets/img/players/edgar.webp",
+      "slug": "edgar",
+      "url": "/regional/edgar/",
+      "goals": 0,
+      "assists": 0,
+      "matchesPlayed": 0
+    },
+    {
       "id": "julio",
       "name": "Julio",
       "fullName": "Julio",

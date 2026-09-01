@@ -1,6 +1,21 @@
 {
   "items": [
     {
+      "slug": "nuevo-fichaje-edgar",
+      "title": "Nuevo Fichaje - Edgar (#10)",
+      "category": "Fichajes",
+      "date": "01/09/2026",
+      "reading": "2 min",
+      "excerpt": "La Unión Deportivo Centinela refuerza su centro del campo con el fichaje de Edgar (#10), mediocentro de gran jerarquía, visión y enorme aporte en la recuperación.",
+      "image": "/assets/img/players/edgar.webp",
+      "imageAlt": "Nuevo Fichaje - Edgar - UD Centinela",
+      "body": [
+        "La Unión Deportivo Centinela suma un refuerzo de máxima calidad y equilibrio para su medular de cara a la temporada 2026/2027 en categoría Regional con la incorporación oficial de Edgar.",
+        "Con el dorsal 10 a la espalda, Edgar se desenvuelve en la demarcación de mediocentro. Es un futbolista determinante que destaca por su gran aporte en la construcción y circulación del juego, dotando de fluidez y criterio al juego colectivo, combinado con una enorme capacidad de trabajo y sacrificio en la recuperación de balón.",
+        "Su visión táctica, lectura de los tiempos y solidez tanto en ataque como en tareas defensivas lo convierten en un motor imprescindible en la sala de máquinas del conjunto icodense."
+      ]
+    },
+    {
       "slug": "nuevo-fichaje-julio",
       "title": "Nuevo Fichaje - Julio (#13)",
       "category": "Fichajes",
