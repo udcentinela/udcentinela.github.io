@@ -1,6 +1,21 @@
 {
   "items": [
     {
+      "slug": "nuevo-fichaje-miguel",
+      "title": "Nuevo Fichaje - Miguel",
+      "category": "Fichajes",
+      "date": "04/09/2026",
+      "reading": "2 min",
+      "excerpt": "La Unión Deportivo Centinela apuntala la medular con el fichaje de Miguel, mediocentro de gran calidad técnica, magnífica retención del balón y excelente criterio en la distribución.",
+      "image": "/assets/img/players/miguel.webp",
+      "imageAlt": "Nuevo Fichaje - Miguel - UD Centinela",
+      "body": [
+        "La Unión Deportivo Centinela continúa sumando talento y control para su sala de máquinas en la temporada 2026/2027 en categoría Regional con la incorporación oficial de Miguel.",
+        "Con dorsal por confirmar, Miguel se desenvuelve en la posición de mediocentro organizador. Es un futbolista de altísima calidad técnica que destaca por su serenidad y capacidad para retener y proteger el balón ante la presión rival, garantizando una salida limpia y ordenada desde campo propio.",
+        "Su visión panorámica y precisión en el pase corto y medio le permiten distribuir el juego con fluidez y criterio, imprimiendo el ritmo adecuado a cada fase del partido y conectando con suma facilidad con las líneas de ataque del equipo icodense."
+      ]
+    },
+    {
       "slug": "nuevo-fichaje-nano",
       "title": "Nuevo Fichaje - Ángel 'Nano'",
       "category": "Fichajes",

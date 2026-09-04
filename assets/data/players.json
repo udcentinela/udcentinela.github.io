@@ -3,6 +3,21 @@
   "lastUpdated": "2026-09-01T18:58:39.415Z",
   "players": [
     {
+      "id": "miguel",
+      "name": "Miguel",
+      "fullName": "Miguel",
+      "dorsal": null,
+      "position": "Mediocentro",
+      "role": "Mediocentro",
+      "status": "Confirmado",
+      "image": "/assets/img/players/miguel.webp",
+      "slug": "miguel",
+      "url": "/regional/miguel/",
+      "goals": 0,
+      "assists": 0,
+      "matchesPlayed": 0
+    },
+    {
       "id": "nano",
       "name": "Ángel (Nano)",
       "fullName": "Ángel Martos (Nano)",
