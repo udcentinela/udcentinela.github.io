@@ -1,6 +1,21 @@
 {
   "items": [
     {
+      "slug": "nuevo-fichaje-nano",
+      "title": "Nuevo Fichaje - Ángel 'Nano'",
+      "category": "Fichajes",
+      "date": "04/09/2026",
+      "reading": "2 min",
+      "excerpt": "La Unión Deportivo Centinela potencia su ataque con la incorporación de Ángel Martos 'Nano', delantero centro corpóreo y referencia indiscutible para bajarla, fijar centrales y asociarse con pegada.",
+      "image": "/assets/img/players/nano.webp",
+      "imageAlt": "Nuevo Fichaje - Ángel Nano - UD Centinela",
+      "body": [
+        "La Unión Deportivo Centinela apuntala su frente de ataque con un perfil de poderío y referencia ofensiva para la temporada 2026/2027 en categoría Regional con la llegada de Ángel Martos, conocido futbolísticamente como 'Nano'.",
+        "Con dorsal aún por confirmar, Nano actúa como delantero centro de referencia. Se trata de un atacante corpulento, ideal para fijar a los defensas centrales rivales y dominar el juego de espaldas a portería. Su fútbol se caracteriza por una tremenda facilidad para bajar balones aéreos y divididos, aguantar la pelota bajo presión y asociarse de cara con rapidez y buen criterio de pase hacia la segunda línea.",
+        "Delantero potente, batallador y de choque continuo, cuenta además con un golpeo formidable desde media distancia y un gran olfato de área, aportando peso ofensivo y una clara vía de desahogo y gol para la vanguardia del conjunto icodense."
+      ]
+    },
+    {
       "slug": "nuevo-fichaje-edgar",
       "title": "Nuevo Fichaje - Edgar (#10)",
       "category": "Fichajes",

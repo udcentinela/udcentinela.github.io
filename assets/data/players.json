@@ -3,6 +3,21 @@
   "lastUpdated": "2026-09-01T18:58:39.415Z",
   "players": [
     {
+      "id": "nano",
+      "name": "Ángel (Nano)",
+      "fullName": "Ángel Martos (Nano)",
+      "dorsal": null,
+      "position": "Delantero",
+      "role": "Delantero Referencia",
+      "status": "Confirmado",
+      "image": "/assets/img/players/nano.webp",
+      "slug": "nano",
+      "url": "/regional/nano/",
+      "goals": 0,
+      "assists": 0,
+      "matchesPlayed": 0
+    },
+    {
       "id": "edgar",
       "name": "Edgar",
       "fullName": "Edgar",
