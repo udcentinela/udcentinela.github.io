@@ -4,4 +4,4 @@ Disallow: /api/
 Disallow: /noticias/admin/
 Disallow: /noticias/login/
 
-Sitemap: https://proctological-caleb-seminiferous.ngrok-free.dev/sitemap.xml
+Sitemap: https://udcentinela.github.io/sitemap.xml
