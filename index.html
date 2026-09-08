@@ -322,40 +322,8 @@
         <h2 class="font-heading text-4xl text-white tracking-widest uppercase">Centinela</h2>
         <div class="loader-line" id="loaderLine"></div>
     </div>
-    <!-- Barra Superior Oficial del Próximo Partido (Top Ribbon - Estilo LaLiga / UEFA) -->
-    <aside id="matchTopRibbon" class="fixed top-0 left-0 w-full h-8 z-50 bg-slate-950/95 backdrop-blur-md border-b border-brand-neon/20 select-none text-white text-xs overflow-hidden" aria-label="Información del próximo partido">
-        <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-full flex items-center justify-between gap-2 sm:gap-4">
-            <a href="/calendario/" class="flex items-center gap-1.5 sm:gap-2.5 min-w-0 text-decoration-none hover:text-brand-neon transition-colors" title="Ver calendario oficial">
-                <span class="inline-flex items-center gap-1 sm:gap-1.5 font-bold uppercase tracking-wider text-[9px] sm:text-[10px] text-brand-neon bg-brand-neon/10 px-1.5 sm:px-2 py-0.5 rounded border border-brand-neon/25 flex-shrink-0">
-                    <span class="relative flex h-2 w-2">
-                        <span id="ribbonPulseDot" class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-neon opacity-75"></span>
-                        <span id="ribbonSolidDot" class="relative inline-flex rounded-full h-2 w-2 bg-brand-neon"></span>
-                    </span>
-                    <span id="ribbonBadgeText">PRÓXIMO</span>
-                </span>
-                <span id="ribbonRound" class="text-gray-400 font-medium hidden md:inline text-[11px]">Jornada 1 &middot;</span>
-                <div class="flex items-center gap-1 sm:gap-1.5 min-w-0 font-bold text-white text-xs sm:text-sm">
-                    <img id="ribbonHomeLogo" src="/assets/img/teams/portezuelo.webp" alt="Portezuelo" class="w-4 h-4 object-contain flex-shrink-0" onerror="this.src='/assets/img/logo-nav.webp'">
-                    <span id="ribbonHomeName" class="truncate max-w-[70px] sm:max-w-[120px]">Portezuelo</span>
-                    <span class="text-brand-neon font-black text-[10px] px-0.5">VS</span>
-                    <img id="ribbonAwayLogo" src="/assets/img/escudo-centinela.webp" alt="Centinela" class="w-4 h-4 object-contain flex-shrink-0" onerror="this.src='/assets/img/logo-nav.webp'">
-                    <span id="ribbonAwayName" class="truncate max-w-[70px] sm:max-w-[120px]">Centinela</span>
-                </div>
-                <span id="ribbonDate" class="text-gray-400 text-[11px] hidden lg:inline font-normal">&middot; Vie 11 Sep, 21:00</span>
-            </a>
-            <div class="flex items-center gap-1.5 sm:gap-2 flex-shrink-0">
-                <span class="text-gray-400 font-medium hidden sm:inline text-[11px]">Comienza en:</span>
-                <a href="/calendario/" class="inline-flex items-center gap-1 sm:gap-1.5 text-decoration-none" title="Ver previa en el calendario">
-                    <span id="ribbonCountdown" class="font-mono font-bold text-brand-neon text-[11px] sm:text-xs tracking-tight bg-white/[0.06] px-1.5 sm:px-2 py-0.5 rounded border border-white/10 tabular-nums">Calculando...</span>
-                    <span class="hidden md:inline text-[11px] font-bold text-white hover:text-brand-neon transition-colors">Ver previa</span>
-                    <svg class="w-3 h-3 text-brand-neon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"></path></svg>
-                </a>
-            </div>
-        </div>
-    </aside>
-
     <!-- Navegación -->
-    <nav class="fixed w-full top-8 z-40 transition-all duration-300" id="navbar">
+    <nav class="fixed w-full z-50 transition-all duration-300" id="navbar">
         <div class="absolute inset-0 bg-brand-dark/80 backdrop-blur-md border-b border-white/5"></div>
         <div class="max-w-7xl mx-auto px-6 lg:px-8 relative">
             <div class="flex items-center justify-between h-20">
@@ -480,7 +448,7 @@
         })();
     </script>
     <!-- Hero Section -->
-    <section id="inicio" class="relative min-h-screen flex items-center justify-center pt-28 overflow-hidden hero-gradient">
+    <section id="inicio" class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden hero-gradient">
         <!-- Partículas de fondo generadas dinámicamente -->
         <div id="particles" class="absolute inset-0 pointer-events-none opacity-40"></div>
 
@@ -592,7 +560,6 @@
     <script src="/assets/site-motion.js?v=20260819_smooth"></script>
     <script src="/assets/js/content-renderer.js?v=20260821_1"></script>
     <script src="/assets/js/sponsors-renderer.js?v=20260821_1"></script>
-    <script src="/assets/js/pwa-manager.js?v=20260908_ribbon"></script>
-    <script src="/assets/js/match-island.js?v=20260908_ribbon"></script>
+    <script src="/assets/js/pwa-manager.js?v=20260908_clean"></script>
 </body>
 </html>
