@@ -1,6 +1,21 @@
 {
   "items": [
     {
+      "slug": "nuevo-fichaje-ayoze",
+      "title": "Nuevo Fichaje - Ayoze",
+      "category": "Fichajes",
+      "date": "08/09/2026",
+      "reading": "2 min",
+      "excerpt": "La Unión Deportivo Centinela incorpora a Ayoze para su medular: un mediocentro de perfil 'jugón', rebosante de talento, imaginación y máxima creatividad asociativa.",
+      "image": "/assets/img/players/ayoze.webp",
+      "imageAlt": "Nuevo Fichaje - Ayoze - UD Centinela",
+      "body": [
+        "La Unión Deportivo Centinela continúa sumando piezas de primer nivel a su proyecto para la temporada 2026/2027 en categoría Regional con la incorporación de Ayoze, mediocentro que aportará magia y frescura a la sala de máquinas icodense.",
+        "Con dorsal por confirmar, Ayoze se desenvuelve como mediocentro organizador y creativo. Definido por su perfil de auténtico 'jugón', destaca por una desbordante creatividad con el balón en los pies, visión de juego privilegiada y una clarividencia técnica fabulosa para filtrar balones decisivos entre líneas.",
+        "Futbolista imaginativo y asociativo, capaz de inventar jugadas imposibles en espacios reducidos y dar pausa o aceleración cuando la jugada lo requiere. Su llegada garantiza talento puro, capacidad de desequilibrio y espectáculo para la afición del Centinela en El Molino."
+      ]
+    },
+    {
       "slug": "nuevo-fichaje-yeray",
       "title": "Nuevo Fichaje - Yeray 'Melón'",
       "category": "Fichajes",

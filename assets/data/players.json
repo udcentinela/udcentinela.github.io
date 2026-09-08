@@ -1,7 +1,22 @@
 {
   "season": "Temporada 2026/2027",
-  "lastUpdated": "2026-09-08T12:12:00.000Z",
+  "lastUpdated": "2026-09-08T12:35:00.000Z",
   "players": [
+    {
+      "id": "ayoze",
+      "name": "Ayoze",
+      "fullName": "Ayoze",
+      "dorsal": null,
+      "position": "Mediocentro",
+      "role": "Mediocentro Creativo",
+      "status": "Confirmado",
+      "image": "/assets/img/players/ayoze.webp",
+      "slug": "ayoze",
+      "url": "/regional/ayoze/",
+      "goals": 0,
+      "assists": 0,
+      "matchesPlayed": 0
+    },
     {
       "id": "yeray",
       "name": "Yeray (Melón)",
