@@ -1,7 +1,7 @@
 /**
- * UD Centinela - Floating Next Match Island
- * Detecta automáticamente el próximo partido oficial de la UD Centinela
- * y muestra una isla flotante superior compacta con cuenta atrás en tiempo real.
+ * UD Centinela - Official Match Top Ribbon (LaLiga / UEFA Style)
+ * Detecta automáticamente el próximo partido de la UD Centinela
+ * y actualiza la barra superior oficial fija con escudos y cuenta atrás en tiempo real.
  */
 (function () {
   'use strict';
@@ -159,28 +159,15 @@
     return `${pad(hours)}h ${pad(mins)}m ${pad(secs)}s`;
   }
 
-  function formatShortDiff(diffMs) {
-    if (diffMs <= 0) return 'EN JUEGO';
-    const totalSecs = Math.floor(diffMs / 1000);
-    const days = Math.floor(totalSecs / 86400);
-    const hours = Math.floor((totalSecs % 86400) / 3600);
-    const mins = Math.floor((totalSecs % 3600) / 60);
-    if (days > 0) {
-      return `${days}d ${pad(hours)}h`;
-    }
-    return `${pad(hours)}h ${pad(mins)}m`;
-  }
-
   let activeInterval = null;
 
   function runCountdown(targetDate) {
     if (activeInterval) clearInterval(activeInterval);
 
-    const elCountdown = document.getElementById('islandCountdown');
-    const elMiniCountdown = document.getElementById('islandMiniCountdown');
-    const elBadgeText = document.getElementById('islandBadgeText');
-    const elPulseDot = document.getElementById('islandPulseDot');
-    const elSolidDot = document.getElementById('islandSolidDot');
+    const elCountdown = document.getElementById('ribbonCountdown');
+    const elBadgeText = document.getElementById('ribbonBadgeText');
+    const elPulseDot = document.getElementById('ribbonPulseDot');
+    const elSolidDot = document.getElementById('ribbonSolidDot');
 
     function tick() {
       const now = new Date();
@@ -191,13 +178,11 @@
         if (elPulseDot) elPulseDot.className = 'animate-ping absolute inline-flex h-full w-full rounded-full bg-red-500 opacity-75';
         if (elSolidDot) elSolidDot.className = 'relative inline-flex rounded-full h-2 w-2 bg-red-500';
         if (elCountdown) elCountdown.textContent = '¡EN JUEGO!';
-        if (elMiniCountdown) elMiniCountdown.textContent = 'EN JUEGO';
       } else if (diff < -115 * 60 * 1000) {
         if (elCountdown) elCountdown.textContent = 'Finalizado';
-        initMatchIsland();
+        initMatchRibbon();
       } else {
         if (elCountdown) elCountdown.textContent = formatDiff(diff);
-        if (elMiniCountdown) elMiniCountdown.textContent = formatShortDiff(diff);
       }
     }
 
@@ -205,45 +190,14 @@
     activeInterval = setInterval(tick, 1000);
   }
 
-  async function initMatchIsland() {
-    const island = document.getElementById('matchFloatingIsland');
-    if (!island) return;
+  async function initMatchRibbon() {
+    const ribbon = document.getElementById('matchTopRibbon');
+    if (!ribbon) return;
 
-    // Default match fallback (11/09/2026 a las 21:00)
+    // Default fallback: Jornada 1 (11/09/2026 a las 21:00)
     let matchDate = new Date(2026, 8, 11, 21, 0, 0);
     runCountdown(matchDate);
 
-    // Setup Minimize / Expand toggle
-    const expandedDiv = document.getElementById('islandExpanded');
-    const minimizedDiv = document.getElementById('islandMinimized');
-    const minimizeBtn = document.getElementById('islandMinimizeBtn');
-
-    if (sessionStorage.getItem('udc_island_minimized') === 'true') {
-      if (expandedDiv) expandedDiv.classList.add('hidden');
-      if (minimizedDiv) minimizedDiv.classList.remove('hidden');
-    }
-
-    if (minimizeBtn && !minimizeBtn.__hasListener) {
-      minimizeBtn.__hasListener = true;
-      minimizeBtn.addEventListener('click', function (e) {
-        e.preventDefault();
-        e.stopPropagation();
-        if (expandedDiv) expandedDiv.classList.add('hidden');
-        if (minimizedDiv) minimizedDiv.classList.remove('hidden');
-        sessionStorage.setItem('udc_island_minimized', 'true');
-      });
-    }
-
-    if (minimizedDiv && !minimizedDiv.__hasListener) {
-      minimizedDiv.__hasListener = true;
-      minimizedDiv.addEventListener('click', function () {
-        if (expandedDiv) expandedDiv.classList.remove('hidden');
-        if (minimizedDiv) minimizedDiv.classList.add('hidden');
-        sessionStorage.setItem('udc_island_minimized', 'false');
-      });
-    }
-
-    // Now fetch real-time calendar.json
     try {
       const res = await fetch('/assets/data/calendar.json?t=' + Date.now());
       if (!res.ok) return;
@@ -263,26 +217,28 @@
         const homeName = getShortTeamName(m.home, data.teams);
         const awayName = getShortTeamName(m.away, data.teams);
 
-        const elHomeLogo = document.getElementById('islandHomeLogo');
-        const elAwayLogo = document.getElementById('islandAwayLogo');
-        const elHomeName = document.getElementById('islandHomeName');
-        const elAwayName = document.getElementById('islandAwayName');
-        const elMiniMatch = document.getElementById('islandMiniMatch');
+        const elHomeLogo = document.getElementById('ribbonHomeLogo');
+        const elAwayLogo = document.getElementById('ribbonAwayLogo');
+        const elHomeName = document.getElementById('ribbonHomeName');
+        const elAwayName = document.getElementById('ribbonAwayName');
+        const elRound = document.getElementById('ribbonRound');
+        const elDate = document.getElementById('ribbonDate');
 
         if (elHomeLogo) elHomeLogo.src = homeLogo;
         if (elAwayLogo) elAwayLogo.src = awayLogo;
         if (elHomeName) elHomeName.textContent = homeName;
         if (elAwayName) elAwayName.textContent = awayName;
-        if (elMiniMatch) elMiniMatch.textContent = `${homeName} vs ${awayName}`;
+        if (elRound && m.round) elRound.textContent = `${m.round} ·`;
+        if (elDate && m.date) elDate.textContent = `· ${m.date}${m.time ? ', ' + m.time : ''}`;
       }
     } catch (err) {
-      console.warn('[Match Island] Usando fecha predeterminada:', err);
+      console.warn('[Match Ribbon] Usando fecha predeterminada:', err);
     }
   }
 
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initMatchIsland);
+    document.addEventListener('DOMContentLoaded', initMatchRibbon);
   } else {
-    initMatchIsland();
+    initMatchRibbon();
   }
 })();
