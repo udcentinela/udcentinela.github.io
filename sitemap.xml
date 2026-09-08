@@ -90,7 +90,7 @@
   </url>
   <url>
     <loc>https://udcentinela.github.io/regional/cuerpo-tecnico/</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-09-08</lastmod>
   </url>
     <url>
         <loc>https://udcentinela.github.io/regional/colcho/</loc>
@@ -298,6 +298,18 @@
     </url>
     <url>
         <loc>https://udcentinela.github.io/noticias/nuevo-fichaje-iriome/</loc>
+        <lastmod>2026-09-08</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://udcentinela.github.io/regional/juan-manuel/</loc>
+        <lastmod>2026-09-08</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://udcentinela.github.io/noticias/nuevo-fichaje-juan-manuel/</loc>
         <lastmod>2026-09-08</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>

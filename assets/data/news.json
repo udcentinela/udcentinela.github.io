@@ -1,6 +1,21 @@
 {
   "items": [
     {
+      "slug": "nuevo-fichaje-juan-manuel",
+      "title": "Nuevo Fichaje - Juan Manuel (Entrenador)",
+      "category": "Cuerpo Técnico",
+      "date": "08/09/2026",
+      "reading": "2 min",
+      "excerpt": "La Unión Deportivo Centinela confirma a Juan Manuel como nuevo entrenador para la temporada 2026/2027 en Regional: un técnico con un largo recorrido y contrastada experiencia que asume la pizarra de este ilusionante proyecto.",
+      "image": "/assets/img/players/juan-manuel.webp",
+      "imageAlt": "Nuevo Entrenador Juan Manuel - UD Centinela",
+      "body": [
+        "La Unión Deportivo Centinela da un paso fundamental en la estructuración de su proyecto deportivo para la temporada 2026/2027 en categoría Regional con la contratación de Juan Manuel como nuevo primer entrenador del equipo.",
+        "Técnico de largo recorrido y dilatada experiencia en los banquillos del fútbol insular y regional, Juan Manuel destaca por su enorme conocimiento táctico, rigurosidad en la preparación de cada encuentro y una contrastada capacidad para liderar vestuarios competitivos. Su trayectoria garantiza seriedad, metodología de trabajo y una clara identidad de juego.",
+        "Juan Manuel se une con máxima ilusión y compromiso a este nuevo proyecto centinelista, asumiendo la dirección desde el banquillo de El Molino para construir un bloque sólido, disciplinado, valiente y con hambre de triunfo en esta nueva etapa histórica."
+      ]
+    },
+    {
       "slug": "nuevo-fichaje-iriome",
       "title": "Nuevo Fichaje - Iriome",
       "category": "Fichajes",

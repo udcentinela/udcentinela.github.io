@@ -1,6 +1,6 @@
 {
   "season": "Temporada 2026/2027",
-  "lastUpdated": "2026-09-08T12:40:00.000Z",
+  "lastUpdated": "2026-09-08T14:10:00.000Z",
   "players": [
     {
       "id": "iriome",
@@ -349,15 +349,30 @@
     },
     {
       "id": "cuerpo-tecnico",
-      "name": "Cuerpo Técnico",
-      "fullName": "Entrenador y Ayudantes",
+      "name": "Juan Manuel",
+      "fullName": "Juan Manuel (Primer Entrenador)",
       "dorsal": null,
-      "position": "Dirección Técnica",
-      "role": "Staff Técnico",
+      "position": "Entrenador",
+      "role": "Primer Entrenador",
       "status": "Confirmado",
-      "image": "/assets/img/centinela-2.webp",
+      "image": "/assets/img/players/juan-manuel.webp",
       "slug": "cuerpo-tecnico",
       "url": "/regional/cuerpo-tecnico/",
+      "goals": 0,
+      "assists": 0,
+      "matchesPlayed": 0
+    },
+    {
+      "id": "juan-manuel",
+      "name": "Juan Manuel",
+      "fullName": "Juan Manuel (Primer Entrenador)",
+      "dorsal": null,
+      "position": "Entrenador",
+      "role": "Primer Entrenador",
+      "status": "Confirmado",
+      "image": "/assets/img/players/juan-manuel.webp",
+      "slug": "juan-manuel",
+      "url": "/regional/juan-manuel/",
       "goals": 0,
       "assists": 0,
       "matchesPlayed": 0

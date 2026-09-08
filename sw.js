@@ -1,10 +1,10 @@
 /**
  * UD Centinela - Service Worker PWA & Modo Estadio Offline
- * Version: 20260908_fichaje_iriome_v1
+ * Version: 20260908_fichaje_juan_manuel_v1
  */
 
-const CACHE_NAME = 'udc-cache-v20260908_fichaje_iriome_v1';
-const DATA_CACHE_NAME = 'udc-data-cache-v20260908_fichaje_iriome_v1';
+const CACHE_NAME = 'udc-cache-v20260908_fichaje_juan_manuel_v1';
+const DATA_CACHE_NAME = 'udc-data-cache-v20260908_fichaje_juan_manuel_v1';
 
 const PRECACHE_ASSETS = [
   '/',
@@ -44,7 +44,8 @@ const PRECACHE_ASSETS = [
   '/assets/img/aday.webp',
   '/assets/img/pablo.webp',
   '/assets/img/adrian-tejera.webp',
-  '/assets/img/iriome.webp'
+  '/assets/img/iriome.webp',
+  '/assets/img/players/juan-manuel.webp'
 ];
 
 // 1. Install Event: Precache core assets
