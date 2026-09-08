@@ -47,18 +47,30 @@
   // 2. REGISTRO DEL SERVICE WORKER
   // ==========================================
   if ('serviceWorker' in navigator) {
+    let isRefreshing = false;
+    navigator.serviceWorker.addEventListener('controllerchange', () => {
+      if (!isRefreshing) {
+        isRefreshing = true;
+        window.location.reload();
+      }
+    });
+
     window.addEventListener('load', () => {
       navigator.serviceWorker
         .register('/sw.js')
         .then((reg) => {
           console.log('[UDC PWA] Service Worker activo en:', reg.scope);
 
+          // Forzar chequeo de actualización inmediata
+          reg.update().catch(() => {});
+
           reg.addEventListener('updatefound', () => {
             const newWorker = reg.installing;
             if (newWorker) {
               newWorker.addEventListener('statechange', () => {
                 if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
-                  console.log('[UDC PWA] Nueva versión disponible en segundo plano.');
+                  console.log('[UDC PWA] Nueva versión instalada, activando...');
+                  newWorker.postMessage({ type: 'SKIP_WAITING' });
                 }
               });
             }
