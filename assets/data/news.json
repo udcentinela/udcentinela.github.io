@@ -1,6 +1,21 @@
 {
   "items": [
     {
+      "slug": "nuevo-fichaje-iriome",
+      "title": "Nuevo Fichaje - Iriome",
+      "category": "Fichajes",
+      "date": "08/09/2026",
+      "reading": "2 min",
+      "excerpt": "Bomba en el Centinela: Iriome González, presidente del club y leyenda del CD Lugo en el fútbol profesional, se calza las botas y liderará la delantera en la temporada 2026/2027.",
+      "image": "/assets/img/players/iriome.webp",
+      "imageAlt": "Nuevo Fichaje - Iriome González - UD Centinela",
+      "body": [
+        "La Unión Deportivo Centinela protagoniza el movimiento más ilusionante de cara a la temporada 2026/2027 en categoría Regional. Su presidente y máximo artífice del renacer del club, Iriome González, da el paso definitivo y se une a la plantilla como futbolista para defender los colores del Centinela sobre el terreno de juego.",
+        "Con dorsal aún por confirmar, Iriome actuará en la posición de delantero y atacante. Hablar de Iriome es hablar de una de las mayores figuras futbolísticas de la historia de Icod de los Vinos. Canterano ilustre del CD Tenerife y leyenda absoluta del CD Lugo, donde disputó más de 250 encuentros oficiales en el fútbol profesional (Segunda División) portando el brazalete de capitán, su trayectoria deportiva es sinónimo de entrega, jerarquía, despliegue físico y gol.",
+        "Ahora, tras capitanear el proyecto desde los despachos y devolver el club a la competición, Iriome asume la doble responsabilidad de guiar al Centinela como presidente y como jugador sobre el verde de El Molino. Un referente mayúsculo cuyo liderazgo y calidad marcarán las diferencias en el fútbol regional."
+      ]
+    },
+    {
       "slug": "nuevo-fichaje-ayoze",
       "title": "Nuevo Fichaje - Ayoze",
       "category": "Fichajes",

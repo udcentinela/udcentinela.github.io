@@ -1,7 +1,22 @@
 {
   "season": "Temporada 2026/2027",
-  "lastUpdated": "2026-09-08T12:35:00.000Z",
+  "lastUpdated": "2026-09-08T12:40:00.000Z",
   "players": [
+    {
+      "id": "iriome",
+      "name": "Iriome",
+      "fullName": "Iriome González",
+      "dorsal": null,
+      "position": "Delantero",
+      "role": "Presidente / Delantero",
+      "status": "Confirmado",
+      "image": "/assets/img/players/iriome.webp",
+      "slug": "iriome",
+      "url": "/regional/iriome/",
+      "goals": 0,
+      "assists": 0,
+      "matchesPlayed": 0
+    },
     {
       "id": "ayoze",
       "name": "Ayoze",
@@ -238,21 +253,6 @@
       "image": "/assets/img/zacaria.webp",
       "slug": "zacaria",
       "url": "/regional/zacaria/",
-      "goals": 0,
-      "assists": 0,
-      "matchesPlayed": 0
-    },
-    {
-      "id": "iriome",
-      "name": "Iriome",
-      "fullName": "Iriome González",
-      "dorsal": 9,
-      "position": "Delantero / Presidente",
-      "role": "Directiva / Jugador",
-      "status": "Confirmado",
-      "image": "/assets/img/iriome.webp",
-      "slug": "iriome",
-      "url": "/regional/iriome/",
       "goals": 0,
       "assists": 0,
       "matchesPlayed": 0

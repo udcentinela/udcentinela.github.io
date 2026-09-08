@@ -42,7 +42,7 @@
     if (player.id === 'rayco' || player.id === 'julio' || player.id === 'yeray' || player.id === 'yeray-melon') return 'portero';
     if (player.id === 'jordan' || player.id === 'pablo' || player.id === 'aday' || player.id === 'cristian' || player.id === 'salvador' || player.id === 'salva' || player.id === 'nauzet') return 'defensa';
     if (player.id === 'sebastian' || player.id === 'ruben' || player.id === 'angel' || player.id === 'edgar' || player.id === 'miguel' || player.id === 'ayoze') return 'medio';
-    if (player.id === 'colcho' || player.id === 'cristian-colcho' || player.id === 'adrian-tejera' || player.id === 'zacaria' || player.id === 'champi' || player.id === 'joel' || player.id === 'yoel' || player.id === 'tinguaro' || player.id === 'nano') return 'delantero';
+    if (player.id === 'colcho' || player.id === 'cristian-colcho' || player.id === 'adrian-tejera' || player.id === 'zacaria' || player.id === 'champi' || player.id === 'joel' || player.id === 'yoel' || player.id === 'tinguaro' || player.id === 'nano' || player.id === 'iriome') return 'delantero';
 
     const pos = (player.position || '').toLowerCase();
     const role = (player.role || '').toLowerCase();
@@ -201,7 +201,7 @@
     const squadGrid = document.querySelector('.squad-grid');
     if (!squadGrid) return;
 
-    const validPlayers = allPlayers.filter(p => p.id !== 'cuerpo-tecnico' && p.id !== 'iriome');
+    const validPlayers = allPlayers.filter(p => p.id !== 'cuerpo-tecnico');
     updateCategoryCounters(validPlayers);
 
     const filtered = validPlayers.filter(p => {
@@ -294,7 +294,7 @@
     if (!player) return;
 
     // 1. Dynamic Photo Badge (for squad players)
-    if (player.id !== 'iriome' && player.id !== 'cuerpo-tecnico') {
+    if (player.id !== 'cuerpo-tecnico') {
       const avatarBadge = document.querySelector('.profile-avatar-box span.bg-brand-neon');
       if (avatarBadge) {
         if (player.dorsal) {
@@ -328,7 +328,7 @@
 
     // 3. Dynamic Stats (Position, Dorsal/Rol) for squad players
     const existingStats = statsGrid.querySelectorAll('.profile-stat');
-    if (player.id !== 'iriome' && player.id !== 'cuerpo-tecnico' && existingStats.length >= 2) {
+    if (player.id !== 'cuerpo-tecnico' && existingStats.length >= 2) {
       if (player.position) {
         const posEl = existingStats[0].querySelector('p.font-heading') || existingStats[0].querySelector('p:last-child');
         if (posEl) posEl.textContent = player.position;
