@@ -75,7 +75,6 @@
       const found = teamsList.find(t => t.name && t.name.toLowerCase() === teamName.toLowerCase());
       if (found && found.shortName) return found.shortName;
     }
-    // Simplificaciones estándar
     let name = teamName.replace(/^C\.D\.\s*/i, '')
                        .replace(/^U\.D\.\s*/i, '')
                        .replace(/^S\.D\.\s*/i, '')
@@ -107,13 +106,12 @@
     const now = new Date();
 
     if (centinelaMatches.length > 0) {
-      // Mapear con su fecha real
       const matchesWithDate = centinelaMatches.map(m => ({
         ...m,
         dateObj: parseMatchDate(m.date, m.time)
       })).filter(m => m.dateObj !== null);
 
-      // 1. Buscar si hay alguno en juego (desde el pitido inicial hasta 115 minutos después)
+      // 1. Buscar si hay alguno en juego
       const liveMatch = matchesWithDate.find(m => {
         if (m.status === 'live') return true;
         const diff = now.getTime() - m.dateObj.getTime();
@@ -132,7 +130,6 @@
       }
     }
 
-    // Fallback: data.nextMatch
     if (data.nextMatch && isCentinelaMatch(data.nextMatch)) {
       const dateObj = parseMatchDate(data.nextMatch.date, data.nextMatch.time);
       return {
@@ -174,113 +171,112 @@
     return `${pad(hours)}h ${pad(mins)}m`;
   }
 
+  let activeInterval = null;
+
+  function runCountdown(targetDate) {
+    if (activeInterval) clearInterval(activeInterval);
+
+    const elCountdown = document.getElementById('islandCountdown');
+    const elMiniCountdown = document.getElementById('islandMiniCountdown');
+    const elBadgeText = document.getElementById('islandBadgeText');
+    const elPulseDot = document.getElementById('islandPulseDot');
+    const elSolidDot = document.getElementById('islandSolidDot');
+
+    function tick() {
+      const now = new Date();
+      const diff = targetDate.getTime() - now.getTime();
+
+      if (diff <= 0 && diff >= -115 * 60 * 1000) {
+        if (elBadgeText) elBadgeText.textContent = 'EN DIRECTO';
+        if (elPulseDot) elPulseDot.className = 'animate-ping absolute inline-flex h-full w-full rounded-full bg-red-500 opacity-75';
+        if (elSolidDot) elSolidDot.className = 'relative inline-flex rounded-full h-2 w-2 bg-red-500';
+        if (elCountdown) elCountdown.textContent = '¡EN JUEGO!';
+        if (elMiniCountdown) elMiniCountdown.textContent = 'EN JUEGO';
+      } else if (diff < -115 * 60 * 1000) {
+        if (elCountdown) elCountdown.textContent = 'Finalizado';
+        initMatchIsland();
+      } else {
+        if (elCountdown) elCountdown.textContent = formatDiff(diff);
+        if (elMiniCountdown) elMiniCountdown.textContent = formatShortDiff(diff);
+      }
+    }
+
+    tick();
+    activeInterval = setInterval(tick, 1000);
+  }
+
   async function initMatchIsland() {
     const island = document.getElementById('matchFloatingIsland');
     if (!island) return;
 
+    // Default match fallback (11/09/2026 a las 21:00)
+    let matchDate = new Date(2026, 8, 11, 21, 0, 0);
+    runCountdown(matchDate);
+
+    // Setup Minimize / Expand toggle
+    const expandedDiv = document.getElementById('islandExpanded');
+    const minimizedDiv = document.getElementById('islandMinimized');
+    const minimizeBtn = document.getElementById('islandMinimizeBtn');
+
+    if (sessionStorage.getItem('udc_island_minimized') === 'true') {
+      if (expandedDiv) expandedDiv.classList.add('hidden');
+      if (minimizedDiv) minimizedDiv.classList.remove('hidden');
+    }
+
+    if (minimizeBtn && !minimizeBtn.__hasListener) {
+      minimizeBtn.__hasListener = true;
+      minimizeBtn.addEventListener('click', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        if (expandedDiv) expandedDiv.classList.add('hidden');
+        if (minimizedDiv) minimizedDiv.classList.remove('hidden');
+        sessionStorage.setItem('udc_island_minimized', 'true');
+      });
+    }
+
+    if (minimizedDiv && !minimizedDiv.__hasListener) {
+      minimizedDiv.__hasListener = true;
+      minimizedDiv.addEventListener('click', function () {
+        if (expandedDiv) expandedDiv.classList.remove('hidden');
+        if (minimizedDiv) minimizedDiv.classList.add('hidden');
+        sessionStorage.setItem('udc_island_minimized', 'false');
+      });
+    }
+
+    // Now fetch real-time calendar.json
     try {
       const res = await fetch('/assets/data/calendar.json?t=' + Date.now());
       if (!res.ok) return;
       const data = await res.json();
 
       const result = detectNextMatch(data);
-      if (!result || !result.match) {
-        island.style.display = 'none';
-        return;
-      }
-
-      const match = result.match;
-      const matchDate = match.dateObj || parseMatchDate(match.date, match.time);
-      if (!matchDate) {
-        island.style.display = 'none';
-        return;
-      }
-
-      // Populate Logos
-      const homeLogo = getTeamLogo(match.home, match.homeLogo);
-      const awayLogo = getTeamLogo(match.away, match.awayLogo);
-      const homeName = getShortTeamName(match.home, data.teams);
-      const awayName = getShortTeamName(match.away, data.teams);
-
-      const elHomeLogo = document.getElementById('islandHomeLogo');
-      const elAwayLogo = document.getElementById('islandAwayLogo');
-      const elHomeName = document.getElementById('islandHomeName');
-      const elAwayName = document.getElementById('islandAwayName');
-      const elCountdown = document.getElementById('islandCountdown');
-      const elMiniCountdown = document.getElementById('islandMiniCountdown');
-      const elBadgeText = document.getElementById('islandBadgeText');
-      const elPulseDot = document.getElementById('islandPulseDot');
-      const elSolidDot = document.getElementById('islandSolidDot');
-      const elMiniMatch = document.getElementById('islandMiniMatch');
-
-      if (elHomeLogo) elHomeLogo.src = homeLogo;
-      if (elAwayLogo) elAwayLogo.src = awayLogo;
-      if (elHomeName) elHomeName.textContent = homeName;
-      if (elAwayName) elAwayName.textContent = awayName;
-      if (elMiniMatch) elMiniMatch.textContent = `${homeName} vs ${awayName}`;
-
-      // Update function
-      function updateTimer() {
-        const now = new Date();
-        const diff = matchDate.getTime() - now.getTime();
-
-        if (diff <= 0 && diff >= -115 * 60 * 1000) {
-          // Partido en juego
-          if (elBadgeText) elBadgeText.textContent = 'EN DIRECTO';
-          if (elPulseDot) elPulseDot.className = 'animate-ping absolute inline-flex h-full w-full rounded-full bg-red-500 opacity-75';
-          if (elSolidDot) elSolidDot.className = 'relative inline-flex rounded-full h-2 w-2 bg-red-500';
-          if (elCountdown) elCountdown.textContent = '¡EN JUEGO!';
-          if (elMiniCountdown) elMiniCountdown.textContent = 'EN JUEGO';
-        } else if (diff < -115 * 60 * 1000) {
-          // El partido ya terminó, reinicializar con el siguiente
-          initMatchIsland();
-        } else {
-          // Próximo partido
-          const fullText = formatDiff(diff);
-          const shortText = formatShortDiff(diff);
-          if (elCountdown) elCountdown.textContent = fullText;
-          if (elMiniCountdown) elMiniCountdown.textContent = shortText;
+      if (result && result.match) {
+        const m = result.match;
+        const d = m.dateObj || parseMatchDate(m.date, m.time);
+        if (d) {
+          matchDate = d;
+          runCountdown(matchDate);
         }
+
+        const homeLogo = getTeamLogo(m.home, m.homeLogo);
+        const awayLogo = getTeamLogo(m.away, m.awayLogo);
+        const homeName = getShortTeamName(m.home, data.teams);
+        const awayName = getShortTeamName(m.away, data.teams);
+
+        const elHomeLogo = document.getElementById('islandHomeLogo');
+        const elAwayLogo = document.getElementById('islandAwayLogo');
+        const elHomeName = document.getElementById('islandHomeName');
+        const elAwayName = document.getElementById('islandAwayName');
+        const elMiniMatch = document.getElementById('islandMiniMatch');
+
+        if (elHomeLogo) elHomeLogo.src = homeLogo;
+        if (elAwayLogo) elAwayLogo.src = awayLogo;
+        if (elHomeName) elHomeName.textContent = homeName;
+        if (elAwayName) elAwayName.textContent = awayName;
+        if (elMiniMatch) elMiniMatch.textContent = `${homeName} vs ${awayName}`;
       }
-
-      updateTimer();
-      setInterval(updateTimer, 1000);
-
-      // Handle Minimize / Expand toggle
-      const expandedDiv = document.getElementById('islandExpanded');
-      const minimizedDiv = document.getElementById('islandMinimized');
-      const minimizeBtn = document.getElementById('islandMinimizeBtn');
-
-      const isInitiallyMinimized = sessionStorage.getItem('udc_island_minimized') === 'true';
-      if (isInitiallyMinimized) {
-        if (expandedDiv) expandedDiv.classList.add('hidden');
-        if (minimizedDiv) minimizedDiv.classList.remove('hidden');
-      }
-
-      if (minimizeBtn) {
-        minimizeBtn.addEventListener('click', function (e) {
-          e.preventDefault();
-          e.stopPropagation();
-          if (expandedDiv) expandedDiv.classList.add('hidden');
-          if (minimizedDiv) minimizedDiv.classList.remove('hidden');
-          sessionStorage.setItem('udc_island_minimized', 'true');
-        });
-      }
-
-      if (minimizedDiv) {
-        minimizedDiv.addEventListener('click', function () {
-          if (expandedDiv) expandedDiv.classList.remove('hidden');
-          if (minimizedDiv) minimizedDiv.classList.add('hidden');
-          sessionStorage.setItem('udc_island_minimized', 'false');
-        });
-      }
-
-      // Show the island with smooth reveal
-      island.style.display = 'block';
-      island.classList.add('island-revealed');
-
     } catch (err) {
-      console.warn('No se pudo inicializar la isla de partido:', err);
+      console.warn('[Match Island] Usando fecha predeterminada:', err);
     }
   }
 
