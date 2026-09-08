@@ -1,6 +1,21 @@
 {
   "items": [
     {
+      "slug": "nuevo-fichaje-yeray",
+      "title": "Nuevo Fichaje - Yeray 'Melón'",
+      "category": "Fichajes",
+      "date": "08/09/2026",
+      "reading": "2 min",
+      "excerpt": "La Unión Deportivo Centinela refuerza su portería con la incorporación de Yeray 'Melón', guardameta veteranísimo, líder de grupo y pieza fundamental dentro y fuera del verde.",
+      "image": "/assets/img/players/yeray.webp",
+      "imageAlt": "Nuevo Fichaje - Yeray Melón - UD Centinela",
+      "body": [
+        "La Unión Deportivo Centinela apunta a la solidez, la veteranía y la cohesión de vestuario para la temporada 2026/2027 en categoría Regional con la incorporación oficial del guardameta Yeray, conocido futbolísticamente como 'Melón'.",
+        "Con dorsal aún por confirmar, Yeray defenderá los tres palos como portero. Se trata del futbolista más veterano de la plantilla, un jugador curtido en mil batallas que aporta una experiencia de valor incalculable y una capacidad única para hacer grupo, sumar en el vestuario y contagiar compromiso a todos sus compañeros.",
+        "Un guardameta que mantiene intactas las ganas, la energía y la ilusión por vestirse de corto y estar en el verde. Su figura será un respaldo enorme tanto dentro del campo como fuera de él, transmitiendo tranquilidad al bloque defensivo y guiando a los jóvenes con liderazgo y carácter icodense."
+      ]
+    },
+    {
       "slug": "nuevo-fichaje-miguel",
       "title": "Nuevo Fichaje - Miguel",
       "category": "Fichajes",

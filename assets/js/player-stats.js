@@ -39,7 +39,7 @@
     if (!player) return 'otro';
 
     // Explicit overrides for existing squad players
-    if (player.id === 'rayco' || player.id === 'julio') return 'portero';
+    if (player.id === 'rayco' || player.id === 'julio' || player.id === 'yeray' || player.id === 'yeray-melon') return 'portero';
     if (player.id === 'jordan' || player.id === 'pablo' || player.id === 'aday' || player.id === 'cristian' || player.id === 'salvador' || player.id === 'salva' || player.id === 'nauzet') return 'defensa';
     if (player.id === 'sebastian' || player.id === 'ruben' || player.id === 'angel' || player.id === 'edgar' || player.id === 'miguel') return 'medio';
     if (player.id === 'colcho' || player.id === 'cristian-colcho' || player.id === 'adrian-tejera' || player.id === 'zacaria' || player.id === 'champi' || player.id === 'joel' || player.id === 'yoel' || player.id === 'tinguaro' || player.id === 'nano') return 'delantero';

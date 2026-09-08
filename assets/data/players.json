@@ -1,7 +1,22 @@
 {
   "season": "Temporada 2026/2027",
-  "lastUpdated": "2026-09-01T18:58:39.415Z",
+  "lastUpdated": "2026-09-08T12:12:00.000Z",
   "players": [
+    {
+      "id": "yeray",
+      "name": "Yeray (Melón)",
+      "fullName": "Yeray (Melón)",
+      "dorsal": null,
+      "position": "Portero",
+      "role": "Portero",
+      "status": "Confirmado",
+      "image": "/assets/img/players/yeray.webp",
+      "slug": "yeray",
+      "url": "/regional/yeray/",
+      "goals": 0,
+      "assists": 0,
+      "matchesPlayed": 0
+    },
     {
       "id": "miguel",
       "name": "Miguel",
