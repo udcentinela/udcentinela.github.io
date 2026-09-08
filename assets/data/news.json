@@ -1,6 +1,22 @@
 {
   "items": [
     {
+      "slug": "nuevo-fichaje-tono",
+      "title": "Nuevo Fichaje - Toño (2º Entrenador)",
+      "category": "Cuerpo Técnico",
+      "date": "08/09/2026",
+      "reading": "2 min",
+      "excerpt": "Toño refuerza el cuerpo técnico de la UD Centinela como segundo entrenador: dilatada experiencia forjada a lo largo de toda su vida en múltiples equipos y categorías para sumar junto a Juan Manuel en este ilusionante proyecto.",
+      "image": "/assets/img/players/tono.webp",
+      "imageAlt": "Nuevo 2º Entrenador Toño - UD Centinela",
+      "body": [
+        "La Unión Deportivo Centinela continúa apuntalando su estructura técnica para la temporada 2026/2027 en categoría Regional con la incorporación de Toño como segundo entrenador del primer equipo.",
+        "Toño es un técnico de amplísima trayectoria y contrastada experiencia, habiendo dedicado toda su vida a los banquillos dirigiendo y formando futbolistas en diferentes equipos y categorías. Su profundo conocimiento del fútbol y su cercanía en el trato humano son señas de identidad de su carrera.",
+        "Con su llegada a la UD Centinela, Toño da el salto a la categoría Regional para acompañar a Juan Manuel ('Juanma') en la dirección técnica, conformando un tándem de plenas garantías dispuesto a volcar toda su dedicación para ayudar al equipo, potenciar el vestuario y hacer de El Molino un fortín.",
+        "Desde la familia de la UD Centinela le damos la más calurosa bienvenida a Toño en este nuevo e ilusionante reto."
+      ]
+    },
+    {
       "slug": "nuevo-fichaje-juan-manuel",
       "title": "Nuevo Fichaje - Juan Manuel (Entrenador)",
       "category": "Cuerpo Técnico",

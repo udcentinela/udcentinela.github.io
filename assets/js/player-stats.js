@@ -201,7 +201,7 @@
     const squadGrid = document.querySelector('.squad-grid');
     if (!squadGrid) return;
 
-    const validPlayers = allPlayers.filter(p => p.id !== 'cuerpo-tecnico' && p.id !== 'juan-manuel');
+    const validPlayers = allPlayers.filter(p => p.id !== 'cuerpo-tecnico' && p.id !== 'juan-manuel' && p.id !== 'tono' && !((p.position || '') + ' ' + (p.role || '')).toLowerCase().includes('entrenador'));
     updateCategoryCounters(validPlayers);
 
     const filtered = validPlayers.filter(p => {

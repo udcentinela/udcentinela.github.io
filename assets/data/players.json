@@ -1,6 +1,6 @@
 {
   "season": "Temporada 2026/2027",
-  "lastUpdated": "2026-09-08T14:10:00.000Z",
+  "lastUpdated": "2026-09-08T14:45:00.000Z",
   "players": [
     {
       "id": "iriome",
@@ -373,6 +373,21 @@
       "image": "/assets/img/players/juan-manuel.webp",
       "slug": "juan-manuel",
       "url": "/regional/juan-manuel/",
+      "goals": 0,
+      "assists": 0,
+      "matchesPlayed": 0
+    },
+    {
+      "id": "tono",
+      "name": "Toño",
+      "fullName": "Toño (Segundo Entrenador)",
+      "dorsal": null,
+      "position": "2º Entrenador",
+      "role": "Segundo Entrenador",
+      "status": "Confirmado",
+      "image": "/assets/img/players/tono.webp",
+      "slug": "tono",
+      "url": "/regional/tono/",
       "goals": 0,
       "assists": 0,
       "matchesPlayed": 0
