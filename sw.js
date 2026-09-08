@@ -1,10 +1,10 @@
 /**
  * UD Centinela - Service Worker PWA & Modo Estadio Offline
- * Version: 20260908_staff_trio_v1
+ * Version: 20260908_floating_island_v1
  */
 
-const CACHE_NAME = 'udc-cache-v20260908_staff_trio_v1';
-const DATA_CACHE_NAME = 'udc-data-cache-v20260908_staff_trio_v1';
+const CACHE_NAME = 'udc-cache-v20260908_floating_island_v1';
+const DATA_CACHE_NAME = 'udc-data-cache-v20260908_floating_island_v1';
 
 const PRECACHE_ASSETS = [
   '/',
@@ -29,6 +29,7 @@ const PRECACHE_ASSETS = [
   '/assets/js/likes-system.js',
   '/assets/js/player-stats.js',
   '/assets/js/news-renderer.js',
+  '/assets/js/match-island.js',
   '/assets/js/pwa-manager.js',
   '/assets/data/calendar.json',
   '/assets/data/players.json',
