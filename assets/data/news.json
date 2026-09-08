@@ -1,6 +1,22 @@
 {
   "items": [
     {
+      "slug": "nuevo-fichaje-joel",
+      "title": "Nuevo Fichaje - Joel (Preparador Físico)",
+      "category": "Cuerpo Técnico",
+      "date": "08/09/2026",
+      "reading": "2 min",
+      "excerpt": "Joel se une al cuerpo técnico de la UD Centinela como preparador físico: profesional cercano, altamente disciplinado y el gran encargado de evitar lesiones y poner a punto a la plantilla.",
+      "image": "/assets/img/players/joel-preparador-fisico.webp",
+      "imageAlt": "Nuevo Preparador Físico Joel - UD Centinela",
+      "body": [
+        "La Unión Deportivo Centinela continúa sumando piezas clave a su estructura deportiva para la temporada 2026/2027 en categoría Regional con la llegada de Joel como preparador físico del primer equipo.",
+        "Joel destaca por ser una persona cercana en el vestuario y sumamente disciplinada en cada una de sus tareas metodológicas. Su figura será el pilar sobre el que descansará la preparación atlética de la plantilla, siendo el máximo responsable de prevenir y evitar lesiones, coordinar la readaptación y poner a punto a cada futbolista para que llegue en su mejor versión a la competición.",
+        "Junto al cuerpo técnico encabezado por Juan Manuel y Toño, Joel velará por la resistencia, la potencia y el tono competitivo del equipo, garantizando que el Centinela despliegue un fútbol de alta intensidad durante los noventa minutos sobre el césped de El Molino.",
+        "¡Bienvenido a la familia centinelista, Joel!"
+      ]
+    },
+    {
       "slug": "nuevo-fichaje-tono",
       "title": "Nuevo Fichaje - Toño (2º Entrenador)",
       "category": "Cuerpo Técnico",

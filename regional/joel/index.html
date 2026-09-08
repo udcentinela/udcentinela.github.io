@@ -12,7 +12,7 @@
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UD Centinela | Joel #7</title>
+    <title>UD Centinela | Joel - Preparador Físico</title>
     <meta name="google-site-verification" content="d5P-lVf1Ztgx4HS92B6wuiJH1yU3vwiEYMzmAcoaGBQ" />
     
     <!-- Fuentes: Montserrat para títulos impactantes, Inter para lectura -->
@@ -45,6 +45,10 @@
             background: var(--color-brand-neon); 
         }
 
+        .text-glow {
+            text-shadow: 0 0 10px var(--color-brand-neon);
+        }
+
         .hero-gradient {
             background: radial-gradient(circle at center, var(--hero-glow) 0%, var(--color-brand-dark) 70%);
         }
@@ -64,25 +68,8 @@
             justify-content: center;
             align-items: center;
             flex-direction: column;
-            opacity: 1;
-            visibility: visible;
-            transform: translateZ(0);
-            transition: opacity 0.55s ease, visibility 0.55s ease;
-            will-change: opacity;
         }
-
-        #preloader h2 {
-            opacity: 0.35;
-            transform: translateY(8px) scale(0.97);
-            transition: opacity 0.45s ease, transform 0.45s ease;
-            will-change: opacity, transform;
-        }
-
-        #preloader.preloader-ready h2 {
-            opacity: 1;
-            transform: translateY(0) scale(1);
-        }
-
+        
         .loader-line {
             width: 0%;
             height: 2px;
@@ -90,37 +77,18 @@
             margin-top: 20px;
             box-shadow: 0 0 10px var(--color-brand-neon-glow);
         }
+    
+        .nav-link-active {
+            color: var(--color-brand-neon);
+        }
 
         .profile-shell {
             padding-top: 8rem;
         }
 
-        .profile-avatar-box {
-            position: relative;
-            min-height: 24rem;
-            display: flex;
-            align-items: flex-end;
-            justify-content: center;
-            padding: 1.5rem;
-            background: radial-gradient(circle at 50% 30%, rgba(0, 82, 255, 0.25) 0%, rgba(3, 7, 18, 0.95) 85%);
-        }
-
-        .profile-avatar-box img {
-            max-height: 22rem;
-            width: auto;
-            object-fit: contain;
-            filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.75));
-        }
-
         .profile-stat {
             background: rgba(255, 255, 255, 0.05);
             border: 1px solid rgba(255, 255, 255, 0.08);
-        }
-
-        .profile-back {
-            color: inherit;
-            text-decoration: none;
-            display: block;
         }
 
         .mobile-menu-button {
@@ -147,9 +115,73 @@
             background: rgb(var(--color-brand-neon-rgb) / 0.1);
             border-color: rgb(var(--color-brand-neon-rgb) / 0.35);
         }
-    </style>
 
-    <meta name="description" content="Ficha oficial de Joel (#7), lateral y extremo de la UD Centinela en categoría Regional para la temporada 2026/2027.">
+        #preloader {
+            opacity: 1;
+            visibility: visible;
+            transform: translateZ(0);
+            transition: opacity 0.55s ease, visibility 0.55s ease;
+            will-change: opacity;
+        }
+
+        #preloader h2 {
+            opacity: 0.35;
+            transform: translateY(8px) scale(0.97);
+            filter: blur(4px);
+            letter-spacing: 0.24em;
+            text-shadow: 0 0 24px rgb(var(--color-brand-neon-rgb) / 0.18);
+            transition: opacity 0.8s ease, transform 0.8s ease, filter 0.8s ease, letter-spacing 0.8s ease;
+        }
+
+        #preloader.is-ready h2 {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+            filter: blur(0);
+            letter-spacing: 0.32em;
+        }
+
+        #preloader .loader-line {
+            width: min(160px, 42vw);
+            transform: scaleX(0);
+            transform-origin: left center;
+            background: linear-gradient(90deg, var(--color-brand-blue), var(--color-brand-neon));
+            box-shadow: 0 0 12px var(--color-brand-neon-glow);
+        }
+
+        #preloader.is-ready .loader-line {
+            transform: scaleX(1);
+        }
+
+        #preloader.is-leaving {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        #preloader.is-leaving h2 {
+            opacity: 0;
+            transform: translateY(-8px) scale(1.03);
+            filter: blur(3px);
+        }
+
+        body > :not(#preloader) {
+            transition: opacity 0.16s ease;
+        }
+
+        body.page-leaving > :not(#preloader) {
+            opacity: 0.72;
+        }
+
+        a:focus-visible,
+        button:focus-visible,
+        input:focus-visible,
+        textarea:focus-visible,
+        select:focus-visible {
+            outline: 2px solid var(--color-brand-neon);
+            outline-offset: 4px;
+        }
+    </style>
+    <meta name="description" content="Ficha oficial de Joel, preparador físico de la Unión Deportivo Centinela para la temporada 2026/2027 en categoría Regional.">
     <meta name="robots" content="index,follow">
     <link rel="canonical" href="https://udcentinela.github.io/regional/joel/">
     <link rel="icon" href="/favicon.ico">
@@ -158,14 +190,14 @@
     <meta name="theme-color" content="#020617">
     <meta property="og:type" content="profile">
     <meta property="og:site_name" content="UD Centinela">
-    <meta property="og:title" content="UD Centinela | Joel #7">
-    <meta property="og:description" content="Ficha oficial de Joel (#7), lateral y extremo de la UD Centinela en categoría Regional para la temporada 2026/2027.">
+    <meta property="og:title" content="UD Centinela | Joel - Preparador Físico">
+    <meta property="og:description" content="Ficha oficial de Joel, preparador físico de la Unión Deportivo Centinela para la temporada 2026/2027 en categoría Regional.">
     <meta property="og:url" content="https://udcentinela.github.io/regional/joel/">
-    <meta property="og:image" content="https://udcentinela.github.io/assets/img/joel.webp">
+    <meta property="og:image" content="https://udcentinela.github.io/assets/img/players/joel-preparador-fisico.webp">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="UD Centinela | Joel #7">
-    <meta name="twitter:description" content="Ficha oficial de Joel (#7), lateral y extremo de la UD Centinela en categoría Regional para la temporada 2026/2027.">
-    <meta name="twitter:image" content="https://udcentinela.github.io/assets/img/joel.webp">
+    <meta name="twitter:title" content="UD Centinela | Joel - Preparador Físico">
+    <meta name="twitter:description" content="Ficha oficial de Joel, preparador físico de la Unión Deportivo Centinela para la temporada 2026/2027 en categoría Regional.">
+    <meta name="twitter:image" content="https://udcentinela.github.io/assets/img/players/joel-preparador-fisico.webp">
 </head>
 <body class="antialiased selection:bg-brand-neon selection:text-brand-dark">
     <!-- Preloader -->
@@ -191,6 +223,7 @@
                         <a href="/historia/" class="text-gray-300 hover:text-brand-neon transition-colors px-3 py-2 text-sm font-medium tracking-wide">HISTORIA</a>
                         <a href="/identidad/" class="text-gray-300 hover:text-brand-neon transition-colors px-3 py-2 text-sm font-medium tracking-wide">IDENTIDAD</a>
                         <a href="/patrocinios/" class="text-gray-300 hover:text-brand-neon transition-colors px-3 py-2 text-sm font-medium tracking-wide">PATROCINIOS</a>
+                        <!-- Botón de alternancia en navbar (escritorio) -->
                         <button id="themeToggleBtnNavbar" class="text-gray-300 hover:text-brand-neon transition-colors p-2 rounded-xl flex items-center justify-center group relative ml-2" aria-label="Alternar colores">
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5c1.38 0 2.5 1 2.5 2.25v.75c0 .414.336.75.75.75H18c.552 0 1 .448 1 1V11c0 .552-.448 1-1 1h-1.5c-.414 0-.75.336-.75.75V20c0 .552-.448 1-1 1H9.25c-.552 0-1-.448-1-1v-7.25c0-.414-.336-.75-.75-.75H6c-.552 0-1-.448-1-1V9.25c0-.552.448-1 1-1h2.75c.414 0 .75-.336.75-.75v-.75c0-1.25 1.12-2.25 2.5-2.25z"/>
@@ -215,6 +248,7 @@
                 <a href="/historia/" class="mobile-nav-link flex items-center justify-between rounded-xl border border-white/5 px-4 py-3 text-base font-bold tracking-widest text-gray-200 hover:border-brand-neon/40 hover:bg-white/5 hover:text-brand-neon transition-colors"><span>HISTORIA</span><svg class="w-4 h-4 text-brand-neon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg></a>
                 <a href="/identidad/" class="mobile-nav-link flex items-center justify-between rounded-xl border border-white/5 px-4 py-3 text-base font-bold tracking-widest text-gray-200 hover:border-brand-neon/40 hover:bg-white/5 hover:text-brand-neon transition-colors"><span>IDENTIDAD</span><svg class="w-4 h-4 text-brand-neon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg></a>
                 <a href="/patrocinios/" class="mobile-nav-link flex items-center justify-between rounded-xl border border-white/5 px-4 py-3 text-base font-bold tracking-widest text-gray-200 hover:border-brand-neon/40 hover:bg-white/5 hover:text-brand-neon transition-colors"><span>PATROCINIOS</span><svg class="w-4 h-4 text-brand-neon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg></a>
+                <!-- Botón de alternancia en navbar (móvil) -->
                 <button id="themeToggleBtnMobile" class="mobile-nav-link flex items-center justify-between rounded-xl border border-white/5 px-4 py-3 text-base font-bold tracking-widest text-gray-200 hover:border-brand-neon/40 hover:bg-white/5 hover:text-brand-neon transition-colors mt-2" aria-label="Alternar colores">
                     <span class="flex items-center gap-3">
                         <svg class="w-5 h-5 text-brand-neon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
@@ -228,33 +262,36 @@
             </div>
         </div>
     </nav>
+
     <script>
         (function () {
             function initMobileNavigationEarly() {
+                if (window.__centinelaMobileNavReady) return;
+
                 const toggle = document.getElementById('mobileMenuToggle');
                 const menu = document.getElementById('mobileMenu');
                 if (!toggle || !menu) return;
 
+                window.__centinelaMobileNavReady = true;
+
                 const openIcon = toggle.querySelector('.mobile-menu-open');
                 const closeIcon = toggle.querySelector('.mobile-menu-close');
 
-                function setOpen(isOpen) {
-                    toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-                    if (isOpen) {
-                        menu.removeAttribute('hidden');
-                        if (openIcon) openIcon.classList.add('hidden');
-                        if (closeIcon) closeIcon.classList.remove('hidden');
-                    } else {
-                        menu.setAttribute('hidden', '');
-                        if (openIcon) openIcon.classList.remove('hidden');
-                        if (closeIcon) closeIcon.classList.add('hidden');
-                    }
-                }
+                const setOpen = (isOpen) => {
+                    toggle.setAttribute('aria-expanded', String(isOpen));
+                    toggle.setAttribute('aria-label', isOpen ? 'Cerrar menú de navegación' : 'Abrir menú de navegación');
+                    menu.hidden = !isOpen;
+                    document.body.classList.toggle('overflow-hidden', isOpen);
+                    openIcon?.classList.toggle('hidden', isOpen);
+                    closeIcon?.classList.toggle('hidden', !isOpen);
+                };
 
-                toggle.addEventListener('click', (event) => {
-                    event.stopPropagation();
-                    const isOpen = toggle.getAttribute('aria-expanded') === 'true';
-                    setOpen(!isOpen);
+                toggle.addEventListener('click', () => {
+                    setOpen(toggle.getAttribute('aria-expanded') !== 'true');
+                });
+
+                menu.querySelectorAll('a').forEach((link) => {
+                    link.addEventListener('click', () => setOpen(false));
                 });
 
                 document.addEventListener('keydown', (event) => {
@@ -305,22 +342,20 @@
 
             <div class="grid grid-cols-1 lg:grid-cols-[0.9fr_1.1fr] gap-10 lg:gap-16 items-center">
                 <div class="profile-card bg-white/5 border border-brand-neon/30 rounded-3xl overflow-hidden shadow-neon">
-                    <div class="profile-avatar-box">
-                        <div class="absolute inset-0 bg-gradient-to-t from-brand-dark/95 via-transparent to-transparent z-10 pointer-events-none"></div>
-                        <img src="/assets/img/joel.webp" alt="Joel - UD Centinela">
-                        <div class="absolute top-5 right-5 z-20 flex items-center gap-1.5">
-                            <span class="bg-brand-neon text-brand-dark font-black px-3 py-1 rounded-lg text-xs shadow-md">#7</span>
-                        </div>
+                    <div class="profile-avatar relative min-h-[380px] bg-gray-900 flex items-end justify-center p-6">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-transparent to-transparent z-10 pointer-events-none"></div>
+                        <img src="/assets/img/players/joel-preparador-fisico.webp" alt="Joel - Preparador Físico UD Centinela" onerror="this.src='/assets/img/joel-pf.webp'" class="relative z-0 max-h-[340px] w-auto object-contain">
+                        <span class="absolute top-6 right-6 z-20 bg-brand-neon text-brand-dark font-black px-4 py-2 rounded-xl text-xs uppercase shadow-md">Preparador Físico</span>
                     </div>
                 </div>
 
                 <div class="profile-card">
                     <div class="flex items-center gap-3 mb-3">
-                        <span class="text-brand-neon font-semibold tracking-[0.2em] uppercase text-sm">Plantilla Oficial</span>
+                        <span class="text-brand-neon font-semibold tracking-[0.2em] uppercase text-sm">Preparación Física &middot; Cuerpo Técnico</span>
                     </div>
                     <h1 class="font-heading text-5xl md:text-7xl font-black text-white leading-none mb-4">Joel</h1>
                     <div class="flex flex-wrap items-center justify-between gap-4 mb-8">
-                        <p class="text-xl text-gray-300 font-medium">Lateral / Extremo <span class="text-brand-neon">#7</span></p>
+                        <p class="text-xl text-gray-300 font-medium">Preparador Físico &middot; <span class='text-brand-neon font-black'>Temporada 2026/2027</span></p>
                         <div class="udc-like-container">
                             <button type="button" class="udc-like-btn" data-like-id="player_joel" aria-label="Dar me gusta a Joel">
                                 <svg class="udc-like-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
@@ -333,11 +368,11 @@
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
                         <div class="profile-stat rounded-2xl p-5">
                             <p class="text-gray-500 text-xs font-bold tracking-widest uppercase mb-2">Posición</p>
-                            <p class="text-white font-heading text-xl">Lateral / Extremo</p>
+                            <p class="text-white font-heading text-xl">Preparación física</p>
                         </div>
                         <div class="profile-stat rounded-2xl p-5">
-                            <p class="text-gray-500 text-xs font-bold tracking-widest uppercase mb-2">Dorsal / Rol</p>
-                            <p class="text-white font-heading text-xl">#7 · Carril / Banda</p>
+                            <p class="text-gray-500 text-xs font-bold tracking-widest uppercase mb-2">Cargo / Área</p>
+                            <p class="text-white font-heading text-xl">Preparador Físico</p>
                         </div>
                         <div class="profile-stat rounded-2xl p-5">
                             <p class="text-gray-500 text-xs font-bold tracking-widest uppercase mb-2">Temporada</p>
@@ -351,7 +386,7 @@
 
                     <div class="profile-stat rounded-3xl p-7">
                         <p class="text-brand-neon font-bold tracking-widest uppercase text-xs mb-3">Información y Perfil Deportivo</p>
-                        <p class="text-gray-300 leading-relaxed">Futbolista polivalente y muy habilidoso que domina el carril lateral como extremo con enorme soltura y solvencia técnica. Joel destaca por su desborde, precisión en la conducción y una incansable entrega física en cada jugada. Jugador sumamente comprometido que siempre da la cara por el grupo y asume la responsabilidad tanto en labores de contención como en transiciones ofensivas veloces hacia el área contraria. Un refuerzo de enorme valor para la UD Centinela en la temporada 2026/2027.</p>
+                        <p class="text-gray-300 leading-relaxed">Joel asume la preparación física de la UD Centinela para la temporada 2026/2027 en categoría Regional. Profesional sumamente cercano en el trato con los futbolistas y con un estricto sentido de la disciplina y el rigor en cada una de sus tareas diarias. Su función es primordial para los objetivos del club: es el encargado directo de planificar el acondicionamiento atlético, prevenir y evitar lesiones, coordinar los procesos de readaptación funcional y poner a punto a toda la plantilla para que compita al máximo nivel y con la mayor intensidad sobre el césped de El Molino.</p>
                     </div>
                 </div>
             </div>
@@ -375,13 +410,6 @@
         </div>
     </footer>
 
-    <!-- Motion -->
-    <script src="/assets/js/gsap.min.js"></script>
-    <script src="/assets/js/ScrollTrigger.min.js"></script>
-    <script src="/assets/js/ScrollToPlugin.min.js"></script>
-    <script src="/assets/site-motion.js?v=20260819_toggle"></script>
-    <script src="/assets/js/likes-system.js?v=20260818_sync"></script>
-    <script src="/assets/js/player-stats.js?v=20260820_sync"></script>
     <!-- Botón flotante para alternar colores de equipación -->
     <button id="themeToggleBtn" class="fixed bottom-6 right-6 z-50 flex items-center justify-center w-12 h-12 bg-brand-dark/90 border border-brand-neon/30 text-brand-neon hover:text-brand-dark hover:bg-brand-neon rounded-full shadow-neon transition-all duration-300 group" aria-label="Alternar colores">
         <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
@@ -390,5 +418,13 @@
         </svg>
         <span class="absolute bottom-14 right-0 scale-0 group-hover:scale-100 bg-brand-dark/95 border border-brand-neon/20 text-white text-xs font-bold px-3 py-1.5 rounded-xl transition-all duration-200 origin-bottom-right whitespace-nowrap shadow-lg">Alternar colores</span>
     </button>
+
+    <!-- Motion -->
+    <script src="/assets/js/gsap.min.js"></script>
+    <script src="/assets/js/ScrollTrigger.min.js"></script>
+    <script src="/assets/js/ScrollToPlugin.min.js"></script>
+    <script src="/assets/site-motion.js?v=20260819_toggle"></script>
+    <script src="/assets/js/likes-system.js?v=20260818_sync"></script>
+    <script src="/assets/js/player-stats.js"></script>
 </body>
 </html>

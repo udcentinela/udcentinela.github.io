@@ -1,6 +1,6 @@
 {
   "season": "Temporada 2026/2027",
-  "lastUpdated": "2026-09-08T14:45:00.000Z",
+  "lastUpdated": "2026-09-08T14:50:00.000Z",
   "players": [
     {
       "id": "iriome",
@@ -388,6 +388,21 @@
       "image": "/assets/img/players/tono.webp",
       "slug": "tono",
       "url": "/regional/tono/",
+      "goals": 0,
+      "assists": 0,
+      "matchesPlayed": 0
+    },
+    {
+      "id": "joel",
+      "name": "Joel",
+      "fullName": "Joel (Preparador Físico)",
+      "dorsal": null,
+      "position": "Preparador Físico",
+      "role": "Preparador Físico",
+      "status": "Confirmado",
+      "image": "/assets/img/players/joel-preparador-fisico.webp",
+      "slug": "joel",
+      "url": "/regional/joel/",
       "goals": 0,
       "assists": 0,
       "matchesPlayed": 0
