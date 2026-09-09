@@ -1,6 +1,22 @@
 {
   "items": [
     {
+      "slug": "nuevo-fichaje-jose-angel",
+      "title": "Nuevo Fichaje - José Ángel",
+      "category": "Fichajes",
+      "date": "09/09/2026",
+      "reading": "2 min",
+      "excerpt": "La Unión Deportivo Centinela apuntala su defensa con la llegada de José Ángel: central de gran calidad técnica, magnífico golpeo y pase, y excelentes prestaciones defensivas.",
+      "image": "/assets/img/players/jose-angel.webp",
+      "imageAlt": "Nuevo Fichaje - José Ángel - UD Centinela",
+      "body": [
+        "La Unión Deportivo Centinela continúa reforzando su proyecto deportivo para la temporada 2026/2027 en categoría Regional con la incorporación de José Ángel, defensa central de plenas garantías para la zaga icodense.",
+        "Con dorsal por confirmar, José Ángel se desempeña como central y destaca por aunar una enorme calidad individual con una gran visión táctica: su golpeo de balón a media y larga distancia y su precisión en el pase aseguran una salida de balón pulcra y con criterio desde la primera línea.",
+        "A su elegancia e inteligencia con la pelota se suma una excelente capacidad defensiva, solvencia en los duelos individuales, rigor táctico en la marca y autoridad en los balones aéreos. Un refuerzo de jerarquía que dotará de solidez y seguridad a la retaguardia en El Molino.",
+        "¡Bienvenido a la UD Centinela, José Ángel!"
+      ]
+    },
+    {
       "slug": "nuevo-fichaje-joel",
       "title": "Nuevo Fichaje - Joel (Preparador Físico)",
       "category": "Cuerpo Técnico",

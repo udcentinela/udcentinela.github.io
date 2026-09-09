@@ -1,7 +1,22 @@
 {
   "season": "Temporada 2026/2027",
-  "lastUpdated": "2026-09-08T14:50:00.000Z",
+  "lastUpdated": "2026-09-09T11:55:00.000Z",
   "players": [
+    {
+      "id": "jose-angel",
+      "name": "José Ángel",
+      "fullName": "José Ángel",
+      "dorsal": null,
+      "position": "Defensa Central",
+      "role": "Defensa Central",
+      "status": "Confirmado",
+      "image": "/assets/img/players/jose-angel.webp",
+      "slug": "jose-angel",
+      "url": "/regional/jose-angel/",
+      "goals": 0,
+      "assists": 0,
+      "matchesPlayed": 0
+    },
     {
       "id": "iriome",
       "name": "Iriome",

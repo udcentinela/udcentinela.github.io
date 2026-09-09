@@ -1,10 +1,10 @@
 /**
  * UD Centinela - Service Worker PWA & Modo Estadio Offline
- * Version: 20260908_clean_v1
+ * Version: 20260909_fichaje_jose_angel_v1
  */
 
-const CACHE_NAME = 'udc-cache-v20260908_clean_v1';
-const DATA_CACHE_NAME = 'udc-data-cache-v20260908_clean_v1';
+const CACHE_NAME = 'udc-cache-v20260909_fichaje_jose_angel_v1';
+const DATA_CACHE_NAME = 'udc-data-cache-v20260909_fichaje_jose_angel_v1';
 
 const PRECACHE_ASSETS = [
   '/',
@@ -48,7 +48,8 @@ const PRECACHE_ASSETS = [
   '/assets/img/iriome.webp',
   '/assets/img/players/juan-manuel.webp',
   '/assets/img/players/tono.webp',
-  '/assets/img/players/joel-preparador-fisico.webp'
+  '/assets/img/players/joel-preparador-fisico.webp',
+  '/assets/img/players/jose-angel.webp'
 ];
 
 // 1. Install Event: Precache core assets
