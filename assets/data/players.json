@@ -1,6 +1,6 @@
 {
   "season": "Temporada 2026/2027",
-  "lastUpdated": "2026-09-09T11:55:00.000Z",
+  "lastUpdated": "2026-09-12T10:45:16.019Z",
   "players": [
     {
       "id": "jose-angel",
@@ -148,7 +148,7 @@
       "image": "/assets/img/players/nauzet.webp",
       "slug": "nauzet",
       "url": "/regional/nauzet/",
-      "goals": 0,
+      "goals": 1,
       "assists": 0,
       "matchesPlayed": 0
     },

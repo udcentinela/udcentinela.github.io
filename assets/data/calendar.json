@@ -1,6 +1,6 @@
 {
   "season": "Temporada 2026/2027",
-  "updated": "2026-09-12T09:42:31Z",
+  "updated": "2026-09-12T10:45:16.019Z",
   "teams": [
     {
       "id": "atletico-perdoma-b",
@@ -147,11 +147,19 @@
       "status": "finished",
       "homeScore": 3,
       "awayScore": 1,
-      "events": [],
+      "events": [
+        {
+          "type": "goal",
+          "minute": null,
+          "scorerId": "nauzet",
+          "assistId": null
+        }
+      ],
       "homeId": "portezuelo",
       "awayId": "ud-centinela",
       "homeLogo": "/assets/img/teams/portezuelo.webp",
-      "awayLogo": "/assets/img/escudo-centinela.webp"
+      "awayLogo": "/assets/img/escudo-centinela.webp",
+      "roundNumber": 1
     },
     {
       "id": "j1-m3",
