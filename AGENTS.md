@@ -1,4 +1,4 @@
-﻿# UD Centinela (udcentinela.github.io) - Protocolo y Memoria de Operaciones
+# UD Centinela (udcentinela.github.io) - Protocolo y Memoria de Operaciones
 
 ## 📌 Ubicaciones Clave del Sistema
 - **Directorio Raíz del Proyecto:** C:\Users\Usuario\Desktop\udcentinela.github.io
@@ -40,6 +40,15 @@ Cuando el usuario pida cualquiera de las siguientes acciones en cualquier sesió
 1. Localizar el archivo HTML, CSS o JS correspondiente en `C:\Users\Usuario\Desktop\udcentinela.github.io`.
 2. Aplicar la modificación respetando los estilos del club (paleta de colores, fuentes Montserrat/Inter, clases Tailwind/CSS custom).
 3. Guardar, verificar y ejecutar `git add .`, `git commit -m "fix: <descripción del cambio>"` y `git push origin main`.
+
+---
+
+### 4. 🔄 Sincronizar Calendario y Clasificación (FutbolTenerife)
+*Ejemplo del usuario:* `"sincroniza el calendario"`, `"actualiza los resultados"`, `"sincroniza la clasificación"`
+1. Ejecutar `python scripts/sync_calendar.py`.
+2. Verificar cambios en `assets/data/calendar.json`.
+3. El sistema también cuenta con sincronización automática en la nube mediante GitHub Actions (`.github/workflows/sync-results.yml`) programada en fines de semana cada 30 min y entre semana.
+4. Guardar y publicar si es manual: `git add .`, `git commit -m "chore(sync): actualizar resultados y clasificacion"` y `git push origin main`.
 
 ---
 
