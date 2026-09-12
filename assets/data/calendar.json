@@ -1,6 +1,6 @@
 {
   "season": "Temporada 2026/2027",
-  "updated": "2026-09-12T16:21:12Z",
+  "updated": "2026-09-12T18:38:43Z",
   "teams": [
     {
       "id": "atletico-perdoma-b",
@@ -174,9 +174,9 @@
       "away": "VLM F.C. (Vistalmon)",
       "homeLogo": "/assets/img/teams/cd-buenavista.webp",
       "awayLogo": "/assets/img/teams/vlm-fc.webp",
-      "homeScore": null,
-      "awayScore": null,
-      "status": "upcoming",
+      "homeScore": 1,
+      "awayScore": 3,
+      "status": "finished",
       "events": []
     },
     {
@@ -192,9 +192,9 @@
       "away": "U.D. Matanza",
       "homeLogo": "/assets/img/teams/rcd-gara.webp",
       "awayLogo": "/assets/img/teams/ud-matanza.webp",
-      "homeScore": null,
-      "awayScore": null,
-      "status": "upcoming",
+      "homeScore": 3,
+      "awayScore": 0,
+      "status": "finished",
       "events": []
     },
     {
@@ -4463,8 +4463,23 @@
       "points": 3
     },
     {
-      "id": "portezuelo",
+      "id": "rcd-gara",
       "position": 2,
+      "team": "R.C.D. Gara",
+      "shortName": "Gara",
+      "logo": "/assets/img/teams/rcd-gara.webp",
+      "played": 1,
+      "won": 1,
+      "drawn": 0,
+      "lost": 0,
+      "goalsFor": 3,
+      "goalsAgainst": 0,
+      "goalDifference": 3,
+      "points": 3
+    },
+    {
+      "id": "portezuelo",
+      "position": 3,
       "team": "C.D. Portezuelo Tegueste A",
       "shortName": "Portezuelo A",
       "logo": "/assets/img/teams/portezuelo.webp",
@@ -4478,34 +4493,19 @@
       "points": 3
     },
     {
-      "id": "cd-buenavista",
-      "position": 3,
-      "team": "C.D. Buenavista",
-      "shortName": "Buenavista",
-      "logo": "/assets/img/teams/cd-buenavista.webp",
-      "played": 1,
-      "won": 0,
-      "drawn": 1,
-      "lost": 0,
-      "goalsFor": 1,
-      "goalsAgainst": 1,
-      "goalDifference": 0,
-      "points": 1
-    },
-    {
       "id": "vlm-fc",
       "position": 4,
       "team": "VLM F.C. (Vistalmon)",
       "shortName": "VLM FC",
       "logo": "/assets/img/teams/vlm-fc.webp",
       "played": 1,
-      "won": 0,
-      "drawn": 1,
+      "won": 1,
+      "drawn": 0,
       "lost": 0,
-      "goalsFor": 1,
+      "goalsFor": 3,
       "goalsAgainst": 1,
-      "goalDifference": 0,
-      "points": 1
+      "goalDifference": 2,
+      "points": 3
     },
     {
       "id": "atletico-perdoma-b",
@@ -4583,23 +4583,8 @@
       "points": 0
     },
     {
-      "id": "rcd-gara",
-      "position": 10,
-      "team": "R.C.D. Gara",
-      "shortName": "Gara",
-      "logo": "/assets/img/teams/rcd-gara.webp",
-      "played": 0,
-      "won": 0,
-      "drawn": 0,
-      "lost": 0,
-      "goalsFor": 0,
-      "goalsAgainst": 0,
-      "goalDifference": 0,
-      "points": 0
-    },
-    {
       "id": "sd-ravelo-b",
-      "position": 11,
+      "position": 10,
       "team": "S.D. Ravelo B",
       "shortName": "Ravelo B",
       "logo": "/assets/img/teams/sd-ravelo-b.webp",
@@ -4614,7 +4599,7 @@
     },
     {
       "id": "tacoronte-cf",
-      "position": 12,
+      "position": 11,
       "team": "Tacoronte C.F.",
       "shortName": "Tacoronte CF",
       "logo": "/assets/img/teams/tacoronte-cf.webp",
@@ -4628,23 +4613,8 @@
       "points": 0
     },
     {
-      "id": "ud-matanza",
-      "position": 13,
-      "team": "U.D. Matanza",
-      "shortName": "La Matanza",
-      "logo": "/assets/img/teams/ud-matanza.webp",
-      "played": 0,
-      "won": 0,
-      "drawn": 0,
-      "lost": 0,
-      "goalsFor": 0,
-      "goalsAgainst": 0,
-      "goalDifference": 0,
-      "points": 0
-    },
-    {
       "id": "ud-tacoronte",
-      "position": 14,
+      "position": 12,
       "team": "U.D. Tacoronte",
       "shortName": "UD Tacoronte",
       "logo": "/assets/img/teams/ud-tacoronte.webp",
@@ -4658,8 +4628,23 @@
       "points": 0
     },
     {
+      "id": "cd-buenavista",
+      "position": 13,
+      "team": "C.D. Buenavista",
+      "shortName": "Buenavista",
+      "logo": "/assets/img/teams/cd-buenavista.webp",
+      "played": 1,
+      "won": 0,
+      "drawn": 0,
+      "lost": 1,
+      "goalsFor": 1,
+      "goalsAgainst": 3,
+      "goalDifference": -2,
+      "points": 0
+    },
+    {
       "id": "ud-centinela",
-      "position": 15,
+      "position": 14,
       "team": "UD Centinela",
       "shortName": "Centinela",
       "logo": "/assets/img/escudo-centinela.webp",
@@ -4674,7 +4659,7 @@
     },
     {
       "id": "cd-san-jeronimo",
-      "position": 16,
+      "position": 15,
       "team": "C.D. San Jerónimo",
       "shortName": "San Jerónimo",
       "logo": "/assets/img/teams/cd-san-jeronimo.webp",
@@ -4684,6 +4669,21 @@
       "lost": 1,
       "goalsFor": 2,
       "goalsAgainst": 5,
+      "goalDifference": -3,
+      "points": 0
+    },
+    {
+      "id": "ud-matanza",
+      "position": 16,
+      "team": "U.D. Matanza",
+      "shortName": "La Matanza",
+      "logo": "/assets/img/teams/ud-matanza.webp",
+      "played": 1,
+      "won": 0,
+      "drawn": 0,
+      "lost": 1,
+      "goalsFor": 0,
+      "goalsAgainst": 3,
       "goalDifference": -3,
       "points": 0
     }
