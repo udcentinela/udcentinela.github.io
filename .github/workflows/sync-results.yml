@@ -1,0 +1,40 @@
+name: Sincronización Resultados FutbolTenerife
+
+on:
+  schedule:
+    # Fines de semana (Viernes, Sábado, Domingo): cada 30 minutos entre las 15:00 y las 23:59 UTC
+    - cron: '*/30 15-23 * * 5,6,0'
+    # Lunes a Jueves: tres revisiones al día (08:00, 14:00 y 20:00 UTC)
+    - cron: '0 8,14,20 * * 1-4'
+  workflow_dispatch: # Permite ejecutar manualmente la sincronización con un solo clic desde GitHub
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout del repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Ejecutar script de sincronización
+        run: |
+          python scripts/sync_calendar.py
+
+      - name: Publicar cambios si hay actualizaciones
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          if ! git diff --quiet assets/data/calendar.json; then
+            git add assets/data/calendar.json
+            git commit -m "chore(sync): actualizar resultados y clasificacion desde FutbolTenerife [skip ci]"
+            git push origin main
+          else
+            echo "Sin cambios detectados en el calendario o clasificación."
+          fi

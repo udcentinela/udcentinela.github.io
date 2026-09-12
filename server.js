@@ -511,6 +511,20 @@ function handleApiRequest(req, res, url) {
     return;
   }
 
+  // POST /api/sync-calendar (Trigger python sync_calendar.py)
+  if (url.pathname === '/api/sync-calendar' && req.method === 'POST') {
+    const pythonCmd = process.platform === 'win32' ? 'python' : 'python3';
+    exec(`${pythonCmd} "${path.join(REPO_DIR, 'scripts', 'sync_calendar.py')}"`, (err, stdout, stderr) => {
+      if (err) {
+        res.writeHead(500);
+        return res.end(JSON.stringify({ error: err.message, stderr }));
+      }
+      addToGitQueue();
+      return res.end(JSON.stringify({ success: true, output: stdout }));
+    });
+    return;
+  }
+
   // GET /api/sponsors (Read sponsors.json)
   if (url.pathname === '/api/sponsors' && req.method === 'GET') {
     try {

@@ -488,14 +488,41 @@
       calendarData = fallbackData;
     }
 
+    function formatUpdatedDate(isoString) {
+      if (!isoString) return "Pendiente de datos oficiales";
+      try {
+        const d = new Date(isoString);
+        if (isNaN(d.getTime())) return `Actualizado: ${isoString}`;
+        return `Sincronizado: ${d.toLocaleDateString("es-ES", { day: "2-digit", month: "2-digit", year: "numeric" })} ${d.toLocaleTimeString("es-ES", { hour: "2-digit", minute: "2-digit" })}`;
+      } catch (e) {
+        return `Actualizado: ${isoString}`;
+      }
+    }
+
     document.getElementById("calendarSeason").textContent = calendarData.season || fallbackData.season;
-    document.getElementById("calendarUpdated").textContent = calendarData.updated
-      ? `Actualizado: ${calendarData.updated}`
-      : "Pendiente de datos oficiales";
+    document.getElementById("calendarUpdated").textContent = formatUpdatedDate(calendarData.updated);
     renderNextMatch(getCentinelaNextMatch(calendarData));
     populateJornadaSelector();
     renderMatches();
     renderStandings();
+
+    // Auto-actualización silenciosa en vivo cada 90 segundos si la pestaña está abierta
+    setInterval(async () => {
+      try {
+        const res = await fetch("/assets/data/calendar.json?t=" + Date.now());
+        if (res.ok) {
+          const fresh = await res.json();
+          if (fresh.updated && fresh.updated !== calendarData.updated) {
+            calendarData = { ...fallbackData, ...fresh };
+            document.getElementById("calendarSeason").textContent = calendarData.season || fallbackData.season;
+            document.getElementById("calendarUpdated").textContent = formatUpdatedDate(calendarData.updated);
+            renderNextMatch(getCentinelaNextMatch(calendarData));
+            renderMatches();
+            renderStandings();
+          }
+        }
+      } catch (e) {}
+    }, 90000);
   }
 
   if (document.readyState === "loading") {
