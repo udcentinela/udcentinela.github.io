@@ -1,6 +1,6 @@
 {
   "season": "Temporada 2026/2027",
-  "updated": "2026-09-12T13:10:16Z",
+  "updated": "2026-09-12T16:21:12Z",
   "teams": [
     {
       "id": "atletico-perdoma-b",
@@ -4478,8 +4478,38 @@
       "points": 3
     },
     {
-      "id": "atletico-perdoma-b",
+      "id": "cd-buenavista",
       "position": 3,
+      "team": "C.D. Buenavista",
+      "shortName": "Buenavista",
+      "logo": "/assets/img/teams/cd-buenavista.webp",
+      "played": 1,
+      "won": 0,
+      "drawn": 1,
+      "lost": 0,
+      "goalsFor": 1,
+      "goalsAgainst": 1,
+      "goalDifference": 0,
+      "points": 1
+    },
+    {
+      "id": "vlm-fc",
+      "position": 4,
+      "team": "VLM F.C. (Vistalmon)",
+      "shortName": "VLM FC",
+      "logo": "/assets/img/teams/vlm-fc.webp",
+      "played": 1,
+      "won": 0,
+      "drawn": 1,
+      "lost": 0,
+      "goalsFor": 1,
+      "goalsAgainst": 1,
+      "goalDifference": 0,
+      "points": 1
+    },
+    {
+      "id": "atletico-perdoma-b",
+      "position": 5,
       "team": "Atlético Perdoma B",
       "shortName": "Perdoma B",
       "logo": "/assets/img/teams/atletico-perdoma-b.webp",
@@ -4493,23 +4523,8 @@
       "points": 0
     },
     {
-      "id": "cd-buenavista",
-      "position": 4,
-      "team": "C.D. Buenavista",
-      "shortName": "Buenavista",
-      "logo": "/assets/img/teams/cd-buenavista.webp",
-      "played": 0,
-      "won": 0,
-      "drawn": 0,
-      "lost": 0,
-      "goalsFor": 0,
-      "goalsAgainst": 0,
-      "goalDifference": 0,
-      "points": 0
-    },
-    {
       "id": "cd-san-diego",
-      "position": 5,
+      "position": 6,
       "team": "C.D. San Diego",
       "shortName": "San Diego",
       "logo": "/assets/img/teams/cd-san-diego.webp",
@@ -4524,25 +4539,10 @@
     },
     {
       "id": "afb-tegueste",
-      "position": 6,
+      "position": 7,
       "team": "C.D. AFB Tegueste",
       "shortName": "AFB Tegueste",
       "logo": "/assets/img/teams/afb-tegueste.webp",
-      "played": 0,
-      "won": 0,
-      "drawn": 0,
-      "lost": 0,
-      "goalsFor": 0,
-      "goalsAgainst": 0,
-      "goalDifference": 0,
-      "points": 0
-    },
-    {
-      "id": "vlm-fc",
-      "position": 7,
-      "team": "VLM F.C. (Vistalmon)",
-      "shortName": "VLM FC",
-      "logo": "/assets/img/teams/vlm-fc.webp",
       "played": 0,
       "won": 0,
       "drawn": 0,
