@@ -1,6 +1,6 @@
 {
   "season": "Temporada 2026/2027",
-  "updated": "2026-09-12T20:59:39Z",
+  "updated": "2026-09-12T22:59:28Z",
   "teams": [
     {
       "id": "atletico-perdoma-b",
@@ -210,9 +210,9 @@
       "away": "C.D. San Diego",
       "homeLogo": "/assets/img/teams/atletico-perdoma-b.webp",
       "awayLogo": "/assets/img/teams/cd-san-diego.webp",
-      "homeScore": null,
-      "awayScore": null,
-      "status": "upcoming",
+      "homeScore": 1,
+      "awayScore": 0,
+      "status": "finished",
       "events": []
     },
     {
@@ -264,9 +264,9 @@
       "away": "Tacoronte C.F.",
       "homeLogo": "/assets/img/teams/cd-once-piratas.webp",
       "awayLogo": "/assets/img/teams/tacoronte-cf.webp",
-      "homeScore": null,
-      "awayScore": null,
-      "status": "upcoming",
+      "homeScore": 2,
+      "awayScore": 2,
+      "status": "finished",
       "events": []
     },
     {
@@ -4523,49 +4523,49 @@
       "points": 3
     },
     {
-      "id": "cd-once-piratas",
+      "id": "atletico-perdoma-b",
       "position": 6,
-      "team": "C.D. Once Piratas",
-      "shortName": "Once Piratas",
-      "logo": "/assets/img/teams/cd-once-piratas.webp",
+      "team": "Atlético Perdoma B",
+      "shortName": "Perdoma B",
+      "logo": "/assets/img/teams/atletico-perdoma-b.webp",
       "played": 1,
       "won": 1,
       "drawn": 0,
       "lost": 0,
-      "goalsFor": 2,
+      "goalsFor": 1,
       "goalsAgainst": 0,
-      "goalDifference": 2,
+      "goalDifference": 1,
       "points": 3
     },
     {
-      "id": "atletico-perdoma-b",
+      "id": "cd-once-piratas",
       "position": 7,
-      "team": "Atlético Perdoma B",
-      "shortName": "Perdoma B",
-      "logo": "/assets/img/teams/atletico-perdoma-b.webp",
-      "played": 0,
+      "team": "C.D. Once Piratas",
+      "shortName": "Once Piratas",
+      "logo": "/assets/img/teams/cd-once-piratas.webp",
+      "played": 1,
       "won": 0,
-      "drawn": 0,
+      "drawn": 1,
       "lost": 0,
-      "goalsFor": 0,
-      "goalsAgainst": 0,
+      "goalsFor": 2,
+      "goalsAgainst": 2,
       "goalDifference": 0,
-      "points": 0
+      "points": 1
     },
     {
-      "id": "cd-san-diego",
+      "id": "tacoronte-cf",
       "position": 8,
-      "team": "C.D. San Diego",
-      "shortName": "San Diego",
-      "logo": "/assets/img/teams/cd-san-diego.webp",
-      "played": 0,
+      "team": "Tacoronte C.F.",
+      "shortName": "Tacoronte CF",
+      "logo": "/assets/img/teams/tacoronte-cf.webp",
+      "played": 1,
       "won": 0,
-      "drawn": 0,
+      "drawn": 1,
       "lost": 0,
-      "goalsFor": 0,
-      "goalsAgainst": 0,
+      "goalsFor": 2,
+      "goalsAgainst": 2,
       "goalDifference": 0,
-      "points": 0
+      "points": 1
     },
     {
       "id": "afb-tegueste",
@@ -4598,8 +4598,23 @@
       "points": 0
     },
     {
-      "id": "cd-buenavista",
+      "id": "cd-san-diego",
       "position": 11,
+      "team": "C.D. San Diego",
+      "shortName": "San Diego",
+      "logo": "/assets/img/teams/cd-san-diego.webp",
+      "played": 1,
+      "won": 0,
+      "drawn": 0,
+      "lost": 1,
+      "goalsFor": 0,
+      "goalsAgainst": 1,
+      "goalDifference": -1,
+      "points": 0
+    },
+    {
+      "id": "cd-buenavista",
+      "position": 12,
       "team": "C.D. Buenavista",
       "shortName": "Buenavista",
       "logo": "/assets/img/teams/cd-buenavista.webp",
@@ -4614,7 +4629,7 @@
     },
     {
       "id": "ud-centinela",
-      "position": 12,
+      "position": 13,
       "team": "UD Centinela",
       "shortName": "Centinela",
       "logo": "/assets/img/escudo-centinela.webp",
@@ -4624,21 +4639,6 @@
       "lost": 1,
       "goalsFor": 1,
       "goalsAgainst": 3,
-      "goalDifference": -2,
-      "points": 0
-    },
-    {
-      "id": "tacoronte-cf",
-      "position": 13,
-      "team": "Tacoronte C.F.",
-      "shortName": "Tacoronte CF",
-      "logo": "/assets/img/teams/tacoronte-cf.webp",
-      "played": 1,
-      "won": 0,
-      "drawn": 0,
-      "lost": 1,
-      "goalsFor": 0,
-      "goalsAgainst": 2,
       "goalDifference": -2,
       "points": 0
     },
