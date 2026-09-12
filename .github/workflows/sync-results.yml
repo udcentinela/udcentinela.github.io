@@ -2,10 +2,10 @@ name: Sincronización Resultados FutbolTenerife
 
 on:
   schedule:
-    # Fines de semana (Viernes, Sábado, Domingo): cada 30 minutos entre las 15:00 y las 23:59 UTC
-    - cron: '*/30 15-23 * * 5,6,0'
-    # Lunes a Jueves: tres revisiones al día (08:00, 14:00 y 20:00 UTC)
-    - cron: '0 8,14,20 * * 1-4'
+    # Fines de semana (Viernes, Sábado, Domingo): cada 15 minutos entre las 09:00 y las 23:59 UTC
+    - cron: '*/15 9-23 * * 5,6,0'
+    # Lunes a Jueves: cada 2 horas entre las 08:00 y las 22:00 UTC
+    - cron: '0 8-22/2 * * 1-4'
   workflow_dispatch: # Permite ejecutar manualmente la sincronización con un solo clic desde GitHub
 
 permissions:
