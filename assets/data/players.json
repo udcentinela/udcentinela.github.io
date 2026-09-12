@@ -1,6 +1,6 @@
 {
   "season": "Temporada 2026/2027",
-  "lastUpdated": "2026-09-12T10:45:16.019Z",
+  "lastUpdated": "2026-09-12T10:48:53.898Z",
   "players": [
     {
       "id": "jose-angel",
@@ -21,7 +21,7 @@
       "id": "iriome",
       "name": "Iriome",
       "fullName": "Iriome González",
-      "dorsal": null,
+      "dorsal": 24,
       "position": "Delantero",
       "role": "Presidente / Delantero",
       "status": "Confirmado",
@@ -156,7 +156,7 @@
       "id": "angel",
       "name": "Ángel",
       "fullName": "Ángel",
-      "dorsal": 99,
+      "dorsal": 22,
       "position": "Mediocentro",
       "role": "Mediocentro",
       "status": "Confirmado",
@@ -171,7 +171,7 @@
       "id": "tinguaro",
       "name": "Tinguaro",
       "fullName": "Tinguaro",
-      "dorsal": null,
+      "dorsal": 9,
       "position": "Delantero",
       "role": "Delantero",
       "status": "Confirmado",
