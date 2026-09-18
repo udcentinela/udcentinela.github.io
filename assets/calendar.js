@@ -128,6 +128,21 @@
     }
   }
 
+  function getSingleMatchIcsUrl(match) {
+    if (!match) return '/assets/ud-centinela-proximo-partido.ics';
+    const j = match.roundNumber || parseInt(String(match.round || '').replace(/\D+/g, ''), 10);
+    if (j && j >= 1 && j <= 30) {
+      return `/assets/ics/jornada-${j}.ics`;
+    }
+    return '/assets/ud-centinela-proximo-partido.ics';
+  }
+
+  function getSingleMatchIcsFilename(match) {
+    if (!match) return 'ud-centinela-partido.ics';
+    const j = match.roundNumber || parseInt(String(match.round || '').replace(/\D+/g, ''), 10);
+    return j ? `ud-centinela-jornada-${j}.ics` : 'ud-centinela-partido.ics';
+  }
+
   function renderNextMatch(match) {
     const card = document.getElementById("nextMatchCard");
     if (!card || !match) return;
@@ -156,12 +171,15 @@
         <div class="mt-8 pt-6 border-t border-white/10 flex flex-wrap items-center justify-center gap-3">
           <a href="${getGoogleCalendarUrl(match)}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 rounded-xl border border-brand-neon/40 bg-brand-neon/10 hover:bg-brand-neon hover:text-brand-dark px-4 py-2.5 text-xs font-black text-brand-neon transition-all duration-200 shadow-sm" title="Añadir este partido a Google Calendar">
             <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20a2 2 0 002 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11zM7 11h5v5H7z"/></svg>
-            <span>Añadir a Google Calendar</span>
+            <span>Google Calendar</span>
           </a>
-          <a href="/assets/ud-centinela-2026-2027.ics" download="ud-centinela-2026-2027.ics" class="inline-flex items-center gap-2 rounded-xl border border-white/15 bg-white/5 hover:bg-white/10 hover:text-white px-4 py-2.5 text-xs font-bold text-gray-300 transition-all duration-200" title="Descargar todos los partidos para Apple Calendar / Android">
+          <a href="${getSingleMatchIcsUrl(match)}" download="${getSingleMatchIcsFilename(match)}" class="inline-flex items-center gap-2 rounded-xl border border-white/15 bg-white/5 hover:bg-white/10 hover:text-white px-4 py-2.5 text-xs font-bold text-gray-200 transition-all duration-200 shadow-sm" title="Descargar este partido (.ics compatible con Xiaomi Mi Calendario, Samsung y iPhone)">
             <svg class="w-4 h-4 text-brand-neon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
-            <span>Todos los partidos en tu móvil (.ics)</span>
+            <span>Descargar partido (.ics Xiaomi / Móvil)</span>
           </a>
+          <button type="button" onclick="document.getElementById('openAndroidCalModal')?.click()" class="inline-flex items-center gap-1.5 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 hover:text-white px-3.5 py-2.5 text-xs font-semibold text-gray-400 transition-all duration-200" title="Ver opciones para sincronizar toda la temporada">
+            <span>📅 Sincronizar 30 partidos</span>
+          </button>
         </div>
       </div>
     `;
@@ -276,10 +294,11 @@
                 <span class="font-bold text-sm sm:text-base ${awayIsCent ? 'text-brand-neon' : 'text-gray-200'}">${escapeHtml(match.away || "Visitante")}</span>
               </div>
             </div>
-            <div class="flex items-center justify-start md:justify-end gap-2">
+            <div class="flex items-center justify-start md:justify-end gap-1.5">
               ${finished
                 ? '<span class="text-xs font-bold tracking-widest text-gray-400 uppercase">Resultado</span>'
-                : `<a href="${getGoogleCalendarUrl(match)}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg border border-brand-neon/30 bg-brand-neon/10 text-brand-neon hover:bg-brand-neon hover:text-brand-dark transition-colors text-[11px] font-black uppercase tracking-wider" title="Añadir este partido a Google Calendar"><svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20a2 2 0 002 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11zM7 11h5v5H7z"/></svg><span>+ Calendario</span></a>`
+                : `<a href="${getGoogleCalendarUrl(match)}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-lg border border-brand-neon/30 bg-brand-neon/10 text-brand-neon hover:bg-brand-neon hover:text-brand-dark transition-colors text-[11px] font-black uppercase tracking-wider shadow-sm" title="Añadir este partido a Google Calendar"><svg class="w-3 h-3 fill-current" viewBox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20a2 2 0 002 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11zM7 11h5v5H7z"/></svg><span>Google</span></a>
+                   <a href="${getSingleMatchIcsUrl(match)}" download="${getSingleMatchIcsFilename(match)}" class="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-lg border border-white/15 bg-white/5 text-gray-200 hover:text-white hover:bg-white/10 transition-colors text-[11px] font-bold uppercase tracking-wider" title="Descargar archivo .ics compatible con Xiaomi Mi Calendario, Samsung y iPhone"><svg class="w-3 h-3 text-brand-neon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg><span>.ICS</span></a>`
               }
             </div>
             ${eventsHtml}
@@ -528,17 +547,20 @@
 
   function setupCalendarModal() {
     const modal = document.getElementById("calModal");
+    const openXiaomiBtn = document.getElementById("openXiaomiCalModal");
     const openAndroidBtn = document.getElementById("openAndroidCalModal");
     const openGuideBtn = document.getElementById("openCalGuideBtn");
     const closeBtn = document.getElementById("closeCalModalBtn");
     const tabApple = document.getElementById("tabAppleBtn");
+    const tabXiaomi = document.getElementById("tabXiaomiBtn");
     const tabAndroid = document.getElementById("tabAndroidBtn");
     const contentApple = document.getElementById("contentApple");
+    const contentXiaomi = document.getElementById("contentXiaomi");
     const contentAndroid = document.getElementById("contentAndroid");
 
     if (!modal) return;
 
-    function openModal(defaultTab = 'apple') {
+    function openModal(defaultTab = 'xiaomi') {
       modal.classList.remove("hidden");
       document.body.classList.add("overflow-hidden");
       switchTab(defaultTab);
@@ -550,28 +572,38 @@
     }
 
     function switchTab(tab) {
-      if (tab === 'android') {
-        tabAndroid?.classList.remove("text-gray-400");
-        tabAndroid?.classList.add("bg-brand-neon", "text-brand-dark", "font-black");
-        tabApple?.classList.remove("bg-brand-neon", "text-brand-dark", "font-black");
-        tabApple?.classList.add("text-gray-400");
-        contentAndroid?.classList.remove("hidden");
-        contentApple?.classList.add("hidden");
-      } else {
-        tabApple?.classList.remove("text-gray-400");
-        tabApple?.classList.add("bg-brand-neon", "text-brand-dark", "font-black");
-        tabAndroid?.classList.remove("bg-brand-neon", "text-brand-dark", "font-black");
-        tabAndroid?.classList.add("text-gray-400");
-        contentApple?.classList.remove("hidden");
-        contentAndroid?.classList.add("hidden");
-      }
+      const tabs = [
+        { id: 'apple', btn: tabApple, content: contentApple },
+        { id: 'xiaomi', btn: tabXiaomi, content: contentXiaomi },
+        { id: 'android', btn: tabAndroid, content: contentAndroid }
+      ];
+
+      tabs.forEach(t => {
+        const isActive = t.id === tab;
+        if (t.btn) {
+          t.btn.classList.toggle("bg-brand-neon", isActive);
+          t.btn.classList.toggle("text-brand-dark", isActive);
+          t.btn.classList.toggle("font-black", isActive);
+          t.btn.classList.toggle("text-gray-400", !isActive);
+          t.btn.classList.toggle("font-bold", !isActive);
+        }
+        if (t.content) {
+          t.content.classList.toggle("hidden", !isActive);
+        }
+      });
     }
 
-    openAndroidBtn?.addEventListener("click", () => openModal('android'));
+    openXiaomiBtn?.addEventListener("click", () => openModal('xiaomi'));
+    openAndroidBtn?.addEventListener("click", () => {
+      const ua = (navigator.userAgent || '').toLowerCase();
+      const isXiaomi = ua.includes('xiaomi') || ua.includes('redmi') || ua.includes('poco') || ua.includes('miui');
+      openModal(isXiaomi ? 'xiaomi' : 'android');
+    });
     openGuideBtn?.addEventListener("click", () => openModal('apple'));
     closeBtn?.addEventListener("click", closeModal);
 
     tabApple?.addEventListener("click", () => switchTab('apple'));
+    tabXiaomi?.addEventListener("click", () => switchTab('xiaomi'));
     tabAndroid?.addEventListener("click", () => switchTab('android'));
 
     modal.addEventListener("click", (e) => {

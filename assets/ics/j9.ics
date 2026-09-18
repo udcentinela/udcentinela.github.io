@@ -1,0 +1,21 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//UD Centinela//ES
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:match-j9-2026-2027@udcentinela.github.io
+DTSTAMP:20260918T150916Z
+DTSTART:20261106T210000Z
+DTEND:20261106T224500Z
+SUMMARY:⚽ C.D. San Diego vs UD Centinela (J9)
+LOCATION:Estadio Municipal Los Cuartos\, La Orotava\, Santa Cruz de Tenerife
+DESCRIPTION:🏆 Segunda Regional Tenerife - Jornada 9\n⚔️ C.D. San Diego vs UD Centinela\n📍 ✈️ Fuera · Estadio Municipal Los Cuartos\, La Orotava\, Santa Cruz de Tenerife\n⏰ Hora: 21:00 (hora canaria)\n\nℹ️ Web oficial UD Centinela:\nhttps://udcentinela.github.io/calendario/\n\n¡Aupa Centinela! 🔴⚫
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+BEGIN:VALARM
+TRIGGER:-PT2H
+ACTION:DISPLAY
+DESCRIPTION:Recordatorio: ⚽ C.D. San Diego vs UD Centinela (J9)
+END:VALARM
+END:VEVENT
+END:VCALENDAR

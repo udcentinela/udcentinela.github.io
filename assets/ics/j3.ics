@@ -1,0 +1,21 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//UD Centinela//ES
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:match-j3-2026-2027@udcentinela.github.io
+DTSTAMP:20260918T150916Z
+DTSTART:20260926T193000Z
+DTEND:20260926T211500Z
+SUMMARY:⚽ S.D. Ravelo B vs UD Centinela (J3)
+LOCATION:Campo Municipal de Ravelo\, El Sauzal\, Santa Cruz de Tenerife
+DESCRIPTION:🏆 Segunda Regional Tenerife - Jornada 3\n⚔️ S.D. Ravelo B vs UD Centinela\n📍 ✈️ Fuera · Campo Municipal de Ravelo\, El Sauzal\, Santa Cruz de Tenerife\n⏰ Hora: 20:30 (hora canaria)\n\nℹ️ Web oficial UD Centinela:\nhttps://udcentinela.github.io/calendario/\n\n¡Aupa Centinela! 🔴⚫
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+BEGIN:VALARM
+TRIGGER:-PT2H
+ACTION:DISPLAY
+DESCRIPTION:Recordatorio: ⚽ S.D. Ravelo B vs UD Centinela (J3)
+END:VALARM
+END:VEVENT
+END:VCALENDAR

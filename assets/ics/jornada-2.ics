@@ -1,0 +1,21 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//UD Centinela//ES
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:match-j2-2026-2027@udcentinela.github.io
+DTSTAMP:20260918T150916Z
+DTSTART:20260919T200000Z
+DTEND:20260919T214500Z
+SUMMARY:⚽ UD Centinela vs Atlético Perdoma B (J2)
+LOCATION:Estadio Municipal El Molino\, Icod de los Vinos\, Santa Cruz de Tenerife
+DESCRIPTION:🏆 Segunda Regional Tenerife - Jornada 2\n⚔️ UD Centinela vs Atlético Perdoma B\n📍 🏠 Casa · Estadio Municipal El Molino\, Icod de los Vinos\, Santa Cruz de Tenerife\n⏰ Hora: 21:00 (hora canaria)\n\nℹ️ Web oficial UD Centinela:\nhttps://udcentinela.github.io/calendario/\n\n¡Aupa Centinela! 🔴⚫
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+BEGIN:VALARM
+TRIGGER:-PT2H
+ACTION:DISPLAY
+DESCRIPTION:Recordatorio: ⚽ UD Centinela vs Atlético Perdoma B (J2)
+END:VALARM
+END:VEVENT
+END:VCALENDAR
