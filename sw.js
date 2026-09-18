@@ -1,20 +1,28 @@
 /**
  * UD Centinela - Service Worker PWA & Modo Estadio Offline
- * Version: 20260912_sync_live_v1
+ * Version: 20260918_joel_fix_v2
  */
 
-const CACHE_NAME = 'udc-cache-v20260912_sync_live_v1';
-const DATA_CACHE_NAME = 'udc-data-cache-v20260912_sync_live_v1';
+const CACHE_NAME = 'udc-cache-v20260918_joel_fix_v2';
+const DATA_CACHE_NAME = 'udc-data-cache-v20260918_joel_fix_v2';
 
 const PRECACHE_ASSETS = [
   '/',
   '/index.html',
   '/regional/',
   '/regional/index.html',
+  '/regional/joel/',
+  '/regional/joel/index.html',
+  '/regional/joel-pf/',
+  '/regional/joel-pf/index.html',
   '/calendario/',
   '/calendario/index.html',
   '/noticias/',
   '/noticias/index.html',
+  '/noticias/nuevo-fichaje-joel/',
+  '/noticias/nuevo-fichaje-joel/index.html',
+  '/noticias/nuevo-fichaje-joel-pf/',
+  '/noticias/nuevo-fichaje-joel-pf/index.html',
   '/historia/',
   '/identidad/',
   '/patrocinios/',
@@ -46,6 +54,8 @@ const PRECACHE_ASSETS = [
   '/assets/img/pablo.webp',
   '/assets/img/adrian-tejera.webp',
   '/assets/img/iriome.webp',
+  '/assets/img/joel.webp',
+  '/assets/img/players/joel.webp',
   '/assets/img/players/juan-manuel.webp',
   '/assets/img/players/tono.webp',
   '/assets/img/players/joel-preparador-fisico.webp',

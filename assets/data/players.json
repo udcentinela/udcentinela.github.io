@@ -408,16 +408,16 @@
       "matchesPlayed": 0
     },
     {
-      "id": "joel",
+      "id": "joel-pf",
       "name": "Joel",
       "fullName": "Joel (Preparador Físico)",
       "dorsal": null,
       "position": "Preparador Físico",
-      "role": "Preparador Físico",
+      "role": "Staff Técnico",
       "status": "Confirmado",
       "image": "/assets/img/players/joel-preparador-fisico.webp",
-      "slug": "joel",
-      "url": "/regional/joel/",
+      "slug": "joel-pf",
+      "url": "/regional/joel-pf/",
       "goals": 0,
       "assists": 0,
       "matchesPlayed": 0
