@@ -1,21 +1,24 @@
-BEGIN:VCALENDAR
-VERSION:2.0
-PRODID:-//UD Centinela//ES
-CALSCALE:GREGORIAN
-BEGIN:VEVENT
-UID:match-j1-2026-2027@udcentinela.github.io
-DTSTAMP:20260918T150916Z
-DTSTART:20260911T200000Z
-DTEND:20260911T214500Z
-SUMMARY:⚽ C.D. Portezuelo Tegueste A vs UD Centinela (J1)
-LOCATION:Campo Municipal Los Laureles\, Tegueste\, Santa Cruz de Tenerife
-DESCRIPTION:🏆 Segunda Regional Tenerife - Jornada 1\n⚔️ C.D. Portezuelo Tegueste A vs UD Centinela\n📍 ✈️ Fuera · Campo Municipal Los Laureles\, Tegueste\, Santa Cruz de Tenerife\n⏰ Hora: 21:00 (hora canaria)\n\nℹ️ Web oficial UD Centinela:\nhttps://udcentinela.github.io/calendario/\n\n¡Aupa Centinela! 🔴⚫
-STATUS:CONFIRMED
-TRANSP:OPAQUE
-BEGIN:VALARM
-TRIGGER:-PT2H
-ACTION:DISPLAY
-DESCRIPTION:Recordatorio: ⚽ C.D. Portezuelo Tegueste A vs UD Centinela (J1)
-END:VALARM
-END:VEVENT
-END:VCALENDAR
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//UD Centinela//ES
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+SUMMARY:C.D. Portezuelo Tegueste A vs UD Centinela (J1)
+DTSTART:20260911T200000Z
+DTEND:20260911T214500Z
+DTSTAMP:20260918T151943Z
+UID:match-j1-2026-2027@udcentinela.github.io
+DESCRIPTION:Segunda Regional Tenerife - Jornada 1\nC.D. Portezuelo Teguest
+ e A vs UD Centinela\nCondicion: Fuera\nCampo: Campo Municipal Los Laureles
+ \, Tegueste\, Santa Cruz de Tenerife\nHora: 21:00 (hora canaria)\n\nWeb of
+ icial: https://udcentinela.github.io/calendario/\nAupa Centinela!
+LOCATION:Campo Municipal Los Laureles\, Tegueste\, Santa Cruz de Tenerife
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Recordatorio: C.D. Portezuelo Tegueste A vs UD Centinela (J1)
+TRIGGER:-PT2H
+END:VALARM
+END:VEVENT
+END:VCALENDAR

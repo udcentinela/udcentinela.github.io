@@ -1,10 +1,10 @@
 /**
  * UD Centinela - Service Worker PWA & Modo Estadio Offline
- * Version: 20260918_xiaomi_v4
+ * Version: 20260918_xiaomi_v5
  */
 
-const CACHE_NAME = 'udc-cache-v20260918_xiaomi_v4';
-const DATA_CACHE_NAME = 'udc-data-cache-v20260918_xiaomi_v4';
+const CACHE_NAME = 'udc-cache-v20260918_xiaomi_v5';
+const DATA_CACHE_NAME = 'udc-data-cache-v20260918_xiaomi_v5';
 
 const PRECACHE_ASSETS = [
   '/',

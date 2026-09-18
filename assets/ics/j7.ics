@@ -1,21 +1,24 @@
-BEGIN:VCALENDAR
-VERSION:2.0
-PRODID:-//UD Centinela//ES
-CALSCALE:GREGORIAN
-BEGIN:VEVENT
-UID:match-j7-2026-2027@udcentinela.github.io
-DTSTAMP:20260918T150916Z
-DTSTART:20261024T170000Z
-DTEND:20261024T184500Z
-SUMMARY:⚽ C.D. Juventud Interián vs UD Centinela (J7)
-LOCATION:Campo Municipal de Caleta de Interián\, Garachico
-DESCRIPTION:🏆 Segunda Regional Tenerife - Jornada 7\n⚔️ C.D. Juventud Interián vs UD Centinela\n📍 ✈️ Fuera · Campo Municipal de Caleta de Interián\, Garachico\n⏰ Hora: 18:00 (hora canaria)\n\nℹ️ Web oficial UD Centinela:\nhttps://udcentinela.github.io/calendario/\n\n¡Aupa Centinela! 🔴⚫
-STATUS:CONFIRMED
-TRANSP:OPAQUE
-BEGIN:VALARM
-TRIGGER:-PT2H
-ACTION:DISPLAY
-DESCRIPTION:Recordatorio: ⚽ C.D. Juventud Interián vs UD Centinela (J7)
-END:VALARM
-END:VEVENT
-END:VCALENDAR
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//UD Centinela//ES
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+SUMMARY:C.D. Juventud Interián vs UD Centinela (J7)
+DTSTART:20261024T170000Z
+DTEND:20261024T184500Z
+DTSTAMP:20260918T151943Z
+UID:match-j7-2026-2027@udcentinela.github.io
+DESCRIPTION:Segunda Regional Tenerife - Jornada 7\nC.D. Juventud Interián
+  vs UD Centinela\nCondicion: Fuera\nCampo: Campo Municipal de Caleta de In
+ terián\, Garachico\nHora: 18:00 (hora canaria)\n\nWeb oficial: https://ud
+ centinela.github.io/calendario/\nAupa Centinela!
+LOCATION:Campo Municipal de Caleta de Interián\, Garachico
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Recordatorio: C.D. Juventud Interián vs UD Centinela (J7)
+TRIGGER:-PT2H
+END:VALARM
+END:VEVENT
+END:VCALENDAR

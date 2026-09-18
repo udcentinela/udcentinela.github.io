@@ -3,13 +3,17 @@
 """
 Generador de archivos iCalendar (.ics) para la UD Centinela.
 Genera el calendario oficial de todos los partidos de la temporada 2026/2027
-compatible con Apple Calendar (iPhone, Mac), Google Calendar (Android, Web),
-Samsung Calendar y Outlook.
+100% compatible con Apple Calendar (iPhone, Mac), Google Calendar (Android, Web),
+Xiaomi Mi Calendario (MIUI / HyperOS), Samsung Calendar y Outlook.
+Usa la librería icalendar y escritura binaria pura ('wb') para garantizar
+estricto cumplimiento de RFC 5545 (sin retornos de carro duplicados \r\r\n,
+con salto de línea a 75 octetos y codificación UTC limpia).
 """
 
 import json
 import os
 from datetime import datetime, timedelta, timezone
+import icalendar
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CALENDAR_JSON = os.path.join(BASE_DIR, "assets", "data", "calendar.json")
@@ -32,14 +36,8 @@ VENUE_MAP = {
     "BCO. LAS LAJAS (CA)": "Campo Municipal Barranco Las Lajas, Tacoronte",
 }
 
-def clean_ics_text(text):
-    if not text:
-        return ""
-    # RFC 5545 escaping for text fields
-    return text.replace('\\', '\\\\').replace(';', '\\;').replace(',', '\\,').replace('\n', '\\n')
-
 def is_canary_dst(dt):
-    # In Canary Islands: DST starts last Sunday of March, ends last Sunday of October
+    # En Canarias: horario de verano comienza último domingo de marzo, termina último domingo de octubre
     year = dt.year
     last_sun_march = datetime(year, 3, 31) - timedelta(days=(datetime(year, 3, 31).weekday() + 1) % 7)
     last_sun_oct = datetime(year, 10, 31) - timedelta(days=(datetime(year, 10, 31).weekday() + 1) % 7)
@@ -52,215 +50,126 @@ def canary_to_utc(dt):
         return dt - timedelta(hours=1)
     return dt
 
-def generate_single_match_ics(m, now_stamp):
-    jornada = m.get("roundNumber", 1)
-    date_str = m.get("date", "")
-    time_str = m.get("time", "21:00")
-    home = m.get("home", "")
-    away = m.get("away", "")
-    raw_venue = m.get("venue", "").strip()
-
-    is_home = (m.get("homeId") == "ud-centinela") or ("centinela" in home.lower())
-    venue = VENUE_MAP.get(raw_venue, raw_venue if raw_venue else ("Estadio Municipal El Molino, Icod de los Vinos" if is_home else "Tenerife, Islas Canarias"))
-
-    try:
-        day, month, year = [int(x) for x in date_str.split("/")]
-        hour, minute = [int(x) for x in time_str.split(":")]
-        dt_local_start = datetime(year, month, day, hour, minute)
-        dt_local_end = dt_local_start + timedelta(minutes=105)
-    except Exception as e:
-        print(f"Error parsing date for single match J{jornada}: {e}")
-        return None
-
-    dt_utc_start = canary_to_utc(dt_local_start)
-    dt_utc_end = canary_to_utc(dt_local_end)
-
-    dtstart_str = dt_utc_start.strftime("%Y%m%dT%H%M%SZ")
-    dtend_str = dt_utc_end.strftime("%Y%m%dT%H%M%SZ")
-
-    opponent = away if is_home else home
-    home_away_badge = "🏠 Casa" if is_home else "✈️ Fuera"
-    summary = f"⚽ UD Centinela vs {opponent} (J{jornada})" if is_home else f"⚽ {opponent} vs UD Centinela (J{jornada})"
-
-    description_lines = [
-        f"🏆 Segunda Regional Tenerife - Jornada {jornada}",
-        f"⚔️ {home} vs {away}",
-        f"📍 {home_away_badge} · {venue}",
-        f"⏰ Hora: {time_str} (hora canaria)",
-        "",
-        "ℹ️ Web oficial UD Centinela:",
-        "https://udcentinela.github.io/calendario/",
-        "",
-        "¡Aupa Centinela! 🔴⚫"
-    ]
-    description = clean_ics_text("\n".join(description_lines))
-    uid = f"match-j{jornada}-2026-2027@udcentinela.github.io"
-
-    # Ultra-clean single-event format: NO METHOD:PUBLISH, NO VTIMEZONE, pure UTC
-    # Compatible with Xiaomi Mi Calendar (MIUI/HyperOS), Google Calendar, Samsung, iOS
-    lines = [
-        "BEGIN:VCALENDAR",
-        "VERSION:2.0",
-        "PRODID:-//UD Centinela//ES",
-        "CALSCALE:GREGORIAN",
-        "BEGIN:VEVENT",
-        f"UID:{uid}",
-        f"DTSTAMP:{now_stamp}",
-        f"DTSTART:{dtstart_str}",
-        f"DTEND:{dtend_str}",
-        f"SUMMARY:{clean_ics_text(summary)}",
-        f"LOCATION:{clean_ics_text(venue)}",
-        f"DESCRIPTION:{description}",
-        "STATUS:CONFIRMED",
-        "TRANSP:OPAQUE",
-        "BEGIN:VALARM",
-        "TRIGGER:-PT2H",
-        "ACTION:DISPLAY",
-        f"DESCRIPTION:Recordatorio: {clean_ics_text(summary)}",
-        "END:VALARM",
-        "END:VEVENT",
-        "END:VCALENDAR"
-    ]
-    return "\r\n".join(lines) + "\r\n"
-
 def generate_ics():
     with open(CALENDAR_JSON, "r", encoding="utf-8") as f:
         data = json.load(f)
 
-    matches = data.get("matches", [])
-    centinela_matches = []
-    for m in matches:
-        home_id = m.get("homeId", "")
-        away_id = m.get("awayId", "")
-        home_name = m.get("home", "").lower()
-        away_name = m.get("away", "").lower()
-        if home_id == "ud-centinela" or away_id == "ud-centinela" or "centinela" in home_name or "centinela" in away_name:
-            centinela_matches.append(m)
-
-    centinela_matches.sort(key=lambda x: x.get("roundNumber", 0))
-
-    now_stamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
-
-    # 1. Full Season ICS
-    lines = [
-        "BEGIN:VCALENDAR",
-        "VERSION:2.0",
-        "PRODID:-//UD Centinela//Calendario Oficial 2026-2027//ES",
-        "CALSCALE:GREGORIAN",
-        "METHOD:PUBLISH",
-        "X-WR-CALNAME:UD Centinela - Partidos 2026/27",
-        "X-WR-CALDESC:Calendario oficial de partidos del primer equipo de la UD Centinela en Segunda Regional de Tenerife (Temporada 2026/27).",
-        "X-WR-TIMEZONE:Atlantic/Canary",
-        "REFRESH-INTERVAL;VALUE=DURATION:P1D",
-        "X-PUBLISHED-TTL:P1D"
+    matches = [
+        m for m in data.get("matches", [])
+        if "centinela" in m.get("home", "").lower()
+        or "centinela" in m.get("away", "").lower()
+        or m.get("homeId") == "ud-centinela"
+        or m.get("awayId") == "ud-centinela"
     ]
+    matches.sort(key=lambda x: x.get("roundNumber", 0))
 
-    for m in centinela_matches:
-        jornada = m.get("roundNumber", 1)
-        date_str = m.get("date", "")
-        time_str = m.get("time", "21:00")
-        home = m.get("home", "")
-        away = m.get("away", "")
-        raw_venue = m.get("venue", "").strip()
+    now_utc = datetime.now(timezone.utc)
 
-        is_home = (m.get("homeId") == "ud-centinela") or ("centinela" in home.lower())
-        venue = VENUE_MAP.get(raw_venue, raw_venue if raw_venue else ("Estadio Municipal El Molino, Icod de los Vinos" if is_home else "Tenerife, Islas Canarias"))
+    # 1. Calendario de temporada completa (RFC 5545 oficial)
+    full_cal = icalendar.Calendar()
+    full_cal.add("prodid", "-//UD Centinela//Calendario Oficial 2026-2027//ES")
+    full_cal.add("version", "2.0")
+    full_cal.add("calscale", "GREGORIAN")
+    full_cal.add("method", "PUBLISH")
+    full_cal.add("x-wr-calname", "UD Centinela - Partidos 2026/27")
+    full_cal.add("x-wr-caldesc", "Calendario oficial de partidos del primer equipo de la UD Centinela en Segunda Regional Tenerife (Temporada 2026/27)")
+    full_cal.add("x-wr-timezone", "Atlantic/Canary")
 
-        try:
-            day, month, year = [int(x) for x in date_str.split("/")]
-            hour, minute = [int(x) for x in time_str.split(":")]
-            dt_local_start = datetime(year, month, day, hour, minute)
-            dt_local_end = dt_local_start + timedelta(minutes=105)
-        except Exception as e:
-            print(f"Error parsing date for match J{jornada}: {e}")
-            continue
-
-        dt_utc_start = canary_to_utc(dt_local_start)
-        dt_utc_end = canary_to_utc(dt_local_end)
-
-        dtstart_str = dt_utc_start.strftime("%Y%m%dT%H%M%SZ")
-        dtend_str = dt_utc_end.strftime("%Y%m%dT%H%M%SZ")
-
-        opponent = away if is_home else home
-        home_away_badge = "🏠 Casa" if is_home else "✈️ Fuera"
-        summary = f"⚽ UD Centinela vs {opponent} (J{jornada})" if is_home else f"⚽ {opponent} vs UD Centinela (J{jornada})"
-
-        description_lines = [
-            f"🏆 Segunda Regional Tenerife 2026/27 - Jornada {jornada}",
-            f"⚔️ {home} vs {away}",
-            f"📍 {home_away_badge} · {venue}",
-            f"⏰ Hora: {time_str} (hora canaria)",
-            "",
-            "ℹ️ Sigue el partido, resultados y clasificación en directo:",
-            "👉 https://udcentinela.github.io/calendario/",
-            "",
-            "¡Aupa Centinela! 🔴⚫"
-        ]
-        description = clean_ics_text("\n".join(description_lines))
-
-        uid = f"match-j{jornada}-2026-2027@udcentinela.github.io"
-
-        lines.extend([
-            "BEGIN:VEVENT",
-            f"UID:{uid}",
-            f"DTSTAMP:{now_stamp}",
-            f"DTSTART:{dtstart_str}",
-            f"DTEND:{dtend_str}",
-            f"SUMMARY:{clean_ics_text(summary)}",
-            f"LOCATION:{clean_ics_text(venue)}",
-            f"DESCRIPTION:{description}",
-            "STATUS:CONFIRMED",
-            "TRANSP:OPAQUE",
-            "SEQUENCE:0",
-            "BEGIN:VALARM",
-            "TRIGGER:-PT2H",
-            "ACTION:DISPLAY",
-            f"DESCRIPTION:Recordatorio: {clean_ics_text(summary)} en 2 horas",
-            "END:VALARM",
-            "END:VEVENT"
-        ])
-
-    lines.append("END:VCALENDAR")
-    ics_content = "\r\n".join(lines) + "\r\n"
-
-    with open(OUTPUT_ICS, "w", encoding="utf-8") as f:
-        f.write(ics_content)
-    with open(OUTPUT_ICS_ALIAS, "w", encoding="utf-8") as f:
-        f.write(ics_content)
-
-    print(f"Generado con éxito: {OUTPUT_ICS} ({len(centinela_matches)} partidos)")
-    print(f"Generado con éxito: {OUTPUT_ICS_ALIAS}")
-
-    # 2. Generate Individual Match ICS files in assets/ics/
     ics_dir = os.path.join(BASE_DIR, "assets", "ics")
     os.makedirs(ics_dir, exist_ok=True)
 
-    next_upcoming = None
-    for m in centinela_matches:
+    next_match_raw = None
+
+    for m in matches:
         jornada = m.get("roundNumber", 1)
-        single_ics = generate_single_match_ics(m, now_stamp)
-        if single_ics:
-            match_file = os.path.join(ics_dir, f"jornada-{jornada}.ics")
-            with open(match_file, "w", encoding="utf-8") as f:
-                f.write(single_ics)
-            # Also keep short alias j{n}.ics
-            with open(os.path.join(ics_dir, f"j{jornada}.ics"), "w", encoding="utf-8") as f:
-                f.write(single_ics)
+        d, mo, y = [int(x) for x in m.get("date", "19/09/2026").split("/")]
+        time_str = m.get("time", "21:00")
+        h, mi = [int(x) for x in time_str.split(":")]
+        dt_local = datetime(y, mo, d, h, mi)
+        dt_utc_start = canary_to_utc(dt_local).replace(tzinfo=timezone.utc)
+        dt_utc_end = dt_utc_start + timedelta(minutes=105)
 
-        if next_upcoming is None and (m.get("status") == "upcoming" or m.get("homeScore") is None):
-            next_upcoming = m
+        home = m.get("home", "")
+        away = m.get("away", "")
+        is_home = (m.get("homeId") == "ud-centinela") or ("centinela" in home.lower())
+        raw_venue = m.get("venue", "").strip()
+        venue = VENUE_MAP.get(raw_venue, raw_venue if raw_venue else ("Estadio Municipal El Molino, Icod de los Vinos" if is_home else "Tenerife, Islas Canarias"))
 
-    # 3. Generate Next Match ICS file (ideal for Xiaomi 1-click add)
-    if next_upcoming is None and centinela_matches:
-        next_upcoming = centinela_matches[0]
+        opponent = away if is_home else home
+        summary = f"UD Centinela vs {opponent} (J{jornada})" if is_home else f"{opponent} vs UD Centinela (J{jornada})"
+        home_away_text = "Casa" if is_home else "Fuera"
 
-    if next_upcoming:
-        next_ics = generate_single_match_ics(next_upcoming, now_stamp)
-        if next_ics:
-            next_file = os.path.join(BASE_DIR, "assets", "ud-centinela-proximo-partido.ics")
-            with open(next_file, "w", encoding="utf-8") as f:
-                f.write(next_ics)
-            print(f"Generado con éxito: {next_file} (Jornada {next_upcoming.get('roundNumber', 1)})")
+        desc = (
+            f"Segunda Regional Tenerife - Jornada {jornada}\n"
+            f"{home} vs {away}\n"
+            f"Condicion: {home_away_text}\n"
+            f"Campo: {venue}\n"
+            f"Hora: {time_str} (hora canaria)\n\n"
+            f"Web oficial: https://udcentinela.github.io/calendario/\n"
+            f"Aupa Centinela!"
+        )
+
+        ev = icalendar.Event()
+        ev.add("uid", f"match-j{jornada}-2026-2027@udcentinela.github.io")
+        ev.add("dtstamp", now_utc)
+        ev.add("dtstart", dt_utc_start)
+        ev.add("dtend", dt_utc_end)
+        ev.add("summary", summary)
+        ev.add("location", venue)
+        ev.add("description", desc)
+        ev.add("status", "CONFIRMED")
+        ev.add("transp", "OPAQUE")
+
+        alarm = icalendar.Alarm()
+        alarm.add("action", "DISPLAY")
+        alarm.add("description", f"Recordatorio: {summary}")
+        alarm.add("trigger", icalendar.vDuration(timedelta(hours=-2)))
+        ev.add_component(alarm)
+
+        full_cal.add_component(ev)
+
+        # 2. Calendario individual para móviles (Xiaomi Mi Calendario / Android / iPhone)
+        single_cal = icalendar.Calendar()
+        single_cal.add("prodid", "-//UD Centinela//ES")
+        single_cal.add("version", "2.0")
+        single_cal.add("calscale", "GREGORIAN")
+        single_cal.add_component(ev)
+
+        single_raw = single_cal.to_ical()
+        with open(os.path.join(ics_dir, f"jornada-{jornada}.ics"), "wb") as f:
+            f.write(single_raw)
+        with open(os.path.join(ics_dir, f"j{jornada}.ics"), "wb") as f:
+            f.write(single_raw)
+
+        if next_match_raw is None and (m.get("status") == "upcoming" or m.get("homeScore") is None):
+            next_match_raw = single_raw
+
+    # Guardar calendarios de temporada completa en modo binario
+    full_raw = full_cal.to_ical()
+    with open(OUTPUT_ICS, "wb") as f:
+        f.write(full_raw)
+    with open(OUTPUT_ICS_ALIAS, "wb") as f:
+        f.write(full_raw)
+
+    # Si no hay próximo partido futuro, tomar el primero
+    if next_match_raw is None and matches:
+        first_cal = icalendar.Calendar()
+        first_cal.add("prodid", "-//UD Centinela//ES")
+        first_cal.add("version", "2.0")
+        first_cal.add("calscale", "GREGORIAN")
+        # take first event from full_cal
+        first_ev = full_cal.walk("vevent")[0]
+        first_cal.add_component(first_ev)
+        next_match_raw = first_cal.to_ical()
+
+    if next_match_raw:
+        proximo_file = os.path.join(BASE_DIR, "assets", "ud-centinela-proximo-partido.ics")
+        with open(proximo_file, "wb") as f:
+            f.write(next_match_raw)
+
+    print(f"Generado con éxito: {OUTPUT_ICS} ({len(matches)} partidos, {len(full_raw)} bytes)")
+    print(f"Generado con éxito: {OUTPUT_ICS_ALIAS}")
+    print(f"Generados {len(matches)} archivos individuales en {ics_dir}")
 
 if __name__ == "__main__":
     generate_ics()

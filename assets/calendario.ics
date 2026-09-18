@@ -1,521 +1,597 @@
-BEGIN:VCALENDAR
-VERSION:2.0
-PRODID:-//UD Centinela//Calendario Oficial 2026-2027//ES
-CALSCALE:GREGORIAN
-METHOD:PUBLISH
-X-WR-CALNAME:UD Centinela - Partidos 2026/27
-X-WR-CALDESC:Calendario oficial de partidos del primer equipo de la UD Centinela en Segunda Regional de Tenerife (Temporada 2026/27).
-X-WR-TIMEZONE:Atlantic/Canary
-REFRESH-INTERVAL;VALUE=DURATION:P1D
-X-PUBLISHED-TTL:P1D
-BEGIN:VEVENT
-UID:match-j1-2026-2027@udcentinela.github.io
-DTSTAMP:20260918T150916Z
-DTSTART:20260911T200000Z
-DTEND:20260911T214500Z
-SUMMARY:⚽ C.D. Portezuelo Tegueste A vs UD Centinela (J1)
-LOCATION:Campo Municipal Los Laureles\, Tegueste\, Santa Cruz de Tenerife
-DESCRIPTION:🏆 Segunda Regional Tenerife 2026/27 - Jornada 1\n⚔️ C.D. Portezuelo Tegueste A vs UD Centinela\n📍 ✈️ Fuera · Campo Municipal Los Laureles\, Tegueste\, Santa Cruz de Tenerife\n⏰ Hora: 21:00 (hora canaria)\n\nℹ️ Sigue el partido\, resultados y clasificación en directo:\n👉 https://udcentinela.github.io/calendario/\n\n¡Aupa Centinela! 🔴⚫
-STATUS:CONFIRMED
-TRANSP:OPAQUE
-SEQUENCE:0
-BEGIN:VALARM
-TRIGGER:-PT2H
-ACTION:DISPLAY
-DESCRIPTION:Recordatorio: ⚽ C.D. Portezuelo Tegueste A vs UD Centinela (J1) en 2 horas
-END:VALARM
-END:VEVENT
-BEGIN:VEVENT
-UID:match-j2-2026-2027@udcentinela.github.io
-DTSTAMP:20260918T150916Z
-DTSTART:20260919T200000Z
-DTEND:20260919T214500Z
-SUMMARY:⚽ UD Centinela vs Atlético Perdoma B (J2)
-LOCATION:Estadio Municipal El Molino\, Icod de los Vinos\, Santa Cruz de Tenerife
-DESCRIPTION:🏆 Segunda Regional Tenerife 2026/27 - Jornada 2\n⚔️ UD Centinela vs Atlético Perdoma B\n📍 🏠 Casa · Estadio Municipal El Molino\, Icod de los Vinos\, Santa Cruz de Tenerife\n⏰ Hora: 21:00 (hora canaria)\n\nℹ️ Sigue el partido\, resultados y clasificación en directo:\n👉 https://udcentinela.github.io/calendario/\n\n¡Aupa Centinela! 🔴⚫
-STATUS:CONFIRMED
-TRANSP:OPAQUE
-SEQUENCE:0
-BEGIN:VALARM
-TRIGGER:-PT2H
-ACTION:DISPLAY
-DESCRIPTION:Recordatorio: ⚽ UD Centinela vs Atlético Perdoma B (J2) en 2 horas
-END:VALARM
-END:VEVENT
-BEGIN:VEVENT
-UID:match-j3-2026-2027@udcentinela.github.io
-DTSTAMP:20260918T150916Z
-DTSTART:20260926T193000Z
-DTEND:20260926T211500Z
-SUMMARY:⚽ S.D. Ravelo B vs UD Centinela (J3)
-LOCATION:Campo Municipal de Ravelo\, El Sauzal\, Santa Cruz de Tenerife
-DESCRIPTION:🏆 Segunda Regional Tenerife 2026/27 - Jornada 3\n⚔️ S.D. Ravelo B vs UD Centinela\n📍 ✈️ Fuera · Campo Municipal de Ravelo\, El Sauzal\, Santa Cruz de Tenerife\n⏰ Hora: 20:30 (hora canaria)\n\nℹ️ Sigue el partido\, resultados y clasificación en directo:\n👉 https://udcentinela.github.io/calendario/\n\n¡Aupa Centinela! 🔴⚫
-STATUS:CONFIRMED
-TRANSP:OPAQUE
-SEQUENCE:0
-BEGIN:VALARM
-TRIGGER:-PT2H
-ACTION:DISPLAY
-DESCRIPTION:Recordatorio: ⚽ S.D. Ravelo B vs UD Centinela (J3) en 2 horas
-END:VALARM
-END:VEVENT
-BEGIN:VEVENT
-UID:match-j4-2026-2027@udcentinela.github.io
-DTSTAMP:20260918T150916Z
-DTSTART:20261003T200000Z
-DTEND:20261003T214500Z
-SUMMARY:⚽ UD Centinela vs U.D. Tacoronte (J4)
-LOCATION:Estadio Municipal El Molino\, Icod de los Vinos\, Santa Cruz de Tenerife
-DESCRIPTION:🏆 Segunda Regional Tenerife 2026/27 - Jornada 4\n⚔️ UD Centinela vs U.D. Tacoronte\n📍 🏠 Casa · Estadio Municipal El Molino\, Icod de los Vinos\, Santa Cruz de Tenerife\n⏰ Hora: 21:00 (hora canaria)\n\nℹ️ Sigue el partido\, resultados y clasificación en directo:\n👉 https://udcentinela.github.io/calendario/\n\n¡Aupa Centinela! 🔴⚫
-STATUS:CONFIRMED
-TRANSP:OPAQUE
-SEQUENCE:0
-BEGIN:VALARM
-TRIGGER:-PT2H
-ACTION:DISPLAY
-DESCRIPTION:Recordatorio: ⚽ UD Centinela vs U.D. Tacoronte (J4) en 2 horas
-END:VALARM
-END:VEVENT
-BEGIN:VEVENT
-UID:match-j5-2026-2027@udcentinela.github.io
-DTSTAMP:20260918T150916Z
-DTSTART:20261009T200000Z
-DTEND:20261009T214500Z
-SUMMARY:⚽ C.D. San Jerónimo vs UD Centinela (J5)
-LOCATION:Campo Municipal Las Torres\, Taco\, San Cristóbal de La Laguna
-DESCRIPTION:🏆 Segunda Regional Tenerife 2026/27 - Jornada 5\n⚔️ C.D. San Jerónimo vs UD Centinela\n📍 ✈️ Fuera · Campo Municipal Las Torres\, Taco\, San Cristóbal de La Laguna\n⏰ Hora: 21:00 (hora canaria)\n\nℹ️ Sigue el partido\, resultados y clasificación en directo:\n👉 https://udcentinela.github.io/calendario/\n\n¡Aupa Centinela! 🔴⚫
-STATUS:CONFIRMED
-TRANSP:OPAQUE
-SEQUENCE:0
-BEGIN:VALARM
-TRIGGER:-PT2H
-ACTION:DISPLAY
-DESCRIPTION:Recordatorio: ⚽ C.D. San Jerónimo vs UD Centinela (J5) en 2 horas
-END:VALARM
-END:VEVENT
-BEGIN:VEVENT
-UID:match-j6-2026-2027@udcentinela.github.io
-DTSTAMP:20260918T150916Z
-DTSTART:20261017T200000Z
-DTEND:20261017T214500Z
-SUMMARY:⚽ UD Centinela vs C.D. Juventud Silense (J6)
-LOCATION:Estadio Municipal El Molino\, Icod de los Vinos\, Santa Cruz de Tenerife
-DESCRIPTION:🏆 Segunda Regional Tenerife 2026/27 - Jornada 6\n⚔️ UD Centinela vs C.D. Juventud Silense\n📍 🏠 Casa · Estadio Municipal El Molino\, Icod de los Vinos\, Santa Cruz de Tenerife\n⏰ Hora: 21:00 (hora canaria)\n\nℹ️ Sigue el partido\, resultados y clasificación en directo:\n👉 https://udcentinela.github.io/calendario/\n\n¡Aupa Centinela! 🔴⚫
-STATUS:CONFIRMED
-TRANSP:OPAQUE
-SEQUENCE:0
-BEGIN:VALARM
-TRIGGER:-PT2H
-ACTION:DISPLAY
-DESCRIPTION:Recordatorio: ⚽ UD Centinela vs C.D. Juventud Silense (J6) en 2 horas
-END:VALARM
-END:VEVENT
-BEGIN:VEVENT
-UID:match-j7-2026-2027@udcentinela.github.io
-DTSTAMP:20260918T150916Z
-DTSTART:20261024T170000Z
-DTEND:20261024T184500Z
-SUMMARY:⚽ C.D. Juventud Interián vs UD Centinela (J7)
-LOCATION:Campo Municipal de Caleta de Interián\, Garachico
-DESCRIPTION:🏆 Segunda Regional Tenerife 2026/27 - Jornada 7\n⚔️ C.D. Juventud Interián vs UD Centinela\n📍 ✈️ Fuera · Campo Municipal de Caleta de Interián\, Garachico\n⏰ Hora: 18:00 (hora canaria)\n\nℹ️ Sigue el partido\, resultados y clasificación en directo:\n👉 https://udcentinela.github.io/calendario/\n\n¡Aupa Centinela! 🔴⚫
-STATUS:CONFIRMED
-TRANSP:OPAQUE
-SEQUENCE:0
-BEGIN:VALARM
-TRIGGER:-PT2H
-ACTION:DISPLAY
-DESCRIPTION:Recordatorio: ⚽ C.D. Juventud Interián vs UD Centinela (J7) en 2 horas
-END:VALARM
-END:VEVENT
-BEGIN:VEVENT
-UID:match-j8-2026-2027@udcentinela.github.io
-DTSTAMP:20260918T150916Z
-DTSTART:20261031T210000Z
-DTEND:20261031T224500Z
-SUMMARY:⚽ UD Centinela vs C.D. AFB Tegueste (J8)
-LOCATION:Estadio Municipal El Molino\, Icod de los Vinos\, Santa Cruz de Tenerife
-DESCRIPTION:🏆 Segunda Regional Tenerife 2026/27 - Jornada 8\n⚔️ UD Centinela vs C.D. AFB Tegueste\n📍 🏠 Casa · Estadio Municipal El Molino\, Icod de los Vinos\, Santa Cruz de Tenerife\n⏰ Hora: 21:00 (hora canaria)\n\nℹ️ Sigue el partido\, resultados y clasificación en directo:\n👉 https://udcentinela.github.io/calendario/\n\n¡Aupa Centinela! 🔴⚫
-STATUS:CONFIRMED
-TRANSP:OPAQUE
-SEQUENCE:0
-BEGIN:VALARM
-TRIGGER:-PT2H
-ACTION:DISPLAY
-DESCRIPTION:Recordatorio: ⚽ UD Centinela vs C.D. AFB Tegueste (J8) en 2 horas
-END:VALARM
-END:VEVENT
-BEGIN:VEVENT
-UID:match-j9-2026-2027@udcentinela.github.io
-DTSTAMP:20260918T150916Z
-DTSTART:20261106T210000Z
-DTEND:20261106T224500Z
-SUMMARY:⚽ C.D. San Diego vs UD Centinela (J9)
-LOCATION:Estadio Municipal Los Cuartos\, La Orotava\, Santa Cruz de Tenerife
-DESCRIPTION:🏆 Segunda Regional Tenerife 2026/27 - Jornada 9\n⚔️ C.D. San Diego vs UD Centinela\n📍 ✈️ Fuera · Estadio Municipal Los Cuartos\, La Orotava\, Santa Cruz de Tenerife\n⏰ Hora: 21:00 (hora canaria)\n\nℹ️ Sigue el partido\, resultados y clasificación en directo:\n👉 https://udcentinela.github.io/calendario/\n\n¡Aupa Centinela! 🔴⚫
-STATUS:CONFIRMED
-TRANSP:OPAQUE
-SEQUENCE:0
-BEGIN:VALARM
-TRIGGER:-PT2H
-ACTION:DISPLAY
-DESCRIPTION:Recordatorio: ⚽ C.D. San Diego vs UD Centinela (J9) en 2 horas
-END:VALARM
-END:VEVENT
-BEGIN:VEVENT
-UID:match-j10-2026-2027@udcentinela.github.io
-DTSTAMP:20260918T150916Z
-DTSTART:20261114T210000Z
-DTEND:20261114T224500Z
-SUMMARY:⚽ UD Centinela vs C.D. Once Piratas (J10)
-LOCATION:Estadio Municipal El Molino\, Icod de los Vinos\, Santa Cruz de Tenerife
-DESCRIPTION:🏆 Segunda Regional Tenerife 2026/27 - Jornada 10\n⚔️ UD Centinela vs C.D. Once Piratas\n📍 🏠 Casa · Estadio Municipal El Molino\, Icod de los Vinos\, Santa Cruz de Tenerife\n⏰ Hora: 21:00 (hora canaria)\n\nℹ️ Sigue el partido\, resultados y clasificación en directo:\n👉 https://udcentinela.github.io/calendario/\n\n¡Aupa Centinela! 🔴⚫
-STATUS:CONFIRMED
-TRANSP:OPAQUE
-SEQUENCE:0
-BEGIN:VALARM
-TRIGGER:-PT2H
-ACTION:DISPLAY
-DESCRIPTION:Recordatorio: ⚽ UD Centinela vs C.D. Once Piratas (J10) en 2 horas
-END:VALARM
-END:VEVENT
-BEGIN:VEVENT
-UID:match-j11-2026-2027@udcentinela.github.io
-DTSTAMP:20260918T150916Z
-DTSTART:20261121T210000Z
-DTEND:20261121T224500Z
-SUMMARY:⚽ UD Centinela vs U.D. Matanza (J11)
-LOCATION:Estadio Municipal El Molino\, Icod de los Vinos\, Santa Cruz de Tenerife
-DESCRIPTION:🏆 Segunda Regional Tenerife 2026/27 - Jornada 11\n⚔️ UD Centinela vs U.D. Matanza\n📍 🏠 Casa · Estadio Municipal El Molino\, Icod de los Vinos\, Santa Cruz de Tenerife\n⏰ Hora: 21:00 (hora canaria)\n\nℹ️ Sigue el partido\, resultados y clasificación en directo:\n👉 https://udcentinela.github.io/calendario/\n\n¡Aupa Centinela! 🔴⚫
-STATUS:CONFIRMED
-TRANSP:OPAQUE
-SEQUENCE:0
-BEGIN:VALARM
-TRIGGER:-PT2H
-ACTION:DISPLAY
-DESCRIPTION:Recordatorio: ⚽ UD Centinela vs U.D. Matanza (J11) en 2 horas
-END:VALARM
-END:VEVENT
-BEGIN:VEVENT
-UID:match-j12-2026-2027@udcentinela.github.io
-DTSTAMP:20260918T150916Z
-DTSTART:20261127T210000Z
-DTEND:20261127T224500Z
-SUMMARY:⚽ VLM F.C. (Vistalmon) vs UD Centinela (J12)
-LOCATION:Campo Municipal El Pacho\, San Cristóbal de La Laguna
-DESCRIPTION:🏆 Segunda Regional Tenerife 2026/27 - Jornada 12\n⚔️ VLM F.C. (Vistalmon) vs UD Centinela\n📍 ✈️ Fuera · Campo Municipal El Pacho\, San Cristóbal de La Laguna\n⏰ Hora: 21:00 (hora canaria)\n\nℹ️ Sigue el partido\, resultados y clasificación en directo:\n👉 https://udcentinela.github.io/calendario/\n\n¡Aupa Centinela! 🔴⚫
-STATUS:CONFIRMED
-TRANSP:OPAQUE
-SEQUENCE:0
-BEGIN:VALARM
-TRIGGER:-PT2H
-ACTION:DISPLAY
-DESCRIPTION:Recordatorio: ⚽ VLM F.C. (Vistalmon) vs UD Centinela (J12) en 2 horas
-END:VALARM
-END:VEVENT
-BEGIN:VEVENT
-UID:match-j13-2026-2027@udcentinela.github.io
-DTSTAMP:20260918T150916Z
-DTSTART:20261205T210000Z
-DTEND:20261205T224500Z
-SUMMARY:⚽ UD Centinela vs Tacoronte C.F. (J13)
-LOCATION:Estadio Municipal El Molino\, Icod de los Vinos\, Santa Cruz de Tenerife
-DESCRIPTION:🏆 Segunda Regional Tenerife 2026/27 - Jornada 13\n⚔️ UD Centinela vs Tacoronte C.F.\n📍 🏠 Casa · Estadio Municipal El Molino\, Icod de los Vinos\, Santa Cruz de Tenerife\n⏰ Hora: 21:00 (hora canaria)\n\nℹ️ Sigue el partido\, resultados y clasificación en directo:\n👉 https://udcentinela.github.io/calendario/\n\n¡Aupa Centinela! 🔴⚫
-STATUS:CONFIRMED
-TRANSP:OPAQUE
-SEQUENCE:0
-BEGIN:VALARM
-TRIGGER:-PT2H
-ACTION:DISPLAY
-DESCRIPTION:Recordatorio: ⚽ UD Centinela vs Tacoronte C.F. (J13) en 2 horas
-END:VALARM
-END:VEVENT
-BEGIN:VEVENT
-UID:match-j14-2026-2027@udcentinela.github.io
-DTSTAMP:20260918T150916Z
-DTSTART:20261212T163000Z
-DTEND:20261212T181500Z
-SUMMARY:⚽ C.D. Buenavista vs UD Centinela (J14)
-LOCATION:Campo Municipal Los Cabildos\, Buenavista del Norte
-DESCRIPTION:🏆 Segunda Regional Tenerife 2026/27 - Jornada 14\n⚔️ C.D. Buenavista vs UD Centinela\n📍 ✈️ Fuera · Campo Municipal Los Cabildos\, Buenavista del Norte\n⏰ Hora: 16:30 (hora canaria)\n\nℹ️ Sigue el partido\, resultados y clasificación en directo:\n👉 https://udcentinela.github.io/calendario/\n\n¡Aupa Centinela! 🔴⚫
-STATUS:CONFIRMED
-TRANSP:OPAQUE
-SEQUENCE:0
-BEGIN:VALARM
-TRIGGER:-PT2H
-ACTION:DISPLAY
-DESCRIPTION:Recordatorio: ⚽ C.D. Buenavista vs UD Centinela (J14) en 2 horas
-END:VALARM
-END:VEVENT
-BEGIN:VEVENT
-UID:match-j15-2026-2027@udcentinela.github.io
-DTSTAMP:20260918T150916Z
-DTSTART:20261219T210000Z
-DTEND:20261219T224500Z
-SUMMARY:⚽ UD Centinela vs R.C.D. Gara (J15)
-LOCATION:Estadio Municipal El Molino\, Icod de los Vinos\, Santa Cruz de Tenerife
-DESCRIPTION:🏆 Segunda Regional Tenerife 2026/27 - Jornada 15\n⚔️ UD Centinela vs R.C.D. Gara\n📍 🏠 Casa · Estadio Municipal El Molino\, Icod de los Vinos\, Santa Cruz de Tenerife\n⏰ Hora: 21:00 (hora canaria)\n\nℹ️ Sigue el partido\, resultados y clasificación en directo:\n👉 https://udcentinela.github.io/calendario/\n\n¡Aupa Centinela! 🔴⚫
-STATUS:CONFIRMED
-TRANSP:OPAQUE
-SEQUENCE:0
-BEGIN:VALARM
-TRIGGER:-PT2H
-ACTION:DISPLAY
-DESCRIPTION:Recordatorio: ⚽ UD Centinela vs R.C.D. Gara (J15) en 2 horas
-END:VALARM
-END:VEVENT
-BEGIN:VEVENT
-UID:match-j16-2026-2027@udcentinela.github.io
-DTSTAMP:20260918T150916Z
-DTSTART:20270109T210000Z
-DTEND:20270109T224500Z
-SUMMARY:⚽ UD Centinela vs C.D. Portezuelo Tegueste A (J16)
-LOCATION:Estadio Municipal El Molino\, Icod de los Vinos\, Santa Cruz de Tenerife
-DESCRIPTION:🏆 Segunda Regional Tenerife 2026/27 - Jornada 16\n⚔️ UD Centinela vs C.D. Portezuelo Tegueste A\n📍 🏠 Casa · Estadio Municipal El Molino\, Icod de los Vinos\, Santa Cruz de Tenerife\n⏰ Hora: 21:00 (hora canaria)\n\nℹ️ Sigue el partido\, resultados y clasificación en directo:\n👉 https://udcentinela.github.io/calendario/\n\n¡Aupa Centinela! 🔴⚫
-STATUS:CONFIRMED
-TRANSP:OPAQUE
-SEQUENCE:0
-BEGIN:VALARM
-TRIGGER:-PT2H
-ACTION:DISPLAY
-DESCRIPTION:Recordatorio: ⚽ UD Centinela vs C.D. Portezuelo Tegueste A (J16) en 2 horas
-END:VALARM
-END:VEVENT
-BEGIN:VEVENT
-UID:match-j17-2026-2027@udcentinela.github.io
-DTSTAMP:20260918T150916Z
-DTSTART:20270116T190000Z
-DTEND:20270116T204500Z
-SUMMARY:⚽ Atlético Perdoma B vs UD Centinela (J17)
-LOCATION:Campo Municipal de La Perdoma\, La Orotava
-DESCRIPTION:🏆 Segunda Regional Tenerife 2026/27 - Jornada 17\n⚔️ Atlético Perdoma B vs UD Centinela\n📍 ✈️ Fuera · Campo Municipal de La Perdoma\, La Orotava\n⏰ Hora: 19:00 (hora canaria)\n\nℹ️ Sigue el partido\, resultados y clasificación en directo:\n👉 https://udcentinela.github.io/calendario/\n\n¡Aupa Centinela! 🔴⚫
-STATUS:CONFIRMED
-TRANSP:OPAQUE
-SEQUENCE:0
-BEGIN:VALARM
-TRIGGER:-PT2H
-ACTION:DISPLAY
-DESCRIPTION:Recordatorio: ⚽ Atlético Perdoma B vs UD Centinela (J17) en 2 horas
-END:VALARM
-END:VEVENT
-BEGIN:VEVENT
-UID:match-j18-2026-2027@udcentinela.github.io
-DTSTAMP:20260918T150916Z
-DTSTART:20270123T210000Z
-DTEND:20270123T224500Z
-SUMMARY:⚽ UD Centinela vs S.D. Ravelo B (J18)
-LOCATION:Estadio Municipal El Molino\, Icod de los Vinos\, Santa Cruz de Tenerife
-DESCRIPTION:🏆 Segunda Regional Tenerife 2026/27 - Jornada 18\n⚔️ UD Centinela vs S.D. Ravelo B\n📍 🏠 Casa · Estadio Municipal El Molino\, Icod de los Vinos\, Santa Cruz de Tenerife\n⏰ Hora: 21:00 (hora canaria)\n\nℹ️ Sigue el partido\, resultados y clasificación en directo:\n👉 https://udcentinela.github.io/calendario/\n\n¡Aupa Centinela! 🔴⚫
-STATUS:CONFIRMED
-TRANSP:OPAQUE
-SEQUENCE:0
-BEGIN:VALARM
-TRIGGER:-PT2H
-ACTION:DISPLAY
-DESCRIPTION:Recordatorio: ⚽ UD Centinela vs S.D. Ravelo B (J18) en 2 horas
-END:VALARM
-END:VEVENT
-BEGIN:VEVENT
-UID:match-j19-2026-2027@udcentinela.github.io
-DTSTAMP:20260918T150916Z
-DTSTART:20270130T193000Z
-DTEND:20270130T211500Z
-SUMMARY:⚽ U.D. Tacoronte vs UD Centinela (J19)
-LOCATION:Campo Municipal Avencio Hernández\, Tacoronte
-DESCRIPTION:🏆 Segunda Regional Tenerife 2026/27 - Jornada 19\n⚔️ U.D. Tacoronte vs UD Centinela\n📍 ✈️ Fuera · Campo Municipal Avencio Hernández\, Tacoronte\n⏰ Hora: 19:30 (hora canaria)\n\nℹ️ Sigue el partido\, resultados y clasificación en directo:\n👉 https://udcentinela.github.io/calendario/\n\n¡Aupa Centinela! 🔴⚫
-STATUS:CONFIRMED
-TRANSP:OPAQUE
-SEQUENCE:0
-BEGIN:VALARM
-TRIGGER:-PT2H
-ACTION:DISPLAY
-DESCRIPTION:Recordatorio: ⚽ U.D. Tacoronte vs UD Centinela (J19) en 2 horas
-END:VALARM
-END:VEVENT
-BEGIN:VEVENT
-UID:match-j20-2026-2027@udcentinela.github.io
-DTSTAMP:20260918T150916Z
-DTSTART:20270206T210000Z
-DTEND:20270206T224500Z
-SUMMARY:⚽ UD Centinela vs C.D. San Jerónimo (J20)
-LOCATION:Estadio Municipal El Molino\, Icod de los Vinos\, Santa Cruz de Tenerife
-DESCRIPTION:🏆 Segunda Regional Tenerife 2026/27 - Jornada 20\n⚔️ UD Centinela vs C.D. San Jerónimo\n📍 🏠 Casa · Estadio Municipal El Molino\, Icod de los Vinos\, Santa Cruz de Tenerife\n⏰ Hora: 21:00 (hora canaria)\n\nℹ️ Sigue el partido\, resultados y clasificación en directo:\n👉 https://udcentinela.github.io/calendario/\n\n¡Aupa Centinela! 🔴⚫
-STATUS:CONFIRMED
-TRANSP:OPAQUE
-SEQUENCE:0
-BEGIN:VALARM
-TRIGGER:-PT2H
-ACTION:DISPLAY
-DESCRIPTION:Recordatorio: ⚽ UD Centinela vs C.D. San Jerónimo (J20) en 2 horas
-END:VALARM
-END:VEVENT
-BEGIN:VEVENT
-UID:match-j21-2026-2027@udcentinela.github.io
-DTSTAMP:20260918T150916Z
-DTSTART:20270213T180000Z
-DTEND:20270213T194500Z
-SUMMARY:⚽ C.D. Juventud Silense vs UD Centinela (J21)
-LOCATION:Campo Municipal Juan Valiente\, Los Silos
-DESCRIPTION:🏆 Segunda Regional Tenerife 2026/27 - Jornada 21\n⚔️ C.D. Juventud Silense vs UD Centinela\n📍 ✈️ Fuera · Campo Municipal Juan Valiente\, Los Silos\n⏰ Hora: 18:00 (hora canaria)\n\nℹ️ Sigue el partido\, resultados y clasificación en directo:\n👉 https://udcentinela.github.io/calendario/\n\n¡Aupa Centinela! 🔴⚫
-STATUS:CONFIRMED
-TRANSP:OPAQUE
-SEQUENCE:0
-BEGIN:VALARM
-TRIGGER:-PT2H
-ACTION:DISPLAY
-DESCRIPTION:Recordatorio: ⚽ C.D. Juventud Silense vs UD Centinela (J21) en 2 horas
-END:VALARM
-END:VEVENT
-BEGIN:VEVENT
-UID:match-j22-2026-2027@udcentinela.github.io
-DTSTAMP:20260918T150916Z
-DTSTART:20270227T210000Z
-DTEND:20270227T224500Z
-SUMMARY:⚽ UD Centinela vs C.D. Juventud Interián (J22)
-LOCATION:Estadio Municipal El Molino\, Icod de los Vinos\, Santa Cruz de Tenerife
-DESCRIPTION:🏆 Segunda Regional Tenerife 2026/27 - Jornada 22\n⚔️ UD Centinela vs C.D. Juventud Interián\n📍 🏠 Casa · Estadio Municipal El Molino\, Icod de los Vinos\, Santa Cruz de Tenerife\n⏰ Hora: 21:00 (hora canaria)\n\nℹ️ Sigue el partido\, resultados y clasificación en directo:\n👉 https://udcentinela.github.io/calendario/\n\n¡Aupa Centinela! 🔴⚫
-STATUS:CONFIRMED
-TRANSP:OPAQUE
-SEQUENCE:0
-BEGIN:VALARM
-TRIGGER:-PT2H
-ACTION:DISPLAY
-DESCRIPTION:Recordatorio: ⚽ UD Centinela vs C.D. Juventud Interián (J22) en 2 horas
-END:VALARM
-END:VEVENT
-BEGIN:VEVENT
-UID:match-j23-2026-2027@udcentinela.github.io
-DTSTAMP:20260918T150916Z
-DTSTART:20270306T170000Z
-DTEND:20270306T184500Z
-SUMMARY:⚽ C.D. AFB Tegueste vs UD Centinela (J23)
-LOCATION:Campo Municipal Los Laureles\, Tegueste\, Santa Cruz de Tenerife
-DESCRIPTION:🏆 Segunda Regional Tenerife 2026/27 - Jornada 23\n⚔️ C.D. AFB Tegueste vs UD Centinela\n📍 ✈️ Fuera · Campo Municipal Los Laureles\, Tegueste\, Santa Cruz de Tenerife\n⏰ Hora: 17:00 (hora canaria)\n\nℹ️ Sigue el partido\, resultados y clasificación en directo:\n👉 https://udcentinela.github.io/calendario/\n\n¡Aupa Centinela! 🔴⚫
-STATUS:CONFIRMED
-TRANSP:OPAQUE
-SEQUENCE:0
-BEGIN:VALARM
-TRIGGER:-PT2H
-ACTION:DISPLAY
-DESCRIPTION:Recordatorio: ⚽ C.D. AFB Tegueste vs UD Centinela (J23) en 2 horas
-END:VALARM
-END:VEVENT
-BEGIN:VEVENT
-UID:match-j24-2026-2027@udcentinela.github.io
-DTSTAMP:20260918T150916Z
-DTSTART:20270313T210000Z
-DTEND:20270313T224500Z
-SUMMARY:⚽ UD Centinela vs C.D. San Diego (J24)
-LOCATION:Estadio Municipal El Molino\, Icod de los Vinos\, Santa Cruz de Tenerife
-DESCRIPTION:🏆 Segunda Regional Tenerife 2026/27 - Jornada 24\n⚔️ UD Centinela vs C.D. San Diego\n📍 🏠 Casa · Estadio Municipal El Molino\, Icod de los Vinos\, Santa Cruz de Tenerife\n⏰ Hora: 21:00 (hora canaria)\n\nℹ️ Sigue el partido\, resultados y clasificación en directo:\n👉 https://udcentinela.github.io/calendario/\n\n¡Aupa Centinela! 🔴⚫
-STATUS:CONFIRMED
-TRANSP:OPAQUE
-SEQUENCE:0
-BEGIN:VALARM
-TRIGGER:-PT2H
-ACTION:DISPLAY
-DESCRIPTION:Recordatorio: ⚽ UD Centinela vs C.D. San Diego (J24) en 2 horas
-END:VALARM
-END:VEVENT
-BEGIN:VEVENT
-UID:match-j25-2026-2027@udcentinela.github.io
-DTSTAMP:20260918T150916Z
-DTSTART:20270320T210000Z
-DTEND:20270320T224500Z
-SUMMARY:⚽ C.D. Once Piratas vs UD Centinela (J25)
-LOCATION:Tenerife\, Islas Canarias
-DESCRIPTION:🏆 Segunda Regional Tenerife 2026/27 - Jornada 25\n⚔️ C.D. Once Piratas vs UD Centinela\n📍 ✈️ Fuera · Tenerife\, Islas Canarias\n⏰ Hora: 21:00 (hora canaria)\n\nℹ️ Sigue el partido\, resultados y clasificación en directo:\n👉 https://udcentinela.github.io/calendario/\n\n¡Aupa Centinela! 🔴⚫
-STATUS:CONFIRMED
-TRANSP:OPAQUE
-SEQUENCE:0
-BEGIN:VALARM
-TRIGGER:-PT2H
-ACTION:DISPLAY
-DESCRIPTION:Recordatorio: ⚽ C.D. Once Piratas vs UD Centinela (J25) en 2 horas
-END:VALARM
-END:VEVENT
-BEGIN:VEVENT
-UID:match-j26-2026-2027@udcentinela.github.io
-DTSTAMP:20260918T150916Z
-DTSTART:20270402T200000Z
-DTEND:20270402T214500Z
-SUMMARY:⚽ U.D. Matanza vs UD Centinela (J26)
-LOCATION:Estadio Municipal de La Matanza de Acentejo
-DESCRIPTION:🏆 Segunda Regional Tenerife 2026/27 - Jornada 26\n⚔️ U.D. Matanza vs UD Centinela\n📍 ✈️ Fuera · Estadio Municipal de La Matanza de Acentejo\n⏰ Hora: 21:00 (hora canaria)\n\nℹ️ Sigue el partido\, resultados y clasificación en directo:\n👉 https://udcentinela.github.io/calendario/\n\n¡Aupa Centinela! 🔴⚫
-STATUS:CONFIRMED
-TRANSP:OPAQUE
-SEQUENCE:0
-BEGIN:VALARM
-TRIGGER:-PT2H
-ACTION:DISPLAY
-DESCRIPTION:Recordatorio: ⚽ U.D. Matanza vs UD Centinela (J26) en 2 horas
-END:VALARM
-END:VEVENT
-BEGIN:VEVENT
-UID:match-j27-2026-2027@udcentinela.github.io
-DTSTAMP:20260918T150916Z
-DTSTART:20270410T200000Z
-DTEND:20270410T214500Z
-SUMMARY:⚽ UD Centinela vs VLM F.C. (Vistalmon) (J27)
-LOCATION:Estadio Municipal El Molino\, Icod de los Vinos\, Santa Cruz de Tenerife
-DESCRIPTION:🏆 Segunda Regional Tenerife 2026/27 - Jornada 27\n⚔️ UD Centinela vs VLM F.C. (Vistalmon)\n📍 🏠 Casa · Estadio Municipal El Molino\, Icod de los Vinos\, Santa Cruz de Tenerife\n⏰ Hora: 21:00 (hora canaria)\n\nℹ️ Sigue el partido\, resultados y clasificación en directo:\n👉 https://udcentinela.github.io/calendario/\n\n¡Aupa Centinela! 🔴⚫
-STATUS:CONFIRMED
-TRANSP:OPAQUE
-SEQUENCE:0
-BEGIN:VALARM
-TRIGGER:-PT2H
-ACTION:DISPLAY
-DESCRIPTION:Recordatorio: ⚽ UD Centinela vs VLM F.C. (Vistalmon) (J27) en 2 horas
-END:VALARM
-END:VEVENT
-BEGIN:VEVENT
-UID:match-j28-2026-2027@udcentinela.github.io
-DTSTAMP:20260918T150916Z
-DTSTART:20270416T200000Z
-DTEND:20270416T214500Z
-SUMMARY:⚽ Tacoronte C.F. vs UD Centinela (J28)
-LOCATION:Campo Municipal Barranco Las Lajas\, Tacoronte
-DESCRIPTION:🏆 Segunda Regional Tenerife 2026/27 - Jornada 28\n⚔️ Tacoronte C.F. vs UD Centinela\n📍 ✈️ Fuera · Campo Municipal Barranco Las Lajas\, Tacoronte\n⏰ Hora: 21:00 (hora canaria)\n\nℹ️ Sigue el partido\, resultados y clasificación en directo:\n👉 https://udcentinela.github.io/calendario/\n\n¡Aupa Centinela! 🔴⚫
-STATUS:CONFIRMED
-TRANSP:OPAQUE
-SEQUENCE:0
-BEGIN:VALARM
-TRIGGER:-PT2H
-ACTION:DISPLAY
-DESCRIPTION:Recordatorio: ⚽ Tacoronte C.F. vs UD Centinela (J28) en 2 horas
-END:VALARM
-END:VEVENT
-BEGIN:VEVENT
-UID:match-j29-2026-2027@udcentinela.github.io
-DTSTAMP:20260918T150916Z
-DTSTART:20270424T200000Z
-DTEND:20270424T214500Z
-SUMMARY:⚽ UD Centinela vs C.D. Buenavista (J29)
-LOCATION:Estadio Municipal El Molino\, Icod de los Vinos\, Santa Cruz de Tenerife
-DESCRIPTION:🏆 Segunda Regional Tenerife 2026/27 - Jornada 29\n⚔️ UD Centinela vs C.D. Buenavista\n📍 🏠 Casa · Estadio Municipal El Molino\, Icod de los Vinos\, Santa Cruz de Tenerife\n⏰ Hora: 21:00 (hora canaria)\n\nℹ️ Sigue el partido\, resultados y clasificación en directo:\n👉 https://udcentinela.github.io/calendario/\n\n¡Aupa Centinela! 🔴⚫
-STATUS:CONFIRMED
-TRANSP:OPAQUE
-SEQUENCE:0
-BEGIN:VALARM
-TRIGGER:-PT2H
-ACTION:DISPLAY
-DESCRIPTION:Recordatorio: ⚽ UD Centinela vs C.D. Buenavista (J29) en 2 horas
-END:VALARM
-END:VEVENT
-BEGIN:VEVENT
-UID:match-j30-2026-2027@udcentinela.github.io
-DTSTAMP:20260918T150916Z
-DTSTART:20270502T113000Z
-DTEND:20270502T131500Z
-SUMMARY:⚽ R.C.D. Gara vs UD Centinela (J30)
-LOCATION:Campo Municipal de Caleta de Interián\, Garachico
-DESCRIPTION:🏆 Segunda Regional Tenerife 2026/27 - Jornada 30\n⚔️ R.C.D. Gara vs UD Centinela\n📍 ✈️ Fuera · Campo Municipal de Caleta de Interián\, Garachico\n⏰ Hora: 12:30 (hora canaria)\n\nℹ️ Sigue el partido\, resultados y clasificación en directo:\n👉 https://udcentinela.github.io/calendario/\n\n¡Aupa Centinela! 🔴⚫
-STATUS:CONFIRMED
-TRANSP:OPAQUE
-SEQUENCE:0
-BEGIN:VALARM
-TRIGGER:-PT2H
-ACTION:DISPLAY
-DESCRIPTION:Recordatorio: ⚽ R.C.D. Gara vs UD Centinela (J30) en 2 horas
-END:VALARM
-END:VEVENT
-END:VCALENDAR
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//UD Centinela//Calendario Oficial 2026-2027//ES
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALDESC:Calendario oficial de partidos del primer equipo de la UD Cen
+ tinela en Segunda Regional Tenerife (Temporada 2026/27)
+X-WR-CALNAME:UD Centinela - Partidos 2026/27
+X-WR-TIMEZONE:Atlantic/Canary
+BEGIN:VEVENT
+SUMMARY:C.D. Portezuelo Tegueste A vs UD Centinela (J1)
+DTSTART:20260911T200000Z
+DTEND:20260911T214500Z
+DTSTAMP:20260918T151943Z
+UID:match-j1-2026-2027@udcentinela.github.io
+DESCRIPTION:Segunda Regional Tenerife - Jornada 1\nC.D. Portezuelo Teguest
+ e A vs UD Centinela\nCondicion: Fuera\nCampo: Campo Municipal Los Laureles
+ \, Tegueste\, Santa Cruz de Tenerife\nHora: 21:00 (hora canaria)\n\nWeb of
+ icial: https://udcentinela.github.io/calendario/\nAupa Centinela!
+LOCATION:Campo Municipal Los Laureles\, Tegueste\, Santa Cruz de Tenerife
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Recordatorio: C.D. Portezuelo Tegueste A vs UD Centinela (J1)
+TRIGGER:-PT2H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:UD Centinela vs Atlético Perdoma B (J2)
+DTSTART:20260919T200000Z
+DTEND:20260919T214500Z
+DTSTAMP:20260918T151943Z
+UID:match-j2-2026-2027@udcentinela.github.io
+DESCRIPTION:Segunda Regional Tenerife - Jornada 2\nUD Centinela vs Atléti
+ co Perdoma B\nCondicion: Casa\nCampo: Estadio Municipal El Molino\, Icod d
+ e los Vinos\, Santa Cruz de Tenerife\nHora: 21:00 (hora canaria)\n\nWeb of
+ icial: https://udcentinela.github.io/calendario/\nAupa Centinela!
+LOCATION:Estadio Municipal El Molino\, Icod de los Vinos\, Santa Cruz de T
+ enerife
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Recordatorio: UD Centinela vs Atlético Perdoma B (J2)
+TRIGGER:-PT2H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:S.D. Ravelo B vs UD Centinela (J3)
+DTSTART:20260926T193000Z
+DTEND:20260926T211500Z
+DTSTAMP:20260918T151943Z
+UID:match-j3-2026-2027@udcentinela.github.io
+DESCRIPTION:Segunda Regional Tenerife - Jornada 3\nS.D. Ravelo B vs UD Cen
+ tinela\nCondicion: Fuera\nCampo: Campo Municipal de Ravelo\, El Sauzal\, S
+ anta Cruz de Tenerife\nHora: 20:30 (hora canaria)\n\nWeb oficial: https://
+ udcentinela.github.io/calendario/\nAupa Centinela!
+LOCATION:Campo Municipal de Ravelo\, El Sauzal\, Santa Cruz de Tenerife
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Recordatorio: S.D. Ravelo B vs UD Centinela (J3)
+TRIGGER:-PT2H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:UD Centinela vs U.D. Tacoronte (J4)
+DTSTART:20261003T200000Z
+DTEND:20261003T214500Z
+DTSTAMP:20260918T151943Z
+UID:match-j4-2026-2027@udcentinela.github.io
+DESCRIPTION:Segunda Regional Tenerife - Jornada 4\nUD Centinela vs U.D. Ta
+ coronte\nCondicion: Casa\nCampo: Estadio Municipal El Molino\, Icod de los
+  Vinos\, Santa Cruz de Tenerife\nHora: 21:00 (hora canaria)\n\nWeb oficial
+ : https://udcentinela.github.io/calendario/\nAupa Centinela!
+LOCATION:Estadio Municipal El Molino\, Icod de los Vinos\, Santa Cruz de T
+ enerife
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Recordatorio: UD Centinela vs U.D. Tacoronte (J4)
+TRIGGER:-PT2H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:C.D. San Jerónimo vs UD Centinela (J5)
+DTSTART:20261009T200000Z
+DTEND:20261009T214500Z
+DTSTAMP:20260918T151943Z
+UID:match-j5-2026-2027@udcentinela.github.io
+DESCRIPTION:Segunda Regional Tenerife - Jornada 5\nC.D. San Jerónimo vs U
+ D Centinela\nCondicion: Fuera\nCampo: Campo Municipal Las Torres\, Taco\, 
+ San Cristóbal de La Laguna\nHora: 21:00 (hora canaria)\n\nWeb oficial: ht
+ tps://udcentinela.github.io/calendario/\nAupa Centinela!
+LOCATION:Campo Municipal Las Torres\, Taco\, San Cristóbal de La Laguna
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Recordatorio: C.D. San Jerónimo vs UD Centinela (J5)
+TRIGGER:-PT2H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:UD Centinela vs C.D. Juventud Silense (J6)
+DTSTART:20261017T200000Z
+DTEND:20261017T214500Z
+DTSTAMP:20260918T151943Z
+UID:match-j6-2026-2027@udcentinela.github.io
+DESCRIPTION:Segunda Regional Tenerife - Jornada 6\nUD Centinela vs C.D. Ju
+ ventud Silense\nCondicion: Casa\nCampo: Estadio Municipal El Molino\, Icod
+  de los Vinos\, Santa Cruz de Tenerife\nHora: 21:00 (hora canaria)\n\nWeb 
+ oficial: https://udcentinela.github.io/calendario/\nAupa Centinela!
+LOCATION:Estadio Municipal El Molino\, Icod de los Vinos\, Santa Cruz de T
+ enerife
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Recordatorio: UD Centinela vs C.D. Juventud Silense (J6)
+TRIGGER:-PT2H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:C.D. Juventud Interián vs UD Centinela (J7)
+DTSTART:20261024T170000Z
+DTEND:20261024T184500Z
+DTSTAMP:20260918T151943Z
+UID:match-j7-2026-2027@udcentinela.github.io
+DESCRIPTION:Segunda Regional Tenerife - Jornada 7\nC.D. Juventud Interián
+  vs UD Centinela\nCondicion: Fuera\nCampo: Campo Municipal de Caleta de In
+ terián\, Garachico\nHora: 18:00 (hora canaria)\n\nWeb oficial: https://ud
+ centinela.github.io/calendario/\nAupa Centinela!
+LOCATION:Campo Municipal de Caleta de Interián\, Garachico
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Recordatorio: C.D. Juventud Interián vs UD Centinela (J7)
+TRIGGER:-PT2H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:UD Centinela vs C.D. AFB Tegueste (J8)
+DTSTART:20261031T210000Z
+DTEND:20261031T224500Z
+DTSTAMP:20260918T151943Z
+UID:match-j8-2026-2027@udcentinela.github.io
+DESCRIPTION:Segunda Regional Tenerife - Jornada 8\nUD Centinela vs C.D. AF
+ B Tegueste\nCondicion: Casa\nCampo: Estadio Municipal El Molino\, Icod de 
+ los Vinos\, Santa Cruz de Tenerife\nHora: 21:00 (hora canaria)\n\nWeb ofic
+ ial: https://udcentinela.github.io/calendario/\nAupa Centinela!
+LOCATION:Estadio Municipal El Molino\, Icod de los Vinos\, Santa Cruz de T
+ enerife
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Recordatorio: UD Centinela vs C.D. AFB Tegueste (J8)
+TRIGGER:-PT2H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:C.D. San Diego vs UD Centinela (J9)
+DTSTART:20261106T210000Z
+DTEND:20261106T224500Z
+DTSTAMP:20260918T151943Z
+UID:match-j9-2026-2027@udcentinela.github.io
+DESCRIPTION:Segunda Regional Tenerife - Jornada 9\nC.D. San Diego vs UD Ce
+ ntinela\nCondicion: Fuera\nCampo: Estadio Municipal Los Cuartos\, La Orota
+ va\, Santa Cruz de Tenerife\nHora: 21:00 (hora canaria)\n\nWeb oficial: ht
+ tps://udcentinela.github.io/calendario/\nAupa Centinela!
+LOCATION:Estadio Municipal Los Cuartos\, La Orotava\, Santa Cruz de Teneri
+ fe
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Recordatorio: C.D. San Diego vs UD Centinela (J9)
+TRIGGER:-PT2H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:UD Centinela vs C.D. Once Piratas (J10)
+DTSTART:20261114T210000Z
+DTEND:20261114T224500Z
+DTSTAMP:20260918T151943Z
+UID:match-j10-2026-2027@udcentinela.github.io
+DESCRIPTION:Segunda Regional Tenerife - Jornada 10\nUD Centinela vs C.D. O
+ nce Piratas\nCondicion: Casa\nCampo: Estadio Municipal El Molino\, Icod de
+  los Vinos\, Santa Cruz de Tenerife\nHora: 21:00 (hora canaria)\n\nWeb ofi
+ cial: https://udcentinela.github.io/calendario/\nAupa Centinela!
+LOCATION:Estadio Municipal El Molino\, Icod de los Vinos\, Santa Cruz de T
+ enerife
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Recordatorio: UD Centinela vs C.D. Once Piratas (J10)
+TRIGGER:-PT2H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:UD Centinela vs U.D. Matanza (J11)
+DTSTART:20261121T210000Z
+DTEND:20261121T224500Z
+DTSTAMP:20260918T151943Z
+UID:match-j11-2026-2027@udcentinela.github.io
+DESCRIPTION:Segunda Regional Tenerife - Jornada 11\nUD Centinela vs U.D. M
+ atanza\nCondicion: Casa\nCampo: Estadio Municipal El Molino\, Icod de los 
+ Vinos\, Santa Cruz de Tenerife\nHora: 21:00 (hora canaria)\n\nWeb oficial:
+  https://udcentinela.github.io/calendario/\nAupa Centinela!
+LOCATION:Estadio Municipal El Molino\, Icod de los Vinos\, Santa Cruz de T
+ enerife
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Recordatorio: UD Centinela vs U.D. Matanza (J11)
+TRIGGER:-PT2H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:VLM F.C. (Vistalmon) vs UD Centinela (J12)
+DTSTART:20261127T210000Z
+DTEND:20261127T224500Z
+DTSTAMP:20260918T151943Z
+UID:match-j12-2026-2027@udcentinela.github.io
+DESCRIPTION:Segunda Regional Tenerife - Jornada 12\nVLM F.C. (Vistalmon) v
+ s UD Centinela\nCondicion: Fuera\nCampo: Campo Municipal El Pacho\, San Cr
+ istóbal de La Laguna\nHora: 21:00 (hora canaria)\n\nWeb oficial: https://
+ udcentinela.github.io/calendario/\nAupa Centinela!
+LOCATION:Campo Municipal El Pacho\, San Cristóbal de La Laguna
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Recordatorio: VLM F.C. (Vistalmon) vs UD Centinela (J12)
+TRIGGER:-PT2H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:UD Centinela vs Tacoronte C.F. (J13)
+DTSTART:20261205T210000Z
+DTEND:20261205T224500Z
+DTSTAMP:20260918T151943Z
+UID:match-j13-2026-2027@udcentinela.github.io
+DESCRIPTION:Segunda Regional Tenerife - Jornada 13\nUD Centinela vs Tacoro
+ nte C.F.\nCondicion: Casa\nCampo: Estadio Municipal El Molino\, Icod de lo
+ s Vinos\, Santa Cruz de Tenerife\nHora: 21:00 (hora canaria)\n\nWeb oficia
+ l: https://udcentinela.github.io/calendario/\nAupa Centinela!
+LOCATION:Estadio Municipal El Molino\, Icod de los Vinos\, Santa Cruz de T
+ enerife
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Recordatorio: UD Centinela vs Tacoronte C.F. (J13)
+TRIGGER:-PT2H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:C.D. Buenavista vs UD Centinela (J14)
+DTSTART:20261212T163000Z
+DTEND:20261212T181500Z
+DTSTAMP:20260918T151943Z
+UID:match-j14-2026-2027@udcentinela.github.io
+DESCRIPTION:Segunda Regional Tenerife - Jornada 14\nC.D. Buenavista vs UD 
+ Centinela\nCondicion: Fuera\nCampo: Campo Municipal Los Cabildos\, Buenavi
+ sta del Norte\nHora: 16:30 (hora canaria)\n\nWeb oficial: https://udcentin
+ ela.github.io/calendario/\nAupa Centinela!
+LOCATION:Campo Municipal Los Cabildos\, Buenavista del Norte
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Recordatorio: C.D. Buenavista vs UD Centinela (J14)
+TRIGGER:-PT2H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:UD Centinela vs R.C.D. Gara (J15)
+DTSTART:20261219T210000Z
+DTEND:20261219T224500Z
+DTSTAMP:20260918T151943Z
+UID:match-j15-2026-2027@udcentinela.github.io
+DESCRIPTION:Segunda Regional Tenerife - Jornada 15\nUD Centinela vs R.C.D.
+  Gara\nCondicion: Casa\nCampo: Estadio Municipal El Molino\, Icod de los V
+ inos\, Santa Cruz de Tenerife\nHora: 21:00 (hora canaria)\n\nWeb oficial: 
+ https://udcentinela.github.io/calendario/\nAupa Centinela!
+LOCATION:Estadio Municipal El Molino\, Icod de los Vinos\, Santa Cruz de T
+ enerife
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Recordatorio: UD Centinela vs R.C.D. Gara (J15)
+TRIGGER:-PT2H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:UD Centinela vs C.D. Portezuelo Tegueste A (J16)
+DTSTART:20270109T210000Z
+DTEND:20270109T224500Z
+DTSTAMP:20260918T151943Z
+UID:match-j16-2026-2027@udcentinela.github.io
+DESCRIPTION:Segunda Regional Tenerife - Jornada 16\nUD Centinela vs C.D. P
+ ortezuelo Tegueste A\nCondicion: Casa\nCampo: Estadio Municipal El Molino
+ \, Icod de los Vinos\, Santa Cruz de Tenerife\nHora: 21:00 (hora canaria)
+ \n\nWeb oficial: https://udcentinela.github.io/calendario/\nAupa Centinela
+ !
+LOCATION:Estadio Municipal El Molino\, Icod de los Vinos\, Santa Cruz de T
+ enerife
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Recordatorio: UD Centinela vs C.D. Portezuelo Tegueste A (J16)
+TRIGGER:-PT2H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Atlético Perdoma B vs UD Centinela (J17)
+DTSTART:20270116T190000Z
+DTEND:20270116T204500Z
+DTSTAMP:20260918T151943Z
+UID:match-j17-2026-2027@udcentinela.github.io
+DESCRIPTION:Segunda Regional Tenerife - Jornada 17\nAtlético Perdoma B vs
+  UD Centinela\nCondicion: Fuera\nCampo: Campo Municipal de La Perdoma\, La
+  Orotava\nHora: 19:00 (hora canaria)\n\nWeb oficial: https://udcentinela.g
+ ithub.io/calendario/\nAupa Centinela!
+LOCATION:Campo Municipal de La Perdoma\, La Orotava
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Recordatorio: Atlético Perdoma B vs UD Centinela (J17)
+TRIGGER:-PT2H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:UD Centinela vs S.D. Ravelo B (J18)
+DTSTART:20270123T210000Z
+DTEND:20270123T224500Z
+DTSTAMP:20260918T151943Z
+UID:match-j18-2026-2027@udcentinela.github.io
+DESCRIPTION:Segunda Regional Tenerife - Jornada 18\nUD Centinela vs S.D. R
+ avelo B\nCondicion: Casa\nCampo: Estadio Municipal El Molino\, Icod de los
+  Vinos\, Santa Cruz de Tenerife\nHora: 21:00 (hora canaria)\n\nWeb oficial
+ : https://udcentinela.github.io/calendario/\nAupa Centinela!
+LOCATION:Estadio Municipal El Molino\, Icod de los Vinos\, Santa Cruz de T
+ enerife
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Recordatorio: UD Centinela vs S.D. Ravelo B (J18)
+TRIGGER:-PT2H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:U.D. Tacoronte vs UD Centinela (J19)
+DTSTART:20270130T193000Z
+DTEND:20270130T211500Z
+DTSTAMP:20260918T151943Z
+UID:match-j19-2026-2027@udcentinela.github.io
+DESCRIPTION:Segunda Regional Tenerife - Jornada 19\nU.D. Tacoronte vs UD C
+ entinela\nCondicion: Fuera\nCampo: Campo Municipal Avencio Hernández\, Ta
+ coronte\nHora: 19:30 (hora canaria)\n\nWeb oficial: https://udcentinela.gi
+ thub.io/calendario/\nAupa Centinela!
+LOCATION:Campo Municipal Avencio Hernández\, Tacoronte
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Recordatorio: U.D. Tacoronte vs UD Centinela (J19)
+TRIGGER:-PT2H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:UD Centinela vs C.D. San Jerónimo (J20)
+DTSTART:20270206T210000Z
+DTEND:20270206T224500Z
+DTSTAMP:20260918T151943Z
+UID:match-j20-2026-2027@udcentinela.github.io
+DESCRIPTION:Segunda Regional Tenerife - Jornada 20\nUD Centinela vs C.D. S
+ an Jerónimo\nCondicion: Casa\nCampo: Estadio Municipal El Molino\, Icod d
+ e los Vinos\, Santa Cruz de Tenerife\nHora: 21:00 (hora canaria)\n\nWeb of
+ icial: https://udcentinela.github.io/calendario/\nAupa Centinela!
+LOCATION:Estadio Municipal El Molino\, Icod de los Vinos\, Santa Cruz de T
+ enerife
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Recordatorio: UD Centinela vs C.D. San Jerónimo (J20)
+TRIGGER:-PT2H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:C.D. Juventud Silense vs UD Centinela (J21)
+DTSTART:20270213T180000Z
+DTEND:20270213T194500Z
+DTSTAMP:20260918T151943Z
+UID:match-j21-2026-2027@udcentinela.github.io
+DESCRIPTION:Segunda Regional Tenerife - Jornada 21\nC.D. Juventud Silense 
+ vs UD Centinela\nCondicion: Fuera\nCampo: Campo Municipal Juan Valiente\, 
+ Los Silos\nHora: 18:00 (hora canaria)\n\nWeb oficial: https://udcentinela.
+ github.io/calendario/\nAupa Centinela!
+LOCATION:Campo Municipal Juan Valiente\, Los Silos
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Recordatorio: C.D. Juventud Silense vs UD Centinela (J21)
+TRIGGER:-PT2H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:UD Centinela vs C.D. Juventud Interián (J22)
+DTSTART:20270227T210000Z
+DTEND:20270227T224500Z
+DTSTAMP:20260918T151943Z
+UID:match-j22-2026-2027@udcentinela.github.io
+DESCRIPTION:Segunda Regional Tenerife - Jornada 22\nUD Centinela vs C.D. J
+ uventud Interián\nCondicion: Casa\nCampo: Estadio Municipal El Molino\, I
+ cod de los Vinos\, Santa Cruz de Tenerife\nHora: 21:00 (hora canaria)\n\nW
+ eb oficial: https://udcentinela.github.io/calendario/\nAupa Centinela!
+LOCATION:Estadio Municipal El Molino\, Icod de los Vinos\, Santa Cruz de T
+ enerife
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Recordatorio: UD Centinela vs C.D. Juventud Interián (J22)
+TRIGGER:-PT2H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:C.D. AFB Tegueste vs UD Centinela (J23)
+DTSTART:20270306T170000Z
+DTEND:20270306T184500Z
+DTSTAMP:20260918T151943Z
+UID:match-j23-2026-2027@udcentinela.github.io
+DESCRIPTION:Segunda Regional Tenerife - Jornada 23\nC.D. AFB Tegueste vs U
+ D Centinela\nCondicion: Fuera\nCampo: Campo Municipal Los Laureles\, Tegue
+ ste\, Santa Cruz de Tenerife\nHora: 17:00 (hora canaria)\n\nWeb oficial: h
+ ttps://udcentinela.github.io/calendario/\nAupa Centinela!
+LOCATION:Campo Municipal Los Laureles\, Tegueste\, Santa Cruz de Tenerife
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Recordatorio: C.D. AFB Tegueste vs UD Centinela (J23)
+TRIGGER:-PT2H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:UD Centinela vs C.D. San Diego (J24)
+DTSTART:20270313T210000Z
+DTEND:20270313T224500Z
+DTSTAMP:20260918T151943Z
+UID:match-j24-2026-2027@udcentinela.github.io
+DESCRIPTION:Segunda Regional Tenerife - Jornada 24\nUD Centinela vs C.D. S
+ an Diego\nCondicion: Casa\nCampo: Estadio Municipal El Molino\, Icod de lo
+ s Vinos\, Santa Cruz de Tenerife\nHora: 21:00 (hora canaria)\n\nWeb oficia
+ l: https://udcentinela.github.io/calendario/\nAupa Centinela!
+LOCATION:Estadio Municipal El Molino\, Icod de los Vinos\, Santa Cruz de T
+ enerife
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Recordatorio: UD Centinela vs C.D. San Diego (J24)
+TRIGGER:-PT2H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:C.D. Once Piratas vs UD Centinela (J25)
+DTSTART:20270320T210000Z
+DTEND:20270320T224500Z
+DTSTAMP:20260918T151943Z
+UID:match-j25-2026-2027@udcentinela.github.io
+DESCRIPTION:Segunda Regional Tenerife - Jornada 25\nC.D. Once Piratas vs U
+ D Centinela\nCondicion: Fuera\nCampo: Tenerife\, Islas Canarias\nHora: 21:
+ 00 (hora canaria)\n\nWeb oficial: https://udcentinela.github.io/calendario
+ /\nAupa Centinela!
+LOCATION:Tenerife\, Islas Canarias
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Recordatorio: C.D. Once Piratas vs UD Centinela (J25)
+TRIGGER:-PT2H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:U.D. Matanza vs UD Centinela (J26)
+DTSTART:20270402T200000Z
+DTEND:20270402T214500Z
+DTSTAMP:20260918T151943Z
+UID:match-j26-2026-2027@udcentinela.github.io
+DESCRIPTION:Segunda Regional Tenerife - Jornada 26\nU.D. Matanza vs UD Cen
+ tinela\nCondicion: Fuera\nCampo: Estadio Municipal de La Matanza de Acente
+ jo\nHora: 21:00 (hora canaria)\n\nWeb oficial: https://udcentinela.github.
+ io/calendario/\nAupa Centinela!
+LOCATION:Estadio Municipal de La Matanza de Acentejo
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Recordatorio: U.D. Matanza vs UD Centinela (J26)
+TRIGGER:-PT2H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:UD Centinela vs VLM F.C. (Vistalmon) (J27)
+DTSTART:20270410T200000Z
+DTEND:20270410T214500Z
+DTSTAMP:20260918T151943Z
+UID:match-j27-2026-2027@udcentinela.github.io
+DESCRIPTION:Segunda Regional Tenerife - Jornada 27\nUD Centinela vs VLM F.
+ C. (Vistalmon)\nCondicion: Casa\nCampo: Estadio Municipal El Molino\, Icod
+  de los Vinos\, Santa Cruz de Tenerife\nHora: 21:00 (hora canaria)\n\nWeb 
+ oficial: https://udcentinela.github.io/calendario/\nAupa Centinela!
+LOCATION:Estadio Municipal El Molino\, Icod de los Vinos\, Santa Cruz de T
+ enerife
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Recordatorio: UD Centinela vs VLM F.C. (Vistalmon) (J27)
+TRIGGER:-PT2H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Tacoronte C.F. vs UD Centinela (J28)
+DTSTART:20270416T200000Z
+DTEND:20270416T214500Z
+DTSTAMP:20260918T151943Z
+UID:match-j28-2026-2027@udcentinela.github.io
+DESCRIPTION:Segunda Regional Tenerife - Jornada 28\nTacoronte C.F. vs UD C
+ entinela\nCondicion: Fuera\nCampo: Campo Municipal Barranco Las Lajas\, Ta
+ coronte\nHora: 21:00 (hora canaria)\n\nWeb oficial: https://udcentinela.gi
+ thub.io/calendario/\nAupa Centinela!
+LOCATION:Campo Municipal Barranco Las Lajas\, Tacoronte
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Recordatorio: Tacoronte C.F. vs UD Centinela (J28)
+TRIGGER:-PT2H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:UD Centinela vs C.D. Buenavista (J29)
+DTSTART:20270424T200000Z
+DTEND:20270424T214500Z
+DTSTAMP:20260918T151943Z
+UID:match-j29-2026-2027@udcentinela.github.io
+DESCRIPTION:Segunda Regional Tenerife - Jornada 29\nUD Centinela vs C.D. B
+ uenavista\nCondicion: Casa\nCampo: Estadio Municipal El Molino\, Icod de l
+ os Vinos\, Santa Cruz de Tenerife\nHora: 21:00 (hora canaria)\n\nWeb ofici
+ al: https://udcentinela.github.io/calendario/\nAupa Centinela!
+LOCATION:Estadio Municipal El Molino\, Icod de los Vinos\, Santa Cruz de T
+ enerife
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Recordatorio: UD Centinela vs C.D. Buenavista (J29)
+TRIGGER:-PT2H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:R.C.D. Gara vs UD Centinela (J30)
+DTSTART:20270502T113000Z
+DTEND:20270502T131500Z
+DTSTAMP:20260918T151943Z
+UID:match-j30-2026-2027@udcentinela.github.io
+DESCRIPTION:Segunda Regional Tenerife - Jornada 30\nR.C.D. Gara vs UD Cent
+ inela\nCondicion: Fuera\nCampo: Campo Municipal de Caleta de Interián\, G
+ arachico\nHora: 12:30 (hora canaria)\n\nWeb oficial: https://udcentinela.g
+ ithub.io/calendario/\nAupa Centinela!
+LOCATION:Campo Municipal de Caleta de Interián\, Garachico
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Recordatorio: R.C.D. Gara vs UD Centinela (J30)
+TRIGGER:-PT2H
+END:VALARM
+END:VEVENT
+END:VCALENDAR

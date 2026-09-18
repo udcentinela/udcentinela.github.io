@@ -118,11 +118,40 @@
       const endDate = new Date(startDate.getTime() + 105 * 60 * 1000);
       const endStr = `${endDate.getUTCFullYear()}${pad(endDate.getUTCMonth() + 1)}${pad(endDate.getUTCDate())}T${pad(endDate.getUTCHours())}${pad(endDate.getUTCMinutes())}00Z`;
 
-      const title = `⚽ ${match.home} vs ${match.away} (${match.round || 'Jornada'})`;
+      const title = `UD Centinela vs ${match.away || 'Rival'} (${match.round || 'Jornada'})`;
       const venue = match.venue || 'Estadio Municipal El Molino';
-      const details = `🏆 Segunda Regional Tenerife - ${match.round || ''}\n⚔️ ${match.home} vs ${match.away}\n📍 ${venue}\n⏰ ${match.time || ''} (hora canaria)\n\nℹ️ Sigue el partido en directo: https://udcentinela.github.io/calendario/\n¡Aupa Centinela! 🔴⚫`;
+      const details = `Segunda Regional Tenerife - ${match.round || ''}\n${match.home} vs ${match.away}\nCampo: ${venue}\nHora: ${match.time || '21:00'} (hora canaria)\nhttps://udcentinela.github.io/calendario/`;
 
-      return `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(title)}&dates=${startStr}/${endStr}&details=${encodeURIComponent(details)}&location=${encodeURIComponent(venue)}`;
+      return `https://www.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(title)}&dates=${startStr}/${endStr}&details=${encodeURIComponent(details)}&location=${encodeURIComponent(venue)}`;
+    } catch (e) {
+      return '#';
+    }
+  }
+
+  function getAndroidIntentUrl(match) {
+    if (!match || !match.date) return '#';
+    try {
+      const parts = match.date.split('/');
+      if (parts.length < 3) return '#';
+      const d = Number(parts[0]);
+      const m = Number(parts[1]);
+      const y = Number(parts[2]);
+      const timeParts = (match.time || '21:00').split(':');
+      const h = Number(timeParts[0]);
+      const min = Number(timeParts[1]);
+
+      const isDST = m >= 4 && m <= 10;
+      const utcHour = (h - (isDST ? 1 : 0) + 24) % 24;
+
+      const startDate = new Date(Date.UTC(y, m - 1, d, utcHour, min));
+      const startTimeMs = startDate.getTime();
+      const endTimeMs = startTimeMs + (105 * 60 * 1000);
+
+      const title = `UD Centinela vs ${match.away || 'Rival'} (${match.round || 'Jornada'})`;
+      const venue = match.venue || 'Estadio Municipal El Molino';
+      const details = `Segunda Regional Tenerife - ${match.round || ''}\n${match.home} vs ${match.away}\nCampo: ${venue}\nHora: ${match.time || '21:00'} (hora canaria)\nhttps://udcentinela.github.io/calendario/`;
+
+      return `intent://#Intent;action=android.intent.action.INSERT;type=vnd.android.cursor.item/event;S.title=${encodeURIComponent(title)};S.eventLocation=${encodeURIComponent(venue)};S.description=${encodeURIComponent(details)};l.beginTime=${startTimeMs};l.endTime=${endTimeMs};end`;
     } catch (e) {
       return '#';
     }
@@ -169,16 +198,27 @@
         
         <!-- Acciones de Calendario Móvil -->
         <div class="mt-8 pt-6 border-t border-white/10 flex flex-wrap items-center justify-center gap-3">
+          <!-- Opción 1: Abrir directamente en la app de Calendario de Xiaomi / Android (Intent nativo sin descargas) -->
+          <a href="${getAndroidIntentUrl(match)}" class="inline-flex items-center gap-2 rounded-xl border border-orange-500/40 bg-orange-500/10 hover:bg-orange-500 hover:text-white px-4 py-2.5 text-xs font-black text-orange-400 transition-all duration-200 shadow-sm" title="Abrir directamente en la app Calendario de Xiaomi / Android">
+            <span>📱</span>
+            <span>Mi Calendario (Xiaomi)</span>
+          </a>
+
+          <!-- Opción 2: Google Calendar -->
           <a href="${getGoogleCalendarUrl(match)}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 rounded-xl border border-brand-neon/40 bg-brand-neon/10 hover:bg-brand-neon hover:text-brand-dark px-4 py-2.5 text-xs font-black text-brand-neon transition-all duration-200 shadow-sm" title="Añadir este partido a Google Calendar">
             <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20a2 2 0 002 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11zM7 11h5v5H7z"/></svg>
             <span>Google Calendar</span>
           </a>
-          <a href="${getSingleMatchIcsUrl(match)}" download="${getSingleMatchIcsFilename(match)}" class="inline-flex items-center gap-2 rounded-xl border border-white/15 bg-white/5 hover:bg-white/10 hover:text-white px-4 py-2.5 text-xs font-bold text-gray-200 transition-all duration-200 shadow-sm" title="Descargar este partido (.ics compatible con Xiaomi Mi Calendario, Samsung y iPhone)">
+
+          <!-- Opción 3: Descargar archivo .ICS -->
+          <a href="${getSingleMatchIcsUrl(match)}" download="${getSingleMatchIcsFilename(match)}" class="inline-flex items-center gap-2 rounded-xl border border-white/15 bg-white/5 hover:bg-white/10 hover:text-white px-3.5 py-2.5 text-xs font-bold text-gray-200 transition-all duration-200 shadow-sm" title="Descargar archivo .ics compatible">
             <svg class="w-4 h-4 text-brand-neon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
-            <span>Descargar partido (.ics Xiaomi / Móvil)</span>
+            <span>Descargar .ICS</span>
           </a>
-          <button type="button" onclick="document.getElementById('openAndroidCalModal')?.click()" class="inline-flex items-center gap-1.5 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 hover:text-white px-3.5 py-2.5 text-xs font-semibold text-gray-400 transition-all duration-200" title="Ver opciones para sincronizar toda la temporada">
-            <span>📅 Sincronizar 30 partidos</span>
+
+          <!-- Opción 4: Modal 30 partidos -->
+          <button type="button" onclick="document.getElementById('openXiaomiCalModal')?.click() || document.getElementById('openAndroidCalModal')?.click()" class="inline-flex items-center gap-1.5 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 hover:text-white px-3.5 py-2.5 text-xs font-semibold text-gray-400 transition-all duration-200" title="Ver opciones para sincronizar toda la temporada">
+            <span>📅 Los 30 partidos</span>
           </button>
         </div>
       </div>
@@ -297,8 +337,9 @@
             <div class="flex items-center justify-start md:justify-end gap-1.5">
               ${finished
                 ? '<span class="text-xs font-bold tracking-widest text-gray-400 uppercase">Resultado</span>'
-                : `<a href="${getGoogleCalendarUrl(match)}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-lg border border-brand-neon/30 bg-brand-neon/10 text-brand-neon hover:bg-brand-neon hover:text-brand-dark transition-colors text-[11px] font-black uppercase tracking-wider shadow-sm" title="Añadir este partido a Google Calendar"><svg class="w-3 h-3 fill-current" viewBox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20a2 2 0 002 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11zM7 11h5v5H7z"/></svg><span>Google</span></a>
-                   <a href="${getSingleMatchIcsUrl(match)}" download="${getSingleMatchIcsFilename(match)}" class="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-lg border border-white/15 bg-white/5 text-gray-200 hover:text-white hover:bg-white/10 transition-colors text-[11px] font-bold uppercase tracking-wider" title="Descargar archivo .ics compatible con Xiaomi Mi Calendario, Samsung y iPhone"><svg class="w-3 h-3 text-brand-neon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg><span>.ICS</span></a>`
+                : `<a href="${getAndroidIntentUrl(match)}" class="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-lg border border-orange-500/30 bg-orange-500/10 text-orange-400 hover:bg-orange-500 hover:text-white transition-colors text-[11px] font-black uppercase tracking-wider shadow-sm" title="Abrir en Calendario de Xiaomi / Android"><span>📱 Móvil</span></a>
+                   <a href="${getGoogleCalendarUrl(match)}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-lg border border-brand-neon/30 bg-brand-neon/10 text-brand-neon hover:bg-brand-neon hover:text-brand-dark transition-colors text-[11px] font-black uppercase tracking-wider shadow-sm" title="Añadir este partido a Google Calendar"><svg class="w-3 h-3 fill-current" viewBox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20a2 2 0 002 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11zM7 11h5v5H7z"/></svg><span>Google</span></a>
+                   <a href="${getSingleMatchIcsUrl(match)}" download="${getSingleMatchIcsFilename(match)}" class="inline-flex items-center gap-1 px-2 py-1.5 rounded-lg border border-white/15 bg-white/5 text-gray-300 hover:text-white hover:bg-white/10 transition-colors text-[11px] font-bold uppercase tracking-wider" title="Descargar archivo .ics"><svg class="w-3 h-3 text-brand-neon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg><span>.ICS</span></a>`
               }
             </div>
             ${eventsHtml}
@@ -605,6 +646,42 @@
     tabApple?.addEventListener("click", () => switchTab('apple'));
     tabXiaomi?.addEventListener("click", () => switchTab('xiaomi'));
     tabAndroid?.addEventListener("click", () => switchTab('android'));
+
+    const copyBtn = document.getElementById("copyCalUrlBtn");
+    copyBtn?.addEventListener("click", () => {
+      const url = "https://udcentinela.github.io/assets/calendario.ics";
+      const doFeedback = () => {
+        const textSpan = copyBtn.querySelector(".copy-btn-text") || copyBtn;
+        const original = textSpan.textContent;
+        textSpan.textContent = "✓ ¡Enlace copiado!";
+        copyBtn.classList.add("!border-brand-neon", "!text-brand-neon");
+        setTimeout(() => {
+          textSpan.textContent = original;
+          copyBtn.classList.remove("!border-brand-neon", "!text-brand-neon");
+        }, 2500);
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(url).then(doFeedback).catch(() => {
+          fallbackCopy(url);
+          doFeedback();
+        });
+      } else {
+        fallbackCopy(url);
+        doFeedback();
+      }
+    });
+
+    function fallbackCopy(text) {
+      const ta = document.createElement("textarea");
+      ta.value = text;
+      ta.style.position = "fixed";
+      ta.style.opacity = "0";
+      document.body.appendChild(ta);
+      ta.focus();
+      ta.select();
+      try { document.execCommand("copy"); } catch (e) {}
+      document.body.removeChild(ta);
+    }
 
     modal.addEventListener("click", (e) => {
       if (e.target === modal) closeModal();
