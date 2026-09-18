@@ -271,6 +271,14 @@ def sync():
         with open(CALENDAR_JSON_PATH, "w", encoding="utf-8") as f:
             json.dump(data, f, indent=2, ensure_ascii=False)
         print(f"[{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}] Cambios detectados y guardados exitosamente en calendar.json.")
+        
+        # Regenerar archivos iCalendar (.ics)
+        try:
+            from generate_ics import generate_ics
+            generate_ics()
+        except Exception as e:
+            print(f"Aviso: no se pudo regenerar el archivo .ics: {e}")
+            
         return True
     else:
         print(f"[{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}] Sin novedades: ni resultados ni clasificación han variado. Archivo no modificado.")

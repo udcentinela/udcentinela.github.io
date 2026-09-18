@@ -12,7 +12,32 @@
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UD Centinela | Inicio</title>
+            <title>UD Centinela | Web Oficial · El Gigante de Icod de los Vinos</title>
+    <meta name="description" content="Web oficial de la Unión Deportiva Centinela (fundada en 1955). Noticias, plantilla de Segunda Regional, calendario de partidos, resultados y clasificación oficial.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://udcentinela.github.io/">
+    
+    <!-- Open Graph / WhatsApp / Facebook -->
+    <meta property="og:site_name" content="UD Centinela">
+    <meta property="og:locale" content="es_ES">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="UD Centinela | Web Oficial · El Gigante de Icod de los Vinos">
+    <meta property="og:description" content="Web oficial de la Unión Deportiva Centinela (fundada en 1955). Noticias, plantilla de Segunda Regional, calendario de partidos, resultados y clasificación oficial.">
+    <meta property="og:url" content="https://udcentinela.github.io/">
+    <meta property="og:image" content="https://udcentinela.github.io/assets/img/og/home.jpg">
+    <meta property="og:image:secure_url" content="https://udcentinela.github.io/assets/img/og/home.jpg">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Unión Deportiva Centinela - Web Oficial">
+    
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="UD Centinela | Web Oficial · El Gigante de Icod de los Vinos">
+    <meta name="twitter:description" content="Web oficial de la Unión Deportiva Centinela (fundada en 1955). Noticias, plantilla de Segunda Regional, calendario de partidos, resultados y clasificación oficial.">
+    <meta name="twitter:image" content="https://udcentinela.github.io/assets/img/og/home.jpg">
+<!-- Open Graph / WhatsApp / Facebook -->
+    <!-- Twitter Cards -->
     <meta name="google-site-verification" content="d5P-lVf1Ztgx4HS92B6wuiJH1yU3vwiEYMzmAcoaGBQ" />
     
     <!-- Fuentes: Montserrat para títulos impactantes, Inter para lectura -->
@@ -298,24 +323,11 @@
             }
         }
     </style>
-    <meta name="description" content="Página principal de la Unión Deportivo Centinela, el renacer del primer gigante de Icod de los Vinos.">
-    <meta name="robots" content="index,follow">
-    <link rel="canonical" href="https://udcentinela.github.io/">
     <link rel="icon" href="/favicon.ico">
     <link rel="apple-touch-icon" href="/assets/img/logo-nav.webp">
     <link rel="manifest" href="/site.webmanifest">
     <meta name="theme-color" content="#020617">
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="UD Centinela">
-    <meta property="og:title" content="UD Centinela | Inicio">
-    <meta property="og:description" content="Página principal de la Unión Deportivo Centinela, el renacer del primer gigante de Icod de los Vinos.">
-    <meta property="og:url" content="https://udcentinela.github.io/">
-    <meta property="og:image" content="https://udcentinela.github.io/assets/img/logo-social.jpg">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="UD Centinela | Inicio">
-    <meta name="twitter:description" content="Página principal de la Unión Deportivo Centinela, el renacer del primer gigante de Icod de los Vinos.">
-    <meta name="twitter:image" content="https://udcentinela.github.io/assets/img/logo-social.jpg">
-</head>
+    </head>
 <body class="antialiased selection:bg-brand-neon selection:text-brand-dark">
     <!-- Preloader -->
     <div id="preloader">
@@ -444,7 +456,8 @@
                 preloader.style.opacity = '0';
                 preloader.style.visibility = 'hidden';
                 preloader.style.pointerEvents = 'none';
-            }, 3500);
+                preloader.style.display = 'none';
+            }, 2500);
         })();
     </script>
     <!-- Hero Section -->
@@ -586,10 +599,16 @@
                             <svg class="w-4 h-4 text-brand-neon mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
                             <span id="matchVenue">Estadio Municipal El Molino (Icod de los Vinos)</span>
                         </div>
-                        <a href="/calendario/" class="inline-flex items-center text-xs font-bold text-brand-dark bg-brand-neon px-5 py-2.5 rounded-xl hover:bg-white transition-all duration-300 shadow-neon uppercase tracking-wider">
-                            Ver Calendario
-                            <svg class="w-3.5 h-3.5 ml-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-                        </a>
+                        <div class="flex flex-wrap items-center gap-2.5">
+                            <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=%E2%9A%BD+UD+Centinela+vs+Atl%C3%A9tico+Perdoma+B+(J2)&dates=20260919T200000Z/20260919T214500Z&details=%F0%9F%8F%86+Segunda+Regional+Tenerife+-+Jornada+2%0A%E2%9A%94%EF%B8%8F+UD+Centinela+vs+Atl%C3%A9tico+Perdoma+B%0A%F0%9F%93%8D+Estadio+Municipal+El+Molino+(Icod+de+los+Vinos)%0A%E2%8F%B0+21:00+h+(hora+canaria)%0A%0A%E2%84%B9%EF%B8%8F+M%C3%A1s+info:+https://udcentinela.github.io/calendario/%0A%C2%A1Aupa+Centinela!+%F0%9F%94%B4%E2%9A%AB&location=Estadio+Municipal+El+Molino,+Icod+de+los+Vinos" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-xs font-black text-brand-neon border border-brand-neon/40 bg-brand-neon/10 hover:bg-brand-neon hover:text-brand-dark px-3.5 py-2.5 rounded-xl transition-all duration-300 shadow-sm uppercase tracking-wider" title="Añadir este partido a tu Google Calendar">
+                                <svg class="w-4 h-4 mr-1.5 fill-current" viewBox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20a2 2 0 002 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11zM7 11h5v5H7z"/></svg>
+                                <span>Añadir al móvil</span>
+                            </a>
+                            <a href="/calendario/" class="inline-flex items-center text-xs font-bold text-brand-dark bg-brand-neon px-5 py-2.5 rounded-xl hover:bg-white transition-all duration-300 shadow-neon uppercase tracking-wider">
+                                Ver Calendario
+                                <svg class="w-3.5 h-3.5 ml-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                            </a>
+                        </div>
                     </div>
                 </div>
 

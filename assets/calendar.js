@@ -97,6 +97,37 @@
     return `<span class="grid h-20 w-20 md:h-24 md:w-24 place-items-center rounded-full border border-white/10 bg-white/5 font-heading text-xl font-black text-gray-300">${escapeHtml(initials)}</span>`;
   }
 
+  function getGoogleCalendarUrl(match) {
+    if (!match || !match.date) return '#';
+    try {
+      const parts = match.date.split('/');
+      if (parts.length < 3) return '#';
+      const d = Number(parts[0]);
+      const m = Number(parts[1]);
+      const y = Number(parts[2]);
+      const timeParts = (match.time || '21:00').split(':');
+      const h = Number(timeParts[0]);
+      const min = Number(timeParts[1]);
+      const isDST = m >= 4 && m <= 10;
+      const utcHour = (h - (isDST ? 1 : 0) + 24) % 24;
+
+      const pad = n => String(n).padStart(2, '0');
+      const startStr = `${y}${pad(m)}${pad(d)}T${pad(utcHour)}${pad(min)}00Z`;
+
+      const startDate = new Date(Date.UTC(y, m - 1, d, utcHour, min));
+      const endDate = new Date(startDate.getTime() + 105 * 60 * 1000);
+      const endStr = `${endDate.getUTCFullYear()}${pad(endDate.getUTCMonth() + 1)}${pad(endDate.getUTCDate())}T${pad(endDate.getUTCHours())}${pad(endDate.getUTCMinutes())}00Z`;
+
+      const title = `⚽ ${match.home} vs ${match.away} (${match.round || 'Jornada'})`;
+      const venue = match.venue || 'Estadio Municipal El Molino';
+      const details = `🏆 Segunda Regional Tenerife - ${match.round || ''}\n⚔️ ${match.home} vs ${match.away}\n📍 ${venue}\n⏰ ${match.time || ''} (hora canaria)\n\nℹ️ Sigue el partido en directo: https://udcentinela.github.io/calendario/\n¡Aupa Centinela! 🔴⚫`;
+
+      return `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(title)}&dates=${startStr}/${endStr}&details=${encodeURIComponent(details)}&location=${encodeURIComponent(venue)}`;
+    } catch (e) {
+      return '#';
+    }
+  }
+
   function renderNextMatch(match) {
     const card = document.getElementById("nextMatchCard");
     if (!card || !match) return;
@@ -119,6 +150,18 @@
             ${teamMark(match.away, match.awayLogo)}
             <span class="font-heading text-lg font-black text-white md:text-2xl">${escapeHtml(match.away || "Visitante")}</span>
           </div>
+        </div>
+        
+        <!-- Acciones de Calendario Móvil -->
+        <div class="mt-8 pt-6 border-t border-white/10 flex flex-wrap items-center justify-center gap-3">
+          <a href="${getGoogleCalendarUrl(match)}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 rounded-xl border border-brand-neon/40 bg-brand-neon/10 hover:bg-brand-neon hover:text-brand-dark px-4 py-2.5 text-xs font-black text-brand-neon transition-all duration-200 shadow-sm" title="Añadir este partido a Google Calendar">
+            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20a2 2 0 002 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11zM7 11h5v5H7z"/></svg>
+            <span>Añadir a Google Calendar</span>
+          </a>
+          <a href="/assets/ud-centinela-2026-2027.ics" download="ud-centinela-2026-2027.ics" class="inline-flex items-center gap-2 rounded-xl border border-white/15 bg-white/5 hover:bg-white/10 hover:text-white px-4 py-2.5 text-xs font-bold text-gray-300 transition-all duration-200" title="Descargar todos los partidos para Apple Calendar / Android">
+            <svg class="w-4 h-4 text-brand-neon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+            <span>Todos los partidos en tu móvil (.ics)</span>
+          </a>
         </div>
       </div>
     `;
@@ -233,7 +276,12 @@
                 <span class="font-bold text-sm sm:text-base ${awayIsCent ? 'text-brand-neon' : 'text-gray-200'}">${escapeHtml(match.away || "Visitante")}</span>
               </div>
             </div>
-            <div class="text-left text-xs font-bold tracking-widest text-brand-neon uppercase md:text-right">${finished ? "Resultado" : "Próximo"}</div>
+            <div class="flex items-center justify-start md:justify-end gap-2">
+              ${finished
+                ? '<span class="text-xs font-bold tracking-widest text-gray-400 uppercase">Resultado</span>'
+                : `<a href="${getGoogleCalendarUrl(match)}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg border border-brand-neon/30 bg-brand-neon/10 text-brand-neon hover:bg-brand-neon hover:text-brand-dark transition-colors text-[11px] font-black uppercase tracking-wider" title="Añadir este partido a Google Calendar"><svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20a2 2 0 002 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11zM7 11h5v5H7z"/></svg><span>+ Calendario</span></a>`
+              }
+            </div>
             ${eventsHtml}
           </article>
         `;
@@ -478,8 +526,68 @@
     }
   }
 
+  function setupCalendarModal() {
+    const modal = document.getElementById("calModal");
+    const openAndroidBtn = document.getElementById("openAndroidCalModal");
+    const openGuideBtn = document.getElementById("openCalGuideBtn");
+    const closeBtn = document.getElementById("closeCalModalBtn");
+    const tabApple = document.getElementById("tabAppleBtn");
+    const tabAndroid = document.getElementById("tabAndroidBtn");
+    const contentApple = document.getElementById("contentApple");
+    const contentAndroid = document.getElementById("contentAndroid");
+
+    if (!modal) return;
+
+    function openModal(defaultTab = 'apple') {
+      modal.classList.remove("hidden");
+      document.body.classList.add("overflow-hidden");
+      switchTab(defaultTab);
+    }
+
+    function closeModal() {
+      modal.classList.add("hidden");
+      document.body.classList.remove("overflow-hidden");
+    }
+
+    function switchTab(tab) {
+      if (tab === 'android') {
+        tabAndroid?.classList.remove("text-gray-400");
+        tabAndroid?.classList.add("bg-brand-neon", "text-brand-dark", "font-black");
+        tabApple?.classList.remove("bg-brand-neon", "text-brand-dark", "font-black");
+        tabApple?.classList.add("text-gray-400");
+        contentAndroid?.classList.remove("hidden");
+        contentApple?.classList.add("hidden");
+      } else {
+        tabApple?.classList.remove("text-gray-400");
+        tabApple?.classList.add("bg-brand-neon", "text-brand-dark", "font-black");
+        tabAndroid?.classList.remove("bg-brand-neon", "text-brand-dark", "font-black");
+        tabAndroid?.classList.add("text-gray-400");
+        contentApple?.classList.remove("hidden");
+        contentAndroid?.classList.add("hidden");
+      }
+    }
+
+    openAndroidBtn?.addEventListener("click", () => openModal('android'));
+    openGuideBtn?.addEventListener("click", () => openModal('apple'));
+    closeBtn?.addEventListener("click", closeModal);
+
+    tabApple?.addEventListener("click", () => switchTab('apple'));
+    tabAndroid?.addEventListener("click", () => switchTab('android'));
+
+    modal.addEventListener("click", (e) => {
+      if (e.target === modal) closeModal();
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && !modal.classList.contains("hidden")) {
+        closeModal();
+      }
+    });
+  }
+
   async function initCalendar() {
     setupTabs();
+    setupCalendarModal();
     try {
       const response = await fetch("/assets/data/calendar.json?t=" + Date.now());
       if (!response.ok) throw new Error("No se pudieron cargar los datos.");
