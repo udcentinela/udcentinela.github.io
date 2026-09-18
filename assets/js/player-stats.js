@@ -197,12 +197,22 @@
     if (countPortero) countPortero.textContent = counts.portero;
   }
 
+  function isStaffMember(player) {
+    if (!player) return false;
+    // El presidente también es delantero activo (#24) y debe mantener sus estadísticas de jugador
+    if (player.id === 'iriome' || player.slug === 'iriome') return false;
+    const staffIds = ['cuerpo-tecnico', 'juan-manuel', 'tono', 'joel-pf'];
+    if (staffIds.includes(player.id) || (player.slug && staffIds.includes(player.slug))) return true;
+    const combined = ((player.position || '') + ' ' + (player.role || '')).toLowerCase();
+    const keywords = ['entrenador', 'cuerpo técnico', 'cuerpo tecnico', 'staff', 'preparador', 'dirección técnica', 'direccion tecnica'];
+    return keywords.some(k => combined.includes(k));
+  }
+
   function applyFiltersAndRender() {
     const squadGrid = document.querySelector('.squad-grid');
     if (!squadGrid) return;
 
-    const staffIds = ['cuerpo-tecnico', 'juan-manuel', 'tono', 'joel', 'joel-pf'];
-    const validPlayers = allPlayers.filter(p => !staffIds.includes(p.id) && !((p.position || '') + ' ' + (p.role || '')).toLowerCase().includes('entrenador') && !((p.position || '') + ' ' + (p.role || '')).toLowerCase().includes('preparador'));
+    const validPlayers = allPlayers.filter(p => !isStaffMember(p));
     updateCategoryCounters(validPlayers);
 
     const filtered = validPlayers.filter(p => {
@@ -294,6 +304,11 @@
     const player = playersData.players.find(p => p.id === playerSlug || p.slug === playerSlug);
     if (!player) return;
 
+    // El cuerpo técnico no debe mostrar goles, asistencias ni alterar su diseño estático institucional
+    if (isStaffMember(player)) {
+      return;
+    }
+
     // 1. Dynamic Photo Badge (for squad players)
     if (player.id !== 'cuerpo-tecnico') {
       const avatarBadge = document.querySelector('.profile-avatar-box span.bg-brand-neon');
@@ -329,7 +344,7 @@
 
     // 3. Dynamic Stats (Position, Dorsal/Rol) for squad players
     const existingStats = statsGrid.querySelectorAll('.profile-stat');
-    if (player.id !== 'cuerpo-tecnico' && existingStats.length >= 2) {
+    if (existingStats.length >= 2) {
       if (player.position) {
         const posEl = existingStats[0].querySelector('p.font-heading') || existingStats[0].querySelector('p:last-child');
         if (posEl) posEl.textContent = player.position;
@@ -342,18 +357,16 @@
       }
     }
 
-    // If player is a squad player (not staff), inject Goals and Assists stats
-    if (player.role !== 'Staff Técnico' && player.position !== 'Dirección Técnica') {
-      if (existingStats.length >= 4) {
-        existingStats[2].innerHTML = `
-          <p class="text-brand-neon text-xs font-bold tracking-widest uppercase mb-2">⚽ Goles Temporada</p>
-          <p class="text-white font-heading text-2xl font-black">${player.goals || 0}</p>
-        `;
-        existingStats[3].innerHTML = `
-          <p class="text-cyan-300 text-xs font-bold tracking-widest uppercase mb-2">👟 Asistencias</p>
-          <p class="text-white font-heading text-2xl font-black">${player.assists || 0}</p>
-        `;
-      }
+    // Dynamic Goals and Assists for squad players
+    if (existingStats.length >= 4) {
+      existingStats[2].innerHTML = `
+        <p class="text-brand-neon text-xs font-bold tracking-widest uppercase mb-2">⚽ Goles Temporada</p>
+        <p class="text-white font-heading text-2xl font-black">${player.goals || 0}</p>
+      `;
+      existingStats[3].innerHTML = `
+        <p class="text-cyan-300 text-xs font-bold tracking-widest uppercase mb-2">👟 Asistencias</p>
+        <p class="text-white font-heading text-2xl font-black">${player.assists || 0}</p>
+      `;
     }
 
     // Find match events for this player

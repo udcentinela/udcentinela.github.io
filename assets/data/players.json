@@ -372,10 +372,7 @@
       "status": "Confirmado",
       "image": "/assets/img/players/juan-manuel.webp",
       "slug": "cuerpo-tecnico",
-      "url": "/regional/cuerpo-tecnico/",
-      "goals": 0,
-      "assists": 0,
-      "matchesPlayed": 0
+      "url": "/regional/cuerpo-tecnico/"
     },
     {
       "id": "juan-manuel",
@@ -387,10 +384,7 @@
       "status": "Confirmado",
       "image": "/assets/img/players/juan-manuel.webp",
       "slug": "juan-manuel",
-      "url": "/regional/juan-manuel/",
-      "goals": 0,
-      "assists": 0,
-      "matchesPlayed": 0
+      "url": "/regional/juan-manuel/"
     },
     {
       "id": "tono",
@@ -402,10 +396,7 @@
       "status": "Confirmado",
       "image": "/assets/img/players/tono.webp",
       "slug": "tono",
-      "url": "/regional/tono/",
-      "goals": 0,
-      "assists": 0,
-      "matchesPlayed": 0
+      "url": "/regional/tono/"
     },
     {
       "id": "joel-pf",
@@ -417,10 +408,7 @@
       "status": "Confirmado",
       "image": "/assets/img/players/joel-preparador-fisico.webp",
       "slug": "joel-pf",
-      "url": "/regional/joel-pf/",
-      "goals": 0,
-      "assists": 0,
-      "matchesPlayed": 0
+      "url": "/regional/joel-pf/"
     }
   ]
 }

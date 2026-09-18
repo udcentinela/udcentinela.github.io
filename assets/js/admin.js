@@ -252,12 +252,28 @@
     recalculateStats();
   }
 
+  function isStaffMember(player) {
+    if (!player) return false;
+    if (player.id === 'iriome' || player.slug === 'iriome') return false;
+    const staffIds = ['cuerpo-tecnico', 'juan-manuel', 'tono', 'joel-pf'];
+    if (staffIds.includes(player.id) || (player.slug && staffIds.includes(player.slug))) return true;
+    const combined = ((player.position || '') + ' ' + (player.role || '')).toLowerCase();
+    const keywords = ['entrenador', 'cuerpo técnico', 'cuerpo tecnico', 'staff', 'preparador', 'dirección técnica', 'direccion tecnica'];
+    return keywords.some(k => combined.includes(k));
+  }
+
   // Recalculate goals and assists from match events
   function recalculateStats() {
-    // Reset player counters
+    // Reset player counters (staff members don't have stats)
     playersData.players.forEach(p => {
-      p.goals = 0;
-      p.assists = 0;
+      if (isStaffMember(p)) {
+        delete p.goals;
+        delete p.assists;
+        delete p.matchesPlayed;
+      } else {
+        p.goals = 0;
+        p.assists = 0;
+      }
     });
 
     (calendarData.matches || []).forEach(match => {
@@ -528,7 +544,7 @@
     const players = playersData.players || [];
 
     players.forEach((p, idx) => {
-      const isStaff = p.id === 'cuerpo-tecnico' || p.role === 'Staff Técnico';
+      const isStaff = isStaffMember(p);
       const row = document.createElement('tr');
       row.className = 'hover:bg-white/5 transition-colors';
       row.innerHTML = `
@@ -817,7 +833,7 @@
     topScorersList.innerHTML = '';
     topAssistsList.innerHTML = '';
 
-    const validPlayers = (playersData.players || []).filter(p => p.id !== 'cuerpo-tecnico' && p.role !== 'Staff Técnico');
+    const validPlayers = (playersData.players || []).filter(p => !isStaffMember(p));
 
     const scorers = [...validPlayers].filter(p => (p.goals || 0) > 0).sort((a, b) => b.goals - a.goals);
     const assisters = [...validPlayers].filter(p => (p.assists || 0) > 0).sort((a, b) => b.assists - a.assists);
@@ -964,11 +980,12 @@
     const row = document.createElement('div');
     row.className = 'goal-item p-3 rounded-xl bg-black/40 border border-white/10 grid grid-cols-[70px_1fr_1fr_auto] gap-2 items-center';
 
-    const playerOptions = playersData.players.map(p => 
+    const validScorers = (playersData.players || []).filter(p => !isStaffMember(p));
+    const playerOptions = validScorers.map(p => 
       `<option value="${p.id}" ${data.scorerId === p.id ? 'selected' : ''}>${p.dorsal ? '#' + p.dorsal + ' ' : ''}${p.name}</option>`
     ).join('');
 
-    const assistOptions = `<option value="none">[Sin Asistencia]</option>` + playersData.players.map(p => 
+    const assistOptions = `<option value="none">[Sin Asistencia]</option>` + validScorers.map(p => 
       `<option value="${p.id}" ${data.assistId === p.id ? 'selected' : ''}>${p.dorsal ? '#' + p.dorsal + ' ' : ''}${p.name}</option>`
     ).join('');
 
