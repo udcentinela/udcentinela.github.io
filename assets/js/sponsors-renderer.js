@@ -1,4 +1,4 @@
-﻿/**
+/**
  * sponsors-renderer.js - Sincronizador en vivo del orden de patrocinadores
  * UD Centinela (udcentinela.github.io)
  */
@@ -14,27 +14,31 @@
       // 1. Sincronizar Cinta de Portada (.sponsors-ribbon-logos)
       const ribbonContainer = document.querySelector('.sponsors-ribbon-logos');
       if (ribbonContainer) {
-        ribbonContainer.innerHTML = '';
-        sponsors.forEach(s => {
-          const a = document.createElement('a');
-          a.href = s.url || '/patrocinios/';
-          if (s.url && s.url.startsWith('http')) {
-            a.target = '_blank';
-            a.rel = 'noopener noreferrer';
-          }
-          a.title = `${s.name} - ${s.tierLabel || 'Patrocinador Oficial'}`;
-          a.className = `sponsor-badge-item ${s.badgeClass || ''}`;
-          a.style.cssText = 'display:inline-flex; align-items:center; justify-content:center; padding:0.65rem 1.4rem; height:68px; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.12); border-radius:1rem; text-decoration:none;';
+        const existingBadges = ribbonContainer.querySelectorAll('.sponsor-badge-item');
+        const needsUpdate = existingBadges.length !== sponsors.length;
+        if (needsUpdate) {
+          ribbonContainer.innerHTML = '';
+          sponsors.forEach(s => {
+            const a = document.createElement('a');
+            a.href = s.url || '/patrocinios/';
+            if (s.url && s.url.startsWith('http')) {
+              a.target = '_blank';
+              a.rel = 'noopener noreferrer';
+            }
+            a.title = `${s.name} - ${s.tierLabel || 'Patrocinador Oficial'}`;
+            a.className = `sponsor-badge-item ${s.badgeClass || ''}`;
+            a.style.cssText = 'display:inline-flex; align-items:center; justify-content:center; padding:0.65rem 1.4rem; height:68px; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.12); border-radius:1rem; text-decoration:none;';
 
-          const img = document.createElement('img');
-          img.src = s.logo;
-          img.alt = s.name;
-          img.loading = 'lazy';
-          img.style.cssText = 'height:42px; max-height:42px; max-width:165px; width:auto; object-fit:contain;';
+            const img = document.createElement('img');
+            img.src = s.logo;
+            img.alt = s.name;
+            img.loading = 'lazy';
+            img.style.cssText = 'height:48px; max-height:48px; max-width:195px; width:auto; object-fit:contain;';
 
-          a.appendChild(img);
-          ribbonContainer.appendChild(a);
-        });
+            a.appendChild(img);
+            ribbonContainer.appendChild(a);
+          });
+        }
       }
 
       // 2. Sincronizar Muro de Patrocinios (.sponsor-collab-grid)

@@ -197,13 +197,16 @@ def sync():
 
     # 1. Parsear clasificación
     new_standings = parse_standings(html, teams_dict)
-    if new_standings and len(new_standings) == 16:
-        print(f"Clasificación parseada con éxito: {len(new_standings)} equipos.")
-        data["standings"] = new_standings
-    else:
-        print(f"Aviso: se encontraron {len(new_standings)} equipos en clasificación.")
-        if new_standings:
+    standings_changed = False
+    if new_standings and (len(new_standings) == 16 or len(new_standings) > 0):
+        old_standings_str = json.dumps(data.get("standings", []), sort_keys=True)
+        new_standings_str = json.dumps(new_standings, sort_keys=True)
+        if old_standings_str != new_standings_str:
+            print(f"Clasificación actualizada con variaciones ({len(new_standings)} equipos).")
             data["standings"] = new_standings
+            standings_changed = True
+        else:
+            print(f"Clasificación sin cambios ({len(new_standings)} equipos).")
 
     # 2. Parsear partidos y actualizar matches
     parsed_matches = parse_matches(html)
@@ -252,19 +255,26 @@ def sync():
     if not next_match and centinela_matches:
         next_match = centinela_matches[-1]
 
+    next_match_changed = False
     if next_match:
-        data["nextMatch"] = next_match
-        print(f"Próximo partido de Centinela fijado: {next_match.get('round')} | {next_match.get('home')} vs {next_match.get('away')} ({next_match.get('date')} {next_match.get('time')})")
+        if json.dumps(data.get("nextMatch", {}), sort_keys=True) != json.dumps(next_match, sort_keys=True):
+            data["nextMatch"] = next_match
+            next_match_changed = True
+            print(f"Próximo partido de Centinela actualizado: {next_match.get('round')} | {next_match.get('home')} vs {next_match.get('away')} ({next_match.get('date')} {next_match.get('time')})")
 
-    # 4. Actualizar timestamp
-    data["updated"] = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+    # 4. Guardar JSON y actualizar timestamp solo si hay cambios reales
+    force = "--force" in sys.argv
+    has_real_changes = (updated_count > 0) or standings_changed or next_match_changed or force
 
-    # 5. Guardar JSON
-    with open(CALENDAR_JSON_PATH, "w", encoding="utf-8") as f:
-        json.dump(data, f, indent=2, ensure_ascii=False)
-
-    print(f"[{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}] Sincronización completada exitosamente en calendar.json.")
-    return updated_count > 0 or len(new_standings) > 0
+    if has_real_changes:
+        data["updated"] = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+        with open(CALENDAR_JSON_PATH, "w", encoding="utf-8") as f:
+            json.dump(data, f, indent=2, ensure_ascii=False)
+        print(f"[{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}] Cambios detectados y guardados exitosamente en calendar.json.")
+        return True
+    else:
+        print(f"[{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}] Sin novedades: ni resultados ni clasificación han variado. Archivo no modificado.")
+        return False
 
 if __name__ == "__main__":
     sync()

@@ -1,10 +1,10 @@
 /**
  * UD Centinela - Service Worker PWA & Modo Estadio Offline
- * Version: 20260918_joel_fix_v2
+ * Version: 20260918_sync_opt_v3
  */
 
-const CACHE_NAME = 'udc-cache-v20260918_joel_fix_v2';
-const DATA_CACHE_NAME = 'udc-data-cache-v20260918_joel_fix_v2';
+const CACHE_NAME = 'udc-cache-v20260918_sync_opt_v3';
+const DATA_CACHE_NAME = 'udc-data-cache-v20260918_sync_opt_v3';
 
 const PRECACHE_ASSETS = [
   '/',
@@ -37,7 +37,6 @@ const PRECACHE_ASSETS = [
   '/assets/js/likes-system.js',
   '/assets/js/player-stats.js',
   '/assets/js/news-renderer.js',
-  '/assets/js/match-island.js',
   '/assets/js/pwa-manager.js',
   '/assets/data/calendar.json',
   '/assets/data/players.json',
@@ -49,17 +48,34 @@ const PRECACHE_ASSETS = [
   '/assets/img/logo-nav.webp',
   '/assets/img/logo-hero.webp',
   '/assets/img/logo-social.jpg',
-  '/assets/img/sebas.webp',
+  '/assets/img/escudo-centinela.webp',
   '/assets/img/aday.webp',
+  '/assets/img/champi.webp',
+  '/assets/img/colcho.webp',
+  '/assets/img/cristian.webp',
+  '/assets/img/jordan.webp',
   '/assets/img/pablo.webp',
-  '/assets/img/adrian-tejera.webp',
-  '/assets/img/iriome.webp',
-  '/assets/img/joel.webp',
+  '/assets/img/rayco.webp',
+  '/assets/img/sebas.webp',
+  '/assets/img/tejera.webp',
+  '/assets/img/zacaria.webp',
+  '/assets/img/players/angel.webp',
+  '/assets/img/players/ayoze.webp',
+  '/assets/img/players/edgar.webp',
+  '/assets/img/players/iriome.webp',
   '/assets/img/players/joel.webp',
-  '/assets/img/players/juan-manuel.webp',
-  '/assets/img/players/tono.webp',
   '/assets/img/players/joel-preparador-fisico.webp',
-  '/assets/img/players/jose-angel.webp'
+  '/assets/img/players/jose-angel.webp',
+  '/assets/img/players/juan-manuel.webp',
+  '/assets/img/players/julio.webp',
+  '/assets/img/players/miguel.webp',
+  '/assets/img/players/nano.webp',
+  '/assets/img/players/nauzet.webp',
+  '/assets/img/players/ruben.webp',
+  '/assets/img/players/salvador.webp',
+  '/assets/img/players/tinguaro.webp',
+  '/assets/img/players/tono.webp',
+  '/assets/img/players/yeray.webp'
 ];
 
 // 1. Install Event: Precache core assets

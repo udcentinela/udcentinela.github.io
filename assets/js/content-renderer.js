@@ -40,6 +40,66 @@
 
         const ribbonTitle = document.querySelector('.sponsors-ribbon-text .title');
         if (ribbonTitle && home.sponsorsTitle) ribbonTitle.textContent = home.sponsorsTitle;
+
+        // Sincronizar Próximo Partido dinámico en Portada
+        const matchStatusBadge = document.getElementById('matchStatusBadge');
+        if (matchStatusBadge) {
+          try {
+            const calRes = await fetch('/assets/data/calendar.json?t=' + Date.now());
+            if (calRes.ok) {
+              const calData = await calRes.json();
+              const nextMatch = calData.nextMatch;
+              if (nextMatch) {
+                const roundText = nextMatch.round || 'Próximo Partido';
+                if (nextMatch.status === 'live') {
+                  matchStatusBadge.className = 'bg-red-500 text-white font-black px-3 py-1 rounded-lg text-xs uppercase tracking-wider animate-pulse';
+                  matchStatusBadge.textContent = `En Directo · ${roundText}`;
+                } else if (nextMatch.status === 'finished') {
+                  matchStatusBadge.className = 'bg-emerald-400 text-brand-dark font-black px-3 py-1 rounded-lg text-xs uppercase tracking-wider';
+                  matchStatusBadge.textContent = `Finalizado · ${roundText}`;
+                } else {
+                  matchStatusBadge.className = 'bg-brand-neon text-brand-dark font-black px-3 py-1 rounded-lg text-xs uppercase tracking-wider';
+                  matchStatusBadge.textContent = `Próximo Partido · ${roundText}`;
+                }
+
+                const dtEl = document.getElementById('matchDateTime');
+                if (dtEl && nextMatch.date) {
+                  const timeStr = nextMatch.time ? ` · ${nextMatch.time} h` : '';
+                  dtEl.innerHTML = `<svg class="w-4 h-4 text-brand-neon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg> ${nextMatch.date}${timeStr}`;
+                }
+
+                const homeName = document.getElementById('matchHomeName');
+                const homeLogo = document.getElementById('matchHomeLogo');
+                const awayName = document.getElementById('matchAwayName');
+                const awayLogo = document.getElementById('matchAwayLogo');
+                const scoreBox = document.getElementById('matchScoreBox');
+                const venueEl = document.getElementById('matchVenue');
+
+                if (homeName && nextMatch.home) homeName.textContent = nextMatch.home;
+                if (homeLogo && nextMatch.homeLogo) homeLogo.src = nextMatch.homeLogo;
+                if (awayName && nextMatch.away) awayName.textContent = nextMatch.away;
+                if (awayLogo && nextMatch.awayLogo) awayLogo.src = nextMatch.awayLogo;
+
+                if (scoreBox && (nextMatch.status === 'live' || nextMatch.status === 'finished')) {
+                  scoreBox.innerHTML = `
+                    <div class="flex items-center gap-2">
+                      <span class="font-heading text-3xl sm:text-4xl font-black text-white">${nextMatch.homeScore ?? 0}</span>
+                      <span class="font-heading text-2xl font-bold text-gray-500">-</span>
+                      <span class="font-heading text-3xl sm:text-4xl font-black text-white">${nextMatch.awayScore ?? 0}</span>
+                    </div>
+                    <span class="text-[11px] text-brand-neon uppercase font-semibold tracking-widest mt-1">${nextMatch.status === 'live' ? 'En Juego' : 'Finalizado'}</span>
+                  `;
+                }
+
+                if (venueEl && nextMatch.venue) {
+                  venueEl.textContent = nextMatch.venue;
+                }
+              }
+            }
+          } catch (calErr) {
+            console.warn('No se pudo sincronizar el próximo partido en portada:', calErr);
+          }
+        }
       }
 
       // 2. Sincronización en Secciones del Club (Historia, Identidad, Legado)

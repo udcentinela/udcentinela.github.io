@@ -526,6 +526,199 @@
         </div>
     </section>
 
+    <!-- Sección: Próximo Partido & Vuelta a la Competición -->
+    <section class="relative py-20 bg-gradient-to-b from-brand-dark via-[#050b18] to-brand-dark border-t border-white/5 overflow-hidden" id="proximo-partido">
+        <!-- Resplandor ambiental de fondo -->
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-brand-blue/10 rounded-full blur-[140px] pointer-events-none"></div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <span class="text-brand-neon font-semibold tracking-[0.25em] uppercase text-xs sm:text-sm">Temporada Oficial 2026/2027 &middot; Regional</span>
+                <h2 class="font-heading text-3xl sm:text-4xl md:text-5xl font-black text-white uppercase tracking-tight mt-2">
+                    El Regreso a la Competición
+                </h2>
+                <div class="w-16 h-1 bg-brand-neon mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-[1.2fr_0.8fr] gap-8 items-stretch">
+                <!-- Tarjeta Principal: Próximo Partido -->
+                <div class="bg-gradient-to-br from-brand-blue/15 via-white/5 to-transparent border border-brand-neon/30 rounded-3xl p-6 sm:p-8 md:p-10 shadow-neon flex flex-col justify-between relative overflow-hidden group">
+                    <div class="flex flex-wrap items-center justify-between gap-3 mb-6">
+                        <span class="bg-brand-neon text-brand-dark font-black px-3 py-1 rounded-lg text-xs uppercase tracking-wider" id="matchStatusBadge">
+                            Próximo Partido &middot; Jornada 2
+                        </span>
+                        <span class="text-gray-400 text-xs sm:text-sm font-medium flex items-center gap-1.5" id="matchDateTime">
+                            <svg class="w-4 h-4 text-brand-neon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                            Sábado 19/09/2026 &middot; 21:00 h
+                        </span>
+                    </div>
+
+                    <!-- Enfrentamiento de Equipos -->
+                    <div class="grid grid-cols-[1fr_auto_1fr] items-center gap-4 sm:gap-8 my-4 text-center">
+                        <!-- Equipo Local -->
+                        <div class="flex flex-col items-center">
+                            <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl bg-white/5 border border-brand-neon/40 flex items-center justify-center p-3 shadow-neon transition-transform group-hover:scale-105">
+                                <img src="/assets/img/escudo-centinela.webp" alt="UD Centinela" class="w-full h-full object-contain" id="matchHomeLogo">
+                            </div>
+                            <h4 class="font-heading text-lg sm:text-xl font-black text-white mt-3 leading-tight" id="matchHomeName">UD Centinela</h4>
+                            <span class="text-xs text-brand-neon uppercase font-bold tracking-widest mt-0.5">Local</span>
+                        </div>
+
+                        <!-- VS / Marcador -->
+                        <div class="flex flex-col items-center justify-center" id="matchScoreBox">
+                            <span class="font-heading text-3xl sm:text-4xl font-black text-white/40 tracking-wider">VS</span>
+                            <span class="text-[11px] text-gray-400 uppercase font-semibold tracking-widest mt-1">El Molino</span>
+                        </div>
+
+                        <!-- Equipo Visitante -->
+                        <div class="flex flex-col items-center">
+                            <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl bg-white/5 border border-white/15 flex items-center justify-center p-3 shadow-md transition-transform group-hover:scale-105">
+                                <img src="/assets/img/teams/atletico-perdoma-b.webp" alt="Atlético Perdoma B" class="w-full h-full object-contain" id="matchAwayLogo" onerror="this.src='/assets/img/escudo-centinela.webp'">
+                            </div>
+                            <h4 class="font-heading text-lg sm:text-xl font-black text-white mt-3 leading-tight" id="matchAwayName">Atlético Perdoma B</h4>
+                            <span class="text-xs text-gray-400 uppercase font-medium tracking-widest mt-0.5">Visitante</span>
+                        </div>
+                    </div>
+
+                    <!-- Ubicación y Botones -->
+                    <div class="mt-8 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
+                        <div class="flex items-center text-gray-300 text-xs sm:text-sm font-medium">
+                            <svg class="w-4 h-4 text-brand-neon mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                            <span id="matchVenue">Estadio Municipal El Molino (Icod de los Vinos)</span>
+                        </div>
+                        <a href="/calendario/" class="inline-flex items-center text-xs font-bold text-brand-dark bg-brand-neon px-5 py-2.5 rounded-xl hover:bg-white transition-all duration-300 shadow-neon uppercase tracking-wider">
+                            Ver Calendario
+                            <svg class="w-3.5 h-3.5 ml-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Tarjetas Laterales: Último Resultado & Plantilla -->
+                <div class="flex flex-col gap-6 justify-between">
+                    <!-- Último Resultado (Jornada 1) -->
+                    <div class="bg-white/5 border border-white/10 rounded-3xl p-6 hover:border-brand-neon/30 transition-colors">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-xs text-gray-400 font-bold uppercase tracking-widest">Último Resultado &middot; Jornada 1</span>
+                            <span class="text-xs font-bold px-2 py-0.5 rounded bg-white/10 text-gray-300">Finalizado</span>
+                        </div>
+                        <div class="flex items-center justify-between py-2">
+                            <div class="flex items-center gap-3">
+                                <img src="/assets/img/teams/portezuelo.webp" alt="Portezuelo" class="w-8 h-8 object-contain" onerror="this.src='/assets/img/escudo-centinela.webp'">
+                                <span class="font-heading font-bold text-white text-sm">C.D. Portezuelo</span>
+                            </div>
+                            <span class="font-heading font-black text-white text-xl">3</span>
+                        </div>
+                        <div class="flex items-center justify-between py-2 border-t border-white/5">
+                            <div class="flex items-center gap-3">
+                                <img src="/assets/img/escudo-centinela.webp" alt="UD Centinela" class="w-8 h-8 object-contain">
+                                <span class="font-heading font-bold text-brand-neon text-sm">UD Centinela</span>
+                            </div>
+                            <span class="font-heading font-black text-brand-neon text-xl">1</span>
+                        </div>
+                        <p class="text-[11px] text-gray-400 mt-3 pt-3 border-t border-white/5">
+                            ⚽ Gol centinelista: <strong>Nauzet (48')</strong> &middot; Estadio Los Laureles
+                        </p>
+                    </div>
+
+                    <!-- Acceso Directo a Plantilla Oficial -->
+                    <div class="bg-gradient-to-br from-brand-blue/10 to-transparent border border-white/10 rounded-3xl p-6 hover:border-brand-neon/40 transition-all flex flex-col justify-between group">
+                        <div>
+                            <span class="text-xs text-brand-neon font-bold uppercase tracking-widest">Primer Equipo</span>
+                            <h3 class="font-heading text-xl font-bold text-white mt-1 group-hover:text-brand-neon transition-colors">Plantilla Oficial 2026/27</h3>
+                            <p class="text-xs text-gray-400 mt-2 leading-relaxed">Conoce a todos los futbolistas, cuerpo técnico, estadísticas individuales en vivo, dorsales y capitanes.</p>
+                        </div>
+                        <div class="mt-4 pt-4 border-t border-white/5 flex items-center justify-between">
+                            <span class="text-xs text-gray-400">28 Integrantes</span>
+                            <a href="/regional/" class="inline-flex items-center text-xs font-bold text-brand-neon hover:text-white transition-colors uppercase tracking-wider">
+                                Explorar Plantilla
+                                <svg class="w-3.5 h-3.5 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección: Últimas Noticias de Actualidad -->
+    <section class="py-24 bg-brand-dark relative z-10 border-t border-white/5" id="actualidad">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+                <div>
+                    <span class="text-brand-neon font-semibold tracking-[0.25em] uppercase text-xs sm:text-sm">Actualidad Centinelista</span>
+                    <h2 class="font-heading text-3xl sm:text-4xl font-black text-white uppercase tracking-tight mt-1">Últimas Noticias</h2>
+                </div>
+                <a href="/noticias/" class="mt-4 md:mt-0 inline-flex items-center text-xs font-bold text-brand-neon hover:text-white transition-colors uppercase tracking-widest">
+                    Ver todas las noticias
+                    <svg class="w-4 h-4 ml-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                </a>
+            </div>
+
+            <!-- Rejilla de 3 Noticias Destacadas -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Noticia 1: José Ángel -->
+                <a href="/noticias/nuevo-fichaje-jose-angel/" class="news-card bg-gradient-to-br from-brand-blue/15 via-white/5 to-transparent border border-white/10 rounded-3xl overflow-hidden group hover:border-brand-neon/40 hover:-translate-y-1 hover:shadow-neon transition-all duration-300 flex flex-col justify-between">
+                    <div class="relative h-56 bg-gray-900 overflow-hidden">
+                        <img src="/assets/img/players/jose-angel.webp" alt="Nuevo Fichaje José Ángel" class="w-full h-full object-cover object-top opacity-80 group-hover:scale-105 group-hover:opacity-100 transition-all duration-500" loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/40 to-transparent"></div>
+                        <span class="absolute top-4 left-4 bg-brand-neon text-brand-dark font-black px-3 py-1 rounded-md text-[11px] uppercase tracking-wider shadow-sm">Fichajes</span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <span class="text-gray-400 text-xs font-medium">09/09/2026 &middot; 2 min</span>
+                            <h3 class="news-title font-heading text-xl font-bold text-white group-hover:text-brand-neon transition-colors mt-2 mb-3 leading-snug">Nuevo Fichaje - José Ángel</h3>
+                            <p class="text-gray-300 text-sm leading-relaxed">Central de gran calidad técnica, magnífico golpeo de balón y salida limpia desde la retaguardia para el Centinela.</p>
+                        </div>
+                        <div class="mt-6 pt-4 border-t border-white/5 inline-flex items-center text-xs font-bold text-brand-neon group-hover:text-white transition-colors uppercase tracking-wider">
+                            Leer noticia completa
+                            <svg class="w-3.5 h-3.5 ml-1.5 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Noticia 2: Joel (#7) -->
+                <a href="/noticias/nuevo-fichaje-joel/" class="news-card bg-gradient-to-br from-brand-blue/15 via-white/5 to-transparent border border-white/10 rounded-3xl overflow-hidden group hover:border-brand-neon/40 hover:-translate-y-1 hover:shadow-neon transition-all duration-300 flex flex-col justify-between">
+                    <div class="relative h-56 bg-gray-900 overflow-hidden">
+                        <img src="/assets/img/players/joel.webp" alt="Nuevo Fichaje Joel #7" class="w-full h-full object-cover object-top opacity-80 group-hover:scale-105 group-hover:opacity-100 transition-all duration-500" loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/40 to-transparent"></div>
+                        <span class="absolute top-4 left-4 bg-brand-neon text-brand-dark font-black px-3 py-1 rounded-md text-[11px] uppercase tracking-wider shadow-sm">Fichajes</span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <span class="text-gray-400 text-xs font-medium">25/08/2026 &middot; 2 min</span>
+                            <h3 class="news-title font-heading text-xl font-bold text-white group-hover:text-brand-neon transition-colors mt-2 mb-3 leading-snug">Nuevo Fichaje - Joel (#7)</h3>
+                            <p class="text-gray-300 text-sm leading-relaxed">Futbolista extraordinariamente polivalente, veloz y de enorme despliegue físico por ambas bandas en el ataque icodense.</p>
+                        </div>
+                        <div class="mt-6 pt-4 border-t border-white/5 inline-flex items-center text-xs font-bold text-brand-neon group-hover:text-white transition-colors uppercase tracking-wider">
+                            Leer noticia completa
+                            <svg class="w-3.5 h-3.5 ml-1.5 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Noticia 3: Joel Preparador Físico -->
+                <a href="/noticias/nuevo-fichaje-joel-pf/" class="news-card bg-gradient-to-br from-brand-blue/15 via-white/5 to-transparent border border-white/10 rounded-3xl overflow-hidden group hover:border-brand-neon/40 hover:-translate-y-1 hover:shadow-neon transition-all duration-300 flex flex-col justify-between">
+                    <div class="relative h-56 bg-gray-900 overflow-hidden">
+                        <img src="/assets/img/players/joel-preparador-fisico.webp" alt="Joel - Preparador Físico" class="w-full h-full object-cover object-top opacity-80 group-hover:scale-105 group-hover:opacity-100 transition-all duration-500" loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/40 to-transparent"></div>
+                        <span class="absolute top-4 left-4 bg-brand-neon text-brand-dark font-black px-3 py-1 rounded-md text-[11px] uppercase tracking-wider shadow-sm">Cuerpo Técnico</span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <span class="text-gray-400 text-xs font-medium">08/09/2026 &middot; 2 min</span>
+                            <h3 class="news-title font-heading text-xl font-bold text-white group-hover:text-brand-neon transition-colors mt-2 mb-3 leading-snug">Nuevo Fichaje - Joel (PF)</h3>
+                            <p class="text-gray-300 text-sm leading-relaxed">Profesional cercano y disciplinado que asume la preparación física y prevención de lesiones del primer equipo centinelista.</p>
+                        </div>
+                        <div class="mt-6 pt-4 border-t border-white/5 inline-flex items-center text-xs font-bold text-brand-neon group-hover:text-white transition-colors uppercase tracking-wider">
+                            Leer noticia completa
+                            <svg class="w-3.5 h-3.5 ml-1.5 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
     <!-- Footer -->
     <footer class="bg-brand-dark py-12 border-t border-white/5 relative z-10">
         <div class="max-w-7xl mx-auto px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center">
@@ -559,6 +752,7 @@
     <script src="/assets/js/ScrollToPlugin.min.js"></script>
     <script src="/assets/site-motion.js?v=20260819_smooth"></script>
     <script src="/assets/js/content-renderer.js?v=20260821_1"></script>
+    <script src="/assets/js/news-renderer.js?v=20260918_home"></script>
     <script src="/assets/js/sponsors-renderer.js?v=20260821_1"></script>
     <script src="/assets/js/pwa-manager.js?v=20260908_clean"></script>
 </body>
