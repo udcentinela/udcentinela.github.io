@@ -1,6 +1,6 @@
 {
   "season": "Temporada 2026/2027",
-  "updated": "2026-09-19T18:57:59Z",
+  "updated": "2026-09-19T21:25:16Z",
   "teams": [
     {
       "id": "atletico-perdoma-b",
@@ -4493,8 +4493,23 @@
       "points": 6
     },
     {
-      "id": "cd-san-diego",
+      "id": "atletico-perdoma-b",
       "position": 4,
+      "team": "Atlético Perdoma B",
+      "shortName": "Perdoma B",
+      "logo": "/assets/img/teams/atletico-perdoma-b.webp",
+      "played": 2,
+      "won": 1,
+      "drawn": 1,
+      "lost": 0,
+      "goalsFor": 1,
+      "goalsAgainst": 0,
+      "goalDifference": 1,
+      "points": 4
+    },
+    {
+      "id": "cd-san-diego",
+      "position": 5,
       "team": "C.D. San Diego",
       "shortName": "San Diego",
       "logo": "/assets/img/teams/cd-san-diego.webp",
@@ -4509,7 +4524,7 @@
     },
     {
       "id": "portezuelo",
-      "position": 5,
+      "position": 6,
       "team": "C.D. Portezuelo Tegueste A",
       "shortName": "Portezuelo A",
       "logo": "/assets/img/teams/portezuelo.webp",
@@ -4524,7 +4539,7 @@
     },
     {
       "id": "vlm-fc",
-      "position": 6,
+      "position": 7,
       "team": "VLM F.C. (Vistalmon)",
       "shortName": "VLM FC",
       "logo": "/assets/img/teams/vlm-fc.webp",
@@ -4534,21 +4549,6 @@
       "lost": 1,
       "goalsFor": 3,
       "goalsAgainst": 2,
-      "goalDifference": 1,
-      "points": 3
-    },
-    {
-      "id": "atletico-perdoma-b",
-      "position": 7,
-      "team": "Atlético Perdoma B",
-      "shortName": "Perdoma B",
-      "logo": "/assets/img/teams/atletico-perdoma-b.webp",
-      "played": 1,
-      "won": 1,
-      "drawn": 0,
-      "lost": 0,
-      "goalsFor": 1,
-      "goalsAgainst": 0,
       "goalDifference": 1,
       "points": 3
     },
@@ -4583,8 +4583,23 @@
       "points": 1
     },
     {
-      "id": "cd-once-piratas",
+      "id": "ud-centinela",
       "position": 10,
+      "team": "UD Centinela",
+      "shortName": "Centinela",
+      "logo": "/assets/img/escudo-centinela.webp",
+      "played": 2,
+      "won": 0,
+      "drawn": 1,
+      "lost": 1,
+      "goalsFor": 1,
+      "goalsAgainst": 3,
+      "goalDifference": -2,
+      "points": 1
+    },
+    {
+      "id": "cd-once-piratas",
+      "position": 11,
       "team": "C.D. Once Piratas",
       "shortName": "Once Piratas",
       "logo": "/assets/img/teams/cd-once-piratas.webp",
@@ -4599,25 +4614,10 @@
     },
     {
       "id": "cd-buenavista",
-      "position": 11,
+      "position": 12,
       "team": "C.D. Buenavista",
       "shortName": "Buenavista",
       "logo": "/assets/img/teams/cd-buenavista.webp",
-      "played": 1,
-      "won": 0,
-      "drawn": 0,
-      "lost": 1,
-      "goalsFor": 1,
-      "goalsAgainst": 3,
-      "goalDifference": -2,
-      "points": 0
-    },
-    {
-      "id": "ud-centinela",
-      "position": 12,
-      "team": "UD Centinela",
-      "shortName": "Centinela",
-      "logo": "/assets/img/escudo-centinela.webp",
       "played": 1,
       "won": 0,
       "drawn": 0,
