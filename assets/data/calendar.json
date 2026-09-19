@@ -1,6 +1,6 @@
 {
   "season": "Temporada 2026/2027",
-  "updated": "2026-09-18T22:27:15Z",
+  "updated": "2026-09-19T18:57:59Z",
   "teams": [
     {
       "id": "atletico-perdoma-b",
@@ -354,9 +354,9 @@
       "away": "U.D. Tacoronte",
       "homeLogo": "/assets/img/teams/afb-tegueste.webp",
       "awayLogo": "/assets/img/teams/ud-tacoronte.webp",
-      "homeScore": null,
-      "awayScore": null,
-      "status": "upcoming",
+      "homeScore": 1,
+      "awayScore": 4,
+      "status": "finished",
       "events": []
     },
     {
@@ -372,9 +372,9 @@
       "away": "C.D. Once Piratas",
       "homeLogo": "/assets/img/teams/cd-juventud-silense.webp",
       "awayLogo": "/assets/img/teams/cd-once-piratas.webp",
-      "homeScore": null,
-      "awayScore": null,
-      "status": "upcoming",
+      "homeScore": 6,
+      "awayScore": 0,
+      "status": "finished",
       "events": []
     },
     {
@@ -390,9 +390,9 @@
       "away": "C.D. San Jerónimo",
       "homeLogo": "/assets/img/teams/cd-juventud-interian.webp",
       "awayLogo": "/assets/img/teams/cd-san-jeronimo.webp",
-      "homeScore": null,
-      "awayScore": null,
-      "status": "upcoming",
+      "homeScore": 5,
+      "awayScore": 0,
+      "status": "finished",
       "events": []
     },
     {
@@ -4448,8 +4448,38 @@
   ],
   "standings": [
     {
-      "id": "rcd-gara",
+      "id": "cd-juventud-interian",
       "position": 1,
+      "team": "C.D. Juventud Interián",
+      "shortName": "Interián",
+      "logo": "/assets/img/teams/cd-juventud-interian.webp",
+      "played": 2,
+      "won": 2,
+      "drawn": 0,
+      "lost": 0,
+      "goalsFor": 10,
+      "goalsAgainst": 0,
+      "goalDifference": 10,
+      "points": 6
+    },
+    {
+      "id": "cd-juventud-silense",
+      "position": 2,
+      "team": "C.D. Juventud Silense",
+      "shortName": "Silense",
+      "logo": "/assets/img/teams/cd-juventud-silense.webp",
+      "played": 2,
+      "won": 2,
+      "drawn": 0,
+      "lost": 0,
+      "goalsFor": 11,
+      "goalsAgainst": 2,
+      "goalDifference": 9,
+      "points": 6
+    },
+    {
+      "id": "rcd-gara",
+      "position": 3,
       "team": "R.C.D. Gara",
       "shortName": "Gara",
       "logo": "/assets/img/teams/rcd-gara.webp",
@@ -4464,7 +4494,7 @@
     },
     {
       "id": "cd-san-diego",
-      "position": 2,
+      "position": 4,
       "team": "C.D. San Diego",
       "shortName": "San Diego",
       "logo": "/assets/img/teams/cd-san-diego.webp",
@@ -4475,36 +4505,6 @@
       "goalsFor": 6,
       "goalsAgainst": 1,
       "goalDifference": 5,
-      "points": 3
-    },
-    {
-      "id": "cd-juventud-interian",
-      "position": 3,
-      "team": "C.D. Juventud Interián",
-      "shortName": "Interián",
-      "logo": "/assets/img/teams/cd-juventud-interian.webp",
-      "played": 1,
-      "won": 1,
-      "drawn": 0,
-      "lost": 0,
-      "goalsFor": 5,
-      "goalsAgainst": 0,
-      "goalDifference": 5,
-      "points": 3
-    },
-    {
-      "id": "cd-juventud-silense",
-      "position": 4,
-      "team": "C.D. Juventud Silense",
-      "shortName": "Silense",
-      "logo": "/assets/img/teams/cd-juventud-silense.webp",
-      "played": 1,
-      "won": 1,
-      "drawn": 0,
-      "lost": 0,
-      "goalsFor": 5,
-      "goalsAgainst": 2,
-      "goalDifference": 3,
       "points": 3
     },
     {
@@ -4553,19 +4553,19 @@
       "points": 3
     },
     {
-      "id": "cd-once-piratas",
+      "id": "ud-tacoronte",
       "position": 8,
-      "team": "C.D. Once Piratas",
-      "shortName": "Once Piratas",
-      "logo": "/assets/img/teams/cd-once-piratas.webp",
-      "played": 1,
-      "won": 0,
-      "drawn": 1,
-      "lost": 0,
-      "goalsFor": 2,
-      "goalsAgainst": 2,
-      "goalDifference": 0,
-      "points": 1
+      "team": "U.D. Tacoronte",
+      "shortName": "UD Tacoronte",
+      "logo": "/assets/img/teams/ud-tacoronte.webp",
+      "played": 2,
+      "won": 1,
+      "drawn": 0,
+      "lost": 1,
+      "goalsFor": 4,
+      "goalsAgainst": 6,
+      "goalDifference": -2,
+      "points": 3
     },
     {
       "id": "tacoronte-cf",
@@ -4583,19 +4583,19 @@
       "points": 1
     },
     {
-      "id": "afb-tegueste",
+      "id": "cd-once-piratas",
       "position": 10,
-      "team": "C.D. AFB Tegueste",
-      "shortName": "AFB Tegueste",
-      "logo": "/assets/img/teams/afb-tegueste.webp",
-      "played": 0,
+      "team": "C.D. Once Piratas",
+      "shortName": "Once Piratas",
+      "logo": "/assets/img/teams/cd-once-piratas.webp",
+      "played": 2,
       "won": 0,
-      "drawn": 0,
-      "lost": 0,
-      "goalsFor": 0,
-      "goalsAgainst": 0,
-      "goalDifference": 0,
-      "points": 0
+      "drawn": 1,
+      "lost": 1,
+      "goalsFor": 2,
+      "goalsAgainst": 8,
+      "goalDifference": -6,
+      "points": 1
     },
     {
       "id": "cd-buenavista",
@@ -4628,17 +4628,17 @@
       "points": 0
     },
     {
-      "id": "cd-san-jeronimo",
+      "id": "afb-tegueste",
       "position": 13,
-      "team": "C.D. San Jerónimo",
-      "shortName": "San Jerónimo",
-      "logo": "/assets/img/teams/cd-san-jeronimo.webp",
+      "team": "C.D. AFB Tegueste",
+      "shortName": "AFB Tegueste",
+      "logo": "/assets/img/teams/afb-tegueste.webp",
       "played": 1,
       "won": 0,
       "drawn": 0,
       "lost": 1,
-      "goalsFor": 2,
-      "goalsAgainst": 5,
+      "goalsFor": 1,
+      "goalsAgainst": 4,
       "goalDifference": -3,
       "points": 0
     },
@@ -4658,23 +4658,8 @@
       "points": 0
     },
     {
-      "id": "ud-tacoronte",
-      "position": 15,
-      "team": "U.D. Tacoronte",
-      "shortName": "UD Tacoronte",
-      "logo": "/assets/img/teams/ud-tacoronte.webp",
-      "played": 1,
-      "won": 0,
-      "drawn": 0,
-      "lost": 1,
-      "goalsFor": 0,
-      "goalsAgainst": 5,
-      "goalDifference": -5,
-      "points": 0
-    },
-    {
       "id": "sd-ravelo-b",
-      "position": 16,
+      "position": 15,
       "team": "S.D. Ravelo B",
       "shortName": "Ravelo B",
       "logo": "/assets/img/teams/sd-ravelo-b.webp",
@@ -4685,6 +4670,21 @@
       "goalsFor": 0,
       "goalsAgainst": 6,
       "goalDifference": -6,
+      "points": 0
+    },
+    {
+      "id": "cd-san-jeronimo",
+      "position": 16,
+      "team": "C.D. San Jerónimo",
+      "shortName": "San Jerónimo",
+      "logo": "/assets/img/teams/cd-san-jeronimo.webp",
+      "played": 2,
+      "won": 0,
+      "drawn": 0,
+      "lost": 2,
+      "goalsFor": 2,
+      "goalsAgainst": 10,
+      "goalDifference": -8,
       "points": 0
     }
   ]
