@@ -1,6 +1,6 @@
 {
   "season": "Temporada 2026/2027",
-  "updated": "2026-09-19T23:26:09Z",
+  "updated": "2026-09-20T13:32:49Z",
   "teams": [
     {
       "id": "atletico-perdoma-b",
@@ -336,9 +336,9 @@
       "away": "C.D. Buenavista",
       "homeLogo": "/assets/img/teams/tacoronte-cf.webp",
       "awayLogo": "/assets/img/teams/cd-buenavista.webp",
-      "homeScore": null,
-      "awayScore": null,
-      "status": "upcoming",
+      "homeScore": 2,
+      "awayScore": 2,
+      "status": "finished",
       "events": []
     },
     {
@@ -4573,18 +4573,33 @@
       "team": "Tacoronte C.F.",
       "shortName": "Tacoronte CF",
       "logo": "/assets/img/teams/tacoronte-cf.webp",
-      "played": 1,
+      "played": 2,
+      "won": 0,
+      "drawn": 2,
+      "lost": 0,
+      "goalsFor": 4,
+      "goalsAgainst": 4,
+      "goalDifference": 0,
+      "points": 2
+    },
+    {
+      "id": "cd-buenavista",
+      "position": 10,
+      "team": "C.D. Buenavista",
+      "shortName": "Buenavista",
+      "logo": "/assets/img/teams/cd-buenavista.webp",
+      "played": 2,
       "won": 0,
       "drawn": 1,
-      "lost": 0,
-      "goalsFor": 2,
-      "goalsAgainst": 2,
-      "goalDifference": 0,
+      "lost": 1,
+      "goalsFor": 3,
+      "goalsAgainst": 5,
+      "goalDifference": -2,
       "points": 1
     },
     {
       "id": "cd-once-piratas",
-      "position": 10,
+      "position": 11,
       "team": "C.D. Once Piratas",
       "shortName": "Once Piratas",
       "logo": "/assets/img/teams/cd-once-piratas.webp",
@@ -4596,21 +4611,6 @@
       "goalsAgainst": 8,
       "goalDifference": -6,
       "points": 1
-    },
-    {
-      "id": "cd-buenavista",
-      "position": 11,
-      "team": "C.D. Buenavista",
-      "shortName": "Buenavista",
-      "logo": "/assets/img/teams/cd-buenavista.webp",
-      "played": 1,
-      "won": 0,
-      "drawn": 0,
-      "lost": 1,
-      "goalsFor": 1,
-      "goalsAgainst": 3,
-      "goalDifference": -2,
-      "points": 0
     },
     {
       "id": "afb-tegueste",
