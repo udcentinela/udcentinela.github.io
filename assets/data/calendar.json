@@ -1,6 +1,6 @@
 {
   "season": "Temporada 2026/2027",
-  "updated": "2026-09-20T13:32:49Z",
+  "updated": "2026-09-22T23:55:42Z",
   "teams": [
     {
       "id": "atletico-perdoma-b",
@@ -246,9 +246,9 @@
       "away": "C.D. AFB Tegueste",
       "homeLogo": "/assets/img/teams/sd-ravelo-b.webp",
       "awayLogo": "/assets/img/teams/afb-tegueste.webp",
-      "homeScore": null,
-      "awayScore": null,
-      "status": "upcoming",
+      "homeScore": 0,
+      "awayScore": 1,
+      "status": "finished",
       "events": []
     },
     {
@@ -4568,8 +4568,23 @@
       "points": 3
     },
     {
-      "id": "tacoronte-cf",
+      "id": "afb-tegueste",
       "position": 9,
+      "team": "C.D. AFB Tegueste",
+      "shortName": "AFB Tegueste",
+      "logo": "/assets/img/teams/afb-tegueste.webp",
+      "played": 2,
+      "won": 1,
+      "drawn": 0,
+      "lost": 1,
+      "goalsFor": 2,
+      "goalsAgainst": 4,
+      "goalDifference": -2,
+      "points": 3
+    },
+    {
+      "id": "tacoronte-cf",
+      "position": 10,
       "team": "Tacoronte C.F.",
       "shortName": "Tacoronte CF",
       "logo": "/assets/img/teams/tacoronte-cf.webp",
@@ -4584,7 +4599,7 @@
     },
     {
       "id": "cd-buenavista",
-      "position": 10,
+      "position": 11,
       "team": "C.D. Buenavista",
       "shortName": "Buenavista",
       "logo": "/assets/img/teams/cd-buenavista.webp",
@@ -4599,7 +4614,7 @@
     },
     {
       "id": "cd-once-piratas",
-      "position": 11,
+      "position": 12,
       "team": "C.D. Once Piratas",
       "shortName": "Once Piratas",
       "logo": "/assets/img/teams/cd-once-piratas.webp",
@@ -4611,21 +4626,6 @@
       "goalsAgainst": 8,
       "goalDifference": -6,
       "points": 1
-    },
-    {
-      "id": "afb-tegueste",
-      "position": 12,
-      "team": "C.D. AFB Tegueste",
-      "shortName": "AFB Tegueste",
-      "logo": "/assets/img/teams/afb-tegueste.webp",
-      "played": 1,
-      "won": 0,
-      "drawn": 0,
-      "lost": 1,
-      "goalsFor": 1,
-      "goalsAgainst": 4,
-      "goalDifference": -3,
-      "points": 0
     },
     {
       "id": "ud-centinela",
@@ -4663,13 +4663,13 @@
       "team": "S.D. Ravelo B",
       "shortName": "Ravelo B",
       "logo": "/assets/img/teams/sd-ravelo-b.webp",
-      "played": 1,
+      "played": 2,
       "won": 0,
       "drawn": 0,
-      "lost": 1,
+      "lost": 2,
       "goalsFor": 0,
-      "goalsAgainst": 6,
-      "goalDifference": -6,
+      "goalsAgainst": 7,
+      "goalDifference": -7,
       "points": 0
     },
     {
