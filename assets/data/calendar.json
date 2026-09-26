@@ -1,6 +1,6 @@
 {
   "season": "Temporada 2026/2027",
-  "updated": "2026-09-26T20:05:46Z",
+  "updated": "2026-09-26T22:55:01Z",
   "teams": [
     {
       "id": "atletico-perdoma-b",
@@ -100,18 +100,18 @@
     }
   ],
   "nextMatch": {
-    "id": "j3-m7",
-    "round": "Jornada 3",
-    "roundNumber": 3,
-    "date": "26/09/2026",
-    "time": "20:30",
-    "venue": "RAVELO (CA)",
-    "homeId": "sd-ravelo-b",
-    "awayId": "ud-centinela",
-    "home": "S.D. Ravelo B",
-    "away": "UD Centinela",
-    "homeLogo": "/assets/img/teams/sd-ravelo-b.webp",
-    "awayLogo": "/assets/img/escudo-centinela.webp",
+    "id": "j4-m8",
+    "round": "Jornada 4",
+    "roundNumber": 4,
+    "date": "03/10/2026",
+    "time": "21:00",
+    "venue": "EL MOLINO (CA)",
+    "homeId": "ud-centinela",
+    "awayId": "ud-tacoronte",
+    "home": "UD Centinela",
+    "away": "U.D. Tacoronte",
+    "homeLogo": "/assets/img/escudo-centinela.webp",
+    "awayLogo": "/assets/img/teams/ud-tacoronte.webp",
     "homeScore": null,
     "awayScore": null,
     "status": "upcoming",
@@ -516,9 +516,9 @@
       "away": "C.D. San Diego",
       "homeLogo": "/assets/img/teams/ud-tacoronte.webp",
       "awayLogo": "/assets/img/teams/cd-san-diego.webp",
-      "homeScore": null,
-      "awayScore": null,
-      "status": "upcoming",
+      "homeScore": 0,
+      "awayScore": 1,
+      "status": "finished",
       "events": []
     },
     {
@@ -534,9 +534,9 @@
       "away": "UD Centinela",
       "homeLogo": "/assets/img/teams/sd-ravelo-b.webp",
       "awayLogo": "/assets/img/escudo-centinela.webp",
-      "homeScore": null,
-      "awayScore": null,
-      "status": "upcoming",
+      "homeScore": 0,
+      "awayScore": 6,
+      "status": "finished",
       "events": []
     },
     {
@@ -552,9 +552,9 @@
       "away": "C.D. Buenavista",
       "homeLogo": "/assets/img/teams/cd-once-piratas.webp",
       "awayLogo": "/assets/img/teams/cd-buenavista.webp",
-      "homeScore": null,
-      "awayScore": null,
-      "status": "upcoming",
+      "homeScore": 3,
+      "awayScore": 2,
+      "status": "finished",
       "events": []
     },
     {
@@ -4562,8 +4562,8 @@
       "won": 1,
       "drawn": 1,
       "lost": 1,
-      "goalsFor": 3,
-      "goalsAgainst": 8,
+      "goalsFor": 5,
+      "goalsAgainst": 10,
       "goalDifference": -5,
       "points": 4
     },
@@ -4577,9 +4577,9 @@
       "won": 1,
       "drawn": 0,
       "lost": 2,
-      "goalsFor": 3,
+      "goalsFor": 7,
       "goalsAgainst": 4,
-      "goalDifference": -1,
+      "goalDifference": 3,
       "points": 3
     },
     {
@@ -4652,8 +4652,8 @@
       "won": 0,
       "drawn": 1,
       "lost": 2,
-      "goalsFor": 3,
-      "goalsAgainst": 6,
+      "goalsFor": 5,
+      "goalsAgainst": 8,
       "goalDifference": -3,
       "points": 1
     },
@@ -4683,8 +4683,8 @@
       "drawn": 0,
       "lost": 3,
       "goalsFor": 0,
-      "goalsAgainst": 9,
-      "goalDifference": -9,
+      "goalsAgainst": 13,
+      "goalDifference": -13,
       "points": 0
     }
   ]
