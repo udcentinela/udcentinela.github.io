@@ -1,6 +1,6 @@
 {
   "season": "Temporada 2026/2027",
-  "updated": "2026-09-26T22:55:01Z",
+  "updated": "2026-09-27T10:21:57.489Z",
   "teams": [
     {
       "id": "atletico-perdoma-b",
@@ -537,7 +537,44 @@
       "homeScore": 0,
       "awayScore": 6,
       "status": "finished",
-      "events": []
+      "events": [
+        {
+          "type": "goal",
+          "minute": null,
+          "scorerId": "sebastian",
+          "assistId": null
+        },
+        {
+          "type": "goal",
+          "minute": null,
+          "scorerId": "tinguaro",
+          "assistId": null
+        },
+        {
+          "type": "goal",
+          "minute": null,
+          "scorerId": "zacaria",
+          "assistId": null
+        },
+        {
+          "type": "goal",
+          "minute": null,
+          "scorerId": "angel",
+          "assistId": null
+        },
+        {
+          "type": "goal",
+          "minute": null,
+          "scorerId": "champi",
+          "assistId": null
+        },
+        {
+          "type": "goal",
+          "minute": null,
+          "scorerId": "colcho",
+          "assistId": null
+        }
+      ]
     },
     {
       "id": "j3-m8",

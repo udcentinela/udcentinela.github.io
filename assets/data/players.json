@@ -1,6 +1,6 @@
 {
   "season": "Temporada 2026/2027",
-  "lastUpdated": "2026-09-12T10:48:53.898Z",
+  "lastUpdated": "2026-09-27T10:21:57.489Z",
   "players": [
     {
       "id": "jose-angel",
@@ -163,7 +163,7 @@
       "image": "/assets/img/players/angel.webp",
       "slug": "angel",
       "url": "/regional/angel/",
-      "goals": 0,
+      "goals": 1,
       "assists": 0,
       "matchesPlayed": 0
     },
@@ -178,7 +178,7 @@
       "image": "/assets/img/players/tinguaro.webp",
       "slug": "tinguaro",
       "url": "/regional/tinguaro/",
-      "goals": 0,
+      "goals": 1,
       "assists": 0,
       "matchesPlayed": 0
     },
@@ -253,7 +253,7 @@
       "image": "/assets/img/champi.webp",
       "slug": "champi",
       "url": "/regional/champi/",
-      "goals": 0,
+      "goals": 1,
       "assists": 0,
       "matchesPlayed": 0
     },
@@ -268,7 +268,7 @@
       "image": "/assets/img/zacaria.webp",
       "slug": "zacaria",
       "url": "/regional/zacaria/",
-      "goals": 0,
+      "goals": 1,
       "assists": 0,
       "matchesPlayed": 0
     },
@@ -328,7 +328,7 @@
       "image": "/assets/img/sebas.webp",
       "slug": "sebastian",
       "url": "/regional/sebastian/",
-      "goals": 0,
+      "goals": 1,
       "assists": 0,
       "matchesPlayed": 0
     },
@@ -358,7 +358,7 @@
       "image": "/assets/img/colcho.webp",
       "slug": "colcho",
       "url": "/regional/colcho/",
-      "goals": 0,
+      "goals": 1,
       "assists": 0,
       "matchesPlayed": 0
     },
