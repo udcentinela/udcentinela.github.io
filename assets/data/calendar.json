@@ -1,6 +1,6 @@
 {
   "season": "Temporada 2026/2027",
-  "updated": "2026-10-03T18:07:42Z",
+  "updated": "2026-10-03T21:21:30Z",
   "teams": [
     {
       "id": "atletico-perdoma-b",
@@ -4494,9 +4494,9 @@
       "won": 4,
       "drawn": 0,
       "lost": 0,
-      "goalsFor": 17,
+      "goalsFor": 19,
       "goalsAgainst": 1,
-      "goalDifference": 16,
+      "goalDifference": 18,
       "points": 12
     },
     {
@@ -4575,8 +4575,23 @@
       "points": 7
     },
     {
-      "id": "vlm-fc",
+      "id": "ud-centinela",
       "position": 7,
+      "team": "UD Centinela",
+      "shortName": "Centinela",
+      "logo": "/assets/img/escudo-centinela.webp",
+      "played": 4,
+      "won": 2,
+      "drawn": 0,
+      "lost": 2,
+      "goalsFor": 13,
+      "goalsAgainst": 4,
+      "goalDifference": 9,
+      "points": 6
+    },
+    {
+      "id": "vlm-fc",
+      "position": 8,
       "team": "VLM F.C. (Vistalmon)",
       "shortName": "VLM FC",
       "logo": "/assets/img/teams/vlm-fc.webp",
@@ -4591,7 +4606,7 @@
     },
     {
       "id": "portezuelo",
-      "position": 8,
+      "position": 9,
       "team": "C.D. Portezuelo Tegueste A",
       "shortName": "Portezuelo A",
       "logo": "/assets/img/teams/portezuelo.webp",
@@ -4606,7 +4621,7 @@
     },
     {
       "id": "cd-san-jeronimo",
-      "position": 9,
+      "position": 10,
       "team": "C.D. San Jerónimo",
       "shortName": "San Jerónimo",
       "logo": "/assets/img/teams/cd-san-jeronimo.webp",
@@ -4621,7 +4636,7 @@
     },
     {
       "id": "cd-once-piratas",
-      "position": 10,
+      "position": 11,
       "team": "C.D. Once Piratas",
       "shortName": "Once Piratas",
       "logo": "/assets/img/teams/cd-once-piratas.webp",
@@ -4630,24 +4645,9 @@
       "drawn": 1,
       "lost": 2,
       "goalsFor": 5,
-      "goalsAgainst": 15,
-      "goalDifference": -10,
+      "goalsAgainst": 17,
+      "goalDifference": -12,
       "points": 4
-    },
-    {
-      "id": "ud-centinela",
-      "position": 11,
-      "team": "UD Centinela",
-      "shortName": "Centinela",
-      "logo": "/assets/img/escudo-centinela.webp",
-      "played": 3,
-      "won": 1,
-      "drawn": 0,
-      "lost": 2,
-      "goalsFor": 7,
-      "goalsAgainst": 4,
-      "goalDifference": 3,
-      "points": 3
     },
     {
       "id": "ud-tacoronte",
@@ -4655,13 +4655,13 @@
       "team": "U.D. Tacoronte",
       "shortName": "UD Tacoronte",
       "logo": "/assets/img/teams/ud-tacoronte.webp",
-      "played": 3,
+      "played": 4,
       "won": 1,
       "drawn": 0,
-      "lost": 2,
+      "lost": 3,
       "goalsFor": 4,
-      "goalsAgainst": 7,
-      "goalDifference": -3,
+      "goalsAgainst": 13,
+      "goalDifference": -9,
       "points": 3
     },
     {
