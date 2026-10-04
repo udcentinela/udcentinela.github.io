@@ -1,6 +1,6 @@
 {
   "season": "Temporada 2026/2027",
-  "updated": "2026-10-03T21:21:30Z",
+  "updated": "2026-10-04T00:00:07Z",
   "teams": [
     {
       "id": "atletico-perdoma-b",
@@ -4584,9 +4584,9 @@
       "won": 2,
       "drawn": 0,
       "lost": 2,
-      "goalsFor": 13,
+      "goalsFor": 14,
       "goalsAgainst": 4,
-      "goalDifference": 9,
+      "goalDifference": 10,
       "points": 6
     },
     {
@@ -4650,23 +4650,8 @@
       "points": 4
     },
     {
-      "id": "ud-tacoronte",
-      "position": 12,
-      "team": "U.D. Tacoronte",
-      "shortName": "UD Tacoronte",
-      "logo": "/assets/img/teams/ud-tacoronte.webp",
-      "played": 4,
-      "won": 1,
-      "drawn": 0,
-      "lost": 3,
-      "goalsFor": 4,
-      "goalsAgainst": 13,
-      "goalDifference": -9,
-      "points": 3
-    },
-    {
       "id": "afb-tegueste",
-      "position": 13,
+      "position": 12,
       "team": "C.D. AFB Tegueste",
       "shortName": "AFB Tegueste",
       "logo": "/assets/img/teams/afb-tegueste.webp",
@@ -4677,6 +4662,21 @@
       "goalsFor": 3,
       "goalsAgainst": 12,
       "goalDifference": -9,
+      "points": 3
+    },
+    {
+      "id": "ud-tacoronte",
+      "position": 13,
+      "team": "U.D. Tacoronte",
+      "shortName": "UD Tacoronte",
+      "logo": "/assets/img/teams/ud-tacoronte.webp",
+      "played": 4,
+      "won": 1,
+      "drawn": 0,
+      "lost": 3,
+      "goalsFor": 4,
+      "goalsAgainst": 14,
+      "goalDifference": -10,
       "points": 3
     },
     {
