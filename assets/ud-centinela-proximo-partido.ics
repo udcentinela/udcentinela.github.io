@@ -3,22 +3,21 @@ VERSION:2.0
 PRODID:-//UD Centinela//ES
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
-SUMMARY:UD Centinela vs Atlético Perdoma B (J2)
-DTSTART:20260919T200000Z
-DTEND:20260919T214500Z
-DTSTAMP:20260918T151943Z
-UID:match-j2-2026-2027@udcentinela.github.io
-DESCRIPTION:Segunda Regional Tenerife - Jornada 2\nUD Centinela vs Atléti
- co Perdoma B\nCondicion: Casa\nCampo: Estadio Municipal El Molino\, Icod d
- e los Vinos\, Santa Cruz de Tenerife\nHora: 21:00 (hora canaria)\n\nWeb of
- icial: https://udcentinela.github.io/calendario/\nAupa Centinela!
-LOCATION:Estadio Municipal El Molino\, Icod de los Vinos\, Santa Cruz de T
- enerife
+SUMMARY:C.D. San Jerónimo vs UD Centinela (J5)
+DTSTART:20261009T200000Z
+DTEND:20261009T214500Z
+DTSTAMP:20261008T160838Z
+UID:match-j5-2026-2027@udcentinela.github.io
+DESCRIPTION:Segunda Regional Tenerife - Jornada 5\nC.D. San Jerónimo vs U
+ D Centinela\nCondicion: Fuera\nCampo: Campo Municipal Las Torres\, Taco\, 
+ San Cristóbal de La Laguna\nHora: 21:00 (hora canaria)\n\nWeb oficial: ht
+ tps://udcentinela.github.io/calendario/\nAupa Centinela!
+LOCATION:Campo Municipal Las Torres\, Taco\, San Cristóbal de La Laguna
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 BEGIN:VALARM
 ACTION:DISPLAY
-DESCRIPTION:Recordatorio: UD Centinela vs Atlético Perdoma B (J2)
+DESCRIPTION:Recordatorio: C.D. San Jerónimo vs UD Centinela (J5)
 TRIGGER:-PT2H
 END:VALARM
 END:VEVENT

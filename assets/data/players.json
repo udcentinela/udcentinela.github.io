@@ -1,6 +1,6 @@
 {
   "season": "Temporada 2026/2027",
-  "lastUpdated": "2026-09-27T10:21:57.489Z",
+  "lastUpdated": "2026-10-08T16:08:38.223127Z",
   "players": [
     {
       "id": "jose-angel",
@@ -148,7 +148,7 @@
       "image": "/assets/img/players/nauzet.webp",
       "slug": "nauzet",
       "url": "/regional/nauzet/",
-      "goals": 1,
+      "goals": 2,
       "assists": 0,
       "matchesPlayed": 0
     },
@@ -178,7 +178,7 @@
       "image": "/assets/img/players/tinguaro.webp",
       "slug": "tinguaro",
       "url": "/regional/tinguaro/",
-      "goals": 1,
+      "goals": 3,
       "assists": 0,
       "matchesPlayed": 0
     },
@@ -253,7 +253,7 @@
       "image": "/assets/img/champi.webp",
       "slug": "champi",
       "url": "/regional/champi/",
-      "goals": 1,
+      "goals": 2,
       "assists": 0,
       "matchesPlayed": 0
     },
@@ -268,7 +268,7 @@
       "image": "/assets/img/zacaria.webp",
       "slug": "zacaria",
       "url": "/regional/zacaria/",
-      "goals": 1,
+      "goals": 2,
       "assists": 0,
       "matchesPlayed": 0
     },
@@ -298,7 +298,7 @@
       "image": "/assets/img/pablo.webp",
       "slug": "pablo",
       "url": "/regional/pablo/",
-      "goals": 0,
+      "goals": 1,
       "assists": 0,
       "matchesPlayed": 0
     },
@@ -313,7 +313,7 @@
       "image": "/assets/img/aday.webp",
       "slug": "aday",
       "url": "/regional/aday/",
-      "goals": 0,
+      "goals": 1,
       "assists": 0,
       "matchesPlayed": 0
     },

@@ -11,7 +11,7 @@ BEGIN:VEVENT
 SUMMARY:C.D. Portezuelo Tegueste A vs UD Centinela (J1)
 DTSTART:20260911T200000Z
 DTEND:20260911T214500Z
-DTSTAMP:20260918T151943Z
+DTSTAMP:20261008T160838Z
 UID:match-j1-2026-2027@udcentinela.github.io
 DESCRIPTION:Segunda Regional Tenerife - Jornada 1\nC.D. Portezuelo Teguest
  e A vs UD Centinela\nCondicion: Fuera\nCampo: Campo Municipal Los Laureles
@@ -30,7 +30,7 @@ BEGIN:VEVENT
 SUMMARY:UD Centinela vs Atlético Perdoma B (J2)
 DTSTART:20260919T200000Z
 DTEND:20260919T214500Z
-DTSTAMP:20260918T151943Z
+DTSTAMP:20261008T160838Z
 UID:match-j2-2026-2027@udcentinela.github.io
 DESCRIPTION:Segunda Regional Tenerife - Jornada 2\nUD Centinela vs Atléti
  co Perdoma B\nCondicion: Casa\nCampo: Estadio Municipal El Molino\, Icod d
@@ -50,7 +50,7 @@ BEGIN:VEVENT
 SUMMARY:S.D. Ravelo B vs UD Centinela (J3)
 DTSTART:20260926T193000Z
 DTEND:20260926T211500Z
-DTSTAMP:20260918T151943Z
+DTSTAMP:20261008T160838Z
 UID:match-j3-2026-2027@udcentinela.github.io
 DESCRIPTION:Segunda Regional Tenerife - Jornada 3\nS.D. Ravelo B vs UD Cen
  tinela\nCondicion: Fuera\nCampo: Campo Municipal de Ravelo\, El Sauzal\, S
@@ -69,7 +69,7 @@ BEGIN:VEVENT
 SUMMARY:UD Centinela vs U.D. Tacoronte (J4)
 DTSTART:20261003T200000Z
 DTEND:20261003T214500Z
-DTSTAMP:20260918T151943Z
+DTSTAMP:20261008T160838Z
 UID:match-j4-2026-2027@udcentinela.github.io
 DESCRIPTION:Segunda Regional Tenerife - Jornada 4\nUD Centinela vs U.D. Ta
  coronte\nCondicion: Casa\nCampo: Estadio Municipal El Molino\, Icod de los
@@ -89,7 +89,7 @@ BEGIN:VEVENT
 SUMMARY:C.D. San Jerónimo vs UD Centinela (J5)
 DTSTART:20261009T200000Z
 DTEND:20261009T214500Z
-DTSTAMP:20260918T151943Z
+DTSTAMP:20261008T160838Z
 UID:match-j5-2026-2027@udcentinela.github.io
 DESCRIPTION:Segunda Regional Tenerife - Jornada 5\nC.D. San Jerónimo vs U
  D Centinela\nCondicion: Fuera\nCampo: Campo Municipal Las Torres\, Taco\, 
@@ -108,7 +108,7 @@ BEGIN:VEVENT
 SUMMARY:UD Centinela vs C.D. Juventud Silense (J6)
 DTSTART:20261017T200000Z
 DTEND:20261017T214500Z
-DTSTAMP:20260918T151943Z
+DTSTAMP:20261008T160838Z
 UID:match-j6-2026-2027@udcentinela.github.io
 DESCRIPTION:Segunda Regional Tenerife - Jornada 6\nUD Centinela vs C.D. Ju
  ventud Silense\nCondicion: Casa\nCampo: Estadio Municipal El Molino\, Icod
@@ -128,7 +128,7 @@ BEGIN:VEVENT
 SUMMARY:C.D. Juventud Interián vs UD Centinela (J7)
 DTSTART:20261024T170000Z
 DTEND:20261024T184500Z
-DTSTAMP:20260918T151943Z
+DTSTAMP:20261008T160838Z
 UID:match-j7-2026-2027@udcentinela.github.io
 DESCRIPTION:Segunda Regional Tenerife - Jornada 7\nC.D. Juventud Interián
   vs UD Centinela\nCondicion: Fuera\nCampo: Campo Municipal de Caleta de In
@@ -147,7 +147,7 @@ BEGIN:VEVENT
 SUMMARY:UD Centinela vs C.D. AFB Tegueste (J8)
 DTSTART:20261031T210000Z
 DTEND:20261031T224500Z
-DTSTAMP:20260918T151943Z
+DTSTAMP:20261008T160838Z
 UID:match-j8-2026-2027@udcentinela.github.io
 DESCRIPTION:Segunda Regional Tenerife - Jornada 8\nUD Centinela vs C.D. AF
  B Tegueste\nCondicion: Casa\nCampo: Estadio Municipal El Molino\, Icod de 
@@ -167,7 +167,7 @@ BEGIN:VEVENT
 SUMMARY:C.D. San Diego vs UD Centinela (J9)
 DTSTART:20261106T210000Z
 DTEND:20261106T224500Z
-DTSTAMP:20260918T151943Z
+DTSTAMP:20261008T160838Z
 UID:match-j9-2026-2027@udcentinela.github.io
 DESCRIPTION:Segunda Regional Tenerife - Jornada 9\nC.D. San Diego vs UD Ce
  ntinela\nCondicion: Fuera\nCampo: Estadio Municipal Los Cuartos\, La Orota
@@ -187,7 +187,7 @@ BEGIN:VEVENT
 SUMMARY:UD Centinela vs C.D. Once Piratas (J10)
 DTSTART:20261114T210000Z
 DTEND:20261114T224500Z
-DTSTAMP:20260918T151943Z
+DTSTAMP:20261008T160838Z
 UID:match-j10-2026-2027@udcentinela.github.io
 DESCRIPTION:Segunda Regional Tenerife - Jornada 10\nUD Centinela vs C.D. O
  nce Piratas\nCondicion: Casa\nCampo: Estadio Municipal El Molino\, Icod de
@@ -207,7 +207,7 @@ BEGIN:VEVENT
 SUMMARY:UD Centinela vs U.D. Matanza (J11)
 DTSTART:20261121T210000Z
 DTEND:20261121T224500Z
-DTSTAMP:20260918T151943Z
+DTSTAMP:20261008T160838Z
 UID:match-j11-2026-2027@udcentinela.github.io
 DESCRIPTION:Segunda Regional Tenerife - Jornada 11\nUD Centinela vs U.D. M
  atanza\nCondicion: Casa\nCampo: Estadio Municipal El Molino\, Icod de los 
@@ -227,7 +227,7 @@ BEGIN:VEVENT
 SUMMARY:VLM F.C. (Vistalmon) vs UD Centinela (J12)
 DTSTART:20261127T210000Z
 DTEND:20261127T224500Z
-DTSTAMP:20260918T151943Z
+DTSTAMP:20261008T160838Z
 UID:match-j12-2026-2027@udcentinela.github.io
 DESCRIPTION:Segunda Regional Tenerife - Jornada 12\nVLM F.C. (Vistalmon) v
  s UD Centinela\nCondicion: Fuera\nCampo: Campo Municipal El Pacho\, San Cr
@@ -246,7 +246,7 @@ BEGIN:VEVENT
 SUMMARY:UD Centinela vs Tacoronte C.F. (J13)
 DTSTART:20261205T210000Z
 DTEND:20261205T224500Z
-DTSTAMP:20260918T151943Z
+DTSTAMP:20261008T160838Z
 UID:match-j13-2026-2027@udcentinela.github.io
 DESCRIPTION:Segunda Regional Tenerife - Jornada 13\nUD Centinela vs Tacoro
  nte C.F.\nCondicion: Casa\nCampo: Estadio Municipal El Molino\, Icod de lo
@@ -266,7 +266,7 @@ BEGIN:VEVENT
 SUMMARY:C.D. Buenavista vs UD Centinela (J14)
 DTSTART:20261212T163000Z
 DTEND:20261212T181500Z
-DTSTAMP:20260918T151943Z
+DTSTAMP:20261008T160838Z
 UID:match-j14-2026-2027@udcentinela.github.io
 DESCRIPTION:Segunda Regional Tenerife - Jornada 14\nC.D. Buenavista vs UD 
  Centinela\nCondicion: Fuera\nCampo: Campo Municipal Los Cabildos\, Buenavi
@@ -285,7 +285,7 @@ BEGIN:VEVENT
 SUMMARY:UD Centinela vs R.C.D. Gara (J15)
 DTSTART:20261219T210000Z
 DTEND:20261219T224500Z
-DTSTAMP:20260918T151943Z
+DTSTAMP:20261008T160838Z
 UID:match-j15-2026-2027@udcentinela.github.io
 DESCRIPTION:Segunda Regional Tenerife - Jornada 15\nUD Centinela vs R.C.D.
   Gara\nCondicion: Casa\nCampo: Estadio Municipal El Molino\, Icod de los V
@@ -305,7 +305,7 @@ BEGIN:VEVENT
 SUMMARY:UD Centinela vs C.D. Portezuelo Tegueste A (J16)
 DTSTART:20270109T210000Z
 DTEND:20270109T224500Z
-DTSTAMP:20260918T151943Z
+DTSTAMP:20261008T160838Z
 UID:match-j16-2026-2027@udcentinela.github.io
 DESCRIPTION:Segunda Regional Tenerife - Jornada 16\nUD Centinela vs C.D. P
  ortezuelo Tegueste A\nCondicion: Casa\nCampo: Estadio Municipal El Molino
@@ -326,7 +326,7 @@ BEGIN:VEVENT
 SUMMARY:Atlético Perdoma B vs UD Centinela (J17)
 DTSTART:20270116T190000Z
 DTEND:20270116T204500Z
-DTSTAMP:20260918T151943Z
+DTSTAMP:20261008T160838Z
 UID:match-j17-2026-2027@udcentinela.github.io
 DESCRIPTION:Segunda Regional Tenerife - Jornada 17\nAtlético Perdoma B vs
   UD Centinela\nCondicion: Fuera\nCampo: Campo Municipal de La Perdoma\, La
@@ -345,7 +345,7 @@ BEGIN:VEVENT
 SUMMARY:UD Centinela vs S.D. Ravelo B (J18)
 DTSTART:20270123T210000Z
 DTEND:20270123T224500Z
-DTSTAMP:20260918T151943Z
+DTSTAMP:20261008T160838Z
 UID:match-j18-2026-2027@udcentinela.github.io
 DESCRIPTION:Segunda Regional Tenerife - Jornada 18\nUD Centinela vs S.D. R
  avelo B\nCondicion: Casa\nCampo: Estadio Municipal El Molino\, Icod de los
@@ -365,7 +365,7 @@ BEGIN:VEVENT
 SUMMARY:U.D. Tacoronte vs UD Centinela (J19)
 DTSTART:20270130T193000Z
 DTEND:20270130T211500Z
-DTSTAMP:20260918T151943Z
+DTSTAMP:20261008T160838Z
 UID:match-j19-2026-2027@udcentinela.github.io
 DESCRIPTION:Segunda Regional Tenerife - Jornada 19\nU.D. Tacoronte vs UD C
  entinela\nCondicion: Fuera\nCampo: Campo Municipal Avencio Hernández\, Ta
@@ -384,7 +384,7 @@ BEGIN:VEVENT
 SUMMARY:UD Centinela vs C.D. San Jerónimo (J20)
 DTSTART:20270206T210000Z
 DTEND:20270206T224500Z
-DTSTAMP:20260918T151943Z
+DTSTAMP:20261008T160838Z
 UID:match-j20-2026-2027@udcentinela.github.io
 DESCRIPTION:Segunda Regional Tenerife - Jornada 20\nUD Centinela vs C.D. S
  an Jerónimo\nCondicion: Casa\nCampo: Estadio Municipal El Molino\, Icod d
@@ -404,7 +404,7 @@ BEGIN:VEVENT
 SUMMARY:C.D. Juventud Silense vs UD Centinela (J21)
 DTSTART:20270213T180000Z
 DTEND:20270213T194500Z
-DTSTAMP:20260918T151943Z
+DTSTAMP:20261008T160838Z
 UID:match-j21-2026-2027@udcentinela.github.io
 DESCRIPTION:Segunda Regional Tenerife - Jornada 21\nC.D. Juventud Silense 
  vs UD Centinela\nCondicion: Fuera\nCampo: Campo Municipal Juan Valiente\, 
@@ -423,7 +423,7 @@ BEGIN:VEVENT
 SUMMARY:UD Centinela vs C.D. Juventud Interián (J22)
 DTSTART:20270227T210000Z
 DTEND:20270227T224500Z
-DTSTAMP:20260918T151943Z
+DTSTAMP:20261008T160838Z
 UID:match-j22-2026-2027@udcentinela.github.io
 DESCRIPTION:Segunda Regional Tenerife - Jornada 22\nUD Centinela vs C.D. J
  uventud Interián\nCondicion: Casa\nCampo: Estadio Municipal El Molino\, I
@@ -443,7 +443,7 @@ BEGIN:VEVENT
 SUMMARY:C.D. AFB Tegueste vs UD Centinela (J23)
 DTSTART:20270306T170000Z
 DTEND:20270306T184500Z
-DTSTAMP:20260918T151943Z
+DTSTAMP:20261008T160838Z
 UID:match-j23-2026-2027@udcentinela.github.io
 DESCRIPTION:Segunda Regional Tenerife - Jornada 23\nC.D. AFB Tegueste vs U
  D Centinela\nCondicion: Fuera\nCampo: Campo Municipal Los Laureles\, Tegue
@@ -462,7 +462,7 @@ BEGIN:VEVENT
 SUMMARY:UD Centinela vs C.D. San Diego (J24)
 DTSTART:20270313T210000Z
 DTEND:20270313T224500Z
-DTSTAMP:20260918T151943Z
+DTSTAMP:20261008T160838Z
 UID:match-j24-2026-2027@udcentinela.github.io
 DESCRIPTION:Segunda Regional Tenerife - Jornada 24\nUD Centinela vs C.D. S
  an Diego\nCondicion: Casa\nCampo: Estadio Municipal El Molino\, Icod de lo
@@ -482,7 +482,7 @@ BEGIN:VEVENT
 SUMMARY:C.D. Once Piratas vs UD Centinela (J25)
 DTSTART:20270320T210000Z
 DTEND:20270320T224500Z
-DTSTAMP:20260918T151943Z
+DTSTAMP:20261008T160838Z
 UID:match-j25-2026-2027@udcentinela.github.io
 DESCRIPTION:Segunda Regional Tenerife - Jornada 25\nC.D. Once Piratas vs U
  D Centinela\nCondicion: Fuera\nCampo: Tenerife\, Islas Canarias\nHora: 21:
@@ -501,7 +501,7 @@ BEGIN:VEVENT
 SUMMARY:U.D. Matanza vs UD Centinela (J26)
 DTSTART:20270402T200000Z
 DTEND:20270402T214500Z
-DTSTAMP:20260918T151943Z
+DTSTAMP:20261008T160838Z
 UID:match-j26-2026-2027@udcentinela.github.io
 DESCRIPTION:Segunda Regional Tenerife - Jornada 26\nU.D. Matanza vs UD Cen
  tinela\nCondicion: Fuera\nCampo: Estadio Municipal de La Matanza de Acente
@@ -520,7 +520,7 @@ BEGIN:VEVENT
 SUMMARY:UD Centinela vs VLM F.C. (Vistalmon) (J27)
 DTSTART:20270410T200000Z
 DTEND:20270410T214500Z
-DTSTAMP:20260918T151943Z
+DTSTAMP:20261008T160838Z
 UID:match-j27-2026-2027@udcentinela.github.io
 DESCRIPTION:Segunda Regional Tenerife - Jornada 27\nUD Centinela vs VLM F.
  C. (Vistalmon)\nCondicion: Casa\nCampo: Estadio Municipal El Molino\, Icod
@@ -540,7 +540,7 @@ BEGIN:VEVENT
 SUMMARY:Tacoronte C.F. vs UD Centinela (J28)
 DTSTART:20270416T200000Z
 DTEND:20270416T214500Z
-DTSTAMP:20260918T151943Z
+DTSTAMP:20261008T160838Z
 UID:match-j28-2026-2027@udcentinela.github.io
 DESCRIPTION:Segunda Regional Tenerife - Jornada 28\nTacoronte C.F. vs UD C
  entinela\nCondicion: Fuera\nCampo: Campo Municipal Barranco Las Lajas\, Ta
@@ -559,7 +559,7 @@ BEGIN:VEVENT
 SUMMARY:UD Centinela vs C.D. Buenavista (J29)
 DTSTART:20270424T200000Z
 DTEND:20270424T214500Z
-DTSTAMP:20260918T151943Z
+DTSTAMP:20261008T160838Z
 UID:match-j29-2026-2027@udcentinela.github.io
 DESCRIPTION:Segunda Regional Tenerife - Jornada 29\nUD Centinela vs C.D. B
  uenavista\nCondicion: Casa\nCampo: Estadio Municipal El Molino\, Icod de l
@@ -579,7 +579,7 @@ BEGIN:VEVENT
 SUMMARY:R.C.D. Gara vs UD Centinela (J30)
 DTSTART:20270502T113000Z
 DTEND:20270502T131500Z
-DTSTAMP:20260918T151943Z
+DTSTAMP:20261008T160838Z
 UID:match-j30-2026-2027@udcentinela.github.io
 DESCRIPTION:Segunda Regional Tenerife - Jornada 30\nR.C.D. Gara vs UD Cent
  inela\nCondicion: Fuera\nCampo: Campo Municipal de Caleta de Interián\, G
