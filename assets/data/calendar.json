@@ -1,6 +1,6 @@
 {
   "season": "Temporada 2026/2027",
-  "updated": "2026-10-10T00:42:24Z",
+  "updated": "2026-10-10T15:12:47Z",
   "teams": [
     {
       "id": "atletico-perdoma-b",
@@ -911,8 +911,8 @@
       "id": "j5-m8",
       "round": "Jornada 5",
       "roundNumber": 5,
-      "date": "12/10/2026",
-      "time": "15:00",
+      "date": "20/10/2026",
+      "time": "21:00",
       "venue": "",
       "homeId": "cd-once-piratas",
       "awayId": "rcd-gara",
