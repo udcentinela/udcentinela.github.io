@@ -1,6 +1,6 @@
 {
   "season": "Temporada 2026/2027",
-  "updated": "2026-10-10T19:20:13Z",
+  "updated": "2026-10-12T17:09:38Z",
   "teams": [
     {
       "id": "atletico-perdoma-b",
@@ -517,7 +517,7 @@
       "homeLogo": "/assets/img/teams/ud-tacoronte.webp",
       "awayLogo": "/assets/img/teams/cd-san-diego.webp",
       "homeScore": 0,
-      "awayScore": 1,
+      "awayScore": 3,
       "status": "finished",
       "events": []
     },
@@ -4642,9 +4642,9 @@
       "won": 2,
       "drawn": 1,
       "lost": 2,
-      "goalsFor": 8,
+      "goalsFor": 10,
       "goalsAgainst": 4,
-      "goalDifference": 4,
+      "goalDifference": 6,
       "points": 7
     },
     {
@@ -4718,8 +4718,8 @@
       "drawn": 0,
       "lost": 4,
       "goalsFor": 4,
-      "goalsAgainst": 18,
-      "goalDifference": -14,
+      "goalsAgainst": 20,
+      "goalDifference": -16,
       "points": 3
     },
     {
