@@ -1,6 +1,6 @@
 {
   "season": "Temporada 2026/2027",
-  "updated": "2026-10-17T21:03:17Z",
+  "updated": "2026-10-17T23:10:09Z",
   "teams": [
     {
       "id": "atletico-perdoma-b",
@@ -1065,7 +1065,7 @@
       "homeLogo": "/assets/img/escudo-centinela.webp",
       "awayLogo": "/assets/img/teams/cd-juventud-silense.webp",
       "homeScore": 2,
-      "awayScore": 1,
+      "awayScore": 3,
       "status": "finished",
       "events": []
     },
@@ -4543,8 +4543,23 @@
       "points": 18
     },
     {
-      "id": "rcd-gara",
+      "id": "cd-juventud-silense",
       "position": 2,
+      "team": "C.D. Juventud Silense",
+      "shortName": "Silense",
+      "logo": "/assets/img/teams/cd-juventud-silense.webp",
+      "played": 6,
+      "won": 5,
+      "drawn": 0,
+      "lost": 1,
+      "goalsFor": 22,
+      "goalsAgainst": 7,
+      "goalDifference": 15,
+      "points": 15
+    },
+    {
+      "id": "rcd-gara",
+      "position": 3,
       "team": "R.C.D. Gara",
       "shortName": "Gara",
       "logo": "/assets/img/teams/rcd-gara.webp",
@@ -4559,7 +4574,7 @@
     },
     {
       "id": "ud-matanza",
-      "position": 3,
+      "position": 4,
       "team": "U.D. Matanza",
       "shortName": "La Matanza",
       "logo": "/assets/img/teams/ud-matanza.webp",
@@ -4571,21 +4586,6 @@
       "goalsAgainst": 7,
       "goalDifference": 11,
       "points": 13
-    },
-    {
-      "id": "cd-juventud-silense",
-      "position": 4,
-      "team": "C.D. Juventud Silense",
-      "shortName": "Silense",
-      "logo": "/assets/img/teams/cd-juventud-silense.webp",
-      "played": 6,
-      "won": 4,
-      "drawn": 0,
-      "lost": 2,
-      "goalsFor": 20,
-      "goalsAgainst": 7,
-      "goalDifference": 13,
-      "points": 12
     },
     {
       "id": "vlm-fc",
@@ -4618,23 +4618,8 @@
       "points": 11
     },
     {
-      "id": "ud-centinela",
-      "position": 7,
-      "team": "UD Centinela",
-      "shortName": "Centinela",
-      "logo": "/assets/img/escudo-centinela.webp",
-      "played": 5,
-      "won": 3,
-      "drawn": 0,
-      "lost": 2,
-      "goalsFor": 16,
-      "goalsAgainst": 5,
-      "goalDifference": 11,
-      "points": 9
-    },
-    {
       "id": "portezuelo",
-      "position": 8,
+      "position": 7,
       "team": "C.D. Portezuelo Tegueste A",
       "shortName": "Portezuelo A",
       "logo": "/assets/img/teams/portezuelo.webp",
@@ -4649,7 +4634,7 @@
     },
     {
       "id": "cd-san-diego",
-      "position": 9,
+      "position": 8,
       "team": "C.D. San Diego",
       "shortName": "San Diego",
       "logo": "/assets/img/teams/cd-san-diego.webp",
@@ -4661,6 +4646,21 @@
       "goalsAgainst": 5,
       "goalDifference": 5,
       "points": 7
+    },
+    {
+      "id": "ud-centinela",
+      "position": 9,
+      "team": "UD Centinela",
+      "shortName": "Centinela",
+      "logo": "/assets/img/escudo-centinela.webp",
+      "played": 5,
+      "won": 2,
+      "drawn": 0,
+      "lost": 3,
+      "goalsFor": 16,
+      "goalsAgainst": 7,
+      "goalDifference": 9,
+      "points": 6
     },
     {
       "id": "tacoronte-cf",
