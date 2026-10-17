@@ -1,6 +1,6 @@
 {
   "season": "Temporada 2026/2027",
-  "updated": "2026-10-16T23:25:50Z",
+  "updated": "2026-10-17T16:17:48Z",
   "teams": [
     {
       "id": "atletico-perdoma-b",
@@ -1010,9 +1010,9 @@
       "away": "Atlético Perdoma B",
       "homeLogo": "/assets/img/teams/cd-buenavista.webp",
       "awayLogo": "/assets/img/teams/atletico-perdoma-b.webp",
-      "homeScore": null,
-      "awayScore": null,
-      "status": "upcoming",
+      "homeScore": 1,
+      "awayScore": 1,
+      "status": "finished",
       "events": []
     },
     {
@@ -1046,9 +1046,9 @@
       "away": "C.D. Portezuelo Tegueste A",
       "homeLogo": "/assets/img/teams/rcd-gara.webp",
       "awayLogo": "/assets/img/teams/portezuelo.webp",
-      "homeScore": null,
-      "awayScore": null,
-      "status": "upcoming",
+      "homeScore": 0,
+      "awayScore": 2,
+      "status": "finished",
       "events": []
     },
     {
@@ -4578,18 +4578,33 @@
       "team": "R.C.D. Gara",
       "shortName": "Gara",
       "logo": "/assets/img/teams/rcd-gara.webp",
-      "played": 4,
+      "played": 5,
       "won": 4,
       "drawn": 0,
-      "lost": 0,
+      "lost": 1,
       "goalsFor": 17,
-      "goalsAgainst": 4,
-      "goalDifference": 13,
+      "goalsAgainst": 6,
+      "goalDifference": 11,
+      "points": 12
+    },
+    {
+      "id": "atletico-perdoma-b",
+      "position": 5,
+      "team": "Atlético Perdoma B",
+      "shortName": "Perdoma B",
+      "logo": "/assets/img/teams/atletico-perdoma-b.webp",
+      "played": 6,
+      "won": 3,
+      "drawn": 3,
+      "lost": 0,
+      "goalsFor": 10,
+      "goalsAgainst": 7,
+      "goalDifference": 3,
       "points": 12
     },
     {
       "id": "vlm-fc",
-      "position": 5,
+      "position": 6,
       "team": "VLM F.C. (Vistalmon)",
       "shortName": "VLM FC",
       "logo": "/assets/img/teams/vlm-fc.webp",
@@ -4603,34 +4618,19 @@
       "points": 11
     },
     {
-      "id": "atletico-perdoma-b",
-      "position": 6,
-      "team": "Atlético Perdoma B",
-      "shortName": "Perdoma B",
-      "logo": "/assets/img/teams/atletico-perdoma-b.webp",
-      "played": 5,
-      "won": 3,
-      "drawn": 2,
-      "lost": 0,
-      "goalsFor": 9,
-      "goalsAgainst": 6,
-      "goalDifference": 3,
-      "points": 11
-    },
-    {
       "id": "portezuelo",
       "position": 7,
       "team": "C.D. Portezuelo Tegueste A",
       "shortName": "Portezuelo A",
       "logo": "/assets/img/teams/portezuelo.webp",
-      "played": 4,
-      "won": 2,
+      "played": 5,
+      "won": 3,
       "drawn": 1,
       "lost": 1,
-      "goalsFor": 12,
+      "goalsFor": 14,
       "goalsAgainst": 5,
-      "goalDifference": 7,
-      "points": 7
+      "goalDifference": 9,
+      "points": 10
     },
     {
       "id": "cd-san-diego",
@@ -4743,14 +4743,14 @@
       "team": "C.D. Buenavista",
       "shortName": "Buenavista",
       "logo": "/assets/img/teams/cd-buenavista.webp",
-      "played": 5,
+      "played": 6,
       "won": 0,
-      "drawn": 1,
+      "drawn": 2,
       "lost": 4,
-      "goalsFor": 7,
-      "goalsAgainst": 21,
+      "goalsFor": 8,
+      "goalsAgainst": 22,
       "goalDifference": -14,
-      "points": 1
+      "points": 2
     },
     {
       "id": "sd-ravelo-b",
