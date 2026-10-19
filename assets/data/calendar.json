@@ -1,6 +1,6 @@
 {
   "season": "Temporada 2026/2027",
-  "updated": "2026-10-19T01:47:45Z",
+  "updated": "2026-10-19T15:09:13Z",
   "teams": [
     {
       "id": "atletico-perdoma-b",
@@ -1176,8 +1176,8 @@
       "id": "j7-m6",
       "round": "Jornada 7",
       "roundNumber": 7,
-      "date": "24/10/2026",
-      "time": "19:30",
+      "date": "02/11/2026",
+      "time": "11:00",
       "venue": "AVENCIO HDEZ. (CA)",
       "homeId": "ud-tacoronte",
       "awayId": "tacoronte-cf",
