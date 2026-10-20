@@ -1,6 +1,6 @@
 {
   "season": "Temporada 2026/2027",
-  "updated": "2026-10-20T18:12:27Z",
+  "updated": "2026-10-20T22:50:38Z",
   "teams": [
     {
       "id": "atletico-perdoma-b",
@@ -920,9 +920,9 @@
       "away": "R.C.D. Gara",
       "homeLogo": "/assets/img/teams/cd-once-piratas.webp",
       "awayLogo": "/assets/img/teams/rcd-gara.webp",
-      "homeScore": null,
-      "awayScore": null,
-      "status": "upcoming",
+      "homeScore": 0,
+      "awayScore": 3,
+      "status": "finished",
       "events": []
     },
     {
@@ -4556,8 +4556,23 @@
       "points": 18
     },
     {
-      "id": "cd-juventud-silense",
+      "id": "rcd-gara",
       "position": 2,
+      "team": "R.C.D. Gara",
+      "shortName": "Gara",
+      "logo": "/assets/img/teams/rcd-gara.webp",
+      "played": 6,
+      "won": 5,
+      "drawn": 1,
+      "lost": 0,
+      "goalsFor": 23,
+      "goalsAgainst": 7,
+      "goalDifference": 16,
+      "points": 16
+    },
+    {
+      "id": "cd-juventud-silense",
+      "position": 3,
       "team": "C.D. Juventud Silense",
       "shortName": "Silense",
       "logo": "/assets/img/teams/cd-juventud-silense.webp",
@@ -4569,21 +4584,6 @@
       "goalsAgainst": 7,
       "goalDifference": 15,
       "points": 15
-    },
-    {
-      "id": "rcd-gara",
-      "position": 3,
-      "team": "R.C.D. Gara",
-      "shortName": "Gara",
-      "logo": "/assets/img/teams/rcd-gara.webp",
-      "played": 5,
-      "won": 4,
-      "drawn": 1,
-      "lost": 0,
-      "goalsFor": 20,
-      "goalsAgainst": 7,
-      "goalDifference": 13,
-      "points": 13
     },
     {
       "id": "ud-matanza",
@@ -4696,13 +4696,13 @@
       "team": "C.D. Once Piratas",
       "shortName": "Once Piratas",
       "logo": "/assets/img/teams/cd-once-piratas.webp",
-      "played": 5,
+      "played": 6,
       "won": 1,
       "drawn": 2,
-      "lost": 2,
+      "lost": 3,
       "goalsFor": 6,
-      "goalsAgainst": 18,
-      "goalDifference": -12,
+      "goalsAgainst": 21,
+      "goalDifference": -15,
       "points": 5
     },
     {
