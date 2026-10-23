@@ -1,6 +1,6 @@
 {
   "season": "Temporada 2026/2027",
-  "updated": "2026-10-23T14:11:00Z",
+  "updated": "2026-10-23T18:25:08Z",
   "teams": [
     {
       "id": "atletico-perdoma-b",
@@ -1141,7 +1141,7 @@
       "round": "Jornada 7",
       "roundNumber": 7,
       "date": "24/10/2026",
-      "time": "18:00",
+      "time": "21:00",
       "venue": "JUAN VALIENTE (CA)",
       "homeId": "cd-juventud-silense",
       "awayId": "ud-matanza",
@@ -1159,7 +1159,7 @@
       "round": "Jornada 7",
       "roundNumber": 7,
       "date": "24/10/2026",
-      "time": "19:00",
+      "time": "21:00",
       "venue": "LA PERDOMA (CA)",
       "homeId": "atletico-perdoma-b",
       "awayId": "rcd-gara",
@@ -1195,7 +1195,7 @@
       "round": "Jornada 7",
       "roundNumber": 7,
       "date": "24/10/2026",
-      "time": "20:30",
+      "time": "21:00",
       "venue": "RAVELO (CA)",
       "homeId": "sd-ravelo-b",
       "awayId": "cd-buenavista",
