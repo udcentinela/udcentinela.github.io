@@ -1,6 +1,6 @@
 {
   "season": "Temporada 2026/2027",
-  "updated": "2026-10-24T19:04:25Z",
+  "updated": "2026-10-24T21:38:51Z",
   "teams": [
     {
       "id": "atletico-perdoma-b",
@@ -1167,9 +1167,9 @@
       "away": "R.C.D. Gara",
       "homeLogo": "/assets/img/teams/atletico-perdoma-b.webp",
       "awayLogo": "/assets/img/teams/rcd-gara.webp",
-      "homeScore": null,
-      "awayScore": null,
-      "status": "upcoming",
+      "homeScore": 1,
+      "awayScore": 6,
+      "status": "finished",
       "events": []
     },
     {
@@ -1221,9 +1221,9 @@
       "away": "C.D. Portezuelo Tegueste A",
       "homeLogo": "/assets/img/teams/cd-once-piratas.webp",
       "awayLogo": "/assets/img/teams/portezuelo.webp",
-      "homeScore": null,
-      "awayScore": null,
-      "status": "upcoming",
+      "homeScore": 0,
+      "awayScore": 5,
+      "status": "finished",
       "events": []
     },
     {
@@ -4561,14 +4561,14 @@
       "team": "R.C.D. Gara",
       "shortName": "Gara",
       "logo": "/assets/img/teams/rcd-gara.webp",
-      "played": 6,
-      "won": 5,
+      "played": 7,
+      "won": 6,
       "drawn": 1,
       "lost": 0,
-      "goalsFor": 23,
-      "goalsAgainst": 7,
-      "goalDifference": 16,
-      "points": 16
+      "goalsFor": 29,
+      "goalsAgainst": 8,
+      "goalDifference": 21,
+      "points": 19
     },
     {
       "id": "ud-matanza",
@@ -4616,23 +4616,38 @@
       "points": 14
     },
     {
-      "id": "atletico-perdoma-b",
+      "id": "portezuelo",
       "position": 6,
-      "team": "Atlético Perdoma B",
-      "shortName": "Perdoma B",
-      "logo": "/assets/img/teams/atletico-perdoma-b.webp",
+      "team": "C.D. Portezuelo Tegueste A",
+      "shortName": "Portezuelo A",
+      "logo": "/assets/img/teams/portezuelo.webp",
       "played": 6,
       "won": 3,
       "drawn": 2,
       "lost": 1,
-      "goalsFor": 11,
-      "goalsAgainst": 9,
-      "goalDifference": 2,
+      "goalsFor": 20,
+      "goalsAgainst": 8,
+      "goalDifference": 12,
+      "points": 11
+    },
+    {
+      "id": "atletico-perdoma-b",
+      "position": 7,
+      "team": "Atlético Perdoma B",
+      "shortName": "Perdoma B",
+      "logo": "/assets/img/teams/atletico-perdoma-b.webp",
+      "played": 7,
+      "won": 3,
+      "drawn": 2,
+      "lost": 2,
+      "goalsFor": 12,
+      "goalsAgainst": 15,
+      "goalDifference": -3,
       "points": 11
     },
     {
       "id": "cd-san-diego",
-      "position": 7,
+      "position": 8,
       "team": "C.D. San Diego",
       "shortName": "San Diego",
       "logo": "/assets/img/teams/cd-san-diego.webp",
@@ -4644,21 +4659,6 @@
       "goalsAgainst": 6,
       "goalDifference": 6,
       "points": 10
-    },
-    {
-      "id": "portezuelo",
-      "position": 8,
-      "team": "C.D. Portezuelo Tegueste A",
-      "shortName": "Portezuelo A",
-      "logo": "/assets/img/teams/portezuelo.webp",
-      "played": 5,
-      "won": 2,
-      "drawn": 2,
-      "lost": 1,
-      "goalsFor": 15,
-      "goalsAgainst": 8,
-      "goalDifference": 7,
-      "points": 8
     },
     {
       "id": "ud-centinela",
@@ -4711,13 +4711,13 @@
       "team": "C.D. Once Piratas",
       "shortName": "Once Piratas",
       "logo": "/assets/img/teams/cd-once-piratas.webp",
-      "played": 6,
+      "played": 7,
       "won": 1,
       "drawn": 2,
-      "lost": 3,
+      "lost": 4,
       "goalsFor": 6,
-      "goalsAgainst": 21,
-      "goalDifference": -15,
+      "goalsAgainst": 26,
+      "goalDifference": -20,
       "points": 5
     },
     {
