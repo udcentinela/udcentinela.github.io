@@ -1,6 +1,6 @@
 {
   "season": "Temporada 2026/2027",
-  "updated": "2026-10-24T00:04:12Z",
+  "updated": "2026-10-24T13:13:53Z",
   "teams": [
     {
       "id": "atletico-perdoma-b",
@@ -1203,8 +1203,8 @@
       "away": "C.D. Buenavista",
       "homeLogo": "/assets/img/teams/sd-ravelo-b.webp",
       "awayLogo": "/assets/img/teams/cd-buenavista.webp",
-      "homeScore": 0,
-      "awayScore": 0,
+      "homeScore": 3,
+      "awayScore": 3,
       "status": "finished",
       "events": []
     },
@@ -4700,8 +4700,8 @@
       "won": 1,
       "drawn": 2,
       "lost": 4,
-      "goalsFor": 10,
-      "goalsAgainst": 23,
+      "goalsFor": 13,
+      "goalsAgainst": 26,
       "goalDifference": -13,
       "points": 5
     },
@@ -4775,8 +4775,8 @@
       "won": 0,
       "drawn": 1,
       "lost": 6,
-      "goalsFor": 1,
-      "goalsAgainst": 27,
+      "goalsFor": 4,
+      "goalsAgainst": 30,
       "goalDifference": -26,
       "points": 1
     }
