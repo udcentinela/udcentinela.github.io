@@ -1,6 +1,6 @@
 {
   "season": "Temporada 2026/2027",
-  "updated": "2026-10-24T16:42:15Z",
+  "updated": "2026-10-24T19:04:25Z",
   "teams": [
     {
       "id": "atletico-perdoma-b",
@@ -1113,8 +1113,8 @@
       "away": "C.D. San Diego",
       "homeLogo": "/assets/img/teams/afb-tegueste.webp",
       "awayLogo": "/assets/img/teams/cd-san-diego.webp",
-      "homeScore": 0,
-      "awayScore": 0,
+      "homeScore": 1,
+      "awayScore": 2,
       "status": "finished",
       "events": []
     },
@@ -1131,9 +1131,9 @@
       "away": "UD Centinela",
       "homeLogo": "/assets/img/teams/cd-juventud-interian.webp",
       "awayLogo": "/assets/img/escudo-centinela.webp",
-      "homeScore": null,
-      "awayScore": null,
-      "status": "upcoming",
+      "homeScore": 1,
+      "awayScore": 0,
+      "status": "finished",
       "events": []
     },
     {
@@ -4546,14 +4546,14 @@
       "team": "C.D. Juventud Interián",
       "shortName": "Interián",
       "logo": "/assets/img/teams/cd-juventud-interian.webp",
-      "played": 6,
-      "won": 6,
+      "played": 7,
+      "won": 7,
       "drawn": 0,
       "lost": 0,
-      "goalsFor": 24,
+      "goalsFor": 25,
       "goalsAgainst": 1,
-      "goalDifference": 23,
-      "points": 18
+      "goalDifference": 24,
+      "points": 21
     },
     {
       "id": "rcd-gara",
@@ -4631,8 +4631,23 @@
       "points": 11
     },
     {
-      "id": "portezuelo",
+      "id": "cd-san-diego",
       "position": 7,
+      "team": "C.D. San Diego",
+      "shortName": "San Diego",
+      "logo": "/assets/img/teams/cd-san-diego.webp",
+      "played": 7,
+      "won": 3,
+      "drawn": 1,
+      "lost": 3,
+      "goalsFor": 12,
+      "goalsAgainst": 6,
+      "goalDifference": 6,
+      "points": 10
+    },
+    {
+      "id": "portezuelo",
+      "position": 8,
       "team": "C.D. Portezuelo Tegueste A",
       "shortName": "Portezuelo A",
       "logo": "/assets/img/teams/portezuelo.webp",
@@ -4646,33 +4661,18 @@
       "points": 8
     },
     {
-      "id": "cd-san-diego",
-      "position": 8,
-      "team": "C.D. San Diego",
-      "shortName": "San Diego",
-      "logo": "/assets/img/teams/cd-san-diego.webp",
-      "played": 7,
-      "won": 2,
-      "drawn": 2,
-      "lost": 3,
-      "goalsFor": 10,
-      "goalsAgainst": 5,
-      "goalDifference": 5,
-      "points": 8
-    },
-    {
       "id": "ud-centinela",
       "position": 9,
       "team": "UD Centinela",
       "shortName": "Centinela",
       "logo": "/assets/img/escudo-centinela.webp",
-      "played": 5,
+      "played": 6,
       "won": 2,
       "drawn": 0,
-      "lost": 3,
+      "lost": 4,
       "goalsFor": 16,
-      "goalsAgainst": 7,
-      "goalDifference": 9,
+      "goalsAgainst": 8,
+      "goalDifference": 8,
       "points": 6
     },
     {
@@ -4706,23 +4706,8 @@
       "points": 5
     },
     {
-      "id": "afb-tegueste",
-      "position": 12,
-      "team": "C.D. AFB Tegueste",
-      "shortName": "AFB Tegueste",
-      "logo": "/assets/img/teams/afb-tegueste.webp",
-      "played": 7,
-      "won": 1,
-      "drawn": 2,
-      "lost": 4,
-      "goalsFor": 4,
-      "goalsAgainst": 17,
-      "goalDifference": -13,
-      "points": 5
-    },
-    {
       "id": "cd-once-piratas",
-      "position": 13,
+      "position": 12,
       "team": "C.D. Once Piratas",
       "shortName": "Once Piratas",
       "logo": "/assets/img/teams/cd-once-piratas.webp",
@@ -4737,7 +4722,7 @@
     },
     {
       "id": "cd-san-jeronimo",
-      "position": 14,
+      "position": 13,
       "team": "C.D. San Jerónimo",
       "shortName": "San Jerónimo",
       "logo": "/assets/img/teams/cd-san-jeronimo.webp",
@@ -4748,6 +4733,21 @@
       "goalsFor": 6,
       "goalsAgainst": 15,
       "goalDifference": -9,
+      "points": 4
+    },
+    {
+      "id": "afb-tegueste",
+      "position": 14,
+      "team": "C.D. AFB Tegueste",
+      "shortName": "AFB Tegueste",
+      "logo": "/assets/img/teams/afb-tegueste.webp",
+      "played": 7,
+      "won": 1,
+      "drawn": 1,
+      "lost": 5,
+      "goalsFor": 5,
+      "goalsAgainst": 19,
+      "goalDifference": -14,
       "points": 4
     },
     {
