@@ -1,6 +1,6 @@
 {
   "season": "Temporada 2026/2027",
-  "updated": "2026-10-24T23:46:08Z",
+  "updated": "2026-10-25T13:39:50Z",
   "teams": [
     {
       "id": "atletico-perdoma-b",
@@ -1222,7 +1222,7 @@
       "homeLogo": "/assets/img/teams/cd-once-piratas.webp",
       "awayLogo": "/assets/img/teams/portezuelo.webp",
       "homeScore": 0,
-      "awayScore": 5,
+      "awayScore": 8,
       "status": "finished",
       "events": []
     },
@@ -4625,9 +4625,9 @@
       "won": 3,
       "drawn": 2,
       "lost": 1,
-      "goalsFor": 20,
+      "goalsFor": 23,
       "goalsAgainst": 8,
-      "goalDifference": 12,
+      "goalDifference": 15,
       "points": 11
     },
     {
@@ -4716,8 +4716,8 @@
       "drawn": 2,
       "lost": 4,
       "goalsFor": 6,
-      "goalsAgainst": 26,
-      "goalDifference": -20,
+      "goalsAgainst": 29,
+      "goalDifference": -23,
       "points": 5
     },
     {
