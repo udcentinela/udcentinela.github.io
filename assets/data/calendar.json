@@ -1,6 +1,6 @@
 {
   "season": "Temporada 2026/2027",
-  "updated": "2026-10-31T15:14:43Z",
+  "updated": "2026-10-31T19:22:48Z",
   "teams": [
     {
       "id": "atletico-perdoma-b",
@@ -1329,9 +1329,9 @@
       "away": "U.D. Tacoronte",
       "homeLogo": "/assets/img/teams/cd-buenavista.webp",
       "awayLogo": "/assets/img/teams/ud-tacoronte.webp",
-      "homeScore": null,
-      "awayScore": null,
-      "status": "upcoming",
+      "homeScore": 5,
+      "awayScore": 0,
+      "status": "finished",
       "events": []
     },
     {
@@ -1347,9 +1347,9 @@
       "away": "S.D. Ravelo B",
       "homeLogo": "/assets/img/teams/rcd-gara.webp",
       "awayLogo": "/assets/img/teams/sd-ravelo-b.webp",
-      "homeScore": null,
-      "awayScore": null,
-      "status": "upcoming",
+      "homeScore": 6,
+      "awayScore": 0,
+      "status": "finished",
       "events": []
     },
     {
@@ -4561,14 +4561,14 @@
       "team": "R.C.D. Gara",
       "shortName": "Gara",
       "logo": "/assets/img/teams/rcd-gara.webp",
-      "played": 7,
-      "won": 6,
+      "played": 8,
+      "won": 7,
       "drawn": 1,
       "lost": 0,
-      "goalsFor": 29,
+      "goalsFor": 35,
       "goalsAgainst": 8,
-      "goalDifference": 21,
-      "points": 19
+      "goalDifference": 27,
+      "points": 22
     },
     {
       "id": "cd-juventud-silense",
@@ -4661,8 +4661,23 @@
       "points": 11
     },
     {
-      "id": "ud-centinela",
+      "id": "cd-buenavista",
       "position": 9,
+      "team": "C.D. Buenavista",
+      "shortName": "Buenavista",
+      "logo": "/assets/img/teams/cd-buenavista.webp",
+      "played": 8,
+      "won": 2,
+      "drawn": 2,
+      "lost": 4,
+      "goalsFor": 18,
+      "goalsAgainst": 26,
+      "goalDifference": -8,
+      "points": 8
+    },
+    {
+      "id": "ud-centinela",
+      "position": 10,
       "team": "UD Centinela",
       "shortName": "Centinela",
       "logo": "/assets/img/escudo-centinela.webp",
@@ -4677,7 +4692,7 @@
     },
     {
       "id": "tacoronte-cf",
-      "position": 10,
+      "position": 11,
       "team": "Tacoronte C.F.",
       "shortName": "Tacoronte CF",
       "logo": "/assets/img/teams/tacoronte-cf.webp",
@@ -4688,21 +4703,6 @@
       "goalsFor": 10,
       "goalsAgainst": 14,
       "goalDifference": -4,
-      "points": 5
-    },
-    {
-      "id": "cd-buenavista",
-      "position": 11,
-      "team": "C.D. Buenavista",
-      "shortName": "Buenavista",
-      "logo": "/assets/img/teams/cd-buenavista.webp",
-      "played": 7,
-      "won": 1,
-      "drawn": 2,
-      "lost": 4,
-      "goalsFor": 13,
-      "goalsAgainst": 26,
-      "goalDifference": -13,
       "points": 5
     },
     {
@@ -4756,13 +4756,13 @@
       "team": "U.D. Tacoronte",
       "shortName": "UD Tacoronte",
       "logo": "/assets/img/teams/ud-tacoronte.webp",
-      "played": 6,
+      "played": 7,
       "won": 1,
       "drawn": 0,
-      "lost": 5,
+      "lost": 6,
       "goalsFor": 4,
-      "goalsAgainst": 25,
-      "goalDifference": -21,
+      "goalsAgainst": 30,
+      "goalDifference": -26,
       "points": 3
     },
     {
@@ -4771,13 +4771,13 @@
       "team": "S.D. Ravelo B",
       "shortName": "Ravelo B",
       "logo": "/assets/img/teams/sd-ravelo-b.webp",
-      "played": 7,
+      "played": 8,
       "won": 0,
       "drawn": 1,
-      "lost": 6,
+      "lost": 7,
       "goalsFor": 4,
-      "goalsAgainst": 30,
-      "goalDifference": -26,
+      "goalsAgainst": 36,
+      "goalDifference": -32,
       "points": 1
     }
   ]
