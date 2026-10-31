@@ -1,6 +1,6 @@
 {
   "season": "Temporada 2026/2027",
-  "updated": "2026-10-31T19:22:48Z",
+  "updated": "2026-10-31T22:44:38Z",
   "teams": [
     {
       "id": "atletico-perdoma-b",
@@ -1365,9 +1365,9 @@
       "away": "C.D. AFB Tegueste",
       "homeLogo": "/assets/img/escudo-centinela.webp",
       "awayLogo": "/assets/img/teams/afb-tegueste.webp",
-      "homeScore": null,
-      "awayScore": null,
-      "status": "upcoming",
+      "homeScore": 4,
+      "awayScore": 0,
+      "status": "finished",
       "events": []
     },
     {
@@ -4661,8 +4661,23 @@
       "points": 11
     },
     {
-      "id": "cd-buenavista",
+      "id": "ud-centinela",
       "position": 9,
+      "team": "UD Centinela",
+      "shortName": "Centinela",
+      "logo": "/assets/img/escudo-centinela.webp",
+      "played": 7,
+      "won": 3,
+      "drawn": 0,
+      "lost": 4,
+      "goalsFor": 20,
+      "goalsAgainst": 8,
+      "goalDifference": 12,
+      "points": 9
+    },
+    {
+      "id": "cd-buenavista",
+      "position": 10,
       "team": "C.D. Buenavista",
       "shortName": "Buenavista",
       "logo": "/assets/img/teams/cd-buenavista.webp",
@@ -4674,21 +4689,6 @@
       "goalsAgainst": 26,
       "goalDifference": -8,
       "points": 8
-    },
-    {
-      "id": "ud-centinela",
-      "position": 10,
-      "team": "UD Centinela",
-      "shortName": "Centinela",
-      "logo": "/assets/img/escudo-centinela.webp",
-      "played": 6,
-      "won": 2,
-      "drawn": 0,
-      "lost": 4,
-      "goalsFor": 16,
-      "goalsAgainst": 8,
-      "goalDifference": 8,
-      "points": 6
     },
     {
       "id": "tacoronte-cf",
@@ -4741,13 +4741,13 @@
       "team": "C.D. AFB Tegueste",
       "shortName": "AFB Tegueste",
       "logo": "/assets/img/teams/afb-tegueste.webp",
-      "played": 7,
+      "played": 8,
       "won": 1,
       "drawn": 1,
-      "lost": 5,
+      "lost": 6,
       "goalsFor": 5,
-      "goalsAgainst": 19,
-      "goalDifference": -14,
+      "goalsAgainst": 23,
+      "goalDifference": -18,
       "points": 4
     },
     {
