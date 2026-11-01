@@ -1,6 +1,6 @@
 {
   "season": "Temporada 2026/2027",
-  "updated": "2026-10-31T22:44:38Z",
+  "updated": "2026-11-01T01:31:48Z",
   "teams": [
     {
       "id": "atletico-perdoma-b",
@@ -1365,7 +1365,7 @@
       "away": "C.D. AFB Tegueste",
       "homeLogo": "/assets/img/escudo-centinela.webp",
       "awayLogo": "/assets/img/teams/afb-tegueste.webp",
-      "homeScore": 4,
+      "homeScore": 5,
       "awayScore": 0,
       "status": "finished",
       "events": []
@@ -4670,9 +4670,9 @@
       "won": 3,
       "drawn": 0,
       "lost": 4,
-      "goalsFor": 20,
+      "goalsFor": 21,
       "goalsAgainst": 8,
-      "goalDifference": 12,
+      "goalDifference": 13,
       "points": 9
     },
     {
@@ -4746,8 +4746,8 @@
       "drawn": 1,
       "lost": 6,
       "goalsFor": 5,
-      "goalsAgainst": 23,
-      "goalDifference": -18,
+      "goalsAgainst": 24,
+      "goalDifference": -19,
       "points": 4
     },
     {
