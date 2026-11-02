@@ -1,6 +1,6 @@
 {
   "season": "Temporada 2026/2027",
-  "updated": "2026-11-01T23:50:03Z",
+  "updated": "2026-11-02T17:35:58Z",
   "teams": [
     {
       "id": "atletico-perdoma-b",
@@ -1185,9 +1185,9 @@
       "away": "Tacoronte C.F.",
       "homeLogo": "/assets/img/teams/ud-tacoronte.webp",
       "awayLogo": "/assets/img/teams/tacoronte-cf.webp",
-      "homeScore": null,
-      "awayScore": null,
-      "status": "upcoming",
+      "homeScore": 0,
+      "awayScore": 5,
+      "status": "finished",
       "events": []
     },
     {
@@ -4707,8 +4707,23 @@
       "points": 9
     },
     {
-      "id": "cd-buenavista",
+      "id": "tacoronte-cf",
       "position": 10,
+      "team": "Tacoronte C.F.",
+      "shortName": "Tacoronte CF",
+      "logo": "/assets/img/teams/tacoronte-cf.webp",
+      "played": 6,
+      "won": 2,
+      "drawn": 2,
+      "lost": 2,
+      "goalsFor": 15,
+      "goalsAgainst": 14,
+      "goalDifference": 1,
+      "points": 8
+    },
+    {
+      "id": "cd-buenavista",
+      "position": 11,
       "team": "C.D. Buenavista",
       "shortName": "Buenavista",
       "logo": "/assets/img/teams/cd-buenavista.webp",
@@ -4720,21 +4735,6 @@
       "goalsAgainst": 26,
       "goalDifference": -8,
       "points": 8
-    },
-    {
-      "id": "tacoronte-cf",
-      "position": 11,
-      "team": "Tacoronte C.F.",
-      "shortName": "Tacoronte CF",
-      "logo": "/assets/img/teams/tacoronte-cf.webp",
-      "played": 5,
-      "won": 1,
-      "drawn": 2,
-      "lost": 2,
-      "goalsFor": 10,
-      "goalsAgainst": 14,
-      "goalDifference": -4,
-      "points": 5
     },
     {
       "id": "cd-once-piratas",
@@ -4787,13 +4787,13 @@
       "team": "U.D. Tacoronte",
       "shortName": "UD Tacoronte",
       "logo": "/assets/img/teams/ud-tacoronte.webp",
-      "played": 7,
+      "played": 8,
       "won": 1,
       "drawn": 0,
-      "lost": 6,
+      "lost": 7,
       "goalsFor": 4,
-      "goalsAgainst": 30,
-      "goalDifference": -26,
+      "goalsAgainst": 35,
+      "goalDifference": -31,
       "points": 3
     },
     {
