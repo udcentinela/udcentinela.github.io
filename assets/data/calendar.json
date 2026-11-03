@@ -1,6 +1,6 @@
 {
   "season": "Temporada 2026/2027",
-  "updated": "2026-11-03T15:38:46Z",
+  "updated": "2026-11-03T21:23:00Z",
   "teams": [
     {
       "id": "atletico-perdoma-b",
@@ -652,7 +652,7 @@
       "id": "j4-m4",
       "round": "Jornada 4",
       "roundNumber": 4,
-      "date": "03/11/2026",
+      "date": "10/11/2026",
       "time": "21:00",
       "venue": "BCO. LAS LAJAS (CA)",
       "homeId": "tacoronte-cf",
