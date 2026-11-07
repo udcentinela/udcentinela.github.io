@@ -1,6 +1,6 @@
 {
   "season": "Temporada 2026/2027",
-  "updated": "2026-11-07T01:45:34Z",
+  "updated": "2026-11-07T15:36:23Z",
   "teams": [
     {
       "id": "atletico-perdoma-b",
@@ -1417,7 +1417,38 @@
       "homeScore": 0,
       "awayScore": 6,
       "status": "finished",
-      "events": []
+      "events": [
+        {
+          "type": "goal",
+          "minute": 22,
+          "scorerId": "aday",
+          "assistId": null
+        },
+        {
+          "type": "goal",
+          "minute": 36,
+          "scorerId": "zacaria",
+          "assistId": null
+        },
+        {
+          "type": "goal",
+          "minute": 44,
+          "scorerId": "champi",
+          "assistId": null
+        },
+        {
+          "type": "goal",
+          "minute": 82,
+          "scorerId": "angel",
+          "assistId": null
+        },
+        {
+          "type": "goal",
+          "minute": 84,
+          "scorerId": "angel",
+          "assistId": null
+        }
+      ]
     },
     {
       "id": "j9-m2",
@@ -1504,9 +1535,9 @@
       "away": "R.C.D. Gara",
       "homeLogo": "/assets/img/teams/ud-tacoronte.webp",
       "awayLogo": "/assets/img/teams/rcd-gara.webp",
-      "homeScore": null,
-      "awayScore": null,
-      "status": "upcoming",
+      "homeScore": 0,
+      "awayScore": 1,
+      "status": "finished",
       "events": []
     },
     {
@@ -4572,8 +4603,23 @@
   ],
   "standings": [
     {
-      "id": "cd-juventud-interian",
+      "id": "rcd-gara",
       "position": 1,
+      "team": "R.C.D. Gara",
+      "shortName": "Gara",
+      "logo": "/assets/img/teams/rcd-gara.webp",
+      "played": 9,
+      "won": 8,
+      "drawn": 1,
+      "lost": 0,
+      "goalsFor": 36,
+      "goalsAgainst": 8,
+      "goalDifference": 28,
+      "points": 25
+    },
+    {
+      "id": "cd-juventud-interian",
+      "position": 2,
       "team": "C.D. Juventud Interián",
       "shortName": "Interián",
       "logo": "/assets/img/teams/cd-juventud-interian.webp",
@@ -4585,21 +4631,6 @@
       "goalsAgainst": 3,
       "goalDifference": 25,
       "points": 24
-    },
-    {
-      "id": "rcd-gara",
-      "position": 2,
-      "team": "R.C.D. Gara",
-      "shortName": "Gara",
-      "logo": "/assets/img/teams/rcd-gara.webp",
-      "played": 8,
-      "won": 7,
-      "drawn": 1,
-      "lost": 0,
-      "goalsFor": 35,
-      "goalsAgainst": 8,
-      "goalDifference": 27,
-      "points": 22
     },
     {
       "id": "vlm-fc",
@@ -4787,13 +4818,13 @@
       "team": "U.D. Tacoronte",
       "shortName": "UD Tacoronte",
       "logo": "/assets/img/teams/ud-tacoronte.webp",
-      "played": 8,
+      "played": 9,
       "won": 1,
       "drawn": 0,
-      "lost": 7,
+      "lost": 8,
       "goalsFor": 4,
-      "goalsAgainst": 35,
-      "goalDifference": -31,
+      "goalsAgainst": 36,
+      "goalDifference": -32,
       "points": 3
     },
     {
