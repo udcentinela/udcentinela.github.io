@@ -1,6 +1,6 @@
 {
   "season": "Temporada 2026/2027",
-  "updated": "2026-11-07T15:36:23Z",
+  "updated": "2026-11-07T19:39:32Z",
   "teams": [
     {
       "id": "atletico-perdoma-b",
@@ -1481,9 +1481,9 @@
       "away": "U.D. Matanza",
       "homeLogo": "/assets/img/teams/afb-tegueste.webp",
       "awayLogo": "/assets/img/teams/ud-matanza.webp",
-      "homeScore": null,
-      "awayScore": null,
-      "status": "upcoming",
+      "homeScore": 1,
+      "awayScore": 3,
+      "status": "finished",
       "events": []
     },
     {
@@ -1536,7 +1536,7 @@
       "homeLogo": "/assets/img/teams/ud-tacoronte.webp",
       "awayLogo": "/assets/img/teams/rcd-gara.webp",
       "homeScore": 0,
-      "awayScore": 1,
+      "awayScore": 6,
       "status": "finished",
       "events": []
     },
@@ -4612,9 +4612,9 @@
       "won": 8,
       "drawn": 1,
       "lost": 0,
-      "goalsFor": 36,
+      "goalsFor": 41,
       "goalsAgainst": 8,
-      "goalDifference": 28,
+      "goalDifference": 33,
       "points": 25
     },
     {
@@ -4633,8 +4633,23 @@
       "points": 24
     },
     {
-      "id": "vlm-fc",
+      "id": "ud-matanza",
       "position": 3,
+      "team": "U.D. Matanza",
+      "shortName": "La Matanza",
+      "logo": "/assets/img/teams/ud-matanza.webp",
+      "played": 9,
+      "won": 6,
+      "drawn": 1,
+      "lost": 2,
+      "goalsFor": 23,
+      "goalsAgainst": 11,
+      "goalDifference": 12,
+      "points": 19
+    },
+    {
+      "id": "vlm-fc",
+      "position": 4,
       "team": "VLM F.C. (Vistalmon)",
       "shortName": "VLM FC",
       "logo": "/assets/img/teams/vlm-fc.webp",
@@ -4649,7 +4664,7 @@
     },
     {
       "id": "cd-juventud-silense",
-      "position": 4,
+      "position": 5,
       "team": "C.D. Juventud Silense",
       "shortName": "Silense",
       "logo": "/assets/img/teams/cd-juventud-silense.webp",
@@ -4660,21 +4675,6 @@
       "goalsFor": 23,
       "goalsAgainst": 9,
       "goalDifference": 14,
-      "points": 16
-    },
-    {
-      "id": "ud-matanza",
-      "position": 5,
-      "team": "U.D. Matanza",
-      "shortName": "La Matanza",
-      "logo": "/assets/img/teams/ud-matanza.webp",
-      "played": 8,
-      "won": 5,
-      "drawn": 1,
-      "lost": 2,
-      "goalsFor": 20,
-      "goalsAgainst": 10,
-      "goalDifference": 10,
       "points": 16
     },
     {
@@ -4803,13 +4803,13 @@
       "team": "C.D. AFB Tegueste",
       "shortName": "AFB Tegueste",
       "logo": "/assets/img/teams/afb-tegueste.webp",
-      "played": 8,
+      "played": 9,
       "won": 1,
       "drawn": 1,
-      "lost": 6,
-      "goalsFor": 5,
-      "goalsAgainst": 24,
-      "goalDifference": -19,
+      "lost": 7,
+      "goalsFor": 6,
+      "goalsAgainst": 27,
+      "goalDifference": -21,
       "points": 4
     },
     {
@@ -4823,8 +4823,8 @@
       "drawn": 0,
       "lost": 8,
       "goalsFor": 4,
-      "goalsAgainst": 36,
-      "goalDifference": -32,
+      "goalsAgainst": 41,
+      "goalDifference": -37,
       "points": 3
     },
     {
