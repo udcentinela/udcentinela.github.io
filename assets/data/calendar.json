@@ -1,6 +1,6 @@
 {
   "season": "Temporada 2026/2027",
-  "updated": "2026-11-08T02:31:33Z",
+  "updated": "2026-11-08T15:54:11Z",
   "teams": [
     {
       "id": "atletico-perdoma-b",
@@ -1553,9 +1553,9 @@
       "away": "C.D. Portezuelo Tegueste A",
       "homeLogo": "/assets/img/teams/sd-ravelo-b.webp",
       "awayLogo": "/assets/img/teams/portezuelo.webp",
-      "homeScore": null,
-      "awayScore": null,
-      "status": "upcoming",
+      "homeScore": 0,
+      "awayScore": 7,
+      "status": "finished",
       "events": []
     },
     {
@@ -1571,9 +1571,9 @@
       "away": "Atlético Perdoma B",
       "homeLogo": "/assets/img/teams/cd-once-piratas.webp",
       "awayLogo": "/assets/img/teams/atletico-perdoma-b.webp",
-      "homeScore": null,
-      "awayScore": null,
-      "status": "upcoming",
+      "homeScore": 2,
+      "awayScore": 7,
+      "status": "finished",
       "events": []
     },
     {
@@ -4663,8 +4663,23 @@
       "points": 18
     },
     {
-      "id": "cd-juventud-silense",
+      "id": "portezuelo",
       "position": 5,
+      "team": "C.D. Portezuelo Tegueste A",
+      "shortName": "Portezuelo A",
+      "logo": "/assets/img/teams/portezuelo.webp",
+      "played": 8,
+      "won": 5,
+      "drawn": 2,
+      "lost": 1,
+      "goalsFor": 35,
+      "goalsAgainst": 8,
+      "goalDifference": 27,
+      "points": 17
+    },
+    {
+      "id": "cd-juventud-silense",
+      "position": 6,
       "team": "C.D. Juventud Silense",
       "shortName": "Silense",
       "logo": "/assets/img/teams/cd-juventud-silense.webp",
@@ -4678,23 +4693,23 @@
       "points": 16
     },
     {
-      "id": "portezuelo",
-      "position": 6,
-      "team": "C.D. Portezuelo Tegueste A",
-      "shortName": "Portezuelo A",
-      "logo": "/assets/img/teams/portezuelo.webp",
-      "played": 7,
+      "id": "atletico-perdoma-b",
+      "position": 7,
+      "team": "Atlético Perdoma B",
+      "shortName": "Perdoma B",
+      "logo": "/assets/img/teams/atletico-perdoma-b.webp",
+      "played": 9,
       "won": 4,
       "drawn": 2,
-      "lost": 1,
-      "goalsFor": 28,
-      "goalsAgainst": 8,
-      "goalDifference": 20,
+      "lost": 3,
+      "goalsFor": 19,
+      "goalsAgainst": 22,
+      "goalDifference": -3,
       "points": 14
     },
     {
       "id": "cd-san-diego",
-      "position": 7,
+      "position": 8,
       "team": "C.D. San Diego",
       "shortName": "San Diego",
       "logo": "/assets/img/teams/cd-san-diego.webp",
@@ -4709,7 +4724,7 @@
     },
     {
       "id": "ud-centinela",
-      "position": 8,
+      "position": 9,
       "team": "UD Centinela",
       "shortName": "Centinela",
       "logo": "/assets/img/escudo-centinela.webp",
@@ -4721,21 +4736,6 @@
       "goalsAgainst": 8,
       "goalDifference": 19,
       "points": 12
-    },
-    {
-      "id": "atletico-perdoma-b",
-      "position": 9,
-      "team": "Atlético Perdoma B",
-      "shortName": "Perdoma B",
-      "logo": "/assets/img/teams/atletico-perdoma-b.webp",
-      "played": 8,
-      "won": 3,
-      "drawn": 2,
-      "lost": 3,
-      "goalsFor": 12,
-      "goalsAgainst": 20,
-      "goalDifference": -8,
-      "points": 11
     },
     {
       "id": "tacoronte-cf",
@@ -4788,13 +4788,13 @@
       "team": "C.D. Once Piratas",
       "shortName": "Once Piratas",
       "logo": "/assets/img/teams/cd-once-piratas.webp",
-      "played": 8,
+      "played": 9,
       "won": 1,
       "drawn": 2,
-      "lost": 5,
-      "goalsFor": 6,
-      "goalsAgainst": 34,
-      "goalDifference": -28,
+      "lost": 6,
+      "goalsFor": 8,
+      "goalsAgainst": 41,
+      "goalDifference": -33,
       "points": 5
     },
     {
@@ -4833,13 +4833,13 @@
       "team": "S.D. Ravelo B",
       "shortName": "Ravelo B",
       "logo": "/assets/img/teams/sd-ravelo-b.webp",
-      "played": 8,
+      "played": 9,
       "won": 0,
       "drawn": 1,
-      "lost": 7,
+      "lost": 8,
       "goalsFor": 4,
-      "goalsAgainst": 36,
-      "goalDifference": -32,
+      "goalsAgainst": 43,
+      "goalDifference": -39,
       "points": 1
     }
   ]
