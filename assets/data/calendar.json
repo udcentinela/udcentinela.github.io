@@ -1,6 +1,6 @@
 {
   "season": "Temporada 2026/2027",
-  "updated": "2026-11-11T15:43:23Z",
+  "updated": "2026-11-11T22:23:09Z",
   "teams": [
     {
       "id": "atletico-perdoma-b",
@@ -104,7 +104,7 @@
     "round": "Jornada 5",
     "roundNumber": 5,
     "date": "11/11/2026",
-    "time": "20:30",
+    "time": "00:00",
     "venue": "LAS TORRES - TF (CA)",
     "homeId": "cd-san-jeronimo",
     "awayId": "ud-centinela",
@@ -786,7 +786,7 @@
       "round": "Jornada 5",
       "roundNumber": 5,
       "date": "11/11/2026",
-      "time": "20:30",
+      "time": "00:00",
       "venue": "LAS TORRES - TF (CA)",
       "homeId": "cd-san-jeronimo",
       "awayId": "ud-centinela",
@@ -1508,8 +1508,8 @@
       "id": "j9-m5",
       "round": "Jornada 9",
       "roundNumber": 9,
-      "date": "07/11/2026",
-      "time": "18:00",
+      "date": "08/12/2026",
+      "time": "12:00",
       "venue": "JUAN VALIENTE (CA)",
       "homeId": "cd-juventud-silense",
       "awayId": "tacoronte-cf",
