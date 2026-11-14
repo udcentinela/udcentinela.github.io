@@ -1,6 +1,6 @@
 {
   "season": "Temporada 2026/2027",
-  "updated": "2026-11-14T15:42:46Z",
+  "updated": "2026-11-14T20:09:21Z",
   "teams": [
     {
       "id": "atletico-perdoma-b",
@@ -1661,9 +1661,9 @@
       "away": "C.D. Juventud Silense",
       "homeLogo": "/assets/img/teams/cd-buenavista.webp",
       "awayLogo": "/assets/img/teams/cd-juventud-silense.webp",
-      "homeScore": null,
-      "awayScore": null,
-      "status": "upcoming",
+      "homeScore": 0,
+      "awayScore": 2,
+      "status": "finished",
       "events": []
     },
     {
@@ -1679,9 +1679,9 @@
       "away": "C.D. San Jerónimo",
       "homeLogo": "/assets/img/teams/rcd-gara.webp",
       "awayLogo": "/assets/img/teams/cd-san-jeronimo.webp",
-      "homeScore": null,
-      "awayScore": null,
-      "status": "upcoming",
+      "homeScore": 5,
+      "awayScore": 1,
+      "status": "finished",
       "events": []
     },
     {
@@ -4608,14 +4608,14 @@
       "team": "R.C.D. Gara",
       "shortName": "Gara",
       "logo": "/assets/img/teams/rcd-gara.webp",
-      "played": 9,
-      "won": 8,
+      "played": 10,
+      "won": 9,
       "drawn": 1,
       "lost": 0,
-      "goalsFor": 41,
-      "goalsAgainst": 8,
-      "goalDifference": 33,
-      "points": 25
+      "goalsFor": 46,
+      "goalsAgainst": 9,
+      "goalDifference": 37,
+      "points": 28
     },
     {
       "id": "cd-juventud-interian",
@@ -4683,14 +4683,14 @@
       "team": "C.D. Juventud Silense",
       "shortName": "Silense",
       "logo": "/assets/img/teams/cd-juventud-silense.webp",
-      "played": 8,
-      "won": 5,
+      "played": 9,
+      "won": 6,
       "drawn": 1,
       "lost": 2,
-      "goalsFor": 23,
+      "goalsFor": 25,
       "goalsAgainst": 9,
-      "goalDifference": 14,
-      "points": 16
+      "goalDifference": 16,
+      "points": 19
     },
     {
       "id": "atletico-perdoma-b",
@@ -4758,13 +4758,13 @@
       "team": "C.D. Buenavista",
       "shortName": "Buenavista",
       "logo": "/assets/img/teams/cd-buenavista.webp",
-      "played": 9,
+      "played": 10,
       "won": 2,
       "drawn": 2,
-      "lost": 5,
+      "lost": 6,
       "goalsFor": 19,
-      "goalsAgainst": 36,
-      "goalDifference": -17,
+      "goalsAgainst": 38,
+      "goalDifference": -19,
       "points": 8
     },
     {
@@ -4773,13 +4773,13 @@
       "team": "C.D. San Jerónimo",
       "shortName": "San Jerónimo",
       "logo": "/assets/img/teams/cd-san-jeronimo.webp",
-      "played": 7,
+      "played": 8,
       "won": 2,
       "drawn": 1,
-      "lost": 4,
-      "goalsFor": 16,
-      "goalsAgainst": 16,
-      "goalDifference": 0,
+      "lost": 5,
+      "goalsFor": 17,
+      "goalsAgainst": 21,
+      "goalDifference": -4,
       "points": 7
     },
     {
