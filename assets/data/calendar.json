@@ -1,6 +1,6 @@
 {
   "season": "Temporada 2026/2027",
-  "updated": "2026-11-14T02:42:46Z",
+  "updated": "2026-11-14T15:42:46Z",
   "teams": [
     {
       "id": "atletico-perdoma-b",
@@ -1626,7 +1626,7 @@
       "homeLogo": "/assets/img/teams/tacoronte-cf.webp",
       "awayLogo": "/assets/img/teams/cd-juventud-interian.webp",
       "homeScore": 3,
-      "awayScore": 1,
+      "awayScore": 2,
       "status": "finished",
       "events": []
     },
@@ -4627,9 +4627,9 @@
       "won": 8,
       "drawn": 0,
       "lost": 2,
-      "goalsFor": 29,
+      "goalsFor": 30,
       "goalsAgainst": 6,
-      "goalDifference": 23,
+      "goalDifference": 24,
       "points": 24
     },
     {
@@ -4748,8 +4748,8 @@
       "drawn": 2,
       "lost": 2,
       "goalsFor": 18,
-      "goalsAgainst": 15,
-      "goalDifference": 3,
+      "goalsAgainst": 16,
+      "goalDifference": 2,
       "points": 11
     },
     {
