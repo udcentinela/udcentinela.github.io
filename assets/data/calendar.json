@@ -1,6 +1,6 @@
 {
   "season": "Temporada 2026/2027",
-  "updated": "2026-11-14T20:09:21Z",
+  "updated": "2026-11-14T23:57:48Z",
   "teams": [
     {
       "id": "atletico-perdoma-b",
@@ -1689,7 +1689,7 @@
       "round": "Jornada 10",
       "roundNumber": 10,
       "date": "14/11/2026",
-      "time": "19:00",
+      "time": "21:00",
       "venue": "LA PERDOMA (CA)",
       "homeId": "atletico-perdoma-b",
       "awayId": "sd-ravelo-b",
@@ -1697,9 +1697,9 @@
       "away": "S.D. Ravelo B",
       "homeLogo": "/assets/img/teams/atletico-perdoma-b.webp",
       "awayLogo": "/assets/img/teams/sd-ravelo-b.webp",
-      "homeScore": null,
-      "awayScore": null,
-      "status": "upcoming",
+      "homeScore": 2,
+      "awayScore": 0,
+      "status": "finished",
       "events": []
     },
     {
@@ -1715,9 +1715,9 @@
       "away": "C.D. Once Piratas",
       "homeLogo": "/assets/img/escudo-centinela.webp",
       "awayLogo": "/assets/img/teams/cd-once-piratas.webp",
-      "homeScore": null,
-      "awayScore": null,
-      "status": "upcoming",
+      "homeScore": 1,
+      "awayScore": 0,
+      "status": "finished",
       "events": []
     },
     {
@@ -4698,18 +4698,33 @@
       "team": "Atlético Perdoma B",
       "shortName": "Perdoma B",
       "logo": "/assets/img/teams/atletico-perdoma-b.webp",
-      "played": 9,
-      "won": 4,
+      "played": 10,
+      "won": 5,
       "drawn": 2,
       "lost": 3,
-      "goalsFor": 19,
+      "goalsFor": 21,
       "goalsAgainst": 22,
-      "goalDifference": -3,
-      "points": 14
+      "goalDifference": -1,
+      "points": 17
+    },
+    {
+      "id": "ud-centinela",
+      "position": 8,
+      "team": "UD Centinela",
+      "shortName": "Centinela",
+      "logo": "/assets/img/escudo-centinela.webp",
+      "played": 9,
+      "won": 5,
+      "drawn": 0,
+      "lost": 4,
+      "goalsFor": 28,
+      "goalsAgainst": 8,
+      "goalDifference": 20,
+      "points": 15
     },
     {
       "id": "cd-san-diego",
-      "position": 8,
+      "position": 9,
       "team": "C.D. San Diego",
       "shortName": "San Diego",
       "logo": "/assets/img/teams/cd-san-diego.webp",
@@ -4721,21 +4736,6 @@
       "goalsAgainst": 15,
       "goalDifference": 3,
       "points": 13
-    },
-    {
-      "id": "ud-centinela",
-      "position": 9,
-      "team": "UD Centinela",
-      "shortName": "Centinela",
-      "logo": "/assets/img/escudo-centinela.webp",
-      "played": 8,
-      "won": 4,
-      "drawn": 0,
-      "lost": 4,
-      "goalsFor": 27,
-      "goalsAgainst": 8,
-      "goalDifference": 19,
-      "points": 12
     },
     {
       "id": "tacoronte-cf",
@@ -4788,13 +4788,13 @@
       "team": "C.D. Once Piratas",
       "shortName": "Once Piratas",
       "logo": "/assets/img/teams/cd-once-piratas.webp",
-      "played": 9,
+      "played": 10,
       "won": 1,
       "drawn": 2,
-      "lost": 6,
+      "lost": 7,
       "goalsFor": 8,
-      "goalsAgainst": 41,
-      "goalDifference": -33,
+      "goalsAgainst": 42,
+      "goalDifference": -34,
       "points": 5
     },
     {
@@ -4833,13 +4833,13 @@
       "team": "S.D. Ravelo B",
       "shortName": "Ravelo B",
       "logo": "/assets/img/teams/sd-ravelo-b.webp",
-      "played": 9,
+      "played": 10,
       "won": 0,
       "drawn": 1,
-      "lost": 8,
+      "lost": 9,
       "goalsFor": 4,
-      "goalsAgainst": 43,
-      "goalDifference": -39,
+      "goalsAgainst": 45,
+      "goalDifference": -41,
       "points": 1
     }
   ]
