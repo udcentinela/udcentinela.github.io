@@ -1,6 +1,6 @@
 {
   "season": "Temporada 2026/2027",
-  "updated": "2026-11-14T23:57:48Z",
+  "updated": "2026-11-15T16:13:29Z",
   "teams": [
     {
       "id": "atletico-perdoma-b",
@@ -1718,7 +1718,14 @@
       "homeScore": 1,
       "awayScore": 0,
       "status": "finished",
-      "events": []
+      "events": [
+        {
+          "type": "goal",
+          "minute": 87,
+          "scorerId": "pablo",
+          "assistId": null
+        }
+      ]
     },
     {
       "id": "j11-m1",
