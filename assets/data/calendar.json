@@ -1,6 +1,6 @@
 {
   "season": "Temporada 2026/2027",
-  "updated": "2026-11-18T16:49:50Z",
+  "updated": "2026-11-18T23:43:36Z",
   "teams": [
     {
       "id": "atletico-perdoma-b",
@@ -1266,7 +1266,7 @@
       "id": "j8-m3",
       "round": "Jornada 8",
       "roundNumber": 8,
-      "date": "30/10/2026",
+      "date": "18/11/2026",
       "time": "21:00",
       "venue": "PACHO I (CA)",
       "homeId": "vlm-fc",
@@ -1275,8 +1275,8 @@
       "away": "C.D. Juventud Silense",
       "homeLogo": "/assets/img/teams/vlm-fc.webp",
       "awayLogo": "/assets/img/teams/cd-juventud-silense.webp",
-      "homeScore": 1,
-      "awayScore": 1,
+      "homeScore": 3,
+      "awayScore": 2,
       "status": "finished",
       "events": []
     },
@@ -1786,7 +1786,7 @@
       "round": "Jornada 11",
       "roundNumber": 11,
       "date": "21/11/2026",
-      "time": "18:00",
+      "time": "20:00",
       "venue": "CALETA INTERIAN (CA)",
       "homeId": "cd-juventud-interian",
       "awayId": "cd-buenavista",
@@ -1822,7 +1822,7 @@
       "round": "Jornada 11",
       "roundNumber": 11,
       "date": "21/11/2026",
-      "time": "19:30",
+      "time": "15:00",
       "venue": "AVENCIO HDEZ. (CA)",
       "homeId": "ud-tacoronte",
       "awayId": "atletico-perdoma-b",
@@ -4640,8 +4640,23 @@
       "points": 24
     },
     {
-      "id": "ud-matanza",
+      "id": "vlm-fc",
       "position": 3,
+      "team": "VLM F.C. (Vistalmon)",
+      "shortName": "VLM FC",
+      "logo": "/assets/img/teams/vlm-fc.webp",
+      "played": 10,
+      "won": 7,
+      "drawn": 2,
+      "lost": 1,
+      "goalsFor": 26,
+      "goalsAgainst": 7,
+      "goalDifference": 19,
+      "points": 23
+    },
+    {
+      "id": "ud-matanza",
+      "position": 4,
       "team": "U.D. Matanza",
       "shortName": "La Matanza",
       "logo": "/assets/img/teams/ud-matanza.webp",
@@ -4653,21 +4668,6 @@
       "goalsAgainst": 12,
       "goalDifference": 14,
       "points": 22
-    },
-    {
-      "id": "vlm-fc",
-      "position": 4,
-      "team": "VLM F.C. (Vistalmon)",
-      "shortName": "VLM FC",
-      "logo": "/assets/img/teams/vlm-fc.webp",
-      "played": 10,
-      "won": 6,
-      "drawn": 3,
-      "lost": 1,
-      "goalsFor": 24,
-      "goalsAgainst": 6,
-      "goalDifference": 18,
-      "points": 21
     },
     {
       "id": "portezuelo",
@@ -4692,12 +4692,12 @@
       "logo": "/assets/img/teams/cd-juventud-silense.webp",
       "played": 9,
       "won": 6,
-      "drawn": 1,
-      "lost": 2,
-      "goalsFor": 25,
-      "goalsAgainst": 9,
-      "goalDifference": 16,
-      "points": 19
+      "drawn": 0,
+      "lost": 3,
+      "goalsFor": 26,
+      "goalsAgainst": 11,
+      "goalDifference": 15,
+      "points": 18
     },
     {
       "id": "atletico-perdoma-b",
