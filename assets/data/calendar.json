@@ -1,6 +1,6 @@
 {
   "season": "Temporada 2026/2027",
-  "updated": "2026-11-18T00:15:16Z",
+  "updated": "2026-11-18T16:49:50Z",
   "teams": [
     {
       "id": "atletico-perdoma-b",
@@ -1839,8 +1839,8 @@
       "id": "j11-m7",
       "round": "Jornada 11",
       "roundNumber": 11,
-      "date": "21/11/2026",
-      "time": "21:00",
+      "date": "22/11/2026",
+      "time": "12:00",
       "venue": "EL MOLINO (CA)",
       "homeId": "ud-centinela",
       "awayId": "ud-matanza",
