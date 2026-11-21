@@ -1,6 +1,6 @@
 {
   "season": "Temporada 2026/2027",
-  "updated": "2026-11-20T23:23:42Z",
+  "updated": "2026-11-21T04:13:52Z",
   "teams": [
     {
       "id": "atletico-perdoma-b",
@@ -1758,7 +1758,7 @@
       "away": "C.D. Portezuelo Tegueste A",
       "homeLogo": "/assets/img/teams/cd-san-jeronimo.webp",
       "awayLogo": "/assets/img/teams/portezuelo.webp",
-      "homeScore": 1,
+      "homeScore": 2,
       "awayScore": 1,
       "status": "finished",
       "events": []
@@ -4677,12 +4677,12 @@
       "logo": "/assets/img/teams/portezuelo.webp",
       "played": 10,
       "won": 6,
-      "drawn": 3,
-      "lost": 1,
+      "drawn": 2,
+      "lost": 2,
       "goalsFor": 45,
-      "goalsAgainst": 9,
-      "goalDifference": 36,
-      "points": 21
+      "goalsAgainst": 10,
+      "goalDifference": 35,
+      "points": 20
     },
     {
       "id": "cd-juventud-silense",
@@ -4766,13 +4766,13 @@
       "shortName": "San Jerónimo",
       "logo": "/assets/img/teams/cd-san-jeronimo.webp",
       "played": 9,
-      "won": 2,
-      "drawn": 2,
+      "won": 3,
+      "drawn": 1,
       "lost": 5,
-      "goalsFor": 18,
+      "goalsFor": 19,
       "goalsAgainst": 22,
-      "goalDifference": -4,
-      "points": 8
+      "goalDifference": -3,
+      "points": 10
     },
     {
       "id": "cd-buenavista",
