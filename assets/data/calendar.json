@@ -1,6 +1,6 @@
 {
   "season": "Temporada 2026/2027",
-  "updated": "2026-11-21T21:56:09Z",
+  "updated": "2026-11-22T02:03:41Z",
   "teams": [
     {
       "id": "atletico-perdoma-b",
@@ -1794,7 +1794,7 @@
       "away": "C.D. Buenavista",
       "homeLogo": "/assets/img/teams/cd-juventud-interian.webp",
       "awayLogo": "/assets/img/teams/cd-buenavista.webp",
-      "homeScore": 3,
+      "homeScore": 4,
       "awayScore": 0,
       "status": "finished",
       "events": []
@@ -4634,9 +4634,9 @@
       "won": 9,
       "drawn": 0,
       "lost": 2,
-      "goalsFor": 33,
+      "goalsFor": 34,
       "goalsAgainst": 6,
-      "goalDifference": 27,
+      "goalDifference": 28,
       "points": 27
     },
     {
@@ -4785,8 +4785,8 @@
       "drawn": 2,
       "lost": 7,
       "goalsFor": 19,
-      "goalsAgainst": 41,
-      "goalDifference": -22,
+      "goalsAgainst": 42,
+      "goalDifference": -23,
       "points": 8
     },
     {
