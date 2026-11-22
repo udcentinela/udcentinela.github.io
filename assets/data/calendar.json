@@ -1,6 +1,6 @@
 {
   "season": "Temporada 2026/2027",
-  "updated": "2026-11-22T02:03:41Z",
+  "updated": "2026-11-22T17:02:16Z",
   "teams": [
     {
       "id": "atletico-perdoma-b",
@@ -1848,9 +1848,9 @@
       "away": "U.D. Matanza",
       "homeLogo": "/assets/img/escudo-centinela.webp",
       "awayLogo": "/assets/img/teams/ud-matanza.webp",
-      "homeScore": null,
-      "awayScore": null,
-      "status": "upcoming",
+      "homeScore": 6,
+      "awayScore": 0,
+      "status": "finished",
       "events": []
     },
     {
@@ -1866,9 +1866,9 @@
       "away": "S.D. Ravelo B",
       "homeLogo": "/assets/img/teams/cd-once-piratas.webp",
       "awayLogo": "/assets/img/teams/sd-ravelo-b.webp",
-      "homeScore": null,
-      "awayScore": null,
-      "status": "upcoming",
+      "homeScore": 2,
+      "awayScore": 1,
+      "status": "finished",
       "events": []
     },
     {
@@ -4660,13 +4660,13 @@
       "team": "U.D. Matanza",
       "shortName": "La Matanza",
       "logo": "/assets/img/teams/ud-matanza.webp",
-      "played": 10,
+      "played": 11,
       "won": 7,
       "drawn": 1,
-      "lost": 2,
+      "lost": 3,
       "goalsFor": 26,
-      "goalsAgainst": 12,
-      "goalDifference": 14,
+      "goalsAgainst": 18,
+      "goalDifference": 8,
       "points": 22
     },
     {
@@ -4700,8 +4700,23 @@
       "points": 20
     },
     {
-      "id": "cd-juventud-silense",
+      "id": "ud-centinela",
       "position": 7,
+      "team": "UD Centinela",
+      "shortName": "Centinela",
+      "logo": "/assets/img/escudo-centinela.webp",
+      "played": 10,
+      "won": 6,
+      "drawn": 0,
+      "lost": 4,
+      "goalsFor": 34,
+      "goalsAgainst": 8,
+      "goalDifference": 26,
+      "points": 18
+    },
+    {
+      "id": "cd-juventud-silense",
+      "position": 8,
       "team": "C.D. Juventud Silense",
       "shortName": "Silense",
       "logo": "/assets/img/teams/cd-juventud-silense.webp",
@@ -4713,21 +4728,6 @@
       "goalsAgainst": 13,
       "goalDifference": 14,
       "points": 18
-    },
-    {
-      "id": "ud-centinela",
-      "position": 8,
-      "team": "UD Centinela",
-      "shortName": "Centinela",
-      "logo": "/assets/img/escudo-centinela.webp",
-      "played": 9,
-      "won": 5,
-      "drawn": 0,
-      "lost": 4,
-      "goalsFor": 28,
-      "goalsAgainst": 8,
-      "goalDifference": 20,
-      "points": 15
     },
     {
       "id": "cd-san-diego",
@@ -4790,8 +4790,23 @@
       "points": 8
     },
     {
-      "id": "afb-tegueste",
+      "id": "cd-once-piratas",
       "position": 13,
+      "team": "C.D. Once Piratas",
+      "shortName": "Once Piratas",
+      "logo": "/assets/img/teams/cd-once-piratas.webp",
+      "played": 11,
+      "won": 2,
+      "drawn": 2,
+      "lost": 7,
+      "goalsFor": 10,
+      "goalsAgainst": 43,
+      "goalDifference": -33,
+      "points": 8
+    },
+    {
+      "id": "afb-tegueste",
+      "position": 14,
       "team": "C.D. AFB Tegueste",
       "shortName": "AFB Tegueste",
       "logo": "/assets/img/teams/afb-tegueste.webp",
@@ -4802,21 +4817,6 @@
       "goalsFor": 6,
       "goalsAgainst": 31,
       "goalDifference": -25,
-      "points": 5
-    },
-    {
-      "id": "cd-once-piratas",
-      "position": 14,
-      "team": "C.D. Once Piratas",
-      "shortName": "Once Piratas",
-      "logo": "/assets/img/teams/cd-once-piratas.webp",
-      "played": 10,
-      "won": 1,
-      "drawn": 2,
-      "lost": 7,
-      "goalsFor": 8,
-      "goalsAgainst": 42,
-      "goalDifference": -34,
       "points": 5
     },
     {
@@ -4840,13 +4840,13 @@
       "team": "S.D. Ravelo B",
       "shortName": "Ravelo B",
       "logo": "/assets/img/teams/sd-ravelo-b.webp",
-      "played": 10,
+      "played": 11,
       "won": 0,
       "drawn": 1,
-      "lost": 9,
-      "goalsFor": 4,
-      "goalsAgainst": 45,
-      "goalDifference": -41,
+      "lost": 10,
+      "goalsFor": 5,
+      "goalsAgainst": 47,
+      "goalDifference": -42,
       "points": 1
     }
   ]
