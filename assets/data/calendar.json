@@ -1,6 +1,6 @@
 {
   "season": "Temporada 2026/2027",
-  "updated": "2026-11-27T18:48:19Z",
+  "updated": "2026-11-28T01:51:26Z",
   "teams": [
     {
       "id": "atletico-perdoma-b",
@@ -1915,9 +1915,9 @@
       "away": "C.D. Once Piratas",
       "homeLogo": "/assets/img/teams/ud-matanza.webp",
       "awayLogo": "/assets/img/teams/cd-once-piratas.webp",
-      "homeScore": null,
-      "awayScore": null,
-      "status": "upcoming",
+      "homeScore": 3,
+      "awayScore": 0,
+      "status": "finished",
       "events": []
     },
     {
@@ -1933,9 +1933,9 @@
       "away": "UD Centinela",
       "homeLogo": "/assets/img/teams/vlm-fc.webp",
       "awayLogo": "/assets/img/escudo-centinela.webp",
-      "homeScore": null,
-      "awayScore": null,
-      "status": "upcoming",
+      "homeScore": 1,
+      "awayScore": 1,
+      "status": "finished",
       "events": []
     },
     {
@@ -1951,9 +1951,9 @@
       "away": "C.D. San Diego",
       "homeLogo": "/assets/img/teams/tacoronte-cf.webp",
       "awayLogo": "/assets/img/teams/cd-san-diego.webp",
-      "homeScore": null,
-      "awayScore": null,
-      "status": "upcoming",
+      "homeScore": 4,
+      "awayScore": 1,
+      "status": "finished",
       "events": []
     },
     {
@@ -1969,9 +1969,9 @@
       "away": "C.D. Juventud Silense",
       "homeLogo": "/assets/img/teams/portezuelo.webp",
       "awayLogo": "/assets/img/teams/cd-juventud-silense.webp",
-      "homeScore": null,
-      "awayScore": null,
-      "status": "upcoming",
+      "homeScore": 0,
+      "awayScore": 0,
+      "status": "finished",
       "events": []
     },
     {
@@ -4676,14 +4676,14 @@
       "team": "VLM F.C. (Vistalmon)",
       "shortName": "VLM FC",
       "logo": "/assets/img/teams/vlm-fc.webp",
-      "played": 11,
+      "played": 12,
       "won": 7,
-      "drawn": 3,
+      "drawn": 4,
       "lost": 1,
-      "goalsFor": 28,
-      "goalsAgainst": 9,
+      "goalsFor": 29,
+      "goalsAgainst": 10,
       "goalDifference": 19,
-      "points": 24
+      "points": 25
     },
     {
       "id": "ud-matanza",
@@ -4691,14 +4691,14 @@
       "team": "U.D. Matanza",
       "shortName": "La Matanza",
       "logo": "/assets/img/teams/ud-matanza.webp",
-      "played": 11,
-      "won": 7,
+      "played": 12,
+      "won": 8,
       "drawn": 1,
       "lost": 3,
-      "goalsFor": 26,
+      "goalsFor": 29,
       "goalsAgainst": 18,
-      "goalDifference": 8,
-      "points": 22
+      "goalDifference": 11,
+      "points": 25
     },
     {
       "id": "portezuelo",
@@ -4706,14 +4706,14 @@
       "team": "C.D. Portezuelo Tegueste A",
       "shortName": "Portezuelo A",
       "logo": "/assets/img/teams/portezuelo.webp",
-      "played": 10,
+      "played": 11,
       "won": 6,
-      "drawn": 2,
+      "drawn": 3,
       "lost": 2,
       "goalsFor": 45,
       "goalsAgainst": 10,
       "goalDifference": 35,
-      "points": 20
+      "points": 21
     },
     {
       "id": "atletico-perdoma-b",
@@ -4736,14 +4736,14 @@
       "team": "UD Centinela",
       "shortName": "Centinela",
       "logo": "/assets/img/escudo-centinela.webp",
-      "played": 10,
+      "played": 11,
       "won": 6,
-      "drawn": 0,
+      "drawn": 1,
       "lost": 4,
-      "goalsFor": 34,
-      "goalsAgainst": 8,
+      "goalsFor": 35,
+      "goalsAgainst": 9,
       "goalDifference": 26,
-      "points": 18
+      "points": 19
     },
     {
       "id": "cd-juventud-silense",
@@ -4751,14 +4751,14 @@
       "team": "C.D. Juventud Silense",
       "shortName": "Silense",
       "logo": "/assets/img/teams/cd-juventud-silense.webp",
-      "played": 10,
+      "played": 11,
       "won": 6,
-      "drawn": 0,
+      "drawn": 1,
       "lost": 4,
       "goalsFor": 27,
       "goalsAgainst": 13,
       "goalDifference": 14,
-      "points": 18
+      "points": 19
     },
     {
       "id": "tacoronte-cf",
@@ -4766,14 +4766,14 @@
       "team": "Tacoronte C.F.",
       "shortName": "Tacoronte CF",
       "logo": "/assets/img/teams/tacoronte-cf.webp",
-      "played": 9,
-      "won": 4,
+      "played": 10,
+      "won": 5,
       "drawn": 3,
       "lost": 2,
-      "goalsFor": 23,
-      "goalsAgainst": 16,
-      "goalDifference": 7,
-      "points": 15
+      "goalsFor": 27,
+      "goalsAgainst": 17,
+      "goalDifference": 10,
+      "points": 18
     },
     {
       "id": "cd-san-diego",
@@ -4781,13 +4781,13 @@
       "team": "C.D. San Diego",
       "shortName": "San Diego",
       "logo": "/assets/img/teams/cd-san-diego.webp",
-      "played": 11,
+      "played": 12,
       "won": 4,
       "drawn": 1,
-      "lost": 6,
-      "goalsFor": 19,
-      "goalsAgainst": 17,
-      "goalDifference": 2,
+      "lost": 7,
+      "goalsFor": 20,
+      "goalsAgainst": 21,
+      "goalDifference": -1,
       "points": 13
     },
     {
@@ -4826,13 +4826,13 @@
       "team": "C.D. Once Piratas",
       "shortName": "Once Piratas",
       "logo": "/assets/img/teams/cd-once-piratas.webp",
-      "played": 11,
+      "played": 12,
       "won": 2,
       "drawn": 2,
-      "lost": 7,
+      "lost": 8,
       "goalsFor": 10,
-      "goalsAgainst": 43,
-      "goalDifference": -33,
+      "goalsAgainst": 46,
+      "goalDifference": -36,
       "points": 8
     },
     {
